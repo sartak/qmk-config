@@ -5,6 +5,10 @@
 #define NUMBER 2
 #define FUNCTION 3
 
+#define KC_LANGUAGE LSFT(KC_F1)
+#define KC_SCREENSHOT LGUI(LSFT(KC_4))
+#define KC_LOCKSCR LGUI(LCTL(KC_Q))
+#define KC_ZOOM LGUI(KC_PLUS)
 #define KC_MDASH LALT(LSFT(KC_MINUS))
 #define KC_ELLIPSIS LALT(KC_SEMICOLON)
 
@@ -24,10 +28,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [NUMBER] = LAYOUT_split_3x5_2(
-    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,  KC_NO,  KC_NO,   KC_NO,    KC_QUOTE,
-    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,  KC_NO,  KC_NO,   KC_NO,    KC_NO,
-    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,  KC_NO,  KC_DOT,  KC_COMM,  KC_ENT,
-                      TO(ALPHA),  KC_BSPC,    KC_SPC,  TO(SYMBOL)
+    KC_BRIU,      KC_6,  KC_5,  KC_4,  KC_SCREENSHOT,    KC_MUTE,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_QUOTE,
+    KC_LANGUAGE,  KC_3,  KC_2,  KC_1,  KC_0,             KC_VOLU,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RIGHT,
+    KC_BRID,      KC_9,  KC_8,  KC_7,  KC_LOCKSCR,       KC_VOLD,  KC_ZOOM,  KC_DOT,   KC_COMM,  KC_ENT,
+                   TO(ALPHA),  KC_BSPC,    KC_SPC,  TO(SYMBOL)
     ),
 
     [FUNCTION] = LAYOUT_split_3x5_2(

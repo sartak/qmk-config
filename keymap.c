@@ -12,6 +12,11 @@
 #define KC_MDASH LALT(LSFT(KC_MINUS))
 #define KC_ELLIPSIS LALT(KC_SEMICOLON)
 
+const uint16_t PROGMEM combo_layers[] = {TO(SYMBOL), TO(NUMBER), COMBO_END};
+combo_t key_combos[COMBO_COUNT] = {
+  COMBO(combo_layers, OSL(FUNCTION)),
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [ALPHA] = LAYOUT_split_3x5_2(
     KC_W,  KC_L,  KC_Y,  KC_P,  KC_B,    KC_Z,  KC_F,  KC_O,    KC_U,     KC_QUOTE,

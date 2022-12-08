@@ -1,5 +1,7 @@
 #include QMK_KEYBOARD_H
 
+#define TH(key) LT(0, KC_##key)
+
 #define ALPHA 0
 #define SYMBOL 1
 #define NUMBER 2
@@ -9,6 +11,7 @@
 #define KC_SCREENSHOT LGUI(LSFT(KC_4))
 #define KC_LOCKSCR LGUI(LCTL(KC_Q))
 #define KC_ZOOM LGUI(KC_PLUS)
+#define KC_ALFRED LGUI(KC_SPC)
 #define KC_MDASH LALT(LSFT(KC_MINUS))
 #define KC_ELLIPSIS LALT(KC_SEMICOLON)
 
@@ -21,10 +24,10 @@ combo_t key_combos[COMBO_COUNT] = {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [ALPHA] = LAYOUT_split_3x5_2(
-    KC_W,  KC_L,  KC_Y,  KC_P,  KC_B,    KC_Z,  KC_F,  KC_O,    KC_U,     KC_QUOTE,
-    KC_C,  KC_R,  KC_S,  KC_T,  KC_G,    KC_M,  KC_N,  KC_E,    KC_I,     KC_A,
-    KC_Q,  KC_J,  KC_V,  KC_D,  KC_K,    KC_X,  KC_H,  KC_DOT,  KC_COMM,  KC_ENT,
-        TO(SYMBOL),  LSFT_T(KC_BSPC),    LCTL_T(KC_SPC),  TO(NUMBER)
+    TH(W),  TH(L),  TH(Y),  TH(P),  TH(B),    TH(Z),  TH(F),  TH(O),    TH(U),     TH(QUOTE),
+    TH(C),  TH(R),  TH(S),  TH(T),  TH(G),    TH(M),  TH(N),  TH(E),    TH(I),     TH(A),
+    TH(Q),  TH(J),  TH(V),  TH(D),  TH(K),    TH(X),  TH(H),  TH(DOT),  TH(COMM),  TH(ENT),
+             TO(SYMBOL),  LSFT_T(KC_BSPC),    LCTL_T(KC_SPC),  TO(NUMBER)
     ),
 
     [SYMBOL] = LAYOUT_split_3x5_2(
@@ -48,3 +51,59 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                           TO(ALPHA),  KC_NO,        KC_NO,      KC_NO
     ),
 };
+
+#define TH_CASE(tap_kc, hold_kc)                      \
+  case LT(0, tap_kc):                                 \
+    if (record->tap.count && record->event.pressed) { \
+      tap_code16(tap_kc);                             \
+    } else if (record->event.pressed) {               \
+      tap_code16(hold_kc);                            \
+    }                                                 \
+    return false;
+
+#define TH_GUI(key) TH_CASE(KC_##key, LGUI(KC_##key))
+
+bool process_taphold(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+      TH_GUI(A)
+      TH_GUI(B)
+      TH_GUI(C)
+      TH_GUI(D)
+      TH_GUI(E)
+      TH_GUI(F)
+      TH_GUI(G)
+      TH_GUI(H)
+      TH_GUI(I)
+      TH_GUI(J)
+      TH_GUI(K)
+      TH_GUI(L)
+      TH_GUI(M)
+      TH_GUI(N)
+      TH_GUI(O)
+      TH_GUI(P)
+      TH_GUI(Q)
+      TH_GUI(R)
+      TH_GUI(S)
+      TH_GUI(T)
+      TH_GUI(U)
+      TH_GUI(V)
+      TH_GUI(W)
+      TH_GUI(X)
+      TH_GUI(Y)
+      TH_GUI(Z)
+      TH_GUI(ENT)
+      TH_CASE(KC_QUOTE, KC_ESCAPE)
+      TH_CASE(KC_DOT, KC_TAB)
+      TH_CASE(KC_COMM, KC_ALFRED)
+    }
+
+    return true;
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (!process_taphold(keycode, record)) {
+    return false;
+  }
+
+  return true;
+}

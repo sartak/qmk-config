@@ -1,1 +1,2 @@
+#define COMBO_STRICT_TIMER
 #define COMBO_TERM 60

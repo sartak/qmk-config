@@ -17,9 +17,18 @@
 
 const uint16_t PROGMEM combo_layers[] = {TO(SYMBOL), TO(NUMBER), COMBO_END};
 const uint16_t PROGMEM combo_delete_word[] = {LSFT_T(KC_BSPC), LCTL_T(KC_SPC), COMBO_END};
+const uint16_t PROGMEM combo_exclamation[] = {TH(E), TH(DOT), COMBO_END};
+const uint16_t PROGMEM combo_question[] = {TH(I), TH(COMM), COMBO_END};
+const uint16_t PROGMEM combo_semicolon[] = {TH(A), TH(QUOTE), COMBO_END};
+const uint16_t PROGMEM combo_colon[] = {TH(A), TH(ENT), COMBO_END};
+
 combo_t key_combos[COMBO_COUNT] = {
   COMBO(combo_layers, OSL(FUNCTION)),
   COMBO(combo_delete_word, LALT(KC_BSPC)),
+  COMBO(combo_exclamation, KC_EXCLAIM),
+  COMBO(combo_question, KC_QUESTION),
+  COMBO(combo_semicolon, KC_SEMICOLON),
+  COMBO(combo_colon, KC_COLON),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {

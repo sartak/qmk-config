@@ -13,8 +13,10 @@
 #define KC_ELLIPSIS LALT(KC_SEMICOLON)
 
 const uint16_t PROGMEM combo_layers[] = {TO(SYMBOL), TO(NUMBER), COMBO_END};
+const uint16_t PROGMEM combo_delete_word[] = {KC_BSPC, KC_SPC, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
   COMBO(combo_layers, OSL(FUNCTION)),
+  COMBO(combo_delete_word, LALT(KC_BSPC)),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {

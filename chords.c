@@ -463,934 +463,936 @@
   CHORD_massach, \
   CHORD_x,
 
-const uint16_t PROGMEM chord_excl1[] = {A_E, A_d, COMBO_END};
-const uint16_t PROGMEM chord_qmark1[] = {A_I, A_c, COMBO_END};
-const uint16_t PROGMEM chord_colon1[] = {A_A, A_r, COMBO_END};
-const uint16_t PROGMEM chord_semi1[] = {A_A, A_q, COMBO_END};
-const uint16_t PROGMEM chord_cent[] = {S_C, S_Q, COMBO_END};
-const uint16_t PROGMEM chord_pound[] = {S_R, S_J, COMBO_END};
-const uint16_t PROGMEM chord_yen[] = {S_S, S_V, COMBO_END};
-const uint16_t PROGMEM chord_euro[] = {S_T, S_D, COMBO_END};
-const uint16_t PROGMEM chord_mid_ell[] = {S_G, S_K, COMBO_END};
-const uint16_t PROGMEM chord_bullet[] = {S_P, S_T, COMBO_END};
-const uint16_t PROGMEM chord_degrees[] = {S_Y, S_S, COMBO_END};
-const uint16_t PROGMEM chord_infinit[] = {S_W, S_C, COMBO_END};
-const uint16_t PROGMEM chord_lambda[] = {S_L, S_R, COMBO_END};
-const uint16_t PROGMEM chord_interro[] = {S_B, S_G, COMBO_END};
-const uint16_t PROGMEM chord_ballot_[] = {S_M, S_X, COMBO_END};
-const uint16_t PROGMEM chord_checkma[] = {S_N, S_H, COMBO_END};
-const uint16_t PROGMEM chord_left_ar[] = {S_Z, S_M, COMBO_END};
-const uint16_t PROGMEM chord_down_ar[] = {S_F, S_N, COMBO_END};
-const uint16_t PROGMEM chord_up_arro[] = {S_O, S_E, COMBO_END};
-const uint16_t PROGMEM chord_right_a[] = {S_U, S_I, COMBO_END};
-const uint16_t PROGMEM chord__bs_ing[] = {A_I, A_N, A_G, COMBO_END};
-const uint16_t PROGMEM chord__bs_n_t[] = {A_N, A_q, A_T, COMBO_END};
-const uint16_t PROGMEM chord__bs_ve[] = {A_q, A_V, A_E, COMBO_END};
-const uint16_t PROGMEM chord__bs_re[] = {A_q, A_R, A_E, COMBO_END};
-const uint16_t PROGMEM chord_the[] = {A_T, A_H, A_E, COMBO_END};
-const uint16_t PROGMEM chord_be[] = {A_B, A_E, AT2, COMBO_END};
-const uint16_t PROGMEM chord_of[] = {A_O, A_F, AT2, COMBO_END};
-const uint16_t PROGMEM chord_and[] = {A_A, A_N, A_D, COMBO_END};
-const uint16_t PROGMEM chord_a[] = {A_A, AT2, COMBO_END};
-const uint16_t PROGMEM chord_a1[] = {A_A, AT1, COMBO_END};
-const uint16_t PROGMEM chord_to[] = {A_T, A_O, AT2, COMBO_END};
-const uint16_t PROGMEM chord_in[] = {A_I, A_N, AT2, COMBO_END};
-const uint16_t PROGMEM chord_he[] = {A_H, A_E, AT2, COMBO_END};
-const uint16_t PROGMEM chord_have[] = {A_H, A_A, A_V, COMBO_END};
-const uint16_t PROGMEM chord_it[] = {A_I, A_T, AT2, COMBO_END};
-const uint16_t PROGMEM chord_that[] = {A_T, A_H, A_A, COMBO_END};
-const uint16_t PROGMEM chord_for[] = {A_F, A_O, A_R, COMBO_END};
-const uint16_t PROGMEM chord_they[] = {A_T, A_H, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_i[] = {A_I, AT2, COMBO_END};
-const uint16_t PROGMEM chord_with[] = {A_W, A_I, A_H, COMBO_END};
-const uint16_t PROGMEM chord_as[] = {A_A, A_S, AT2, COMBO_END};
-const uint16_t PROGMEM chord_not[] = {A_N, A_O, A_T, COMBO_END};
-const uint16_t PROGMEM chord_on[] = {A_O, A_N, AT2, COMBO_END};
-const uint16_t PROGMEM chord_she[] = {A_S, A_H, A_E, COMBO_END};
-const uint16_t PROGMEM chord_at[] = {A_A, A_T, AT2, COMBO_END};
-const uint16_t PROGMEM chord_by[] = {A_B, A_Y, AT2, COMBO_END};
-const uint16_t PROGMEM chord_this[] = {A_T, A_H, A_S, COMBO_END};
-const uint16_t PROGMEM chord_we[] = {A_W, A_E, AT2, COMBO_END};
-const uint16_t PROGMEM chord_you[] = {A_Y, A_O, A_U, COMBO_END};
-const uint16_t PROGMEM chord_do[] = {A_D, A_O, AT2, COMBO_END};
-const uint16_t PROGMEM chord_but[] = {A_I, A_U, A_T, COMBO_END};
-const uint16_t PROGMEM chord_from[] = {A_R, A_O, A_M, COMBO_END};
-const uint16_t PROGMEM chord_or[] = {A_O, A_R, AT2, COMBO_END};
-const uint16_t PROGMEM chord_which[] = {A_H, A_I, A_C, COMBO_END};
-const uint16_t PROGMEM chord_one[] = {A_O, A_N, A_E, COMBO_END};
-const uint16_t PROGMEM chord_would[] = {A_W, A_O, A_U, COMBO_END};
-const uint16_t PROGMEM chord_all[] = {A_A, A_L, A_X, COMBO_END};
-const uint16_t PROGMEM chord_will[] = {A_W, A_I, A_L, COMBO_END};
-const uint16_t PROGMEM chord_there[] = {A_T, A_H, A_R, COMBO_END};
-const uint16_t PROGMEM chord_say[] = {A_S, A_A, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_who[] = {A_W, A_H, A_O, COMBO_END};
-const uint16_t PROGMEM chord_make[] = {A_M, A_A, A_K, COMBO_END};
-const uint16_t PROGMEM chord_when[] = {A_W, A_H, A_E, COMBO_END};
-const uint16_t PROGMEM chord_can[] = {A_C, A_A, A_N, COMBO_END};
-const uint16_t PROGMEM chord_more[] = {A_M, A_R, A_E, COMBO_END};
-const uint16_t PROGMEM chord_if[] = {A_I, A_F, AT2, COMBO_END};
-const uint16_t PROGMEM chord_no[] = {A_N, A_E, AT2, COMBO_END};
-const uint16_t PROGMEM chord_man[] = {A_M, A_A, A_N, COMBO_END};
-const uint16_t PROGMEM chord_out[] = {A_O, A_U, A_T, COMBO_END};
-const uint16_t PROGMEM chord_other[] = {A_O, A_T, A_R, COMBO_END};
-const uint16_t PROGMEM chord_so[] = {A_S, A_O, AT2, COMBO_END};
-const uint16_t PROGMEM chord_what[] = {A_W, A_H, A_T, COMBO_END};
-const uint16_t PROGMEM chord_time[] = {A_T, A_M, A_E, COMBO_END};
-const uint16_t PROGMEM chord_up[] = {A_U, A_P, AT2, COMBO_END};
-const uint16_t PROGMEM chord_go[] = {A_G, A_O, AT2, COMBO_END};
-const uint16_t PROGMEM chord_about[] = {A_B, A_O, A_U, COMBO_END};
-const uint16_t PROGMEM chord_than[] = {A_T, A_A, A_N, COMBO_END};
-const uint16_t PROGMEM chord_into[] = {A_I, A_N, A_O, COMBO_END};
-const uint16_t PROGMEM chord_could[] = {A_C, A_O, A_U, COMBO_END};
-const uint16_t PROGMEM chord_state[] = {A_S, A_T, A_A, COMBO_END};
-const uint16_t PROGMEM chord_only[] = {A_O, A_L, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_new[] = {A_N, A_E, A_W, COMBO_END};
-const uint16_t PROGMEM chord_year[] = {A_Y, A_E, A_A, COMBO_END};
-const uint16_t PROGMEM chord_some[] = {A_S, A_O, A_M, COMBO_END};
-const uint16_t PROGMEM chord_take[] = {A_A, A_K, A_E, COMBO_END};
-const uint16_t PROGMEM chord_come[] = {A_C, A_O, A_M, COMBO_END};
-const uint16_t PROGMEM chord_these[] = {A_N, A_H, A_S, COMBO_END};
-const uint16_t PROGMEM chord_know[] = {A_K, A_N, A_O, COMBO_END};
-const uint16_t PROGMEM chord_see[] = {A_S, A_E, A_K, COMBO_END};
-const uint16_t PROGMEM chord_use[] = {A_U, A_S, A_E, COMBO_END};
-const uint16_t PROGMEM chord_get[] = {A_G, A_E, A_T, COMBO_END};
-const uint16_t PROGMEM chord_like[] = {A_L, A_I, A_K, COMBO_END};
-const uint16_t PROGMEM chord_then[] = {A_T, A_E, A_N, COMBO_END};
-const uint16_t PROGMEM chord_first[] = {A_F, A_R, A_S, COMBO_END};
-const uint16_t PROGMEM chord_any[] = {A_A, A_N, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_work[] = {A_O, A_R, A_K, COMBO_END};
-const uint16_t PROGMEM chord_now[] = {A_N, A_O, A_W, COMBO_END};
-const uint16_t PROGMEM chord_may[] = {A_M, A_A, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_such[] = {A_S, A_C, A_H, COMBO_END};
-const uint16_t PROGMEM chord_give[] = {A_G, A_I, A_V, COMBO_END};
-const uint16_t PROGMEM chord_over[] = {A_O, A_V, A_R, COMBO_END};
-const uint16_t PROGMEM chord_think[] = {A_H, A_I, A_K, COMBO_END};
-const uint16_t PROGMEM chord_most[] = {A_M, A_O, A_T, COMBO_END};
-const uint16_t PROGMEM chord_even[] = {A_E, A_V, A_N, COMBO_END};
-const uint16_t PROGMEM chord_find[] = {A_F, A_I, A_D, COMBO_END};
-const uint16_t PROGMEM chord_day[] = {A_D, A_A, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_also[] = {A_A, A_L, A_O, COMBO_END};
-const uint16_t PROGMEM chord_after[] = {A_F, A_T, A_R, COMBO_END};
-const uint16_t PROGMEM chord_way[] = {A_W, A_A, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_many[] = {A_M, A_N, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_must[] = {A_M, A_U, A_T, COMBO_END};
-const uint16_t PROGMEM chord_look[] = {A_L, A_O, A_K, COMBO_END};
-const uint16_t PROGMEM chord_before[] = {A_B, A_F, A_O, COMBO_END};
-const uint16_t PROGMEM chord_great[] = {A_G, A_R, A_E, COMBO_END};
-const uint16_t PROGMEM chord_back[] = {A_B, A_A, A_C, COMBO_END};
-const uint16_t PROGMEM chord_through[] = {A_H, A_R, A_G, COMBO_END};
-const uint16_t PROGMEM chord_long[] = {A_L, A_O, A_N, COMBO_END};
-const uint16_t PROGMEM chord_where[] = {A_W, A_H, A_R, COMBO_END};
-const uint16_t PROGMEM chord_much[] = {A_M, A_U, A_C, COMBO_END};
-const uint16_t PROGMEM chord_should[] = {A_S, A_O, A_U, COMBO_END};
-const uint16_t PROGMEM chord_well[] = {A_W, A_E, A_L, COMBO_END};
-const uint16_t PROGMEM chord_people[] = {A_P, A_E, A_L, COMBO_END};
-const uint16_t PROGMEM chord_down[] = {A_D, A_W, A_N, COMBO_END};
-const uint16_t PROGMEM chord_own[] = {A_O, A_W, A_F, COMBO_END};
-const uint16_t PROGMEM chord_just[] = {A_U, A_S, A_T, COMBO_END};
-const uint16_t PROGMEM chord_because[] = {A_B, A_E, A_A, COMBO_END};
-const uint16_t PROGMEM chord_good[] = {A_V, A_O, A_D, COMBO_END};
-const uint16_t PROGMEM chord_each[] = {A_A, A_C, A_H, COMBO_END};
-const uint16_t PROGMEM chord_those[] = {A_T, A_O, A_S, COMBO_END};
-const uint16_t PROGMEM chord_feel[] = {A_F, A_E, A_L, COMBO_END};
-const uint16_t PROGMEM chord_seem[] = {A_S, A_E, A_M, COMBO_END};
-const uint16_t PROGMEM chord_how[] = {A_H, A_O, A_U, COMBO_END};
-const uint16_t PROGMEM chord_high[] = {A_H, A_I, A_G, COMBO_END};
-const uint16_t PROGMEM chord_too[] = {A_T, A_O, A_F, COMBO_END};
-const uint16_t PROGMEM chord_place[] = {A_P, A_C, A_E, COMBO_END};
-const uint16_t PROGMEM chord_little[] = {A_L, A_I, A_T, COMBO_END};
-const uint16_t PROGMEM chord_world[] = {A_W, A_L, A_D, COMBO_END};
-const uint16_t PROGMEM chord_very[] = {A_V, A_E, A_R, COMBO_END};
-const uint16_t PROGMEM chord_still[] = {A_S, A_T, A_L, COMBO_END};
-const uint16_t PROGMEM chord_nation[] = {A_N, A_A, A_I, COMBO_END};
-const uint16_t PROGMEM chord_hand[] = {A_H, A_N, A_D, COMBO_END};
-const uint16_t PROGMEM chord_old[] = {A_O, A_L, A_D, COMBO_END};
-const uint16_t PROGMEM chord_life[] = {A_L, A_I, A_F, COMBO_END};
-const uint16_t PROGMEM chord_tell[] = {A_T, A_E, A_L, COMBO_END};
-const uint16_t PROGMEM chord_write[] = {A_R, A_I, A_E, COMBO_END};
-const uint16_t PROGMEM chord_become[] = {A_C, A_M, A_E, COMBO_END};
-const uint16_t PROGMEM chord_here[] = {A_J, A_H, A_E, COMBO_END};
-const uint16_t PROGMEM chord_show[] = {A_S, A_H, A_W, COMBO_END};
-const uint16_t PROGMEM chord_house[] = {A_H, A_O, A_S, COMBO_END};
-const uint16_t PROGMEM chord_both[] = {A_B, A_O, A_H, COMBO_END};
-const uint16_t PROGMEM chord_between[] = {A_B, A_E, A_N, COMBO_END};
-const uint16_t PROGMEM chord_need[] = {A_T, A_N, A_D, COMBO_END};
-const uint16_t PROGMEM chord_mean[] = {A_M, A_E, A_A, COMBO_END};
-const uint16_t PROGMEM chord_call[] = {A_C, A_A, A_L, COMBO_END};
-const uint16_t PROGMEM chord_develop[] = {A_D, A_E, A_V, COMBO_END};
-const uint16_t PROGMEM chord_under[] = {A_U, A_N, A_D, COMBO_END};
-const uint16_t PROGMEM chord_last[] = {A_L, A_A, A_S, COMBO_END};
-const uint16_t PROGMEM chord_right[] = {A_R, A_I, A_T, COMBO_END};
-const uint16_t PROGMEM chord_move[] = {A_M, A_V, A_E, COMBO_END};
-const uint16_t PROGMEM chord_thing[] = {A_T, A_I, A_N, COMBO_END};
-const uint16_t PROGMEM chord_general[] = {A_G, A_E, A_N, COMBO_END};
-const uint16_t PROGMEM chord_school[] = {A_S, A_H, A_L, COMBO_END};
-const uint16_t PROGMEM chord_never[] = {A_N, A_V, A_R, COMBO_END};
-const uint16_t PROGMEM chord_same[] = {A_S, A_A, A_M, COMBO_END};
-const uint16_t PROGMEM chord_another[] = {A_A, A_H, A_R, COMBO_END};
-const uint16_t PROGMEM chord_begin[] = {A_E, A_G, A_I, COMBO_END};
-const uint16_t PROGMEM chord_while[] = {A_H, A_I, A_E, COMBO_END};
-const uint16_t PROGMEM chord_number[] = {A_N, A_E, A_R, COMBO_END};
-const uint16_t PROGMEM chord_part[] = {A_P, A_A, A_R, COMBO_END};
-const uint16_t PROGMEM chord_turn[] = {A_T, A_U, A_N, COMBO_END};
-const uint16_t PROGMEM chord_real[] = {A_E, A_A, A_L, COMBO_END};
-const uint16_t PROGMEM chord_leave[] = {A_E, A_A, A_V, COMBO_END};
-const uint16_t PROGMEM chord_might[] = {A_M, A_I, A_T, COMBO_END};
-const uint16_t PROGMEM chord_want[] = {A_W, A_A, A_T, COMBO_END};
-const uint16_t PROGMEM chord_point[] = {A_P, A_O, A_I, COMBO_END};
-const uint16_t PROGMEM chord_form[] = {A_Z, A_O, A_R, COMBO_END};
-const uint16_t PROGMEM chord_off[] = {A_O, A_F, A_K, COMBO_END};
-const uint16_t PROGMEM chord_child[] = {A_C, A_I, A_D, COMBO_END};
-const uint16_t PROGMEM chord_few[] = {A_F, A_E, A_W, COMBO_END};
-const uint16_t PROGMEM chord_small[] = {A_M, A_A, A_L, COMBO_END};
-const uint16_t PROGMEM chord_since[] = {A_S, A_I, A_E, COMBO_END};
-const uint16_t PROGMEM chord_against[] = {A_A, A_G, A_N, COMBO_END};
-const uint16_t PROGMEM chord_ask[] = {A_A, A_S, A_K, COMBO_END};
-const uint16_t PROGMEM chord_late[] = {A_L, A_A, A_T, COMBO_END};
-const uint16_t PROGMEM chord_home[] = {A_G, A_M, A_E, COMBO_END};
-const uint16_t PROGMEM chord_interes[] = {A_I, A_N, A_R, COMBO_END};
-const uint16_t PROGMEM chord_large[] = {A_A, A_R, A_G, COMBO_END};
-const uint16_t PROGMEM chord_person[] = {A_P, A_S, A_N, COMBO_END};
-const uint16_t PROGMEM chord_end[] = {A_E, A_N, A_D, COMBO_END};
-const uint16_t PROGMEM chord_open[] = {A_O, A_P, A_N, COMBO_END};
-const uint16_t PROGMEM chord_public[] = {A_P, A_L, A_I, COMBO_END};
-const uint16_t PROGMEM chord_follow[] = {A_F, A_O, A_L, COMBO_END};
-const uint16_t PROGMEM chord_during[] = {A_D, A_R, A_N, COMBO_END};
-const uint16_t PROGMEM chord_present[] = {A_R, A_N, A_T, COMBO_END};
-const uint16_t PROGMEM chord_without[] = {A_I, A_T, A_O, COMBO_END};
-const uint16_t PROGMEM chord_again[] = {A_A, A_G, A_I, COMBO_END};
-const uint16_t PROGMEM chord_hold[] = {A_H, A_O, A_D, COMBO_END};
-const uint16_t PROGMEM chord_govern[] = {A_G, A_R, A_N, COMBO_END};
-const uint16_t PROGMEM chord_around[] = {A_A, A_R, A_D, COMBO_END};
-const uint16_t PROGMEM chord_possibl[] = {A_P, A_S, A_E, COMBO_END};
-const uint16_t PROGMEM chord_head[] = {A_H, A_E, A_D, COMBO_END};
-const uint16_t PROGMEM chord_conside[] = {A_C, A_N, A_D, COMBO_END};
-const uint16_t PROGMEM chord_word[] = {A_W, A_R, A_D, COMBO_END};
-const uint16_t PROGMEM chord_program[] = {A_R, A_G, A_M, COMBO_END};
-const uint16_t PROGMEM chord_problem[] = {A_L, A_E, A_M, COMBO_END};
-const uint16_t PROGMEM chord_however[] = {A_H, A_E, A_V, COMBO_END};
-const uint16_t PROGMEM chord_lead[] = {A_E, A_A, A_D, COMBO_END};
-const uint16_t PROGMEM chord_system[] = {A_S, A_T, A_M, COMBO_END};
-const uint16_t PROGMEM chord_set[] = {A_S, A_E, A_T, COMBO_END};
-const uint16_t PROGMEM chord_order[] = {A_O, A_R, A_D, COMBO_END};
-const uint16_t PROGMEM chord_eye[] = {A_E, A_Y, A_X, COMBO_END};
-const uint16_t PROGMEM chord_plan[] = {A_P, A_L, A_N, COMBO_END};
-const uint16_t PROGMEM chord_run[] = {A_R, A_U, A_N, COMBO_END};
-const uint16_t PROGMEM chord_keep[] = {A_K, A_E, A_X, COMBO_END};
-const uint16_t PROGMEM chord_face[] = {A_F, A_A, A_C, COMBO_END};
-const uint16_t PROGMEM chord_fact[] = {A_F, A_C, A_T, COMBO_END};
-const uint16_t PROGMEM chord_group[] = {A_G, A_O, A_U, COMBO_END};
-const uint16_t PROGMEM chord_play[] = {A_P, A_L, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_stand[] = {A_S, A_N, A_D, COMBO_END};
-const uint16_t PROGMEM chord_increas[] = {A_I, A_N, A_C, COMBO_END};
-const uint16_t PROGMEM chord_early[] = {A_E, A_L, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_course[] = {A_O, A_R, A_S, COMBO_END};
-const uint16_t PROGMEM chord_change[] = {A_C, A_H, A_E, COMBO_END};
-const uint16_t PROGMEM chord_help[] = {A_H, A_L, A_P, COMBO_END};
-const uint16_t PROGMEM chord_line[] = {A_L, A_N, A_E, COMBO_END};
-const uint16_t PROGMEM chord_his[] = {A_H, A_I, A_S, COMBO_END};
-const uint16_t PROGMEM chord_her[] = {A_H, A_E, A_R, COMBO_END};
-const uint16_t PROGMEM chord_an[] = {A_A, A_N, AT2, COMBO_END};
-const uint16_t PROGMEM chord_my[] = {A_M, A_Y, AT2, COMBO_END};
-const uint16_t PROGMEM chord_their[] = {A_H, A_I, A_R, COMBO_END};
-const uint16_t PROGMEM chord_me[] = {A_M, A_E, AT2, COMBO_END};
-const uint16_t PROGMEM chord_him[] = {A_B, A_I, A_M, COMBO_END};
-const uint16_t PROGMEM chord_your[] = {A_Y, A_O, A_R, COMBO_END};
-const uint16_t PROGMEM chord_its[] = {A_I, A_T, A_S, COMBO_END};
-const uint16_t PROGMEM chord_two[] = {A_T, A_W, A_O, COMBO_END};
-const uint16_t PROGMEM chord_our[] = {A_O, A_U, A_R, COMBO_END};
-const uint16_t PROGMEM chord_us[] = {A_U, A_S, AT2, COMBO_END};
-const uint16_t PROGMEM chord_is[] = {A_I, A_S, AT2, COMBO_END};
-const uint16_t PROGMEM chord_was[] = {A_W, A_A, A_S, COMBO_END};
-const uint16_t PROGMEM chord_are[] = {A_A, A_R, A_E, COMBO_END};
-const uint16_t PROGMEM chord_had[] = {A_H, A_A, A_D, COMBO_END};
-const uint16_t PROGMEM chord_were[] = {A_W, A_E, A_R, COMBO_END};
-const uint16_t PROGMEM chord_said[] = {A_S, A_A, A_I, COMBO_END};
-const uint16_t PROGMEM chord_has[] = {A_H, A_A, A_S, COMBO_END};
-const uint16_t PROGMEM chord_sound[] = {A_S, A_U, A_D, COMBO_END};
-const uint16_t PROGMEM chord_water[] = {A_W, A_T, A_R, COMBO_END};
-const uint16_t PROGMEM chord_side[] = {A_S, A_I, A_D, COMBO_END};
-const uint16_t PROGMEM chord_made[] = {A_M, A_D, A_E, COMBO_END};
-const uint16_t PROGMEM chord_live[] = {A_L, A_I, A_V, COMBO_END};
-const uint16_t PROGMEM chord_round[] = {A_O, A_U, A_D, COMBO_END};
-const uint16_t PROGMEM chord_came[] = {A_C, A_A, A_M, COMBO_END};
-const uint16_t PROGMEM chord_every[] = {A_E, A_R, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_name[] = {A_N, A_A, A_E, COMBO_END};
-const uint16_t PROGMEM chord_sentenc[] = {A_S, A_E, A_N, COMBO_END};
-const uint16_t PROGMEM chord_low[] = {A_L, A_O, A_W, COMBO_END};
-const uint16_t PROGMEM chord_differ[] = {A_D, A_F, A_R, COMBO_END};
-const uint16_t PROGMEM chord_cause[] = {A_C, A_A, A_S, COMBO_END};
-const uint16_t PROGMEM chord_boy[] = {A_B, A_O, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_does[] = {A_D, A_E, A_S, COMBO_END};
-const uint16_t PROGMEM chord_air[] = {A_A, A_I, A_R, COMBO_END};
-const uint16_t PROGMEM chord_put[] = {A_P, A_U, A_T, COMBO_END};
-const uint16_t PROGMEM chord_port[] = {A_P, A_O, A_R, COMBO_END};
-const uint16_t PROGMEM chord_spell[] = {A_S, A_P, A_L, COMBO_END};
-const uint16_t PROGMEM chord_land[] = {A_L, A_N, A_D, COMBO_END};
-const uint16_t PROGMEM chord_big[] = {A_B, A_I, A_G, COMBO_END};
-const uint16_t PROGMEM chord_act[] = {A_A, A_C, A_T, COMBO_END};
-const uint16_t PROGMEM chord_why[] = {A_W, A_H, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_men[] = {A_M, A_E, A_N, COMBO_END};
-const uint16_t PROGMEM chord_went[] = {A_W, A_N, A_T, COMBO_END};
-const uint16_t PROGMEM chord_light[] = {A_L, A_I, A_G, COMBO_END};
-const uint16_t PROGMEM chord_kind[] = {A_I, A_N, A_D, COMBO_END};
-const uint16_t PROGMEM chord_picture[] = {A_P, A_I, A_C, COMBO_END};
-const uint16_t PROGMEM chord_try[] = {A_T, A_R, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_animal[] = {A_A, A_N, A_L, COMBO_END};
-const uint16_t PROGMEM chord_mother[] = {A_M, A_T, A_R, COMBO_END};
-const uint16_t PROGMEM chord_build[] = {A_B, A_U, A_L, COMBO_END};
-const uint16_t PROGMEM chord_self[] = {A_S, A_L, A_F, COMBO_END};
-const uint16_t PROGMEM chord_earth[] = {A_E, A_A, A_H, COMBO_END};
-const uint16_t PROGMEM chord_father[] = {A_F, A_A, A_E, COMBO_END};
-const uint16_t PROGMEM chord_page[] = {A_P, A_A, A_E, COMBO_END};
-const uint16_t PROGMEM chord_country[] = {A_C, A_U, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_found[] = {A_F, A_U, A_D, COMBO_END};
-const uint16_t PROGMEM chord_answer[] = {A_A, A_N, A_S, COMBO_END};
-const uint16_t PROGMEM chord_grow[] = {A_G, A_R, A_W, COMBO_END};
-const uint16_t PROGMEM chord_study[] = {A_T, A_U, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_learn[] = {A_L, A_E, A_R, COMBO_END};
-const uint16_t PROGMEM chord_plant[] = {A_P, A_L, A_T, COMBO_END};
-const uint16_t PROGMEM chord_cover[] = {A_C, A_O, A_V, COMBO_END};
-const uint16_t PROGMEM chord_food[] = {A_F, A_O, A_D, COMBO_END};
-const uint16_t PROGMEM chord_sun[] = {A_S, A_U, A_N, COMBO_END};
-const uint16_t PROGMEM chord_four[] = {A_F, A_O, A_U, COMBO_END};
-const uint16_t PROGMEM chord_thought[] = {A_T, A_H, A_U, COMBO_END};
-const uint16_t PROGMEM chord_city[] = {A_C, A_T, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_cross[] = {A_C, A_R, A_S, COMBO_END};
-const uint16_t PROGMEM chord_hard[] = {A_H, A_R, A_D, COMBO_END};
-const uint16_t PROGMEM chord_far[] = {A_F, A_A, A_R, COMBO_END};
-const uint16_t PROGMEM chord_sea[] = {A_S, A_E, A_A, COMBO_END};
-const uint16_t PROGMEM chord_draw[] = {A_D, A_A, A_W, COMBO_END};
-const uint16_t PROGMEM chord_left[] = {A_L, A_F, A_T, COMBO_END};
-const uint16_t PROGMEM chord_press[] = {A_P, A_R, A_S, COMBO_END};
-const uint16_t PROGMEM chord_close[] = {A_C, A_O, A_S, COMBO_END};
-const uint16_t PROGMEM chord_night[] = {A_N, A_G, A_H, COMBO_END};
-const uint16_t PROGMEM chord_north[] = {A_N, A_R, A_H, COMBO_END};
-const uint16_t PROGMEM chord_togethe[] = {A_O, A_G, A_H, COMBO_END};
-const uint16_t PROGMEM chord_next[] = {A_E, A_X, A_T, COMBO_END};
-const uint16_t PROGMEM chord_white[] = {A_W, A_I, A_E, COMBO_END};
-const uint16_t PROGMEM chord_childre[] = {A_H, A_I, A_D, COMBO_END};
-const uint16_t PROGMEM chord_got[] = {A_G, A_O, A_T, COMBO_END};
-const uint16_t PROGMEM chord_walk[] = {A_A, A_L, A_K, COMBO_END};
-const uint16_t PROGMEM chord_example[] = {A_M, A_P, A_L, COMBO_END};
-const uint16_t PROGMEM chord_always[] = {A_L, A_W, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_music[] = {A_M, A_S, A_C, COMBO_END};
-const uint16_t PROGMEM chord_mark[] = {A_M, A_R, A_K, COMBO_END};
-const uint16_t PROGMEM chord_often[] = {A_O, A_T, A_E, COMBO_END};
-const uint16_t PROGMEM chord_letter[] = {A_L, A_T, A_R, COMBO_END};
-const uint16_t PROGMEM chord_until[] = {A_N, A_T, A_L, COMBO_END};
-const uint16_t PROGMEM chord_mile[] = {A_M, A_I, A_E, COMBO_END};
-const uint16_t PROGMEM chord_river[] = {A_R, A_I, A_V, COMBO_END};
-const uint16_t PROGMEM chord_car[] = {A_C, A_A, A_R, COMBO_END};
-const uint16_t PROGMEM chord_feet[] = {A_F, A_E, A_T, COMBO_END};
-const uint16_t PROGMEM chord_care[] = {A_C, A_R, A_E, COMBO_END};
-const uint16_t PROGMEM chord_second[] = {A_S, A_E, A_C, COMBO_END};
-const uint16_t PROGMEM chord_carry[] = {A_C, A_A, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_science[] = {A_S, A_C, A_I, COMBO_END};
-const uint16_t PROGMEM chord_eat[] = {A_E, A_A, A_T, COMBO_END};
-const uint16_t PROGMEM chord_friend[] = {A_R, A_I, A_D, COMBO_END};
-const uint16_t PROGMEM chord_began[] = {A_B, A_G, A_N, COMBO_END};
-const uint16_t PROGMEM chord_idea[] = {A_I, A_D, A_A, COMBO_END};
-const uint16_t PROGMEM chord_fish[] = {A_F, A_I, A_S, COMBO_END};
-const uint16_t PROGMEM chord_mountai[] = {A_O, A_A, A_T, COMBO_END};
-const uint16_t PROGMEM chord_stop[] = {A_S, A_T, A_P, COMBO_END};
-const uint16_t PROGMEM chord_once[] = {A_N, A_C, A_E, COMBO_END};
-const uint16_t PROGMEM chord_base[] = {A_B, A_A, A_S, COMBO_END};
-const uint16_t PROGMEM chord_horse[] = {A_H, A_R, A_S, COMBO_END};
-const uint16_t PROGMEM chord_cut[] = {A_C, A_U, A_T, COMBO_END};
-const uint16_t PROGMEM chord_sure[] = {A_S, A_U, A_R, COMBO_END};
-const uint16_t PROGMEM chord_watch[] = {A_W, A_A, A_H, COMBO_END};
-const uint16_t PROGMEM chord_color[] = {A_C, A_O, A_R, COMBO_END};
-const uint16_t PROGMEM chord_wood[] = {A_W, A_O, A_D, COMBO_END};
-const uint16_t PROGMEM chord_main[] = {A_M, A_I, A_N, COMBO_END};
-const uint16_t PROGMEM chord_enough[] = {A_N, A_O, A_G, COMBO_END};
-const uint16_t PROGMEM chord_plain[] = {A_P, A_A, A_I, COMBO_END};
-const uint16_t PROGMEM chord_girl[] = {A_G, A_I, A_R, COMBO_END};
-const uint16_t PROGMEM chord_usual[] = {A_U, A_S, A_L, COMBO_END};
-const uint16_t PROGMEM chord_young[] = {A_Y, A_O, A_G, COMBO_END};
-const uint16_t PROGMEM chord_ready[] = {A_E, A_D, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_above[] = {A_A, A_B, A_V, COMBO_END};
-const uint16_t PROGMEM chord_red[] = {A_R, A_E, A_D, COMBO_END};
-const uint16_t PROGMEM chord_list[] = {A_L, A_I, A_S, COMBO_END};
-const uint16_t PROGMEM chord_though[] = {A_H, A_U, A_G, COMBO_END};
-const uint16_t PROGMEM chord_bird[] = {A_B, A_I, A_R, COMBO_END};
-const uint16_t PROGMEM chord_body[] = {A_O, A_D, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_family[] = {A_F, A_A, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_direct[] = {A_D, A_R, A_C, COMBO_END};
-const uint16_t PROGMEM chord_pose[] = {A_P, A_O, A_S, COMBO_END};
-const uint16_t PROGMEM chord_song[] = {A_S, A_N, A_G, COMBO_END};
-const uint16_t PROGMEM chord_measure[] = {A_A, A_S, A_U, COMBO_END};
-const uint16_t PROGMEM chord_product[] = {A_R, A_D, A_U, COMBO_END};
-const uint16_t PROGMEM chord_black[] = {A_B, A_L, A_C, COMBO_END};
-const uint16_t PROGMEM chord_short[] = {A_H, A_O, A_R, COMBO_END};
-const uint16_t PROGMEM chord_numeral[] = {A_U, A_M, A_A, COMBO_END};
-const uint16_t PROGMEM chord_class[] = {A_C, A_L, A_S, COMBO_END};
-const uint16_t PROGMEM chord_wind[] = {A_W, A_I, A_D, COMBO_END};
-const uint16_t PROGMEM chord_questio[] = {A_Q, A_E, A_N, COMBO_END};
-const uint16_t PROGMEM chord_happen[] = {A_H, A_A, A_P, COMBO_END};
-const uint16_t PROGMEM chord_complet[] = {A_C, A_M, A_T, COMBO_END};
-const uint16_t PROGMEM chord_ship[] = {A_S, A_H, A_P, COMBO_END};
-const uint16_t PROGMEM chord_half[] = {A_H, A_A, A_L, COMBO_END};
-const uint16_t PROGMEM chord_rock[] = {A_R, A_C, A_K, COMBO_END};
-const uint16_t PROGMEM chord_fire[] = {A_F, A_I, A_R, COMBO_END};
-const uint16_t PROGMEM chord_south[] = {A_S, A_U, A_H, COMBO_END};
-const uint16_t PROGMEM chord_told[] = {A_T, A_L, A_D, COMBO_END};
-const uint16_t PROGMEM chord_knew[] = {A_K, A_N, A_E, COMBO_END};
-const uint16_t PROGMEM chord_pass[] = {A_P, A_A, A_S, COMBO_END};
-const uint16_t PROGMEM chord_top[] = {A_T, A_O, A_P, COMBO_END};
-const uint16_t PROGMEM chord_whole[] = {A_W, A_H, A_L, COMBO_END};
-const uint16_t PROGMEM chord_space[] = {A_S, A_P, A_C, COMBO_END};
-const uint16_t PROGMEM chord_best[] = {A_B, A_E, A_S, COMBO_END};
-const uint16_t PROGMEM chord_hour[] = {A_H, A_U, A_R, COMBO_END};
-const uint16_t PROGMEM chord_better[] = {A_B, A_E, A_R, COMBO_END};
-const uint16_t PROGMEM chord_true[] = {A_T, A_R, A_U, COMBO_END};
-const uint16_t PROGMEM chord_hundred[] = {A_H, A_U, A_E, COMBO_END};
-const uint16_t PROGMEM chord_five[] = {A_F, A_I, A_V, COMBO_END};
-const uint16_t PROGMEM chord_six[] = {A_S, A_I, A_X, COMBO_END};
-const uint16_t PROGMEM chord_war[] = {A_W, A_A, A_R, COMBO_END};
-const uint16_t PROGMEM chord_lay[] = {A_L, A_A, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_map[] = {A_M, A_A, A_P, COMBO_END};
-const uint16_t PROGMEM chord_fly[] = {A_F, A_L, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_fall[] = {A_F, A_A, A_L, COMBO_END};
-const uint16_t PROGMEM chord_cry[] = {A_C, A_R, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_box[] = {A_B, A_O, A_X, COMBO_END};
-const uint16_t PROGMEM chord_noun[] = {A_N, A_O, A_U, COMBO_END};
-const uint16_t PROGMEM chord_week[] = {A_W, A_E, A_K, COMBO_END};
-const uint16_t PROGMEM chord_oh[] = {A_O, A_H, AT2, COMBO_END};
-const uint16_t PROGMEM chord_free[] = {A_F, A_R, A_E, COMBO_END};
-const uint16_t PROGMEM chord_dry[] = {A_D, A_R, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_ago[] = {A_A, A_G, A_O, COMBO_END};
-const uint16_t PROGMEM chord_ran[] = {A_R, A_A, A_N, COMBO_END};
-const uint16_t PROGMEM chord_hot[] = {A_H, A_O, A_T, COMBO_END};
-const uint16_t PROGMEM chord_ball[] = {A_B, A_A, A_L, COMBO_END};
-const uint16_t PROGMEM chord_yet[] = {A_Y, A_E, A_T, COMBO_END};
-const uint16_t PROGMEM chord_am[] = {A_A, A_M, AT2, COMBO_END};
-const uint16_t PROGMEM chord_arm[] = {A_A, A_R, A_M, COMBO_END};
-const uint16_t PROGMEM chord_ice[] = {A_I, A_C, A_E, COMBO_END};
-const uint16_t PROGMEM chord_matter[] = {A_M, A_A, A_T, COMBO_END};
-const uint16_t PROGMEM chord_art[] = {A_A, A_R, A_T, COMBO_END};
-const uint16_t PROGMEM chord_cell[] = {A_C, A_E, A_L, COMBO_END};
-const uint16_t PROGMEM chord_summer[] = {A_S, A_M, A_R, COMBO_END};
-const uint16_t PROGMEM chord_leg[] = {A_L, A_E, A_G, COMBO_END};
-const uint16_t PROGMEM chord_joy[] = {A_J, A_O, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_job[] = {A_J, A_O, A_B, COMBO_END};
-const uint16_t PROGMEM chord_gas[] = {A_G, A_A, A_S, COMBO_END};
-const uint16_t PROGMEM chord_buy[] = {A_B, A_U, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_cook[] = {A_C, A_O, A_K, COMBO_END};
-const uint16_t PROGMEM chord_hill[] = {A_H, A_I, A_L, COMBO_END};
-const uint16_t PROGMEM chord_law[] = {A_L, A_A, A_W, COMBO_END};
-const uint16_t PROGMEM chord_lie[] = {A_L, A_I, A_E, COMBO_END};
-const uint16_t PROGMEM chord_son[] = {A_S, A_O, A_N, COMBO_END};
-const uint16_t PROGMEM chord_pay[] = {A_P, A_A, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_age[] = {A_A, A_G, A_E, COMBO_END};
-const uint16_t PROGMEM chord_cool[] = {A_C, A_O, A_L, COMBO_END};
-const uint16_t PROGMEM chord_lot[] = {A_L, A_O, A_T, COMBO_END};
-const uint16_t PROGMEM chord_key[] = {A_K, A_E, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_row[] = {A_R, A_O, A_W, COMBO_END};
-const uint16_t PROGMEM chord_die[] = {A_D, A_I, A_E, COMBO_END};
-const uint16_t PROGMEM chord_oil[] = {A_O, A_I, A_L, COMBO_END};
-const uint16_t PROGMEM chord_fit[] = {A_F, A_I, A_T, COMBO_END};
-const uint16_t PROGMEM chord_hit[] = {A_H, A_I, A_T, COMBO_END};
-const uint16_t PROGMEM chord_rub[] = {A_R, A_U, A_B, COMBO_END};
-const uint16_t PROGMEM chord_tie[] = {A_T, A_I, A_E, COMBO_END};
-const uint16_t PROGMEM chord_gun[] = {A_G, A_U, A_N, COMBO_END};
-const uint16_t PROGMEM chord_nine[] = {A_N, A_I, A_E, COMBO_END};
-const uint16_t PROGMEM chord_thank[] = {A_H, A_A, A_K, COMBO_END};
-const uint16_t PROGMEM chord_experie[] = {A_E, A_X, A_P, COMBO_END};
-const uint16_t PROGMEM chord_led[] = {A_L, A_E, A_D, COMBO_END};
-const uint16_t PROGMEM chord_win[] = {A_W, A_I, A_N, COMBO_END};
-const uint16_t PROGMEM chord_feed[] = {A_F, A_E, A_D, COMBO_END};
-const uint16_t PROGMEM chord_nor[] = {A_N, A_O, A_R, COMBO_END};
-const uint16_t PROGMEM chord_fat[] = {A_F, A_A, A_T, COMBO_END};
-const uint16_t PROGMEM chord_bar[] = {A_B, A_A, A_R, COMBO_END};
-const uint16_t PROGMEM chord_log[] = {A_L, A_O, A_G, COMBO_END};
-const uint16_t PROGMEM chord_hey[] = {A_H, A_E, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_return[] = {A_R, A_E, A_T, COMBO_END};
-const uint16_t PROGMEM chord_probabl[] = {A_P, A_B, A_L, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_thank_y[] = {A_T, A_A, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_thanks[] = {A_T, A_N, A_S, COMBO_END};
-const uint16_t PROGMEM chord_i_ve[] = {A_I, A_V, A_E, COMBO_END};
-const uint16_t PROGMEM chord_per[] = {A_P, A_E, A_R, COMBO_END};
-const uint16_t PROGMEM chord_null[] = {A_N, A_U, A_L, COMBO_END};
-const uint16_t PROGMEM chord_nil[] = {A_N, A_I, A_L, COMBO_END};
-const uint16_t PROGMEM chord_array[] = {A_A, A_R, A_Y, COMBO_END};
-const uint16_t PROGMEM chord_sort[] = {A_S, A_R, A_T, COMBO_END};
-const uint16_t PROGMEM chord_the_qui[] = {A_B, A_Q, A_X, A_q, COMBO_END};
-const uint16_t PROGMEM chord_elberet[] = {A_E, A_L, A_B, A_H, COMBO_END};
-const uint16_t PROGMEM chord_shawn[] = {A_H, A_A, A_N, COMBO_END};
-const uint16_t PROGMEM chord_moore[] = {A_O, A_R, A_E, COMBO_END};
-const uint16_t PROGMEM chord_sartak[] = {A_S, A_A, A_R, COMBO_END};
-const uint16_t PROGMEM chord_sartak_[] = {A_S, A_R, A_d, COMBO_END};
-const uint16_t PROGMEM chord_shawn_d[] = {A_H, A_N, A_d, COMBO_END};
-const uint16_t PROGMEM chord_somervi[] = {A_S, A_E, A_V, COMBO_END};
-const uint16_t PROGMEM chord_boston[] = {A_B, A_S, A_N, COMBO_END};
-const uint16_t PROGMEM chord_massach[] = {A_C, A_H, A_U, COMBO_END};
-const uint16_t PROGMEM chord_x[] = {A_W, A_T, A_L, COMBO_END};
+#define COMBO_FOR_CHORD(name, ...) const uint16_t PROGMEM chord_##name[] = {__VA_ARGS__, COMBO_END};
+COMBO_FOR_CHORD(excl1, A_E, A_d);
+COMBO_FOR_CHORD(qmark1, A_I, A_c);
+COMBO_FOR_CHORD(colon1, A_A, A_r);
+COMBO_FOR_CHORD(semi1, A_A, A_q);
+COMBO_FOR_CHORD(cent, S_C, S_Q);
+COMBO_FOR_CHORD(pound, S_R, S_J);
+COMBO_FOR_CHORD(yen, S_S, S_V);
+COMBO_FOR_CHORD(euro, S_T, S_D);
+COMBO_FOR_CHORD(mid_ell, S_G, S_K);
+COMBO_FOR_CHORD(bullet, S_P, S_T);
+COMBO_FOR_CHORD(degrees, S_Y, S_S);
+COMBO_FOR_CHORD(infinit, S_W, S_C);
+COMBO_FOR_CHORD(lambda, S_L, S_R);
+COMBO_FOR_CHORD(interro, S_B, S_G);
+COMBO_FOR_CHORD(ballot_, S_M, S_X);
+COMBO_FOR_CHORD(checkma, S_N, S_H);
+COMBO_FOR_CHORD(left_ar, S_Z, S_M);
+COMBO_FOR_CHORD(down_ar, S_F, S_N);
+COMBO_FOR_CHORD(up_arro, S_O, S_E);
+COMBO_FOR_CHORD(right_a, S_U, S_I);
+COMBO_FOR_CHORD(_bs_ing, A_I, A_N, A_G);
+COMBO_FOR_CHORD(_bs_n_t, A_N, A_q, A_T);
+COMBO_FOR_CHORD(_bs_ve, A_q, A_V, A_E);
+COMBO_FOR_CHORD(_bs_re, A_q, A_R, A_E);
+COMBO_FOR_CHORD(the, A_T, A_H, A_E);
+COMBO_FOR_CHORD(be, A_B, A_E, AT2);
+COMBO_FOR_CHORD(of, A_O, A_F, AT2);
+COMBO_FOR_CHORD(and, A_A, A_N, A_D);
+COMBO_FOR_CHORD(a, A_A, AT2);
+COMBO_FOR_CHORD(a1, A_A, AT1);
+COMBO_FOR_CHORD(to, A_T, A_O, AT2);
+COMBO_FOR_CHORD(in, A_I, A_N, AT2);
+COMBO_FOR_CHORD(he, A_H, A_E, AT2);
+COMBO_FOR_CHORD(have, A_H, A_A, A_V);
+COMBO_FOR_CHORD(it, A_I, A_T, AT2);
+COMBO_FOR_CHORD(that, A_T, A_H, A_A);
+COMBO_FOR_CHORD(for, A_F, A_O, A_R);
+COMBO_FOR_CHORD(they, A_T, A_H, A_Y);
+COMBO_FOR_CHORD(i, A_I, AT2);
+COMBO_FOR_CHORD(with, A_W, A_I, A_H);
+COMBO_FOR_CHORD(as, A_A, A_S, AT2);
+COMBO_FOR_CHORD(not, A_N, A_O, A_T);
+COMBO_FOR_CHORD(on, A_O, A_N, AT2);
+COMBO_FOR_CHORD(she, A_S, A_H, A_E);
+COMBO_FOR_CHORD(at, A_A, A_T, AT2);
+COMBO_FOR_CHORD(by, A_B, A_Y, AT2);
+COMBO_FOR_CHORD(this, A_T, A_H, A_S);
+COMBO_FOR_CHORD(we, A_W, A_E, AT2);
+COMBO_FOR_CHORD(you, A_Y, A_O, A_U);
+COMBO_FOR_CHORD(do, A_D, A_O, AT2);
+COMBO_FOR_CHORD(but, A_I, A_U, A_T);
+COMBO_FOR_CHORD(from, A_R, A_O, A_M);
+COMBO_FOR_CHORD(or, A_O, A_R, AT2);
+COMBO_FOR_CHORD(which, A_H, A_I, A_C);
+COMBO_FOR_CHORD(one, A_O, A_N, A_E);
+COMBO_FOR_CHORD(would, A_W, A_O, A_U);
+COMBO_FOR_CHORD(all, A_A, A_L, A_X);
+COMBO_FOR_CHORD(will, A_W, A_I, A_L);
+COMBO_FOR_CHORD(there, A_T, A_H, A_R);
+COMBO_FOR_CHORD(say, A_S, A_A, A_Y);
+COMBO_FOR_CHORD(who, A_W, A_H, A_O);
+COMBO_FOR_CHORD(make, A_M, A_A, A_K);
+COMBO_FOR_CHORD(when, A_W, A_H, A_E);
+COMBO_FOR_CHORD(can, A_C, A_A, A_N);
+COMBO_FOR_CHORD(more, A_M, A_R, A_E);
+COMBO_FOR_CHORD(if, A_I, A_F, AT2);
+COMBO_FOR_CHORD(no, A_N, A_E, AT2);
+COMBO_FOR_CHORD(man, A_M, A_A, A_N);
+COMBO_FOR_CHORD(out, A_O, A_U, A_T);
+COMBO_FOR_CHORD(other, A_O, A_T, A_R);
+COMBO_FOR_CHORD(so, A_S, A_O, AT2);
+COMBO_FOR_CHORD(what, A_W, A_H, A_T);
+COMBO_FOR_CHORD(time, A_T, A_M, A_E);
+COMBO_FOR_CHORD(up, A_U, A_P, AT2);
+COMBO_FOR_CHORD(go, A_G, A_O, AT2);
+COMBO_FOR_CHORD(about, A_B, A_O, A_U);
+COMBO_FOR_CHORD(than, A_T, A_A, A_N);
+COMBO_FOR_CHORD(into, A_I, A_N, A_O);
+COMBO_FOR_CHORD(could, A_C, A_O, A_U);
+COMBO_FOR_CHORD(state, A_S, A_T, A_A);
+COMBO_FOR_CHORD(only, A_O, A_L, A_Y);
+COMBO_FOR_CHORD(new, A_N, A_E, A_W);
+COMBO_FOR_CHORD(year, A_Y, A_E, A_A);
+COMBO_FOR_CHORD(some, A_S, A_O, A_M);
+COMBO_FOR_CHORD(take, A_A, A_K, A_E);
+COMBO_FOR_CHORD(come, A_C, A_O, A_M);
+COMBO_FOR_CHORD(these, A_N, A_H, A_S);
+COMBO_FOR_CHORD(know, A_K, A_N, A_O);
+COMBO_FOR_CHORD(see, A_S, A_E, A_K);
+COMBO_FOR_CHORD(use, A_U, A_S, A_E);
+COMBO_FOR_CHORD(get, A_G, A_E, A_T);
+COMBO_FOR_CHORD(like, A_L, A_I, A_K);
+COMBO_FOR_CHORD(then, A_T, A_E, A_N);
+COMBO_FOR_CHORD(first, A_F, A_R, A_S);
+COMBO_FOR_CHORD(any, A_A, A_N, A_Y);
+COMBO_FOR_CHORD(work, A_O, A_R, A_K);
+COMBO_FOR_CHORD(now, A_N, A_O, A_W);
+COMBO_FOR_CHORD(may, A_M, A_A, A_Y);
+COMBO_FOR_CHORD(such, A_S, A_C, A_H);
+COMBO_FOR_CHORD(give, A_G, A_I, A_V);
+COMBO_FOR_CHORD(over, A_O, A_V, A_R);
+COMBO_FOR_CHORD(think, A_H, A_I, A_K);
+COMBO_FOR_CHORD(most, A_M, A_O, A_T);
+COMBO_FOR_CHORD(even, A_E, A_V, A_N);
+COMBO_FOR_CHORD(find, A_F, A_I, A_D);
+COMBO_FOR_CHORD(day, A_D, A_A, A_Y);
+COMBO_FOR_CHORD(also, A_A, A_L, A_O);
+COMBO_FOR_CHORD(after, A_F, A_T, A_R);
+COMBO_FOR_CHORD(way, A_W, A_A, A_Y);
+COMBO_FOR_CHORD(many, A_M, A_N, A_Y);
+COMBO_FOR_CHORD(must, A_M, A_U, A_T);
+COMBO_FOR_CHORD(look, A_L, A_O, A_K);
+COMBO_FOR_CHORD(before, A_B, A_F, A_O);
+COMBO_FOR_CHORD(great, A_G, A_R, A_E);
+COMBO_FOR_CHORD(back, A_B, A_A, A_C);
+COMBO_FOR_CHORD(through, A_H, A_R, A_G);
+COMBO_FOR_CHORD(long, A_L, A_O, A_N);
+COMBO_FOR_CHORD(where, A_W, A_H, A_R);
+COMBO_FOR_CHORD(much, A_M, A_U, A_C);
+COMBO_FOR_CHORD(should, A_S, A_O, A_U);
+COMBO_FOR_CHORD(well, A_W, A_E, A_L);
+COMBO_FOR_CHORD(people, A_P, A_E, A_L);
+COMBO_FOR_CHORD(down, A_D, A_W, A_N);
+COMBO_FOR_CHORD(own, A_O, A_W, A_F);
+COMBO_FOR_CHORD(just, A_U, A_S, A_T);
+COMBO_FOR_CHORD(because, A_B, A_E, A_A);
+COMBO_FOR_CHORD(good, A_V, A_O, A_D);
+COMBO_FOR_CHORD(each, A_A, A_C, A_H);
+COMBO_FOR_CHORD(those, A_T, A_O, A_S);
+COMBO_FOR_CHORD(feel, A_F, A_E, A_L);
+COMBO_FOR_CHORD(seem, A_S, A_E, A_M);
+COMBO_FOR_CHORD(how, A_H, A_O, A_U);
+COMBO_FOR_CHORD(high, A_H, A_I, A_G);
+COMBO_FOR_CHORD(too, A_T, A_O, A_F);
+COMBO_FOR_CHORD(place, A_P, A_C, A_E);
+COMBO_FOR_CHORD(little, A_L, A_I, A_T);
+COMBO_FOR_CHORD(world, A_W, A_L, A_D);
+COMBO_FOR_CHORD(very, A_V, A_E, A_R);
+COMBO_FOR_CHORD(still, A_S, A_T, A_L);
+COMBO_FOR_CHORD(nation, A_N, A_A, A_I);
+COMBO_FOR_CHORD(hand, A_H, A_N, A_D);
+COMBO_FOR_CHORD(old, A_O, A_L, A_D);
+COMBO_FOR_CHORD(life, A_L, A_I, A_F);
+COMBO_FOR_CHORD(tell, A_T, A_E, A_L);
+COMBO_FOR_CHORD(write, A_R, A_I, A_E);
+COMBO_FOR_CHORD(become, A_C, A_M, A_E);
+COMBO_FOR_CHORD(here, A_J, A_H, A_E);
+COMBO_FOR_CHORD(show, A_S, A_H, A_W);
+COMBO_FOR_CHORD(house, A_H, A_O, A_S);
+COMBO_FOR_CHORD(both, A_B, A_O, A_H);
+COMBO_FOR_CHORD(between, A_B, A_E, A_N);
+COMBO_FOR_CHORD(need, A_T, A_N, A_D);
+COMBO_FOR_CHORD(mean, A_M, A_E, A_A);
+COMBO_FOR_CHORD(call, A_C, A_A, A_L);
+COMBO_FOR_CHORD(develop, A_D, A_E, A_V);
+COMBO_FOR_CHORD(under, A_U, A_N, A_D);
+COMBO_FOR_CHORD(last, A_L, A_A, A_S);
+COMBO_FOR_CHORD(right, A_R, A_I, A_T);
+COMBO_FOR_CHORD(move, A_M, A_V, A_E);
+COMBO_FOR_CHORD(thing, A_T, A_I, A_N);
+COMBO_FOR_CHORD(general, A_G, A_E, A_N);
+COMBO_FOR_CHORD(school, A_S, A_H, A_L);
+COMBO_FOR_CHORD(never, A_N, A_V, A_R);
+COMBO_FOR_CHORD(same, A_S, A_A, A_M);
+COMBO_FOR_CHORD(another, A_A, A_H, A_R);
+COMBO_FOR_CHORD(begin, A_E, A_G, A_I);
+COMBO_FOR_CHORD(while, A_H, A_I, A_E);
+COMBO_FOR_CHORD(number, A_N, A_E, A_R);
+COMBO_FOR_CHORD(part, A_P, A_A, A_R);
+COMBO_FOR_CHORD(turn, A_T, A_U, A_N);
+COMBO_FOR_CHORD(real, A_E, A_A, A_L);
+COMBO_FOR_CHORD(leave, A_E, A_A, A_V);
+COMBO_FOR_CHORD(might, A_M, A_I, A_T);
+COMBO_FOR_CHORD(want, A_W, A_A, A_T);
+COMBO_FOR_CHORD(point, A_P, A_O, A_I);
+COMBO_FOR_CHORD(form, A_Z, A_O, A_R);
+COMBO_FOR_CHORD(off, A_O, A_F, A_K);
+COMBO_FOR_CHORD(child, A_C, A_I, A_D);
+COMBO_FOR_CHORD(few, A_F, A_E, A_W);
+COMBO_FOR_CHORD(small, A_M, A_A, A_L);
+COMBO_FOR_CHORD(since, A_S, A_I, A_E);
+COMBO_FOR_CHORD(against, A_A, A_G, A_N);
+COMBO_FOR_CHORD(ask, A_A, A_S, A_K);
+COMBO_FOR_CHORD(late, A_L, A_A, A_T);
+COMBO_FOR_CHORD(home, A_G, A_M, A_E);
+COMBO_FOR_CHORD(interes, A_I, A_N, A_R);
+COMBO_FOR_CHORD(large, A_A, A_R, A_G);
+COMBO_FOR_CHORD(person, A_P, A_S, A_N);
+COMBO_FOR_CHORD(end, A_E, A_N, A_D);
+COMBO_FOR_CHORD(open, A_O, A_P, A_N);
+COMBO_FOR_CHORD(public, A_P, A_L, A_I);
+COMBO_FOR_CHORD(follow, A_F, A_O, A_L);
+COMBO_FOR_CHORD(during, A_D, A_R, A_N);
+COMBO_FOR_CHORD(present, A_R, A_N, A_T);
+COMBO_FOR_CHORD(without, A_I, A_T, A_O);
+COMBO_FOR_CHORD(again, A_A, A_G, A_I);
+COMBO_FOR_CHORD(hold, A_H, A_O, A_D);
+COMBO_FOR_CHORD(govern, A_G, A_R, A_N);
+COMBO_FOR_CHORD(around, A_A, A_R, A_D);
+COMBO_FOR_CHORD(possibl, A_P, A_S, A_E);
+COMBO_FOR_CHORD(head, A_H, A_E, A_D);
+COMBO_FOR_CHORD(conside, A_C, A_N, A_D);
+COMBO_FOR_CHORD(word, A_W, A_R, A_D);
+COMBO_FOR_CHORD(program, A_R, A_G, A_M);
+COMBO_FOR_CHORD(problem, A_L, A_E, A_M);
+COMBO_FOR_CHORD(however, A_H, A_E, A_V);
+COMBO_FOR_CHORD(lead, A_E, A_A, A_D);
+COMBO_FOR_CHORD(system, A_S, A_T, A_M);
+COMBO_FOR_CHORD(set, A_S, A_E, A_T);
+COMBO_FOR_CHORD(order, A_O, A_R, A_D);
+COMBO_FOR_CHORD(eye, A_E, A_Y, A_X);
+COMBO_FOR_CHORD(plan, A_P, A_L, A_N);
+COMBO_FOR_CHORD(run, A_R, A_U, A_N);
+COMBO_FOR_CHORD(keep, A_K, A_E, A_X);
+COMBO_FOR_CHORD(face, A_F, A_A, A_C);
+COMBO_FOR_CHORD(fact, A_F, A_C, A_T);
+COMBO_FOR_CHORD(group, A_G, A_O, A_U);
+COMBO_FOR_CHORD(play, A_P, A_L, A_Y);
+COMBO_FOR_CHORD(stand, A_S, A_N, A_D);
+COMBO_FOR_CHORD(increas, A_I, A_N, A_C);
+COMBO_FOR_CHORD(early, A_E, A_L, A_Y);
+COMBO_FOR_CHORD(course, A_O, A_R, A_S);
+COMBO_FOR_CHORD(change, A_C, A_H, A_E);
+COMBO_FOR_CHORD(help, A_H, A_L, A_P);
+COMBO_FOR_CHORD(line, A_L, A_N, A_E);
+COMBO_FOR_CHORD(his, A_H, A_I, A_S);
+COMBO_FOR_CHORD(her, A_H, A_E, A_R);
+COMBO_FOR_CHORD(an, A_A, A_N, AT2);
+COMBO_FOR_CHORD(my, A_M, A_Y, AT2);
+COMBO_FOR_CHORD(their, A_H, A_I, A_R);
+COMBO_FOR_CHORD(me, A_M, A_E, AT2);
+COMBO_FOR_CHORD(him, A_B, A_I, A_M);
+COMBO_FOR_CHORD(your, A_Y, A_O, A_R);
+COMBO_FOR_CHORD(its, A_I, A_T, A_S);
+COMBO_FOR_CHORD(two, A_T, A_W, A_O);
+COMBO_FOR_CHORD(our, A_O, A_U, A_R);
+COMBO_FOR_CHORD(us, A_U, A_S, AT2);
+COMBO_FOR_CHORD(is, A_I, A_S, AT2);
+COMBO_FOR_CHORD(was, A_W, A_A, A_S);
+COMBO_FOR_CHORD(are, A_A, A_R, A_E);
+COMBO_FOR_CHORD(had, A_H, A_A, A_D);
+COMBO_FOR_CHORD(were, A_W, A_E, A_R);
+COMBO_FOR_CHORD(said, A_S, A_A, A_I);
+COMBO_FOR_CHORD(has, A_H, A_A, A_S);
+COMBO_FOR_CHORD(sound, A_S, A_U, A_D);
+COMBO_FOR_CHORD(water, A_W, A_T, A_R);
+COMBO_FOR_CHORD(side, A_S, A_I, A_D);
+COMBO_FOR_CHORD(made, A_M, A_D, A_E);
+COMBO_FOR_CHORD(live, A_L, A_I, A_V);
+COMBO_FOR_CHORD(round, A_O, A_U, A_D);
+COMBO_FOR_CHORD(came, A_C, A_A, A_M);
+COMBO_FOR_CHORD(every, A_E, A_R, A_Y);
+COMBO_FOR_CHORD(name, A_N, A_A, A_E);
+COMBO_FOR_CHORD(sentenc, A_S, A_E, A_N);
+COMBO_FOR_CHORD(low, A_L, A_O, A_W);
+COMBO_FOR_CHORD(differ, A_D, A_F, A_R);
+COMBO_FOR_CHORD(cause, A_C, A_A, A_S);
+COMBO_FOR_CHORD(boy, A_B, A_O, A_Y);
+COMBO_FOR_CHORD(does, A_D, A_E, A_S);
+COMBO_FOR_CHORD(air, A_A, A_I, A_R);
+COMBO_FOR_CHORD(put, A_P, A_U, A_T);
+COMBO_FOR_CHORD(port, A_P, A_O, A_R);
+COMBO_FOR_CHORD(spell, A_S, A_P, A_L);
+COMBO_FOR_CHORD(land, A_L, A_N, A_D);
+COMBO_FOR_CHORD(big, A_B, A_I, A_G);
+COMBO_FOR_CHORD(act, A_A, A_C, A_T);
+COMBO_FOR_CHORD(why, A_W, A_H, A_Y);
+COMBO_FOR_CHORD(men, A_M, A_E, A_N);
+COMBO_FOR_CHORD(went, A_W, A_N, A_T);
+COMBO_FOR_CHORD(light, A_L, A_I, A_G);
+COMBO_FOR_CHORD(kind, A_I, A_N, A_D);
+COMBO_FOR_CHORD(picture, A_P, A_I, A_C);
+COMBO_FOR_CHORD(try, A_T, A_R, A_Y);
+COMBO_FOR_CHORD(animal, A_A, A_N, A_L);
+COMBO_FOR_CHORD(mother, A_M, A_T, A_R);
+COMBO_FOR_CHORD(build, A_B, A_U, A_L);
+COMBO_FOR_CHORD(self, A_S, A_L, A_F);
+COMBO_FOR_CHORD(earth, A_E, A_A, A_H);
+COMBO_FOR_CHORD(father, A_F, A_A, A_E);
+COMBO_FOR_CHORD(page, A_P, A_A, A_E);
+COMBO_FOR_CHORD(country, A_C, A_U, A_Y);
+COMBO_FOR_CHORD(found, A_F, A_U, A_D);
+COMBO_FOR_CHORD(answer, A_A, A_N, A_S);
+COMBO_FOR_CHORD(grow, A_G, A_R, A_W);
+COMBO_FOR_CHORD(study, A_T, A_U, A_Y);
+COMBO_FOR_CHORD(learn, A_L, A_E, A_R);
+COMBO_FOR_CHORD(plant, A_P, A_L, A_T);
+COMBO_FOR_CHORD(cover, A_C, A_O, A_V);
+COMBO_FOR_CHORD(food, A_F, A_O, A_D);
+COMBO_FOR_CHORD(sun, A_S, A_U, A_N);
+COMBO_FOR_CHORD(four, A_F, A_O, A_U);
+COMBO_FOR_CHORD(thought, A_T, A_H, A_U);
+COMBO_FOR_CHORD(city, A_C, A_T, A_Y);
+COMBO_FOR_CHORD(cross, A_C, A_R, A_S);
+COMBO_FOR_CHORD(hard, A_H, A_R, A_D);
+COMBO_FOR_CHORD(far, A_F, A_A, A_R);
+COMBO_FOR_CHORD(sea, A_S, A_E, A_A);
+COMBO_FOR_CHORD(draw, A_D, A_A, A_W);
+COMBO_FOR_CHORD(left, A_L, A_F, A_T);
+COMBO_FOR_CHORD(press, A_P, A_R, A_S);
+COMBO_FOR_CHORD(close, A_C, A_O, A_S);
+COMBO_FOR_CHORD(night, A_N, A_G, A_H);
+COMBO_FOR_CHORD(north, A_N, A_R, A_H);
+COMBO_FOR_CHORD(togethe, A_O, A_G, A_H);
+COMBO_FOR_CHORD(next, A_E, A_X, A_T);
+COMBO_FOR_CHORD(white, A_W, A_I, A_E);
+COMBO_FOR_CHORD(childre, A_H, A_I, A_D);
+COMBO_FOR_CHORD(got, A_G, A_O, A_T);
+COMBO_FOR_CHORD(walk, A_A, A_L, A_K);
+COMBO_FOR_CHORD(example, A_M, A_P, A_L);
+COMBO_FOR_CHORD(always, A_L, A_W, A_Y);
+COMBO_FOR_CHORD(music, A_M, A_S, A_C);
+COMBO_FOR_CHORD(mark, A_M, A_R, A_K);
+COMBO_FOR_CHORD(often, A_O, A_T, A_E);
+COMBO_FOR_CHORD(letter, A_L, A_T, A_R);
+COMBO_FOR_CHORD(until, A_N, A_T, A_L);
+COMBO_FOR_CHORD(mile, A_M, A_I, A_E);
+COMBO_FOR_CHORD(river, A_R, A_I, A_V);
+COMBO_FOR_CHORD(car, A_C, A_A, A_R);
+COMBO_FOR_CHORD(feet, A_F, A_E, A_T);
+COMBO_FOR_CHORD(care, A_C, A_R, A_E);
+COMBO_FOR_CHORD(second, A_S, A_E, A_C);
+COMBO_FOR_CHORD(carry, A_C, A_A, A_Y);
+COMBO_FOR_CHORD(science, A_S, A_C, A_I);
+COMBO_FOR_CHORD(eat, A_E, A_A, A_T);
+COMBO_FOR_CHORD(friend, A_R, A_I, A_D);
+COMBO_FOR_CHORD(began, A_B, A_G, A_N);
+COMBO_FOR_CHORD(idea, A_I, A_D, A_A);
+COMBO_FOR_CHORD(fish, A_F, A_I, A_S);
+COMBO_FOR_CHORD(mountai, A_O, A_A, A_T);
+COMBO_FOR_CHORD(stop, A_S, A_T, A_P);
+COMBO_FOR_CHORD(once, A_N, A_C, A_E);
+COMBO_FOR_CHORD(base, A_B, A_A, A_S);
+COMBO_FOR_CHORD(horse, A_H, A_R, A_S);
+COMBO_FOR_CHORD(cut, A_C, A_U, A_T);
+COMBO_FOR_CHORD(sure, A_S, A_U, A_R);
+COMBO_FOR_CHORD(watch, A_W, A_A, A_H);
+COMBO_FOR_CHORD(color, A_C, A_O, A_R);
+COMBO_FOR_CHORD(wood, A_W, A_O, A_D);
+COMBO_FOR_CHORD(main, A_M, A_I, A_N);
+COMBO_FOR_CHORD(enough, A_N, A_O, A_G);
+COMBO_FOR_CHORD(plain, A_P, A_A, A_I);
+COMBO_FOR_CHORD(girl, A_G, A_I, A_R);
+COMBO_FOR_CHORD(usual, A_U, A_S, A_L);
+COMBO_FOR_CHORD(young, A_Y, A_O, A_G);
+COMBO_FOR_CHORD(ready, A_E, A_D, A_Y);
+COMBO_FOR_CHORD(above, A_A, A_B, A_V);
+COMBO_FOR_CHORD(red, A_R, A_E, A_D);
+COMBO_FOR_CHORD(list, A_L, A_I, A_S);
+COMBO_FOR_CHORD(though, A_H, A_U, A_G);
+COMBO_FOR_CHORD(bird, A_B, A_I, A_R);
+COMBO_FOR_CHORD(body, A_O, A_D, A_Y);
+COMBO_FOR_CHORD(family, A_F, A_A, A_Y);
+COMBO_FOR_CHORD(direct, A_D, A_R, A_C);
+COMBO_FOR_CHORD(pose, A_P, A_O, A_S);
+COMBO_FOR_CHORD(song, A_S, A_N, A_G);
+COMBO_FOR_CHORD(measure, A_A, A_S, A_U);
+COMBO_FOR_CHORD(product, A_R, A_D, A_U);
+COMBO_FOR_CHORD(black, A_B, A_L, A_C);
+COMBO_FOR_CHORD(short, A_H, A_O, A_R);
+COMBO_FOR_CHORD(numeral, A_U, A_M, A_A);
+COMBO_FOR_CHORD(class, A_C, A_L, A_S);
+COMBO_FOR_CHORD(wind, A_W, A_I, A_D);
+COMBO_FOR_CHORD(questio, A_Q, A_E, A_N);
+COMBO_FOR_CHORD(happen, A_H, A_A, A_P);
+COMBO_FOR_CHORD(complet, A_C, A_M, A_T);
+COMBO_FOR_CHORD(ship, A_S, A_H, A_P);
+COMBO_FOR_CHORD(half, A_H, A_A, A_L);
+COMBO_FOR_CHORD(rock, A_R, A_C, A_K);
+COMBO_FOR_CHORD(fire, A_F, A_I, A_R);
+COMBO_FOR_CHORD(south, A_S, A_U, A_H);
+COMBO_FOR_CHORD(told, A_T, A_L, A_D);
+COMBO_FOR_CHORD(knew, A_K, A_N, A_E);
+COMBO_FOR_CHORD(pass, A_P, A_A, A_S);
+COMBO_FOR_CHORD(top, A_T, A_O, A_P);
+COMBO_FOR_CHORD(whole, A_W, A_H, A_L);
+COMBO_FOR_CHORD(space, A_S, A_P, A_C);
+COMBO_FOR_CHORD(best, A_B, A_E, A_S);
+COMBO_FOR_CHORD(hour, A_H, A_U, A_R);
+COMBO_FOR_CHORD(better, A_B, A_E, A_R);
+COMBO_FOR_CHORD(true, A_T, A_R, A_U);
+COMBO_FOR_CHORD(hundred, A_H, A_U, A_E);
+COMBO_FOR_CHORD(five, A_F, A_I, A_V);
+COMBO_FOR_CHORD(six, A_S, A_I, A_X);
+COMBO_FOR_CHORD(war, A_W, A_A, A_R);
+COMBO_FOR_CHORD(lay, A_L, A_A, A_Y);
+COMBO_FOR_CHORD(map, A_M, A_A, A_P);
+COMBO_FOR_CHORD(fly, A_F, A_L, A_Y);
+COMBO_FOR_CHORD(fall, A_F, A_A, A_L);
+COMBO_FOR_CHORD(cry, A_C, A_R, A_Y);
+COMBO_FOR_CHORD(box, A_B, A_O, A_X);
+COMBO_FOR_CHORD(noun, A_N, A_O, A_U);
+COMBO_FOR_CHORD(week, A_W, A_E, A_K);
+COMBO_FOR_CHORD(oh, A_O, A_H, AT2);
+COMBO_FOR_CHORD(free, A_F, A_R, A_E);
+COMBO_FOR_CHORD(dry, A_D, A_R, A_Y);
+COMBO_FOR_CHORD(ago, A_A, A_G, A_O);
+COMBO_FOR_CHORD(ran, A_R, A_A, A_N);
+COMBO_FOR_CHORD(hot, A_H, A_O, A_T);
+COMBO_FOR_CHORD(ball, A_B, A_A, A_L);
+COMBO_FOR_CHORD(yet, A_Y, A_E, A_T);
+COMBO_FOR_CHORD(am, A_A, A_M, AT2);
+COMBO_FOR_CHORD(arm, A_A, A_R, A_M);
+COMBO_FOR_CHORD(ice, A_I, A_C, A_E);
+COMBO_FOR_CHORD(matter, A_M, A_A, A_T);
+COMBO_FOR_CHORD(art, A_A, A_R, A_T);
+COMBO_FOR_CHORD(cell, A_C, A_E, A_L);
+COMBO_FOR_CHORD(summer, A_S, A_M, A_R);
+COMBO_FOR_CHORD(leg, A_L, A_E, A_G);
+COMBO_FOR_CHORD(joy, A_J, A_O, A_Y);
+COMBO_FOR_CHORD(job, A_J, A_O, A_B);
+COMBO_FOR_CHORD(gas, A_G, A_A, A_S);
+COMBO_FOR_CHORD(buy, A_B, A_U, A_Y);
+COMBO_FOR_CHORD(cook, A_C, A_O, A_K);
+COMBO_FOR_CHORD(hill, A_H, A_I, A_L);
+COMBO_FOR_CHORD(law, A_L, A_A, A_W);
+COMBO_FOR_CHORD(lie, A_L, A_I, A_E);
+COMBO_FOR_CHORD(son, A_S, A_O, A_N);
+COMBO_FOR_CHORD(pay, A_P, A_A, A_Y);
+COMBO_FOR_CHORD(age, A_A, A_G, A_E);
+COMBO_FOR_CHORD(cool, A_C, A_O, A_L);
+COMBO_FOR_CHORD(lot, A_L, A_O, A_T);
+COMBO_FOR_CHORD(key, A_K, A_E, A_Y);
+COMBO_FOR_CHORD(row, A_R, A_O, A_W);
+COMBO_FOR_CHORD(die, A_D, A_I, A_E);
+COMBO_FOR_CHORD(oil, A_O, A_I, A_L);
+COMBO_FOR_CHORD(fit, A_F, A_I, A_T);
+COMBO_FOR_CHORD(hit, A_H, A_I, A_T);
+COMBO_FOR_CHORD(rub, A_R, A_U, A_B);
+COMBO_FOR_CHORD(tie, A_T, A_I, A_E);
+COMBO_FOR_CHORD(gun, A_G, A_U, A_N);
+COMBO_FOR_CHORD(nine, A_N, A_I, A_E);
+COMBO_FOR_CHORD(thank, A_H, A_A, A_K);
+COMBO_FOR_CHORD(experie, A_E, A_X, A_P);
+COMBO_FOR_CHORD(led, A_L, A_E, A_D);
+COMBO_FOR_CHORD(win, A_W, A_I, A_N);
+COMBO_FOR_CHORD(feed, A_F, A_E, A_D);
+COMBO_FOR_CHORD(nor, A_N, A_O, A_R);
+COMBO_FOR_CHORD(fat, A_F, A_A, A_T);
+COMBO_FOR_CHORD(bar, A_B, A_A, A_R);
+COMBO_FOR_CHORD(log, A_L, A_O, A_G);
+COMBO_FOR_CHORD(hey, A_H, A_E, A_Y);
+COMBO_FOR_CHORD(return, A_R, A_E, A_T);
+COMBO_FOR_CHORD(probabl, A_P, A_B, A_L, A_Y);
+COMBO_FOR_CHORD(thank_y, A_T, A_A, A_Y);
+COMBO_FOR_CHORD(thanks, A_T, A_N, A_S);
+COMBO_FOR_CHORD(i_ve, A_I, A_V, A_E);
+COMBO_FOR_CHORD(per, A_P, A_E, A_R);
+COMBO_FOR_CHORD(null, A_N, A_U, A_L);
+COMBO_FOR_CHORD(nil, A_N, A_I, A_L);
+COMBO_FOR_CHORD(array, A_A, A_R, A_Y);
+COMBO_FOR_CHORD(sort, A_S, A_R, A_T);
+COMBO_FOR_CHORD(the_qui, A_B, A_Q, A_X, A_q);
+COMBO_FOR_CHORD(elberet, A_E, A_L, A_B, A_H);
+COMBO_FOR_CHORD(shawn, A_H, A_A, A_N);
+COMBO_FOR_CHORD(moore, A_O, A_R, A_E);
+COMBO_FOR_CHORD(sartak, A_S, A_A, A_R);
+COMBO_FOR_CHORD(sartak_, A_S, A_R, A_d);
+COMBO_FOR_CHORD(shawn_d, A_H, A_N, A_d);
+COMBO_FOR_CHORD(somervi, A_S, A_E, A_V);
+COMBO_FOR_CHORD(boston, A_B, A_S, A_N);
+COMBO_FOR_CHORD(massach, A_C, A_H, A_U);
+COMBO_FOR_CHORD(x, A_W, A_T, A_L);
 
+#define CHORD_COMBO(name) [CHORD_##name] = COMBO_ACTION(chord_##name)
 #define CHORD_COMBOS \
-  [CHORD_excl1] = COMBO_ACTION(chord_excl1), \
-  [CHORD_qmark1] = COMBO_ACTION(chord_qmark1), \
-  [CHORD_colon1] = COMBO_ACTION(chord_colon1), \
-  [CHORD_semi1] = COMBO_ACTION(chord_semi1), \
-  [CHORD_cent] = COMBO_ACTION(chord_cent), \
-  [CHORD_pound] = COMBO_ACTION(chord_pound), \
-  [CHORD_yen] = COMBO_ACTION(chord_yen), \
-  [CHORD_euro] = COMBO_ACTION(chord_euro), \
-  [CHORD_mid_ell] = COMBO_ACTION(chord_mid_ell), \
-  [CHORD_bullet] = COMBO_ACTION(chord_bullet), \
-  [CHORD_degrees] = COMBO_ACTION(chord_degrees), \
-  [CHORD_infinit] = COMBO_ACTION(chord_infinit), \
-  [CHORD_lambda] = COMBO_ACTION(chord_lambda), \
-  [CHORD_interro] = COMBO_ACTION(chord_interro), \
-  [CHORD_ballot_] = COMBO_ACTION(chord_ballot_), \
-  [CHORD_checkma] = COMBO_ACTION(chord_checkma), \
-  [CHORD_left_ar] = COMBO_ACTION(chord_left_ar), \
-  [CHORD_down_ar] = COMBO_ACTION(chord_down_ar), \
-  [CHORD_up_arro] = COMBO_ACTION(chord_up_arro), \
-  [CHORD_right_a] = COMBO_ACTION(chord_right_a), \
-  [CHORD__bs_ing] = COMBO_ACTION(chord__bs_ing), \
-  [CHORD__bs_n_t] = COMBO_ACTION(chord__bs_n_t), \
-  [CHORD__bs_ve] = COMBO_ACTION(chord__bs_ve), \
-  [CHORD__bs_re] = COMBO_ACTION(chord__bs_re), \
-  [CHORD_the] = COMBO_ACTION(chord_the), \
-  [CHORD_be] = COMBO_ACTION(chord_be), \
-  [CHORD_of] = COMBO_ACTION(chord_of), \
-  [CHORD_and] = COMBO_ACTION(chord_and), \
-  [CHORD_a] = COMBO_ACTION(chord_a), \
-  [CHORD_a1] = COMBO_ACTION(chord_a1), \
-  [CHORD_to] = COMBO_ACTION(chord_to), \
-  [CHORD_in] = COMBO_ACTION(chord_in), \
-  [CHORD_he] = COMBO_ACTION(chord_he), \
-  [CHORD_have] = COMBO_ACTION(chord_have), \
-  [CHORD_it] = COMBO_ACTION(chord_it), \
-  [CHORD_that] = COMBO_ACTION(chord_that), \
-  [CHORD_for] = COMBO_ACTION(chord_for), \
-  [CHORD_they] = COMBO_ACTION(chord_they), \
-  [CHORD_i] = COMBO_ACTION(chord_i), \
-  [CHORD_with] = COMBO_ACTION(chord_with), \
-  [CHORD_as] = COMBO_ACTION(chord_as), \
-  [CHORD_not] = COMBO_ACTION(chord_not), \
-  [CHORD_on] = COMBO_ACTION(chord_on), \
-  [CHORD_she] = COMBO_ACTION(chord_she), \
-  [CHORD_at] = COMBO_ACTION(chord_at), \
-  [CHORD_by] = COMBO_ACTION(chord_by), \
-  [CHORD_this] = COMBO_ACTION(chord_this), \
-  [CHORD_we] = COMBO_ACTION(chord_we), \
-  [CHORD_you] = COMBO_ACTION(chord_you), \
-  [CHORD_do] = COMBO_ACTION(chord_do), \
-  [CHORD_but] = COMBO_ACTION(chord_but), \
-  [CHORD_from] = COMBO_ACTION(chord_from), \
-  [CHORD_or] = COMBO_ACTION(chord_or), \
-  [CHORD_which] = COMBO_ACTION(chord_which), \
-  [CHORD_one] = COMBO_ACTION(chord_one), \
-  [CHORD_would] = COMBO_ACTION(chord_would), \
-  [CHORD_all] = COMBO_ACTION(chord_all), \
-  [CHORD_will] = COMBO_ACTION(chord_will), \
-  [CHORD_there] = COMBO_ACTION(chord_there), \
-  [CHORD_say] = COMBO_ACTION(chord_say), \
-  [CHORD_who] = COMBO_ACTION(chord_who), \
-  [CHORD_make] = COMBO_ACTION(chord_make), \
-  [CHORD_when] = COMBO_ACTION(chord_when), \
-  [CHORD_can] = COMBO_ACTION(chord_can), \
-  [CHORD_more] = COMBO_ACTION(chord_more), \
-  [CHORD_if] = COMBO_ACTION(chord_if), \
-  [CHORD_no] = COMBO_ACTION(chord_no), \
-  [CHORD_man] = COMBO_ACTION(chord_man), \
-  [CHORD_out] = COMBO_ACTION(chord_out), \
-  [CHORD_other] = COMBO_ACTION(chord_other), \
-  [CHORD_so] = COMBO_ACTION(chord_so), \
-  [CHORD_what] = COMBO_ACTION(chord_what), \
-  [CHORD_time] = COMBO_ACTION(chord_time), \
-  [CHORD_up] = COMBO_ACTION(chord_up), \
-  [CHORD_go] = COMBO_ACTION(chord_go), \
-  [CHORD_about] = COMBO_ACTION(chord_about), \
-  [CHORD_than] = COMBO_ACTION(chord_than), \
-  [CHORD_into] = COMBO_ACTION(chord_into), \
-  [CHORD_could] = COMBO_ACTION(chord_could), \
-  [CHORD_state] = COMBO_ACTION(chord_state), \
-  [CHORD_only] = COMBO_ACTION(chord_only), \
-  [CHORD_new] = COMBO_ACTION(chord_new), \
-  [CHORD_year] = COMBO_ACTION(chord_year), \
-  [CHORD_some] = COMBO_ACTION(chord_some), \
-  [CHORD_take] = COMBO_ACTION(chord_take), \
-  [CHORD_come] = COMBO_ACTION(chord_come), \
-  [CHORD_these] = COMBO_ACTION(chord_these), \
-  [CHORD_know] = COMBO_ACTION(chord_know), \
-  [CHORD_see] = COMBO_ACTION(chord_see), \
-  [CHORD_use] = COMBO_ACTION(chord_use), \
-  [CHORD_get] = COMBO_ACTION(chord_get), \
-  [CHORD_like] = COMBO_ACTION(chord_like), \
-  [CHORD_then] = COMBO_ACTION(chord_then), \
-  [CHORD_first] = COMBO_ACTION(chord_first), \
-  [CHORD_any] = COMBO_ACTION(chord_any), \
-  [CHORD_work] = COMBO_ACTION(chord_work), \
-  [CHORD_now] = COMBO_ACTION(chord_now), \
-  [CHORD_may] = COMBO_ACTION(chord_may), \
-  [CHORD_such] = COMBO_ACTION(chord_such), \
-  [CHORD_give] = COMBO_ACTION(chord_give), \
-  [CHORD_over] = COMBO_ACTION(chord_over), \
-  [CHORD_think] = COMBO_ACTION(chord_think), \
-  [CHORD_most] = COMBO_ACTION(chord_most), \
-  [CHORD_even] = COMBO_ACTION(chord_even), \
-  [CHORD_find] = COMBO_ACTION(chord_find), \
-  [CHORD_day] = COMBO_ACTION(chord_day), \
-  [CHORD_also] = COMBO_ACTION(chord_also), \
-  [CHORD_after] = COMBO_ACTION(chord_after), \
-  [CHORD_way] = COMBO_ACTION(chord_way), \
-  [CHORD_many] = COMBO_ACTION(chord_many), \
-  [CHORD_must] = COMBO_ACTION(chord_must), \
-  [CHORD_look] = COMBO_ACTION(chord_look), \
-  [CHORD_before] = COMBO_ACTION(chord_before), \
-  [CHORD_great] = COMBO_ACTION(chord_great), \
-  [CHORD_back] = COMBO_ACTION(chord_back), \
-  [CHORD_through] = COMBO_ACTION(chord_through), \
-  [CHORD_long] = COMBO_ACTION(chord_long), \
-  [CHORD_where] = COMBO_ACTION(chord_where), \
-  [CHORD_much] = COMBO_ACTION(chord_much), \
-  [CHORD_should] = COMBO_ACTION(chord_should), \
-  [CHORD_well] = COMBO_ACTION(chord_well), \
-  [CHORD_people] = COMBO_ACTION(chord_people), \
-  [CHORD_down] = COMBO_ACTION(chord_down), \
-  [CHORD_own] = COMBO_ACTION(chord_own), \
-  [CHORD_just] = COMBO_ACTION(chord_just), \
-  [CHORD_because] = COMBO_ACTION(chord_because), \
-  [CHORD_good] = COMBO_ACTION(chord_good), \
-  [CHORD_each] = COMBO_ACTION(chord_each), \
-  [CHORD_those] = COMBO_ACTION(chord_those), \
-  [CHORD_feel] = COMBO_ACTION(chord_feel), \
-  [CHORD_seem] = COMBO_ACTION(chord_seem), \
-  [CHORD_how] = COMBO_ACTION(chord_how), \
-  [CHORD_high] = COMBO_ACTION(chord_high), \
-  [CHORD_too] = COMBO_ACTION(chord_too), \
-  [CHORD_place] = COMBO_ACTION(chord_place), \
-  [CHORD_little] = COMBO_ACTION(chord_little), \
-  [CHORD_world] = COMBO_ACTION(chord_world), \
-  [CHORD_very] = COMBO_ACTION(chord_very), \
-  [CHORD_still] = COMBO_ACTION(chord_still), \
-  [CHORD_nation] = COMBO_ACTION(chord_nation), \
-  [CHORD_hand] = COMBO_ACTION(chord_hand), \
-  [CHORD_old] = COMBO_ACTION(chord_old), \
-  [CHORD_life] = COMBO_ACTION(chord_life), \
-  [CHORD_tell] = COMBO_ACTION(chord_tell), \
-  [CHORD_write] = COMBO_ACTION(chord_write), \
-  [CHORD_become] = COMBO_ACTION(chord_become), \
-  [CHORD_here] = COMBO_ACTION(chord_here), \
-  [CHORD_show] = COMBO_ACTION(chord_show), \
-  [CHORD_house] = COMBO_ACTION(chord_house), \
-  [CHORD_both] = COMBO_ACTION(chord_both), \
-  [CHORD_between] = COMBO_ACTION(chord_between), \
-  [CHORD_need] = COMBO_ACTION(chord_need), \
-  [CHORD_mean] = COMBO_ACTION(chord_mean), \
-  [CHORD_call] = COMBO_ACTION(chord_call), \
-  [CHORD_develop] = COMBO_ACTION(chord_develop), \
-  [CHORD_under] = COMBO_ACTION(chord_under), \
-  [CHORD_last] = COMBO_ACTION(chord_last), \
-  [CHORD_right] = COMBO_ACTION(chord_right), \
-  [CHORD_move] = COMBO_ACTION(chord_move), \
-  [CHORD_thing] = COMBO_ACTION(chord_thing), \
-  [CHORD_general] = COMBO_ACTION(chord_general), \
-  [CHORD_school] = COMBO_ACTION(chord_school), \
-  [CHORD_never] = COMBO_ACTION(chord_never), \
-  [CHORD_same] = COMBO_ACTION(chord_same), \
-  [CHORD_another] = COMBO_ACTION(chord_another), \
-  [CHORD_begin] = COMBO_ACTION(chord_begin), \
-  [CHORD_while] = COMBO_ACTION(chord_while), \
-  [CHORD_number] = COMBO_ACTION(chord_number), \
-  [CHORD_part] = COMBO_ACTION(chord_part), \
-  [CHORD_turn] = COMBO_ACTION(chord_turn), \
-  [CHORD_real] = COMBO_ACTION(chord_real), \
-  [CHORD_leave] = COMBO_ACTION(chord_leave), \
-  [CHORD_might] = COMBO_ACTION(chord_might), \
-  [CHORD_want] = COMBO_ACTION(chord_want), \
-  [CHORD_point] = COMBO_ACTION(chord_point), \
-  [CHORD_form] = COMBO_ACTION(chord_form), \
-  [CHORD_off] = COMBO_ACTION(chord_off), \
-  [CHORD_child] = COMBO_ACTION(chord_child), \
-  [CHORD_few] = COMBO_ACTION(chord_few), \
-  [CHORD_small] = COMBO_ACTION(chord_small), \
-  [CHORD_since] = COMBO_ACTION(chord_since), \
-  [CHORD_against] = COMBO_ACTION(chord_against), \
-  [CHORD_ask] = COMBO_ACTION(chord_ask), \
-  [CHORD_late] = COMBO_ACTION(chord_late), \
-  [CHORD_home] = COMBO_ACTION(chord_home), \
-  [CHORD_interes] = COMBO_ACTION(chord_interes), \
-  [CHORD_large] = COMBO_ACTION(chord_large), \
-  [CHORD_person] = COMBO_ACTION(chord_person), \
-  [CHORD_end] = COMBO_ACTION(chord_end), \
-  [CHORD_open] = COMBO_ACTION(chord_open), \
-  [CHORD_public] = COMBO_ACTION(chord_public), \
-  [CHORD_follow] = COMBO_ACTION(chord_follow), \
-  [CHORD_during] = COMBO_ACTION(chord_during), \
-  [CHORD_present] = COMBO_ACTION(chord_present), \
-  [CHORD_without] = COMBO_ACTION(chord_without), \
-  [CHORD_again] = COMBO_ACTION(chord_again), \
-  [CHORD_hold] = COMBO_ACTION(chord_hold), \
-  [CHORD_govern] = COMBO_ACTION(chord_govern), \
-  [CHORD_around] = COMBO_ACTION(chord_around), \
-  [CHORD_possibl] = COMBO_ACTION(chord_possibl), \
-  [CHORD_head] = COMBO_ACTION(chord_head), \
-  [CHORD_conside] = COMBO_ACTION(chord_conside), \
-  [CHORD_word] = COMBO_ACTION(chord_word), \
-  [CHORD_program] = COMBO_ACTION(chord_program), \
-  [CHORD_problem] = COMBO_ACTION(chord_problem), \
-  [CHORD_however] = COMBO_ACTION(chord_however), \
-  [CHORD_lead] = COMBO_ACTION(chord_lead), \
-  [CHORD_system] = COMBO_ACTION(chord_system), \
-  [CHORD_set] = COMBO_ACTION(chord_set), \
-  [CHORD_order] = COMBO_ACTION(chord_order), \
-  [CHORD_eye] = COMBO_ACTION(chord_eye), \
-  [CHORD_plan] = COMBO_ACTION(chord_plan), \
-  [CHORD_run] = COMBO_ACTION(chord_run), \
-  [CHORD_keep] = COMBO_ACTION(chord_keep), \
-  [CHORD_face] = COMBO_ACTION(chord_face), \
-  [CHORD_fact] = COMBO_ACTION(chord_fact), \
-  [CHORD_group] = COMBO_ACTION(chord_group), \
-  [CHORD_play] = COMBO_ACTION(chord_play), \
-  [CHORD_stand] = COMBO_ACTION(chord_stand), \
-  [CHORD_increas] = COMBO_ACTION(chord_increas), \
-  [CHORD_early] = COMBO_ACTION(chord_early), \
-  [CHORD_course] = COMBO_ACTION(chord_course), \
-  [CHORD_change] = COMBO_ACTION(chord_change), \
-  [CHORD_help] = COMBO_ACTION(chord_help), \
-  [CHORD_line] = COMBO_ACTION(chord_line), \
-  [CHORD_his] = COMBO_ACTION(chord_his), \
-  [CHORD_her] = COMBO_ACTION(chord_her), \
-  [CHORD_an] = COMBO_ACTION(chord_an), \
-  [CHORD_my] = COMBO_ACTION(chord_my), \
-  [CHORD_their] = COMBO_ACTION(chord_their), \
-  [CHORD_me] = COMBO_ACTION(chord_me), \
-  [CHORD_him] = COMBO_ACTION(chord_him), \
-  [CHORD_your] = COMBO_ACTION(chord_your), \
-  [CHORD_its] = COMBO_ACTION(chord_its), \
-  [CHORD_two] = COMBO_ACTION(chord_two), \
-  [CHORD_our] = COMBO_ACTION(chord_our), \
-  [CHORD_us] = COMBO_ACTION(chord_us), \
-  [CHORD_is] = COMBO_ACTION(chord_is), \
-  [CHORD_was] = COMBO_ACTION(chord_was), \
-  [CHORD_are] = COMBO_ACTION(chord_are), \
-  [CHORD_had] = COMBO_ACTION(chord_had), \
-  [CHORD_were] = COMBO_ACTION(chord_were), \
-  [CHORD_said] = COMBO_ACTION(chord_said), \
-  [CHORD_has] = COMBO_ACTION(chord_has), \
-  [CHORD_sound] = COMBO_ACTION(chord_sound), \
-  [CHORD_water] = COMBO_ACTION(chord_water), \
-  [CHORD_side] = COMBO_ACTION(chord_side), \
-  [CHORD_made] = COMBO_ACTION(chord_made), \
-  [CHORD_live] = COMBO_ACTION(chord_live), \
-  [CHORD_round] = COMBO_ACTION(chord_round), \
-  [CHORD_came] = COMBO_ACTION(chord_came), \
-  [CHORD_every] = COMBO_ACTION(chord_every), \
-  [CHORD_name] = COMBO_ACTION(chord_name), \
-  [CHORD_sentenc] = COMBO_ACTION(chord_sentenc), \
-  [CHORD_low] = COMBO_ACTION(chord_low), \
-  [CHORD_differ] = COMBO_ACTION(chord_differ), \
-  [CHORD_cause] = COMBO_ACTION(chord_cause), \
-  [CHORD_boy] = COMBO_ACTION(chord_boy), \
-  [CHORD_does] = COMBO_ACTION(chord_does), \
-  [CHORD_air] = COMBO_ACTION(chord_air), \
-  [CHORD_put] = COMBO_ACTION(chord_put), \
-  [CHORD_port] = COMBO_ACTION(chord_port), \
-  [CHORD_spell] = COMBO_ACTION(chord_spell), \
-  [CHORD_land] = COMBO_ACTION(chord_land), \
-  [CHORD_big] = COMBO_ACTION(chord_big), \
-  [CHORD_act] = COMBO_ACTION(chord_act), \
-  [CHORD_why] = COMBO_ACTION(chord_why), \
-  [CHORD_men] = COMBO_ACTION(chord_men), \
-  [CHORD_went] = COMBO_ACTION(chord_went), \
-  [CHORD_light] = COMBO_ACTION(chord_light), \
-  [CHORD_kind] = COMBO_ACTION(chord_kind), \
-  [CHORD_picture] = COMBO_ACTION(chord_picture), \
-  [CHORD_try] = COMBO_ACTION(chord_try), \
-  [CHORD_animal] = COMBO_ACTION(chord_animal), \
-  [CHORD_mother] = COMBO_ACTION(chord_mother), \
-  [CHORD_build] = COMBO_ACTION(chord_build), \
-  [CHORD_self] = COMBO_ACTION(chord_self), \
-  [CHORD_earth] = COMBO_ACTION(chord_earth), \
-  [CHORD_father] = COMBO_ACTION(chord_father), \
-  [CHORD_page] = COMBO_ACTION(chord_page), \
-  [CHORD_country] = COMBO_ACTION(chord_country), \
-  [CHORD_found] = COMBO_ACTION(chord_found), \
-  [CHORD_answer] = COMBO_ACTION(chord_answer), \
-  [CHORD_grow] = COMBO_ACTION(chord_grow), \
-  [CHORD_study] = COMBO_ACTION(chord_study), \
-  [CHORD_learn] = COMBO_ACTION(chord_learn), \
-  [CHORD_plant] = COMBO_ACTION(chord_plant), \
-  [CHORD_cover] = COMBO_ACTION(chord_cover), \
-  [CHORD_food] = COMBO_ACTION(chord_food), \
-  [CHORD_sun] = COMBO_ACTION(chord_sun), \
-  [CHORD_four] = COMBO_ACTION(chord_four), \
-  [CHORD_thought] = COMBO_ACTION(chord_thought), \
-  [CHORD_city] = COMBO_ACTION(chord_city), \
-  [CHORD_cross] = COMBO_ACTION(chord_cross), \
-  [CHORD_hard] = COMBO_ACTION(chord_hard), \
-  [CHORD_far] = COMBO_ACTION(chord_far), \
-  [CHORD_sea] = COMBO_ACTION(chord_sea), \
-  [CHORD_draw] = COMBO_ACTION(chord_draw), \
-  [CHORD_left] = COMBO_ACTION(chord_left), \
-  [CHORD_press] = COMBO_ACTION(chord_press), \
-  [CHORD_close] = COMBO_ACTION(chord_close), \
-  [CHORD_night] = COMBO_ACTION(chord_night), \
-  [CHORD_north] = COMBO_ACTION(chord_north), \
-  [CHORD_togethe] = COMBO_ACTION(chord_togethe), \
-  [CHORD_next] = COMBO_ACTION(chord_next), \
-  [CHORD_white] = COMBO_ACTION(chord_white), \
-  [CHORD_childre] = COMBO_ACTION(chord_childre), \
-  [CHORD_got] = COMBO_ACTION(chord_got), \
-  [CHORD_walk] = COMBO_ACTION(chord_walk), \
-  [CHORD_example] = COMBO_ACTION(chord_example), \
-  [CHORD_always] = COMBO_ACTION(chord_always), \
-  [CHORD_music] = COMBO_ACTION(chord_music), \
-  [CHORD_mark] = COMBO_ACTION(chord_mark), \
-  [CHORD_often] = COMBO_ACTION(chord_often), \
-  [CHORD_letter] = COMBO_ACTION(chord_letter), \
-  [CHORD_until] = COMBO_ACTION(chord_until), \
-  [CHORD_mile] = COMBO_ACTION(chord_mile), \
-  [CHORD_river] = COMBO_ACTION(chord_river), \
-  [CHORD_car] = COMBO_ACTION(chord_car), \
-  [CHORD_feet] = COMBO_ACTION(chord_feet), \
-  [CHORD_care] = COMBO_ACTION(chord_care), \
-  [CHORD_second] = COMBO_ACTION(chord_second), \
-  [CHORD_carry] = COMBO_ACTION(chord_carry), \
-  [CHORD_science] = COMBO_ACTION(chord_science), \
-  [CHORD_eat] = COMBO_ACTION(chord_eat), \
-  [CHORD_friend] = COMBO_ACTION(chord_friend), \
-  [CHORD_began] = COMBO_ACTION(chord_began), \
-  [CHORD_idea] = COMBO_ACTION(chord_idea), \
-  [CHORD_fish] = COMBO_ACTION(chord_fish), \
-  [CHORD_mountai] = COMBO_ACTION(chord_mountai), \
-  [CHORD_stop] = COMBO_ACTION(chord_stop), \
-  [CHORD_once] = COMBO_ACTION(chord_once), \
-  [CHORD_base] = COMBO_ACTION(chord_base), \
-  [CHORD_horse] = COMBO_ACTION(chord_horse), \
-  [CHORD_cut] = COMBO_ACTION(chord_cut), \
-  [CHORD_sure] = COMBO_ACTION(chord_sure), \
-  [CHORD_watch] = COMBO_ACTION(chord_watch), \
-  [CHORD_color] = COMBO_ACTION(chord_color), \
-  [CHORD_wood] = COMBO_ACTION(chord_wood), \
-  [CHORD_main] = COMBO_ACTION(chord_main), \
-  [CHORD_enough] = COMBO_ACTION(chord_enough), \
-  [CHORD_plain] = COMBO_ACTION(chord_plain), \
-  [CHORD_girl] = COMBO_ACTION(chord_girl), \
-  [CHORD_usual] = COMBO_ACTION(chord_usual), \
-  [CHORD_young] = COMBO_ACTION(chord_young), \
-  [CHORD_ready] = COMBO_ACTION(chord_ready), \
-  [CHORD_above] = COMBO_ACTION(chord_above), \
-  [CHORD_red] = COMBO_ACTION(chord_red), \
-  [CHORD_list] = COMBO_ACTION(chord_list), \
-  [CHORD_though] = COMBO_ACTION(chord_though), \
-  [CHORD_bird] = COMBO_ACTION(chord_bird), \
-  [CHORD_body] = COMBO_ACTION(chord_body), \
-  [CHORD_family] = COMBO_ACTION(chord_family), \
-  [CHORD_direct] = COMBO_ACTION(chord_direct), \
-  [CHORD_pose] = COMBO_ACTION(chord_pose), \
-  [CHORD_song] = COMBO_ACTION(chord_song), \
-  [CHORD_measure] = COMBO_ACTION(chord_measure), \
-  [CHORD_product] = COMBO_ACTION(chord_product), \
-  [CHORD_black] = COMBO_ACTION(chord_black), \
-  [CHORD_short] = COMBO_ACTION(chord_short), \
-  [CHORD_numeral] = COMBO_ACTION(chord_numeral), \
-  [CHORD_class] = COMBO_ACTION(chord_class), \
-  [CHORD_wind] = COMBO_ACTION(chord_wind), \
-  [CHORD_questio] = COMBO_ACTION(chord_questio), \
-  [CHORD_happen] = COMBO_ACTION(chord_happen), \
-  [CHORD_complet] = COMBO_ACTION(chord_complet), \
-  [CHORD_ship] = COMBO_ACTION(chord_ship), \
-  [CHORD_half] = COMBO_ACTION(chord_half), \
-  [CHORD_rock] = COMBO_ACTION(chord_rock), \
-  [CHORD_fire] = COMBO_ACTION(chord_fire), \
-  [CHORD_south] = COMBO_ACTION(chord_south), \
-  [CHORD_told] = COMBO_ACTION(chord_told), \
-  [CHORD_knew] = COMBO_ACTION(chord_knew), \
-  [CHORD_pass] = COMBO_ACTION(chord_pass), \
-  [CHORD_top] = COMBO_ACTION(chord_top), \
-  [CHORD_whole] = COMBO_ACTION(chord_whole), \
-  [CHORD_space] = COMBO_ACTION(chord_space), \
-  [CHORD_best] = COMBO_ACTION(chord_best), \
-  [CHORD_hour] = COMBO_ACTION(chord_hour), \
-  [CHORD_better] = COMBO_ACTION(chord_better), \
-  [CHORD_true] = COMBO_ACTION(chord_true), \
-  [CHORD_hundred] = COMBO_ACTION(chord_hundred), \
-  [CHORD_five] = COMBO_ACTION(chord_five), \
-  [CHORD_six] = COMBO_ACTION(chord_six), \
-  [CHORD_war] = COMBO_ACTION(chord_war), \
-  [CHORD_lay] = COMBO_ACTION(chord_lay), \
-  [CHORD_map] = COMBO_ACTION(chord_map), \
-  [CHORD_fly] = COMBO_ACTION(chord_fly), \
-  [CHORD_fall] = COMBO_ACTION(chord_fall), \
-  [CHORD_cry] = COMBO_ACTION(chord_cry), \
-  [CHORD_box] = COMBO_ACTION(chord_box), \
-  [CHORD_noun] = COMBO_ACTION(chord_noun), \
-  [CHORD_week] = COMBO_ACTION(chord_week), \
-  [CHORD_oh] = COMBO_ACTION(chord_oh), \
-  [CHORD_free] = COMBO_ACTION(chord_free), \
-  [CHORD_dry] = COMBO_ACTION(chord_dry), \
-  [CHORD_ago] = COMBO_ACTION(chord_ago), \
-  [CHORD_ran] = COMBO_ACTION(chord_ran), \
-  [CHORD_hot] = COMBO_ACTION(chord_hot), \
-  [CHORD_ball] = COMBO_ACTION(chord_ball), \
-  [CHORD_yet] = COMBO_ACTION(chord_yet), \
-  [CHORD_am] = COMBO_ACTION(chord_am), \
-  [CHORD_arm] = COMBO_ACTION(chord_arm), \
-  [CHORD_ice] = COMBO_ACTION(chord_ice), \
-  [CHORD_matter] = COMBO_ACTION(chord_matter), \
-  [CHORD_art] = COMBO_ACTION(chord_art), \
-  [CHORD_cell] = COMBO_ACTION(chord_cell), \
-  [CHORD_summer] = COMBO_ACTION(chord_summer), \
-  [CHORD_leg] = COMBO_ACTION(chord_leg), \
-  [CHORD_joy] = COMBO_ACTION(chord_joy), \
-  [CHORD_job] = COMBO_ACTION(chord_job), \
-  [CHORD_gas] = COMBO_ACTION(chord_gas), \
-  [CHORD_buy] = COMBO_ACTION(chord_buy), \
-  [CHORD_cook] = COMBO_ACTION(chord_cook), \
-  [CHORD_hill] = COMBO_ACTION(chord_hill), \
-  [CHORD_law] = COMBO_ACTION(chord_law), \
-  [CHORD_lie] = COMBO_ACTION(chord_lie), \
-  [CHORD_son] = COMBO_ACTION(chord_son), \
-  [CHORD_pay] = COMBO_ACTION(chord_pay), \
-  [CHORD_age] = COMBO_ACTION(chord_age), \
-  [CHORD_cool] = COMBO_ACTION(chord_cool), \
-  [CHORD_lot] = COMBO_ACTION(chord_lot), \
-  [CHORD_key] = COMBO_ACTION(chord_key), \
-  [CHORD_row] = COMBO_ACTION(chord_row), \
-  [CHORD_die] = COMBO_ACTION(chord_die), \
-  [CHORD_oil] = COMBO_ACTION(chord_oil), \
-  [CHORD_fit] = COMBO_ACTION(chord_fit), \
-  [CHORD_hit] = COMBO_ACTION(chord_hit), \
-  [CHORD_rub] = COMBO_ACTION(chord_rub), \
-  [CHORD_tie] = COMBO_ACTION(chord_tie), \
-  [CHORD_gun] = COMBO_ACTION(chord_gun), \
-  [CHORD_nine] = COMBO_ACTION(chord_nine), \
-  [CHORD_thank] = COMBO_ACTION(chord_thank), \
-  [CHORD_experie] = COMBO_ACTION(chord_experie), \
-  [CHORD_led] = COMBO_ACTION(chord_led), \
-  [CHORD_win] = COMBO_ACTION(chord_win), \
-  [CHORD_feed] = COMBO_ACTION(chord_feed), \
-  [CHORD_nor] = COMBO_ACTION(chord_nor), \
-  [CHORD_fat] = COMBO_ACTION(chord_fat), \
-  [CHORD_bar] = COMBO_ACTION(chord_bar), \
-  [CHORD_log] = COMBO_ACTION(chord_log), \
-  [CHORD_hey] = COMBO_ACTION(chord_hey), \
-  [CHORD_return] = COMBO_ACTION(chord_return), \
-  [CHORD_probabl] = COMBO_ACTION(chord_probabl), \
-  [CHORD_thank_y] = COMBO_ACTION(chord_thank_y), \
-  [CHORD_thanks] = COMBO_ACTION(chord_thanks), \
-  [CHORD_i_ve] = COMBO_ACTION(chord_i_ve), \
-  [CHORD_per] = COMBO_ACTION(chord_per), \
-  [CHORD_null] = COMBO_ACTION(chord_null), \
-  [CHORD_nil] = COMBO_ACTION(chord_nil), \
-  [CHORD_array] = COMBO_ACTION(chord_array), \
-  [CHORD_sort] = COMBO_ACTION(chord_sort), \
-  [CHORD_the_qui] = COMBO_ACTION(chord_the_qui), \
-  [CHORD_elberet] = COMBO_ACTION(chord_elberet), \
-  [CHORD_shawn] = COMBO_ACTION(chord_shawn), \
-  [CHORD_moore] = COMBO_ACTION(chord_moore), \
-  [CHORD_sartak] = COMBO_ACTION(chord_sartak), \
-  [CHORD_sartak_] = COMBO_ACTION(chord_sartak_), \
-  [CHORD_shawn_d] = COMBO_ACTION(chord_shawn_d), \
-  [CHORD_somervi] = COMBO_ACTION(chord_somervi), \
-  [CHORD_boston] = COMBO_ACTION(chord_boston), \
-  [CHORD_massach] = COMBO_ACTION(chord_massach), \
-  [CHORD_x] = COMBO_ACTION(chord_x),
+  CHORD_COMBO(excl1), \
+  CHORD_COMBO(qmark1), \
+  CHORD_COMBO(colon1), \
+  CHORD_COMBO(semi1), \
+  CHORD_COMBO(cent), \
+  CHORD_COMBO(pound), \
+  CHORD_COMBO(yen), \
+  CHORD_COMBO(euro), \
+  CHORD_COMBO(mid_ell), \
+  CHORD_COMBO(bullet), \
+  CHORD_COMBO(degrees), \
+  CHORD_COMBO(infinit), \
+  CHORD_COMBO(lambda), \
+  CHORD_COMBO(interro), \
+  CHORD_COMBO(ballot_), \
+  CHORD_COMBO(checkma), \
+  CHORD_COMBO(left_ar), \
+  CHORD_COMBO(down_ar), \
+  CHORD_COMBO(up_arro), \
+  CHORD_COMBO(right_a), \
+  CHORD_COMBO(_bs_ing), \
+  CHORD_COMBO(_bs_n_t), \
+  CHORD_COMBO(_bs_ve), \
+  CHORD_COMBO(_bs_re), \
+  CHORD_COMBO(the), \
+  CHORD_COMBO(be), \
+  CHORD_COMBO(of), \
+  CHORD_COMBO(and), \
+  CHORD_COMBO(a), \
+  CHORD_COMBO(a1), \
+  CHORD_COMBO(to), \
+  CHORD_COMBO(in), \
+  CHORD_COMBO(he), \
+  CHORD_COMBO(have), \
+  CHORD_COMBO(it), \
+  CHORD_COMBO(that), \
+  CHORD_COMBO(for), \
+  CHORD_COMBO(they), \
+  CHORD_COMBO(i), \
+  CHORD_COMBO(with), \
+  CHORD_COMBO(as), \
+  CHORD_COMBO(not), \
+  CHORD_COMBO(on), \
+  CHORD_COMBO(she), \
+  CHORD_COMBO(at), \
+  CHORD_COMBO(by), \
+  CHORD_COMBO(this), \
+  CHORD_COMBO(we), \
+  CHORD_COMBO(you), \
+  CHORD_COMBO(do), \
+  CHORD_COMBO(but), \
+  CHORD_COMBO(from), \
+  CHORD_COMBO(or), \
+  CHORD_COMBO(which), \
+  CHORD_COMBO(one), \
+  CHORD_COMBO(would), \
+  CHORD_COMBO(all), \
+  CHORD_COMBO(will), \
+  CHORD_COMBO(there), \
+  CHORD_COMBO(say), \
+  CHORD_COMBO(who), \
+  CHORD_COMBO(make), \
+  CHORD_COMBO(when), \
+  CHORD_COMBO(can), \
+  CHORD_COMBO(more), \
+  CHORD_COMBO(if), \
+  CHORD_COMBO(no), \
+  CHORD_COMBO(man), \
+  CHORD_COMBO(out), \
+  CHORD_COMBO(other), \
+  CHORD_COMBO(so), \
+  CHORD_COMBO(what), \
+  CHORD_COMBO(time), \
+  CHORD_COMBO(up), \
+  CHORD_COMBO(go), \
+  CHORD_COMBO(about), \
+  CHORD_COMBO(than), \
+  CHORD_COMBO(into), \
+  CHORD_COMBO(could), \
+  CHORD_COMBO(state), \
+  CHORD_COMBO(only), \
+  CHORD_COMBO(new), \
+  CHORD_COMBO(year), \
+  CHORD_COMBO(some), \
+  CHORD_COMBO(take), \
+  CHORD_COMBO(come), \
+  CHORD_COMBO(these), \
+  CHORD_COMBO(know), \
+  CHORD_COMBO(see), \
+  CHORD_COMBO(use), \
+  CHORD_COMBO(get), \
+  CHORD_COMBO(like), \
+  CHORD_COMBO(then), \
+  CHORD_COMBO(first), \
+  CHORD_COMBO(any), \
+  CHORD_COMBO(work), \
+  CHORD_COMBO(now), \
+  CHORD_COMBO(may), \
+  CHORD_COMBO(such), \
+  CHORD_COMBO(give), \
+  CHORD_COMBO(over), \
+  CHORD_COMBO(think), \
+  CHORD_COMBO(most), \
+  CHORD_COMBO(even), \
+  CHORD_COMBO(find), \
+  CHORD_COMBO(day), \
+  CHORD_COMBO(also), \
+  CHORD_COMBO(after), \
+  CHORD_COMBO(way), \
+  CHORD_COMBO(many), \
+  CHORD_COMBO(must), \
+  CHORD_COMBO(look), \
+  CHORD_COMBO(before), \
+  CHORD_COMBO(great), \
+  CHORD_COMBO(back), \
+  CHORD_COMBO(through), \
+  CHORD_COMBO(long), \
+  CHORD_COMBO(where), \
+  CHORD_COMBO(much), \
+  CHORD_COMBO(should), \
+  CHORD_COMBO(well), \
+  CHORD_COMBO(people), \
+  CHORD_COMBO(down), \
+  CHORD_COMBO(own), \
+  CHORD_COMBO(just), \
+  CHORD_COMBO(because), \
+  CHORD_COMBO(good), \
+  CHORD_COMBO(each), \
+  CHORD_COMBO(those), \
+  CHORD_COMBO(feel), \
+  CHORD_COMBO(seem), \
+  CHORD_COMBO(how), \
+  CHORD_COMBO(high), \
+  CHORD_COMBO(too), \
+  CHORD_COMBO(place), \
+  CHORD_COMBO(little), \
+  CHORD_COMBO(world), \
+  CHORD_COMBO(very), \
+  CHORD_COMBO(still), \
+  CHORD_COMBO(nation), \
+  CHORD_COMBO(hand), \
+  CHORD_COMBO(old), \
+  CHORD_COMBO(life), \
+  CHORD_COMBO(tell), \
+  CHORD_COMBO(write), \
+  CHORD_COMBO(become), \
+  CHORD_COMBO(here), \
+  CHORD_COMBO(show), \
+  CHORD_COMBO(house), \
+  CHORD_COMBO(both), \
+  CHORD_COMBO(between), \
+  CHORD_COMBO(need), \
+  CHORD_COMBO(mean), \
+  CHORD_COMBO(call), \
+  CHORD_COMBO(develop), \
+  CHORD_COMBO(under), \
+  CHORD_COMBO(last), \
+  CHORD_COMBO(right), \
+  CHORD_COMBO(move), \
+  CHORD_COMBO(thing), \
+  CHORD_COMBO(general), \
+  CHORD_COMBO(school), \
+  CHORD_COMBO(never), \
+  CHORD_COMBO(same), \
+  CHORD_COMBO(another), \
+  CHORD_COMBO(begin), \
+  CHORD_COMBO(while), \
+  CHORD_COMBO(number), \
+  CHORD_COMBO(part), \
+  CHORD_COMBO(turn), \
+  CHORD_COMBO(real), \
+  CHORD_COMBO(leave), \
+  CHORD_COMBO(might), \
+  CHORD_COMBO(want), \
+  CHORD_COMBO(point), \
+  CHORD_COMBO(form), \
+  CHORD_COMBO(off), \
+  CHORD_COMBO(child), \
+  CHORD_COMBO(few), \
+  CHORD_COMBO(small), \
+  CHORD_COMBO(since), \
+  CHORD_COMBO(against), \
+  CHORD_COMBO(ask), \
+  CHORD_COMBO(late), \
+  CHORD_COMBO(home), \
+  CHORD_COMBO(interes), \
+  CHORD_COMBO(large), \
+  CHORD_COMBO(person), \
+  CHORD_COMBO(end), \
+  CHORD_COMBO(open), \
+  CHORD_COMBO(public), \
+  CHORD_COMBO(follow), \
+  CHORD_COMBO(during), \
+  CHORD_COMBO(present), \
+  CHORD_COMBO(without), \
+  CHORD_COMBO(again), \
+  CHORD_COMBO(hold), \
+  CHORD_COMBO(govern), \
+  CHORD_COMBO(around), \
+  CHORD_COMBO(possibl), \
+  CHORD_COMBO(head), \
+  CHORD_COMBO(conside), \
+  CHORD_COMBO(word), \
+  CHORD_COMBO(program), \
+  CHORD_COMBO(problem), \
+  CHORD_COMBO(however), \
+  CHORD_COMBO(lead), \
+  CHORD_COMBO(system), \
+  CHORD_COMBO(set), \
+  CHORD_COMBO(order), \
+  CHORD_COMBO(eye), \
+  CHORD_COMBO(plan), \
+  CHORD_COMBO(run), \
+  CHORD_COMBO(keep), \
+  CHORD_COMBO(face), \
+  CHORD_COMBO(fact), \
+  CHORD_COMBO(group), \
+  CHORD_COMBO(play), \
+  CHORD_COMBO(stand), \
+  CHORD_COMBO(increas), \
+  CHORD_COMBO(early), \
+  CHORD_COMBO(course), \
+  CHORD_COMBO(change), \
+  CHORD_COMBO(help), \
+  CHORD_COMBO(line), \
+  CHORD_COMBO(his), \
+  CHORD_COMBO(her), \
+  CHORD_COMBO(an), \
+  CHORD_COMBO(my), \
+  CHORD_COMBO(their), \
+  CHORD_COMBO(me), \
+  CHORD_COMBO(him), \
+  CHORD_COMBO(your), \
+  CHORD_COMBO(its), \
+  CHORD_COMBO(two), \
+  CHORD_COMBO(our), \
+  CHORD_COMBO(us), \
+  CHORD_COMBO(is), \
+  CHORD_COMBO(was), \
+  CHORD_COMBO(are), \
+  CHORD_COMBO(had), \
+  CHORD_COMBO(were), \
+  CHORD_COMBO(said), \
+  CHORD_COMBO(has), \
+  CHORD_COMBO(sound), \
+  CHORD_COMBO(water), \
+  CHORD_COMBO(side), \
+  CHORD_COMBO(made), \
+  CHORD_COMBO(live), \
+  CHORD_COMBO(round), \
+  CHORD_COMBO(came), \
+  CHORD_COMBO(every), \
+  CHORD_COMBO(name), \
+  CHORD_COMBO(sentenc), \
+  CHORD_COMBO(low), \
+  CHORD_COMBO(differ), \
+  CHORD_COMBO(cause), \
+  CHORD_COMBO(boy), \
+  CHORD_COMBO(does), \
+  CHORD_COMBO(air), \
+  CHORD_COMBO(put), \
+  CHORD_COMBO(port), \
+  CHORD_COMBO(spell), \
+  CHORD_COMBO(land), \
+  CHORD_COMBO(big), \
+  CHORD_COMBO(act), \
+  CHORD_COMBO(why), \
+  CHORD_COMBO(men), \
+  CHORD_COMBO(went), \
+  CHORD_COMBO(light), \
+  CHORD_COMBO(kind), \
+  CHORD_COMBO(picture), \
+  CHORD_COMBO(try), \
+  CHORD_COMBO(animal), \
+  CHORD_COMBO(mother), \
+  CHORD_COMBO(build), \
+  CHORD_COMBO(self), \
+  CHORD_COMBO(earth), \
+  CHORD_COMBO(father), \
+  CHORD_COMBO(page), \
+  CHORD_COMBO(country), \
+  CHORD_COMBO(found), \
+  CHORD_COMBO(answer), \
+  CHORD_COMBO(grow), \
+  CHORD_COMBO(study), \
+  CHORD_COMBO(learn), \
+  CHORD_COMBO(plant), \
+  CHORD_COMBO(cover), \
+  CHORD_COMBO(food), \
+  CHORD_COMBO(sun), \
+  CHORD_COMBO(four), \
+  CHORD_COMBO(thought), \
+  CHORD_COMBO(city), \
+  CHORD_COMBO(cross), \
+  CHORD_COMBO(hard), \
+  CHORD_COMBO(far), \
+  CHORD_COMBO(sea), \
+  CHORD_COMBO(draw), \
+  CHORD_COMBO(left), \
+  CHORD_COMBO(press), \
+  CHORD_COMBO(close), \
+  CHORD_COMBO(night), \
+  CHORD_COMBO(north), \
+  CHORD_COMBO(togethe), \
+  CHORD_COMBO(next), \
+  CHORD_COMBO(white), \
+  CHORD_COMBO(childre), \
+  CHORD_COMBO(got), \
+  CHORD_COMBO(walk), \
+  CHORD_COMBO(example), \
+  CHORD_COMBO(always), \
+  CHORD_COMBO(music), \
+  CHORD_COMBO(mark), \
+  CHORD_COMBO(often), \
+  CHORD_COMBO(letter), \
+  CHORD_COMBO(until), \
+  CHORD_COMBO(mile), \
+  CHORD_COMBO(river), \
+  CHORD_COMBO(car), \
+  CHORD_COMBO(feet), \
+  CHORD_COMBO(care), \
+  CHORD_COMBO(second), \
+  CHORD_COMBO(carry), \
+  CHORD_COMBO(science), \
+  CHORD_COMBO(eat), \
+  CHORD_COMBO(friend), \
+  CHORD_COMBO(began), \
+  CHORD_COMBO(idea), \
+  CHORD_COMBO(fish), \
+  CHORD_COMBO(mountai), \
+  CHORD_COMBO(stop), \
+  CHORD_COMBO(once), \
+  CHORD_COMBO(base), \
+  CHORD_COMBO(horse), \
+  CHORD_COMBO(cut), \
+  CHORD_COMBO(sure), \
+  CHORD_COMBO(watch), \
+  CHORD_COMBO(color), \
+  CHORD_COMBO(wood), \
+  CHORD_COMBO(main), \
+  CHORD_COMBO(enough), \
+  CHORD_COMBO(plain), \
+  CHORD_COMBO(girl), \
+  CHORD_COMBO(usual), \
+  CHORD_COMBO(young), \
+  CHORD_COMBO(ready), \
+  CHORD_COMBO(above), \
+  CHORD_COMBO(red), \
+  CHORD_COMBO(list), \
+  CHORD_COMBO(though), \
+  CHORD_COMBO(bird), \
+  CHORD_COMBO(body), \
+  CHORD_COMBO(family), \
+  CHORD_COMBO(direct), \
+  CHORD_COMBO(pose), \
+  CHORD_COMBO(song), \
+  CHORD_COMBO(measure), \
+  CHORD_COMBO(product), \
+  CHORD_COMBO(black), \
+  CHORD_COMBO(short), \
+  CHORD_COMBO(numeral), \
+  CHORD_COMBO(class), \
+  CHORD_COMBO(wind), \
+  CHORD_COMBO(questio), \
+  CHORD_COMBO(happen), \
+  CHORD_COMBO(complet), \
+  CHORD_COMBO(ship), \
+  CHORD_COMBO(half), \
+  CHORD_COMBO(rock), \
+  CHORD_COMBO(fire), \
+  CHORD_COMBO(south), \
+  CHORD_COMBO(told), \
+  CHORD_COMBO(knew), \
+  CHORD_COMBO(pass), \
+  CHORD_COMBO(top), \
+  CHORD_COMBO(whole), \
+  CHORD_COMBO(space), \
+  CHORD_COMBO(best), \
+  CHORD_COMBO(hour), \
+  CHORD_COMBO(better), \
+  CHORD_COMBO(true), \
+  CHORD_COMBO(hundred), \
+  CHORD_COMBO(five), \
+  CHORD_COMBO(six), \
+  CHORD_COMBO(war), \
+  CHORD_COMBO(lay), \
+  CHORD_COMBO(map), \
+  CHORD_COMBO(fly), \
+  CHORD_COMBO(fall), \
+  CHORD_COMBO(cry), \
+  CHORD_COMBO(box), \
+  CHORD_COMBO(noun), \
+  CHORD_COMBO(week), \
+  CHORD_COMBO(oh), \
+  CHORD_COMBO(free), \
+  CHORD_COMBO(dry), \
+  CHORD_COMBO(ago), \
+  CHORD_COMBO(ran), \
+  CHORD_COMBO(hot), \
+  CHORD_COMBO(ball), \
+  CHORD_COMBO(yet), \
+  CHORD_COMBO(am), \
+  CHORD_COMBO(arm), \
+  CHORD_COMBO(ice), \
+  CHORD_COMBO(matter), \
+  CHORD_COMBO(art), \
+  CHORD_COMBO(cell), \
+  CHORD_COMBO(summer), \
+  CHORD_COMBO(leg), \
+  CHORD_COMBO(joy), \
+  CHORD_COMBO(job), \
+  CHORD_COMBO(gas), \
+  CHORD_COMBO(buy), \
+  CHORD_COMBO(cook), \
+  CHORD_COMBO(hill), \
+  CHORD_COMBO(law), \
+  CHORD_COMBO(lie), \
+  CHORD_COMBO(son), \
+  CHORD_COMBO(pay), \
+  CHORD_COMBO(age), \
+  CHORD_COMBO(cool), \
+  CHORD_COMBO(lot), \
+  CHORD_COMBO(key), \
+  CHORD_COMBO(row), \
+  CHORD_COMBO(die), \
+  CHORD_COMBO(oil), \
+  CHORD_COMBO(fit), \
+  CHORD_COMBO(hit), \
+  CHORD_COMBO(rub), \
+  CHORD_COMBO(tie), \
+  CHORD_COMBO(gun), \
+  CHORD_COMBO(nine), \
+  CHORD_COMBO(thank), \
+  CHORD_COMBO(experie), \
+  CHORD_COMBO(led), \
+  CHORD_COMBO(win), \
+  CHORD_COMBO(feed), \
+  CHORD_COMBO(nor), \
+  CHORD_COMBO(fat), \
+  CHORD_COMBO(bar), \
+  CHORD_COMBO(log), \
+  CHORD_COMBO(hey), \
+  CHORD_COMBO(return), \
+  CHORD_COMBO(probabl), \
+  CHORD_COMBO(thank_y), \
+  CHORD_COMBO(thanks), \
+  CHORD_COMBO(i_ve), \
+  CHORD_COMBO(per), \
+  CHORD_COMBO(null), \
+  CHORD_COMBO(nil), \
+  CHORD_COMBO(array), \
+  CHORD_COMBO(sort), \
+  CHORD_COMBO(the_qui), \
+  CHORD_COMBO(elberet), \
+  CHORD_COMBO(shawn), \
+  CHORD_COMBO(moore), \
+  CHORD_COMBO(sartak), \
+  CHORD_COMBO(sartak_), \
+  CHORD_COMBO(shawn_d), \
+  CHORD_COMBO(somervi), \
+  CHORD_COMBO(boston), \
+  CHORD_COMBO(massach), \
+  CHORD_COMBO(x),
 
 #define CHORD_FUNC \
 void process_chord_event(uint16_t combo_index, bool pressed) { \

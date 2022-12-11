@@ -102,6 +102,10 @@ bool process_taphold(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 
+void process_combo_event(uint16_t combo_index, bool pressed) {
+  process_chord_event(combo_index, pressed);
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (!process_taphold(keycode, record)) {
     return false;

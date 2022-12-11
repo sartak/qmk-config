@@ -148,7 +148,7 @@ combo_t key_combos[] = {
   [CHORD__re] = COMBO_ACTION(chord__re),
 };
 
-void process_combo_event(uint16_t combo_index, bool pressed) {
+void process_chord_event(uint16_t combo_index, bool pressed) {
   if (!pressed) {
     return;
   }

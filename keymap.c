@@ -78,9 +78,9 @@
 #define S_K KC_ELLIPSIS
 #define S_X KC_CIRCUMFLEX
 #define S_H KC_RIGHT_BRACKET
-#define S_d KC_DOT
-#define S_c KC_COMM
-#define S_r KC_ENT
+#define S_d TH(KC_DOT)
+#define S_c TH(KC_COMM)
+#define S_r TH(KC_ENT)
 #define ST0 MO(ALPHA)
 #define ST1 LSFT_T(KC_BSPC)
 #define ST2 LCTL_T(KC_SPC)
@@ -113,9 +113,9 @@
 #define N_K KC_LOCKSCR
 #define N_X KC_VOLD
 #define N_H KC_ZOOMIN
-#define N_d KC_DOT
-#define N_c KC_COMM
-#define N_r KC_ENT
+#define N_d TH(KC_DOT)
+#define N_c TH(KC_COMM)
+#define N_r TH(KC_ENT)
 #define NT0 MO(ALPHA)
 #define NT1 LSFT_T(KC_BSPC)
 #define NT2 LCTL_T(KC_SPC)

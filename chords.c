@@ -1414,52 +1414,52 @@ void process_chord_event(uint16_t combo_index, bool pressed) { \
       SEND_STRING(";"); \
       break; \
     case CHORD_cent: \
-      SEND_STRING("¢"); \
+      send_unicode_string("¢"); \
       break; \
     case CHORD_pound: \
-      SEND_STRING("£"); \
+      send_unicode_string("£"); \
       break; \
     case CHORD_yen: \
-      SEND_STRING("¥"); \
+      send_unicode_string("¥"); \
       break; \
     case CHORD_euro: \
-      SEND_STRING("€"); \
+      send_unicode_string("€"); \
       break; \
     case CHORD_mid_ell: \
-      SEND_STRING("⋯"); \
+      send_unicode_string("⋯"); \
       break; \
     case CHORD_bullet: \
-      SEND_STRING("•"); \
+      send_unicode_string("•"); \
       break; \
     case CHORD_degrees: \
-      SEND_STRING("°"); \
+      send_unicode_string("°"); \
       break; \
     case CHORD_infinit: \
-      SEND_STRING("∞"); \
+      send_unicode_string("∞"); \
       break; \
     case CHORD_lambda: \
-      SEND_STRING("λ"); \
+      send_unicode_string("λ"); \
       break; \
     case CHORD_interro: \
-      SEND_STRING("‽"); \
+      send_unicode_string("‽"); \
       break; \
     case CHORD_ballot_: \
-      SEND_STRING("✗"); \
+      send_unicode_string("✗"); \
       break; \
     case CHORD_checkma: \
-      SEND_STRING("✔"); \
+      send_unicode_string("✔"); \
       break; \
     case CHORD_left_ar: \
-      SEND_STRING("←"); \
+      send_unicode_string("←"); \
       break; \
     case CHORD_down_ar: \
-      SEND_STRING("↓"); \
+      send_unicode_string("↓"); \
       break; \
     case CHORD_up_arro: \
-      SEND_STRING("↑"); \
+      send_unicode_string("↑"); \
       break; \
     case CHORD_right_a: \
-      SEND_STRING("→"); \
+      send_unicode_string("→"); \
       break; \
     case CHORD__bs_ing: \
       tap_code16(KC_BSPC); \

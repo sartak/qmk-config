@@ -21,10 +21,6 @@
 enum combo_events {
   COMBO_LAYERS,
   COMBO_DELETE_WORD,
-  COMBO_EXCLAMATION,
-  COMBO_QUESTION,
-  COMBO_SEMICOLON,
-  COMBO_COLON,
 
   CHORD_ENUM
 
@@ -34,18 +30,10 @@ uint16_t COMBO_LEN = _COMBO_LENGTH;
 
 const uint16_t PROGMEM combo_layers[] = {MO(SYMBOL), MO(NUMBER), COMBO_END};
 const uint16_t PROGMEM combo_delete_word[] = {LSFT_T(KC_BSPC), LCTL_T(KC_SPC), COMBO_END};
-const uint16_t PROGMEM combo_exclamation[] = {TH(E), TH(DOT), COMBO_END};
-const uint16_t PROGMEM combo_question[] = {TH(I), TH(COMM), COMBO_END};
-const uint16_t PROGMEM combo_semicolon[] = {TH(A), TH(QUOTE), COMBO_END};
-const uint16_t PROGMEM combo_colon[] = {TH(A), TH(ENT), COMBO_END};
 
 combo_t key_combos[] = {
   [COMBO_LAYERS] = COMBO(combo_layers, OSL(FUNCTION)),
   [COMBO_DELETE_WORD] = COMBO(combo_delete_word, LALT(KC_BSPC)),
-  [COMBO_EXCLAMATION] = COMBO(combo_exclamation, KC_EXCLAIM),
-  [COMBO_QUESTION] = COMBO(combo_question, KC_QUESTION),
-  [COMBO_SEMICOLON] = COMBO(combo_semicolon, KC_SEMICOLON),
-  [COMBO_COLON] = COMBO(combo_colon, KC_COLON),
 
   CHORD_COMBOS
 };

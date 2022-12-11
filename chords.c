@@ -1,7 +1,7 @@
 #define CHORD_ENUM \
   CHORD_the, \
-  CHORD_probably, \
-  CHORD_quick_brown_fox, \
+  CHORD_probabl, \
+  CHORD_the_qui, \
   CHORD_one, \
   CHORD_out, \
   CHORD_get, \
@@ -25,24 +25,24 @@
   CHORD_person, \
   CHORD_because, \
   CHORD_present, \
-  CHORD_interest, \
+  CHORD_interes, \
   CHORD_a, \
-  CHORD_A, \
-  CHORD_I, \
+  CHORD_a1, \
+  CHORD_i, \
   CHORD_be, \
   CHORD_of, \
   CHORD_by, \
   CHORD_we, \
   CHORD_if, \
-  CHORD_Elbereth, \
-  CHORD__ing, \
-  CHORD__nt, \
-  CHORD__ve, \
-  CHORD__re,
+  CHORD_elberet, \
+  CHORD__bs_ing, \
+  CHORD__bs_n_t, \
+  CHORD__bs_ve, \
+  CHORD__bs_re,
 
 const uint16_t PROGMEM chord_the[] = {TH(T), TH(H), TH(E), COMBO_END};
-const uint16_t PROGMEM chord_probably[] = {TH(P), TH(B), TH(L), TH(Y), COMBO_END};
-const uint16_t PROGMEM chord_quick_brown_fox[] = {TH(B), TH(Q), TH(X), TH(QUOTE), COMBO_END};
+const uint16_t PROGMEM chord_probabl[] = {TH(P), TH(B), TH(L), TH(Y), COMBO_END};
+const uint16_t PROGMEM chord_the_qui[] = {TH(B), TH(Q), TH(X), TH(QUOTE), COMBO_END};
 const uint16_t PROGMEM chord_one[] = {TH(O), TH(N), TH(E), COMBO_END};
 const uint16_t PROGMEM chord_out[] = {TH(O), TH(U), TH(T), COMBO_END};
 const uint16_t PROGMEM chord_get[] = {TH(G), TH(E), TH(T), COMBO_END};
@@ -66,25 +66,25 @@ const uint16_t PROGMEM chord_become[] = {TH(C), TH(M), TH(E), COMBO_END};
 const uint16_t PROGMEM chord_person[] = {TH(P), TH(S), TH(N), COMBO_END};
 const uint16_t PROGMEM chord_because[] = {TH(B), TH(E), TH(A), COMBO_END};
 const uint16_t PROGMEM chord_present[] = {TH(R), TH(N), TH(T), COMBO_END};
-const uint16_t PROGMEM chord_interest[] = {TH(I), TH(N), TH(R), COMBO_END};
+const uint16_t PROGMEM chord_interes[] = {TH(I), TH(N), TH(R), COMBO_END};
 const uint16_t PROGMEM chord_a[] = {TH(A), LCTL_T(KC_SPC), COMBO_END};
-const uint16_t PROGMEM chord_A[] = {TH(A), LSFT_T(KC_BSPC), COMBO_END};
-const uint16_t PROGMEM chord_I[] = {TH(I), LCTL_T(KC_SPC), COMBO_END};
+const uint16_t PROGMEM chord_a1[] = {TH(A), LSFT_T(KC_BSPC), COMBO_END};
+const uint16_t PROGMEM chord_i[] = {TH(I), LCTL_T(KC_SPC), COMBO_END};
 const uint16_t PROGMEM chord_be[] = {TH(B), TH(E), LCTL_T(KC_SPC), COMBO_END};
 const uint16_t PROGMEM chord_of[] = {TH(O), TH(F), LCTL_T(KC_SPC), COMBO_END};
 const uint16_t PROGMEM chord_by[] = {TH(B), TH(Y), LCTL_T(KC_SPC), COMBO_END};
 const uint16_t PROGMEM chord_we[] = {TH(W), TH(E), LCTL_T(KC_SPC), COMBO_END};
 const uint16_t PROGMEM chord_if[] = {TH(I), TH(F), LCTL_T(KC_SPC), COMBO_END};
-const uint16_t PROGMEM chord_Elbereth[] = {TH(E), TH(L), TH(B), TH(H), COMBO_END};
-const uint16_t PROGMEM chord__ing[] = {TH(I), TH(N), TH(G), COMBO_END};
-const uint16_t PROGMEM chord__nt[] = {TH(N), TH(QUOTE), TH(T), COMBO_END};
-const uint16_t PROGMEM chord__ve[] = {TH(QUOTE), TH(V), TH(E), COMBO_END};
-const uint16_t PROGMEM chord__re[] = {TH(QUOTE), TH(R), TH(E), COMBO_END};
+const uint16_t PROGMEM chord_elberet[] = {TH(E), TH(L), TH(B), TH(H), COMBO_END};
+const uint16_t PROGMEM chord__bs_ing[] = {TH(I), TH(N), TH(G), COMBO_END};
+const uint16_t PROGMEM chord__bs_n_t[] = {TH(N), TH(QUOTE), TH(T), COMBO_END};
+const uint16_t PROGMEM chord__bs_ve[] = {TH(QUOTE), TH(V), TH(E), COMBO_END};
+const uint16_t PROGMEM chord__bs_re[] = {TH(QUOTE), TH(R), TH(E), COMBO_END};
 
 #define CHORD_COMBOS \
   [CHORD_the] = COMBO_ACTION(chord_the), \
-  [CHORD_probably] = COMBO_ACTION(chord_probably), \
-  [CHORD_quick_brown_fox] = COMBO_ACTION(chord_quick_brown_fox), \
+  [CHORD_probabl] = COMBO_ACTION(chord_probabl), \
+  [CHORD_the_qui] = COMBO_ACTION(chord_the_qui), \
   [CHORD_one] = COMBO_ACTION(chord_one), \
   [CHORD_out] = COMBO_ACTION(chord_out), \
   [CHORD_get] = COMBO_ACTION(chord_get), \
@@ -108,20 +108,20 @@ const uint16_t PROGMEM chord__re[] = {TH(QUOTE), TH(R), TH(E), COMBO_END};
   [CHORD_person] = COMBO_ACTION(chord_person), \
   [CHORD_because] = COMBO_ACTION(chord_because), \
   [CHORD_present] = COMBO_ACTION(chord_present), \
-  [CHORD_interest] = COMBO_ACTION(chord_interest), \
+  [CHORD_interes] = COMBO_ACTION(chord_interes), \
   [CHORD_a] = COMBO_ACTION(chord_a), \
-  [CHORD_A] = COMBO_ACTION(chord_A), \
-  [CHORD_I] = COMBO_ACTION(chord_I), \
+  [CHORD_a1] = COMBO_ACTION(chord_a1), \
+  [CHORD_i] = COMBO_ACTION(chord_i), \
   [CHORD_be] = COMBO_ACTION(chord_be), \
   [CHORD_of] = COMBO_ACTION(chord_of), \
   [CHORD_by] = COMBO_ACTION(chord_by), \
   [CHORD_we] = COMBO_ACTION(chord_we), \
   [CHORD_if] = COMBO_ACTION(chord_if), \
-  [CHORD_Elbereth] = COMBO_ACTION(chord_Elbereth), \
-  [CHORD__ing] = COMBO_ACTION(chord__ing), \
-  [CHORD__nt] = COMBO_ACTION(chord__nt), \
-  [CHORD__ve] = COMBO_ACTION(chord__ve), \
-  [CHORD__re] = COMBO_ACTION(chord__re),
+  [CHORD_elberet] = COMBO_ACTION(chord_elberet), \
+  [CHORD__bs_ing] = COMBO_ACTION(chord__bs_ing), \
+  [CHORD__bs_n_t] = COMBO_ACTION(chord__bs_n_t), \
+  [CHORD__bs_ve] = COMBO_ACTION(chord__bs_ve), \
+  [CHORD__bs_re] = COMBO_ACTION(chord__bs_re),
 
 #define CHORD_FUNC \
 void process_chord_event(uint16_t combo_index, bool pressed) { \
@@ -133,10 +133,10 @@ void process_chord_event(uint16_t combo_index, bool pressed) { \
     case CHORD_the: \
       SEND_STRING("the "); \
       break; \
-    case CHORD_probably: \
+    case CHORD_probabl: \
       SEND_STRING("probably "); \
       break; \
-    case CHORD_quick_brown_fox: \
+    case CHORD_the_qui: \
       SEND_STRING("the quick brown fox jumps over the lazy dog"); \
       break; \
     case CHORD_one: \
@@ -208,16 +208,16 @@ void process_chord_event(uint16_t combo_index, bool pressed) { \
     case CHORD_present: \
       SEND_STRING("present "); \
       break; \
-    case CHORD_interest: \
+    case CHORD_interes: \
       SEND_STRING("interest "); \
       break; \
     case CHORD_a: \
       SEND_STRING("a "); \
       break; \
-    case CHORD_A: \
+    case CHORD_a1: \
       SEND_STRING("A "); \
       break; \
-    case CHORD_I: \
+    case CHORD_i: \
       SEND_STRING("I "); \
       break; \
     case CHORD_be: \
@@ -235,22 +235,22 @@ void process_chord_event(uint16_t combo_index, bool pressed) { \
     case CHORD_if: \
       SEND_STRING("if "); \
       break; \
-    case CHORD_Elbereth: \
+    case CHORD_elberet: \
       SEND_STRING("Elbereth"); \
       break; \
-    case CHORD__ing: \
+    case CHORD__bs_ing: \
       tap_code16(KC_BSPC); \
       SEND_STRING("ing "); \
       break; \
-    case CHORD__nt: \
+    case CHORD__bs_n_t: \
       tap_code16(KC_BSPC); \
       SEND_STRING("n't "); \
       break; \
-    case CHORD__ve: \
+    case CHORD__bs_ve: \
       tap_code16(KC_BSPC); \
       SEND_STRING("'ve "); \
       break; \
-    case CHORD__re: \
+    case CHORD__bs_re: \
       tap_code16(KC_BSPC); \
       SEND_STRING("'re "); \
       break; \

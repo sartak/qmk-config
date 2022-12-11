@@ -18,6 +18,38 @@
 
 #include "chords.c"
 
+enum combo_events {
+  COMBO_LAYERS,
+  COMBO_DELETE_WORD,
+  COMBO_EXCLAMATION,
+  COMBO_QUESTION,
+  COMBO_SEMICOLON,
+  COMBO_COLON,
+
+  CHORD_ENUM
+
+  _COMBO_LENGTH,
+};
+uint16_t COMBO_LEN = _COMBO_LENGTH;
+
+const uint16_t PROGMEM combo_layers[] = {MO(SYMBOL), MO(NUMBER), COMBO_END};
+const uint16_t PROGMEM combo_delete_word[] = {LSFT_T(KC_BSPC), LCTL_T(KC_SPC), COMBO_END};
+const uint16_t PROGMEM combo_exclamation[] = {TH(E), TH(DOT), COMBO_END};
+const uint16_t PROGMEM combo_question[] = {TH(I), TH(COMM), COMBO_END};
+const uint16_t PROGMEM combo_semicolon[] = {TH(A), TH(QUOTE), COMBO_END};
+const uint16_t PROGMEM combo_colon[] = {TH(A), TH(ENT), COMBO_END};
+
+combo_t key_combos[] = {
+  [COMBO_LAYERS] = COMBO(combo_layers, OSL(FUNCTION)),
+  [COMBO_DELETE_WORD] = COMBO(combo_delete_word, LALT(KC_BSPC)),
+  [COMBO_EXCLAMATION] = COMBO(combo_exclamation, KC_EXCLAIM),
+  [COMBO_QUESTION] = COMBO(combo_question, KC_QUESTION),
+  [COMBO_SEMICOLON] = COMBO(combo_semicolon, KC_SEMICOLON),
+  [COMBO_COLON] = COMBO(combo_colon, KC_COLON),
+
+  CHORD_COMBOS
+};
+
 const key_override_t zoom_out_override = ko_make_basic(MOD_MASK_SHIFT, KC_ZOOMIN, KC_ZOOMOUT);
 const key_override_t **key_overrides = (const key_override_t *[]){
     &zoom_out_override,
@@ -102,6 +134,7 @@ bool process_taphold(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 
+CHORD_FUNC
 void process_combo_event(uint16_t combo_index, bool pressed) {
   process_chord_event(combo_index, pressed);
 }

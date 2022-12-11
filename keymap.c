@@ -29,21 +29,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TH(W),  TH(L),  TH(Y),  TH(P),  TH(B),    TH(Z),  TH(F),  TH(O),    TH(U),     TH(QUOTE),
     TH(C),  TH(R),  TH(S),  TH(T),  TH(G),    TH(M),  TH(N),  TH(E),    TH(I),     TH(A),
     TH(Q),  TH(J),  TH(V),  TH(D),  TH(K),    TH(X),  TH(H),  TH(DOT),  TH(COMM),  TH(ENT),
-             TO(SYMBOL),  LSFT_T(KC_BSPC),    LCTL_T(KC_SPC),  TO(NUMBER)
+             MO(SYMBOL),  LSFT_T(KC_BSPC),    LCTL_T(KC_SPC),  MO(NUMBER)
     ),
 
     [SYMBOL] = LAYOUT_split_3x5_2(
     KC_GRAVE,      KC_TILDE,     KC_BACKSLASH,   KC_LEFT_CURLY_BRACE,  KC_DOLLAR,      KC_PERCENT,     KC_RIGHT_CURLY_BRACE,  KC_SLASH,  KC_HASH,  KC_QUOTE,
     KC_AMPERSAND,  KC_ASTERISK,  KC_EQUAL,       KC_LEFT_PAREN,        KC_LT,          KC_GT,          KC_RIGHT_PAREN,        KC_MINUS,  KC_PLUS,  KC_PIPE,
     KC_MDASH,      KC_AT,        KC_UNDERSCORE,  KC_LEFT_BRACKET,      KC_ELLIPSIS,    KC_CIRCUMFLEX,  KC_RIGHT_BRACKET,      KC_DOT,    KC_COMM,  KC_ENT,
-                                                       TO(ALPHA),  LSFT_T(KC_BSPC),    LCTL_T(KC_SPC),  TO(NUMBER)
+                                                       MO(ALPHA),  LSFT_T(KC_BSPC),    LCTL_T(KC_SPC),  MO(NUMBER)
     ),
 
     [NUMBER] = LAYOUT_split_3x5_2(
     KC_BRIU,      KC_6,  KC_5,  KC_4,  KC_SCREENSHOT,    KC_MUTE,  KC_MPRV,    KC_MPLY,  KC_MNXT,  KC_QUOTE,
     KC_LANGUAGE,  KC_3,  KC_2,  KC_1,  KC_0,             KC_VOLU,  KC_LEFT,    KC_DOWN,  KC_UP,    KC_RIGHT,
     KC_BRID,      KC_9,  KC_8,  KC_7,  KC_LOCKSCR,       KC_VOLD,  KC_ZOOMIN,  KC_DOT,   KC_COMM,  KC_ENT,
-                         TO(ALPHA),  LSFT_T(KC_BSPC),    LCTL_T(KC_SPC),  TO(SYMBOL)
+                         MO(ALPHA),  LSFT_T(KC_BSPC),    LCTL_T(KC_SPC),  MO(SYMBOL)
     ),
 
     [FUNCTION] = LAYOUT_split_3x5_2(

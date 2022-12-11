@@ -50,7 +50,7 @@ enum combo_events {
 };
 uint16_t COMBO_LEN = _COMBO_LENGTH;
 
-const uint16_t PROGMEM combo_layers[] = {TO(SYMBOL), TO(NUMBER), COMBO_END};
+const uint16_t PROGMEM combo_layers[] = {MO(SYMBOL), MO(NUMBER), COMBO_END};
 const uint16_t PROGMEM combo_delete_word[] = {LSFT_T(KC_BSPC), LCTL_T(KC_SPC), COMBO_END};
 const uint16_t PROGMEM combo_exclamation[] = {TH(E), TH(DOT), COMBO_END};
 const uint16_t PROGMEM combo_question[] = {TH(I), TH(COMM), COMBO_END};

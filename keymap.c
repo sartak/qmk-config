@@ -165,6 +165,12 @@ enum combo_events {
   ACOMBO_DELETE_WORD,
   SCOMBO_DELETE_WORD,
   NCOMBO_DELETE_WORD,
+  ACOMBO_LEFT_CLICK,
+  SCOMBO_LEFT_CLICK,
+  NCOMBO_LEFT_CLICK,
+  ACOMBO_RIGHT_CLICK,
+  SCOMBO_RIGHT_CLICK,
+  NCOMBO_RIGHT_CLICK,
 
   CHORD_ENUM
 
@@ -178,6 +184,12 @@ const uint16_t PROGMEM ncombo_layers[] = {NT0, NT3, COMBO_END};
 const uint16_t PROGMEM acombo_delete_word[] = {AT1, AT2, COMBO_END};
 const uint16_t PROGMEM scombo_delete_word[] = {ST1, ST2, COMBO_END};
 const uint16_t PROGMEM ncombo_delete_word[] = {NT1, NT2, COMBO_END};
+const uint16_t PROGMEM acombo_left_click[] = {AT0, AT1, COMBO_END};
+const uint16_t PROGMEM scombo_left_click[] = {ST0, ST1, COMBO_END};
+const uint16_t PROGMEM ncombo_left_click[] = {NT0, NT1, COMBO_END};
+const uint16_t PROGMEM acombo_right_click[] = {AT2, AT3, COMBO_END};
+const uint16_t PROGMEM scombo_right_click[] = {ST2, ST3, COMBO_END};
+const uint16_t PROGMEM ncombo_right_click[] = {NT2, NT3, COMBO_END};
 
 combo_t key_combos[] = {
   [ACOMBO_LAYERS] = COMBO(acombo_layers, OSL(FUNCTION)),
@@ -187,6 +199,14 @@ combo_t key_combos[] = {
   [ACOMBO_DELETE_WORD] = COMBO(acombo_delete_word, LALT(KC_BSPC)),
   [NCOMBO_DELETE_WORD] = COMBO(ncombo_delete_word, LALT(KC_BSPC)),
   [SCOMBO_DELETE_WORD] = COMBO(scombo_delete_word, LALT(KC_BSPC)),
+
+  [ACOMBO_LEFT_CLICK] = COMBO(acombo_left_click, KC_MS_BTN1),
+  [NCOMBO_LEFT_CLICK] = COMBO(ncombo_left_click, KC_MS_BTN1),
+  [SCOMBO_LEFT_CLICK] = COMBO(scombo_left_click, KC_MS_BTN1),
+
+  [ACOMBO_RIGHT_CLICK] = COMBO(acombo_right_click, KC_MS_BTN2),
+  [NCOMBO_RIGHT_CLICK] = COMBO(ncombo_right_click, KC_MS_BTN2),
+  [SCOMBO_RIGHT_CLICK] = COMBO(scombo_right_click, KC_MS_BTN2),
 
   CHORD_COMBOS
 };

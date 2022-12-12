@@ -295,15 +295,36 @@ bool process_taphold(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 
+#ifdef VIRT_SIDECHANNEL
+#include "virt_sidechannel.c"
+#endif
+
 CHORD_FUNC
 void process_combo_event(uint16_t combo_index, bool pressed) {
+#ifdef VIRT_SIDECHANNEL
+  emit_virt_combo(combo_index, pressed);
+#endif
+
   process_chord_event(combo_index, pressed);
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+#ifdef VIRT_SIDECHANNEL
+  if (record->event.pressed) {
+    emit_virt_sidechannel(record, true);
+  }
+#endif
+
   if (!process_taphold(keycode, record)) {
     return false;
   }
 
   return true;
 }
+
+#ifdef VIRT_SIDECHANNEL
+bool pre_process_record_user(keyrecord_t *record) {
+  emit_virt_sidechannel(record, false);
+  return true;
+}
+#endif

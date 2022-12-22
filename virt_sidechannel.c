@@ -5,8 +5,15 @@
 #define VIRT_START 1
 #define VIRT_CHORD_STARTED VIRT_START+VIRT_KEYS*3
 #define VIRT_CHORD_ENDED VIRT_CHORD_STARTED+1
+#define VIRT_TIMEOUT 1000
+
+static uint16_t recv_timer;
 
 void emit_virt_sidechannel(keyrecord_t *record, bool chentry) {
+  if (timer_elapsed(recv_timer) > VIRT_TIMEOUT) {
+    return;
+  }
+
   uint8_t col = record->event.key.col;
   uint8_t row = 0;
 
@@ -62,6 +69,10 @@ void emit_virt_combo(uint16_t combo_index, bool pressed) {
     return;
   }
 
+  if (timer_elapsed(recv_timer) > VIRT_TIMEOUT) {
+    return;
+  }
+
   virtser_send(VIRT_CHORD_STARTED);
   combo_t combo = key_combos[combo_index];
   int key_count = 0;
@@ -110,4 +121,10 @@ void emit_virt_combo(uint16_t combo_index, bool pressed) {
     key_count++;
   }
   virtser_send(VIRT_CHORD_ENDED);
+}
+
+void virtser_recv(const uint8_t ch) {
+  if (ch == '|') {
+    recv_timer = timer_read();
+  }
 }

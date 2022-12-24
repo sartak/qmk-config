@@ -7,12 +7,50 @@
 #define VIRT_CHORD_ENDED VIRT_CHORD_STARTED+1
 #define VIRT_LAYER_ZERO VIRT_CHORD_ENDED+1
 #define VIRT_LAYER_LAST VIRT_LAYER_ZERO+TOPLAYER
+#define VIRT_LAYER_DOWN_SHIFT VIRT_LAYER_LAST+1
+#define VIRT_LAYER_UP_SHIFT VIRT_LAYER_DOWN_SHIFT+1
+#define VIRT_LAYER_DOWN_CTRL VIRT_LAYER_UP_SHIFT+1
+#define VIRT_LAYER_UP_CTRL VIRT_LAYER_DOWN_CTRL+1
+#define VIRT_LAYER_DOWN_ALT VIRT_LAYER_UP_CTRL+1
+#define VIRT_LAYER_UP_ALT VIRT_LAYER_DOWN_ALT+1
+#define VIRT_LAYER_DOWN_GUI VIRT_LAYER_UP_ALT+1
+#define VIRT_LAYER_UP_GUI VIRT_LAYER_DOWN_GUI+1
 #define VIRT_TIMEOUT 1000
 
 static uint16_t recv_timer;
+static uint8_t prev_mods;
 
-void emit_virt_sidechannel(keyrecord_t *record, bool chentry) {
+void emit_new_mods(keyrecord_t *record) {
+  uint8_t mods = get_mods() | get_oneshot_mods();
+  if (mods == prev_mods) {
+    return;
+  }
+
+#define MOD_VIRTSEND(modifier)                           \
+  bool now_##modifier = mods & MOD_MASK_##modifier;      \
+  bool was_##modifier = prev_mods & MOD_MASK_##modifier; \
+  if (now_##modifier && !was_##modifier) {               \
+    virtser_send(VIRT_LAYER_DOWN_##modifier);            \
+  } else if (!now_##modifier && was_##modifier) {        \
+    virtser_send(VIRT_LAYER_UP_##modifier);              \
+  }
+
+  MOD_VIRTSEND(SHIFT);
+  MOD_VIRTSEND(CTRL);
+  MOD_VIRTSEND(ALT);
+  MOD_VIRTSEND(GUI);
+
+  prev_mods = mods;
+}
+
+void emit_virt_sidechannel(keyrecord_t *record, bool pressed, bool chentry) {
   if (timer_elapsed(recv_timer) > VIRT_TIMEOUT) {
+    return;
+  }
+
+  emit_new_mods(record);
+
+  if (!pressed) {
     return;
   }
 

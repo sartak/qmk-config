@@ -312,7 +312,7 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #ifdef VIRT_SIDECHANNEL
   if (record->event.pressed) {
-    emit_virt_sidechannel(record, true);
+    emit_virt_sidechannel(record, record->event.pressed, true);
   }
 #endif
 
@@ -325,7 +325,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 #ifdef VIRT_SIDECHANNEL
 bool pre_process_record_user(keyrecord_t *record) {
-  emit_virt_sidechannel(record, false);
+  emit_virt_sidechannel(record, true, false);
   return true;
 }
 #endif

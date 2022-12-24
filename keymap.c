@@ -248,16 +248,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 };
 
-#define TH_CASE(tap_kc, hold_kc)                      \
+#define TH_CASE(tap_kc, hold_kc, emit_hold)           \
   case LT(0, tap_kc):                                 \
     if (record->tap.count && record->event.pressed) { \
       tap_code16(tap_kc);                             \
+      emit_virt_sidechannel(record, record->event.pressed, true); \
     } else if (record->event.pressed) {               \
       tap_code16(hold_kc);                            \
+      if (emit_hold) {                                \
+        emit_virt_sidechannel(record, record->event.pressed, true); \
+      }                                               \
     }                                                 \
     return false;
 
-#define TH_GUI(key) TH_CASE(key, LGUI(key))
+#define TH_GUI(key) TH_CASE(key, LGUI(key), false)
 
 bool process_taphold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
@@ -288,9 +292,9 @@ bool process_taphold(uint16_t keycode, keyrecord_t *record) {
       TH_GUI(KC_Y)
       TH_GUI(KC_Z)
       TH_GUI(KC_ENT)
-      TH_CASE(KC_QUOTE, KC_ESCAPE)
-      TH_CASE(KC_DOT, KC_TAB)
-      TH_CASE(KC_COMM, KC_ALFRED)
+      TH_CASE(KC_QUOTE, KC_ESCAPE, true)
+      TH_CASE(KC_DOT, KC_TAB, true)
+      TH_CASE(KC_COMM, KC_ALFRED, false)
     }
 
     return true;
@@ -310,15 +314,15 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (!process_taphold(keycode, record)) {
+    return false;
+  }
+
 #ifdef VIRT_SIDECHANNEL
   if (record->event.pressed) {
     emit_virt_sidechannel(record, record->event.pressed, true);
   }
 #endif
-
-  if (!process_taphold(keycode, record)) {
-    return false;
-  }
 
   return true;
 }

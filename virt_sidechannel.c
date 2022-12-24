@@ -5,6 +5,8 @@
 #define VIRT_START 1
 #define VIRT_CHORD_STARTED VIRT_START+VIRT_KEYS*3
 #define VIRT_CHORD_ENDED VIRT_CHORD_STARTED+1
+#define VIRT_LAYER_ZERO VIRT_CHORD_ENDED+1
+#define VIRT_LAYER_LAST VIRT_LAYER_ZERO+TOPLAYER
 #define VIRT_TIMEOUT 1000
 
 static uint16_t recv_timer;
@@ -121,6 +123,14 @@ void emit_virt_combo(uint16_t combo_index, bool pressed) {
     key_count++;
   }
   virtser_send(VIRT_CHORD_ENDED);
+}
+
+void emit_virt_layer(layer_state_t state) {
+  if (timer_elapsed(recv_timer) > VIRT_TIMEOUT) {
+    return;
+  }
+
+  virtser_send(VIRT_LAYER_ZERO + get_highest_layer(state));
 }
 
 void virtser_recv(const uint8_t ch) {

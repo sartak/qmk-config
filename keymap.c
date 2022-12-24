@@ -6,6 +6,7 @@
 #define SYMBOL 1
 #define NUMBER 2
 #define FUNCTION 3
+#define TOPLAYER FUNCTION
 
 #define KC_LANGUAGE KC_F13
 #define KC_SCREENSHOT LGUI(LSFT(KC_4))
@@ -326,5 +327,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 bool pre_process_record_user(keyrecord_t *record) {
   emit_virt_sidechannel(record, false);
   return true;
+}
+#endif
+
+#ifdef VIRT_SIDECHANNEL
+layer_state_t layer_state_set_user(layer_state_t state) {
+  emit_virt_layer(state);
+  return state;
 }
 #endif

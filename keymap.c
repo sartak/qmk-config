@@ -248,6 +248,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 };
 
+#ifdef VIRT_SIDECHANNEL
+#include "virt_sidechannel.c"
+#else
+#define emit_virt_sidechannel(...) ;
+#endif
+
 #define TH_CASE(tap_kc, hold_kc, emit_hold)           \
   case LT(0, tap_kc):                                 \
     if (record->tap.count && record->event.pressed) { \
@@ -300,10 +306,6 @@ bool process_taphold(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 
-#ifdef VIRT_SIDECHANNEL
-#include "virt_sidechannel.c"
-#endif
-
 CHORD_FUNC
 void process_combo_event(uint16_t combo_index, bool pressed) {
 #ifdef VIRT_SIDECHANNEL
@@ -318,12 +320,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return false;
   }
 
-#ifdef VIRT_SIDECHANNEL
-  if (record->event.pressed) {
-    emit_virt_sidechannel(record, record->event.pressed, true);
-  }
-#endif
-
   return true;
 }
 
@@ -331,6 +327,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 bool pre_process_record_user(keyrecord_t *record) {
   emit_virt_sidechannel(record, true, false);
   return true;
+}
+#endif
+
+#ifdef VIRT_SIDECHANNEL
+void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
+  emit_virt_sidechannel(record, record->event.pressed, true);
 }
 #endif
 

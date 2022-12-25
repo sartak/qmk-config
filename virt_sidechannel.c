@@ -3,7 +3,7 @@
 #define VIRT_WARN 0
 #define VIRT_KEYS 34
 #define VIRT_START 1
-#define VIRT_CHORD_STARTED VIRT_START+VIRT_KEYS*3
+#define VIRT_CHORD_STARTED VIRT_START+VIRT_KEYS*4
 #define VIRT_CHORD_ENDED VIRT_CHORD_STARTED+1
 #define VIRT_LAYER_ZERO VIRT_CHORD_ENDED+1
 #define VIRT_LAYER_LAST VIRT_LAYER_ZERO+TOPLAYER
@@ -43,7 +43,7 @@ void emit_new_mods(keyrecord_t *record) {
   prev_mods = mods;
 }
 
-void emit_virt_sidechannel(keyrecord_t *record, bool pressed, bool chentry) {
+void emit_virt_sidechannel(keyrecord_t *record, bool pressed, bool held, bool chentry) {
   if (timer_elapsed(recv_timer) > VIRT_TIMEOUT) {
     return;
   }
@@ -94,7 +94,10 @@ void emit_virt_sidechannel(keyrecord_t *record, bool pressed, bool chentry) {
   }
 
   uint8_t msg = VIRT_START + row * 10 + col;
-  if (chentry) {
+  if (held) {
+    msg += 3 * VIRT_KEYS;
+  }
+  else if (chentry) {
     msg += 2 * VIRT_KEYS;
   }
   else if (!record->event.pressed) {

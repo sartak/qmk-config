@@ -254,20 +254,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #define emit_virt_sidechannel(...) ;
 #endif
 
-#define TH_CASE(tap_kc, hold_kc, emit_hold)           \
+#define TH_CASE(tap_kc, hold_kc)                      \
   case LT(0, tap_kc):                                 \
     if (record->tap.count && record->event.pressed) { \
       tap_code16(tap_kc);                             \
-      emit_virt_sidechannel(record, record->event.pressed, true); \
+      emit_virt_sidechannel(record, record->event.pressed, false, true); \
     } else if (record->event.pressed) {               \
       tap_code16(hold_kc);                            \
-      if (emit_hold) {                                \
-        emit_virt_sidechannel(record, record->event.pressed, true); \
-      }                                               \
+      emit_virt_sidechannel(record, record->event.pressed, true, true); \
     }                                                 \
     return false;
 
-#define TH_GUI(key) TH_CASE(key, LGUI(key), false)
+#define TH_GUI(key) TH_CASE(key, LGUI(key))
 
 bool process_taphold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
@@ -298,9 +296,9 @@ bool process_taphold(uint16_t keycode, keyrecord_t *record) {
       TH_GUI(KC_Y)
       TH_GUI(KC_Z)
       TH_GUI(KC_ENT)
-      TH_CASE(KC_QUOTE, KC_ESCAPE, true)
-      TH_CASE(KC_DOT, KC_TAB, true)
-      TH_CASE(KC_COMM, KC_ALFRED, false)
+      TH_CASE(KC_QUOTE, KC_ESCAPE)
+      TH_CASE(KC_DOT, KC_TAB)
+      TH_CASE(KC_COMM, KC_ALFRED)
     }
 
     return true;
@@ -325,14 +323,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 #ifdef VIRT_SIDECHANNEL
 bool pre_process_record_user(keyrecord_t *record) {
-  emit_virt_sidechannel(record, true, false);
+  emit_virt_sidechannel(record, true, false, false);
   return true;
 }
 #endif
 
 #ifdef VIRT_SIDECHANNEL
 void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
-  emit_virt_sidechannel(record, record->event.pressed, true);
+  emit_virt_sidechannel(record, record->event.pressed, false, true);
 }
 #endif
 

@@ -359,7 +359,7 @@ uint16_t last_keycode = KC_NO;
 uint8_t last_modifier = 0;
 uint8_t mod_state;
 uint8_t oneshot_mod_state;
-void process_repeat_key(uint16_t keycode, const keyrecord_t *record) {
+bool process_repeat_key(uint16_t keycode, const keyrecord_t *record) {
   if ((keycode == AT0 || keycode == ST0 || keycode == NT0) && record->tap.count) {
     if (record->event.pressed) {
       register_mods(last_modifier);
@@ -378,32 +378,52 @@ void process_repeat_key(uint16_t keycode, const keyrecord_t *record) {
       case QK_TO ... QK_TO_MAX:
       case QK_LAYER_TAP_TOGGLE ... QK_LAYER_TAP_TOGGLE_MAX:
         break;
-      default:
-        last_modifier = oneshot_mod_state > mod_state ? oneshot_mod_state : mod_state;
+      default: {
+        uint16_t next_keycode = KC_NO;
+        uint8_t next_modifier = oneshot_mod_state > mod_state ? oneshot_mod_state : mod_state;
 
         switch (keycode) {
           case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
           case QK_MOD_TAP ... QK_MOD_TAP_MAX:
             if (record->event.pressed) {
-              last_keycode = GET_TAP_KC(keycode);
+              next_keycode = GET_TAP_KC(keycode);
             }
             break;
           default:
             if (record->event.pressed) {
-              last_keycode = keycode;
+              next_keycode = keycode;
             }
             break;
         }
+
+#ifdef FORCE_DUP_KEY
+        if (next_keycode >= KC_A && next_keycode <= KC_Z) {
+          if (last_keycode == next_keycode && last_modifier == next_modifier) {
+            return false;
+          }
+        }
+#endif
+
+        last_modifier = next_modifier;
+
+        if (next_keycode != KC_NO) {
+          last_keycode = next_keycode;
+        }
+
         break;
+      }
     }
   }
 
   mod_state = get_mods();
   oneshot_mod_state = get_oneshot_mods();
+  return true;
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  process_repeat_key(keycode, record);
+  if (!process_repeat_key(keycode, record)) {
+    return false;
+  }
 
   if (!process_taphold(keycode, record)) {
     return false;

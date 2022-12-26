@@ -193,21 +193,22 @@ const uint16_t PROGMEM scombo_right_click[] = {ST2, ST3, COMBO_END};
 const uint16_t PROGMEM ncombo_right_click[] = {NT2, NT3, COMBO_END};
 
 combo_t key_combos[] = {
-  [ACOMBO_LAYERS] = COMBO(acombo_layers, OSL(FUNCTION)),
-  [SCOMBO_LAYERS] = COMBO(scombo_layers, OSL(FUNCTION)),
-  [NCOMBO_LAYERS] = COMBO(ncombo_layers, OSL(FUNCTION)),
+#define CHORD_COMBO(name) [CHORD_##name] = COMBO_ACTION(chord_##name)
+  [ACOMBO_LAYERS] = COMBO_ACTION(acombo_layers),
+  [SCOMBO_LAYERS] = COMBO_ACTION(scombo_layers),
+  [NCOMBO_LAYERS] = COMBO_ACTION(ncombo_layers),
 
-  [ACOMBO_DELETE_WORD] = COMBO(acombo_delete_word, LALT(KC_BSPC)),
-  [NCOMBO_DELETE_WORD] = COMBO(ncombo_delete_word, LALT(KC_BSPC)),
-  [SCOMBO_DELETE_WORD] = COMBO(scombo_delete_word, LALT(KC_BSPC)),
+  [ACOMBO_DELETE_WORD] = COMBO_ACTION(acombo_delete_word),
+  [NCOMBO_DELETE_WORD] = COMBO_ACTION(ncombo_delete_word),
+  [SCOMBO_DELETE_WORD] = COMBO_ACTION(scombo_delete_word),
 
-  [ACOMBO_LEFT_CLICK] = COMBO(acombo_left_click, KC_MS_BTN1),
-  [NCOMBO_LEFT_CLICK] = COMBO(ncombo_left_click, KC_MS_BTN1),
-  [SCOMBO_LEFT_CLICK] = COMBO(scombo_left_click, KC_MS_BTN1),
+  [ACOMBO_LEFT_CLICK] = COMBO_ACTION(acombo_left_click),
+  [NCOMBO_LEFT_CLICK] = COMBO_ACTION(ncombo_left_click),
+  [SCOMBO_LEFT_CLICK] = COMBO_ACTION(scombo_left_click),
 
-  [ACOMBO_RIGHT_CLICK] = COMBO(acombo_right_click, KC_MS_BTN2),
-  [NCOMBO_RIGHT_CLICK] = COMBO(ncombo_right_click, KC_MS_BTN2),
-  [SCOMBO_RIGHT_CLICK] = COMBO(scombo_right_click, KC_MS_BTN2),
+  [ACOMBO_RIGHT_CLICK] = COMBO_ACTION(acombo_right_click),
+  [NCOMBO_RIGHT_CLICK] = COMBO_ACTION(ncombo_right_click),
+  [SCOMBO_RIGHT_CLICK] = COMBO_ACTION(scombo_right_click),
 
   CHORD_COMBOS
 };
@@ -309,6 +310,42 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 #ifdef VIRT_SIDECHANNEL
   emit_virt_combo(combo_index, pressed);
 #endif
+
+  switch(combo_index) {
+    case ACOMBO_LAYERS:
+    case SCOMBO_LAYERS:
+    case NCOMBO_LAYERS:
+      if (pressed) {
+        set_oneshot_layer(FUNCTION, ONESHOT_START);
+      } else {
+        clear_oneshot_layer_state(ONESHOT_PRESSED);
+      }
+      return;
+
+    case ACOMBO_DELETE_WORD:
+    case NCOMBO_DELETE_WORD:
+    case SCOMBO_DELETE_WORD:
+      if (pressed) {
+        tap_code16(LALT(KC_BSPC));
+      }
+      return;
+
+    case ACOMBO_LEFT_CLICK:
+    case NCOMBO_LEFT_CLICK:
+    case SCOMBO_LEFT_CLICK:
+      if (pressed) {
+        tap_code16(KC_MS_BTN1);
+      }
+      return;
+
+    case ACOMBO_RIGHT_CLICK:
+    case NCOMBO_RIGHT_CLICK:
+    case SCOMBO_RIGHT_CLICK:
+      if (pressed) {
+        tap_code16(KC_MS_BTN2);
+      }
+      return;
+  }
 
   process_chord_event(combo_index, pressed);
 }

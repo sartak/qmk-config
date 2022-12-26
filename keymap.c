@@ -48,8 +48,8 @@
 #define A_c TH(KC_COMM)
 #define A_r TH(KC_ENT)
 #define AT0 MO(SYMBOL)
-#define AT1 LSFT_T(KC_BSPC)
-#define AT2 LCTL_T(KC_SPC)
+#define AT1 MT(MOD_LSFT, KC_BSPC)
+#define AT2 MT(MOD_LCTL, KC_SPC)
 #define AT3 MO(NUMBER)
 
 #define S_W KC_GRAVE
@@ -83,8 +83,8 @@
 #define S_c TH(KC_COMM)
 #define S_r TH(KC_ENT)
 #define ST0 MO(ALPHA)
-#define ST1 LSFT_T(KC_BSPC)
-#define ST2 LCTL_T(KC_SPC)
+#define ST1 MT(MOD_LSFT, KC_BSPC)
+#define ST2 MT(MOD_LCTL, KC_SPC)
 #define ST3 MO(NUMBER)
 
 #define N_W KC_BRIU
@@ -118,8 +118,8 @@
 #define N_c TH(KC_COMM)
 #define N_r TH(KC_ENT)
 #define NT0 MO(ALPHA)
-#define NT1 LSFT_T(KC_BSPC)
-#define NT2 LCTL_T(KC_SPC)
+#define NT1 MT(MOD_LSFT, KC_BSPC)
+#define NT2 MT(MOD_LCTL, KC_SPC)
 #define NT3 MO(SYMBOL)
 
 #define F_W QK_BOOT

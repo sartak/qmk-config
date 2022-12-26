@@ -1,5 +1,9 @@
 #include QMK_KEYBOARD_H
 
+enum custom_keycodes {
+  KC_DUP = SAFE_RANGE,
+};
+
 #define TH(key) LT(0, key)
 
 #define ALPHA 0
@@ -47,10 +51,10 @@
 #define A_d TH(KC_DOT)
 #define A_c TH(KC_COMM)
 #define A_r TH(KC_ENT)
-#define AT0 MO(SYMBOL)
+#define AT0 LT(SYMBOL, KC_DUP)
 #define AT1 MT(MOD_LSFT, KC_BSPC)
 #define AT2 MT(MOD_LCTL, KC_SPC)
-#define AT3 MO(NUMBER)
+#define AT3 LT(NUMBER, KC_TAB)
 
 #define S_W KC_GRAVE
 #define S_L KC_TILDE
@@ -82,10 +86,10 @@
 #define S_d TH(KC_DOT)
 #define S_c TH(KC_COMM)
 #define S_r TH(KC_ENT)
-#define ST0 MO(ALPHA)
+#define ST0 LT(ALPHA, KC_DUP)
 #define ST1 MT(MOD_LSFT, KC_BSPC)
 #define ST2 MT(MOD_LCTL, KC_SPC)
-#define ST3 MO(NUMBER)
+#define ST3 LT(NUMBER, KC_TAB)
 
 #define N_W KC_BRIU
 #define N_L KC_6
@@ -117,10 +121,10 @@
 #define N_d TH(KC_DOT)
 #define N_c TH(KC_COMM)
 #define N_r TH(KC_ENT)
-#define NT0 MO(ALPHA)
+#define NT0 LT(ALPHA, KC_DUP)
 #define NT1 MT(MOD_LSFT, KC_BSPC)
 #define NT2 MT(MOD_LCTL, KC_SPC)
-#define NT3 MO(SYMBOL)
+#define NT3 LT(SYMBOL, KC_TAB)
 
 #define F_W QK_BOOT
 #define F_L KC_NO
@@ -350,7 +354,57 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
   process_chord_event(combo_index, pressed);
 }
 
+#define GET_TAP_KC(dual_role_key) (dual_role_key & 0xFF)
+uint16_t last_keycode = KC_NO;
+uint8_t last_modifier = 0;
+uint8_t mod_state;
+uint8_t oneshot_mod_state;
+void process_repeat_key(uint16_t keycode, const keyrecord_t *record) {
+  if ((keycode == AT0 || keycode == ST0 || keycode == NT0) && record->tap.count) {
+    if (record->event.pressed) {
+      register_mods(last_modifier);
+      register_code16(last_keycode);
+    } else {
+      unregister_code16(last_keycode);
+      unregister_mods(last_modifier);
+    }
+  } else {
+    switch (keycode) {
+      case QK_DEF_LAYER ... QK_DEF_LAYER_MAX:
+      case QK_MOMENTARY ... QK_MOMENTARY_MAX:
+      case QK_LAYER_MOD ... QK_LAYER_MOD_MAX:
+      case QK_ONE_SHOT_LAYER ... QK_ONE_SHOT_LAYER_MAX:
+      case QK_TOGGLE_LAYER ... QK_TOGGLE_LAYER_MAX:
+      case QK_TO ... QK_TO_MAX:
+      case QK_LAYER_TAP_TOGGLE ... QK_LAYER_TAP_TOGGLE_MAX:
+        break;
+      default:
+        last_modifier = oneshot_mod_state > mod_state ? oneshot_mod_state : mod_state;
+
+        switch (keycode) {
+          case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
+          case QK_MOD_TAP ... QK_MOD_TAP_MAX:
+            if (record->event.pressed) {
+              last_keycode = GET_TAP_KC(keycode);
+            }
+            break;
+          default:
+            if (record->event.pressed) {
+              last_keycode = keycode;
+            }
+            break;
+        }
+        break;
+    }
+  }
+
+  mod_state = get_mods();
+  oneshot_mod_state = get_oneshot_mods();
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  process_repeat_key(keycode, record);
+
   if (!process_taphold(keycode, record)) {
     return false;
   }

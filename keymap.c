@@ -358,6 +358,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
 
+bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+    case AT0:
+    case AT1:
+    case AT2:
+    case AT3:
+      return true;
+    default:
+      return false;
+    }
+}
+
 #ifdef VIRT_SIDECHANNEL
 bool pre_process_record_user(keyrecord_t *record) {
   emit_virt_sidechannel(record, true, false, false);

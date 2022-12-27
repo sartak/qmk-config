@@ -2796,3 +2796,18 @@ void process_chord_event(uint16_t combo_index, bool pressed) { \
       break; \
   } \
 }
+#define CHORD_DUP_FUNC \
+uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
+  uint8_t next_chord_cycle = 0; \
+  uint8_t backspaces = 0; \
+  char *append = NULL; \
+  switch(last_chord) { \
+  } \
+  for (uint8_t i = 0; i < backspaces; i++) { \
+    tap_code(KC_BSPC); \
+  } \
+  if (append != NULL) { \
+    send_string(append); \
+  } \
+  return next_chord_cycle; \
+}

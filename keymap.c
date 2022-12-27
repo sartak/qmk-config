@@ -309,7 +309,11 @@ bool process_taphold(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 
+uint16_t last_chord;
+uint8_t last_chord_cycle;
+
 CHORD_FUNC
+CHORD_DUP_FUNC
 void process_combo_event(uint16_t combo_index, bool pressed) {
 #ifdef VIRT_SIDECHANNEL
   emit_virt_combo(combo_index, pressed);
@@ -351,6 +355,8 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
       return;
   }
 
+  last_chord = combo_index;
+  last_chord_cycle = 0;
   process_chord_event(combo_index, pressed);
 }
 
@@ -362,9 +368,16 @@ uint8_t oneshot_mod_state;
 bool process_repeat_key(uint16_t keycode, const keyrecord_t *record) {
   if ((keycode == AT0 || keycode == ST0 || keycode == NT0) && record->tap.count) {
     if (record->event.pressed) {
+      if (last_chord) {
+        last_chord_cycle = process_chord_dup(last_chord, last_chord_cycle);
+        return false;
+      }
       register_mods(last_modifier);
       register_code16(last_keycode);
     } else {
+      if (last_chord) {
+        return false;
+      }
       unregister_code16(last_keycode);
       unregister_mods(last_modifier);
     }
@@ -424,6 +437,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (!process_repeat_key(keycode, record)) {
     return false;
   }
+
+  last_chord = 0;
 
   if (!process_taphold(keycode, record)) {
     return false;

@@ -1396,1418 +1396,1448 @@ void process_chord_event(uint16_t combo_index, bool pressed) { \
   if (!pressed) { \
     return; \
   } \
- \
+  bool space = true; \
   switch(combo_index) { \
     case CHORD_excl1: \
+      space = false; \
       SEND_STRING("!"); \
       break; \
     case CHORD_qmark1: \
+      space = false; \
       SEND_STRING("?"); \
       break; \
     case CHORD_colon1: \
+      space = false; \
       SEND_STRING(":"); \
       break; \
     case CHORD_semi1: \
+      space = false; \
       SEND_STRING(";"); \
       break; \
     case CHORD_cent: \
+      space = false; \
       send_unicode_string("¢"); \
       break; \
     case CHORD_pound: \
+      space = false; \
       send_unicode_string("£"); \
       break; \
     case CHORD_yen: \
+      space = false; \
       send_unicode_string("¥"); \
       break; \
     case CHORD_euro: \
+      space = false; \
       send_unicode_string("€"); \
       break; \
     case CHORD_mid_ell: \
+      space = false; \
       send_unicode_string("⋯"); \
       break; \
     case CHORD_bullet: \
+      space = false; \
       send_unicode_string("•"); \
       break; \
     case CHORD_degrees: \
+      space = false; \
       send_unicode_string("°"); \
       break; \
     case CHORD_infinit: \
+      space = false; \
       send_unicode_string("∞"); \
       break; \
     case CHORD_lambda: \
+      space = false; \
       send_unicode_string("λ"); \
       break; \
     case CHORD_interro: \
+      space = false; \
       send_unicode_string("‽"); \
       break; \
     case CHORD_ballot_: \
+      space = false; \
       send_unicode_string("✗"); \
       break; \
     case CHORD_checkma: \
+      space = false; \
       send_unicode_string("✔"); \
       break; \
     case CHORD_left_ar: \
+      space = false; \
       send_unicode_string("←"); \
       break; \
     case CHORD_down_ar: \
+      space = false; \
       send_unicode_string("↓"); \
       break; \
     case CHORD_up_arro: \
+      space = false; \
       send_unicode_string("↑"); \
       break; \
     case CHORD_right_a: \
+      space = false; \
       send_unicode_string("→"); \
       break; \
     case CHORD__bs_ing: \
       tap_code16(KC_BSPC); \
-      SEND_STRING("ing "); \
+      SEND_STRING("ing"); \
       break; \
     case CHORD__bs_n_t: \
       tap_code16(KC_BSPC); \
-      SEND_STRING("n't "); \
+      SEND_STRING("n't"); \
       break; \
     case CHORD__bs_ve: \
       tap_code16(KC_BSPC); \
-      SEND_STRING("'ve "); \
+      SEND_STRING("'ve"); \
       break; \
     case CHORD__bs_re: \
       tap_code16(KC_BSPC); \
-      SEND_STRING("'re "); \
+      SEND_STRING("'re"); \
       break; \
     case CHORD_the: \
-      SEND_STRING("the "); \
+      SEND_STRING("the"); \
       break; \
     case CHORD_be: \
-      SEND_STRING("be "); \
+      SEND_STRING("be"); \
       break; \
     case CHORD_of: \
-      SEND_STRING("of "); \
+      SEND_STRING("of"); \
       break; \
     case CHORD_and: \
-      SEND_STRING("and "); \
+      SEND_STRING("and"); \
       break; \
     case CHORD_a: \
-      SEND_STRING("a "); \
+      SEND_STRING("a"); \
       break; \
     case CHORD_a1: \
-      SEND_STRING("A "); \
+      SEND_STRING("A"); \
       break; \
     case CHORD_to: \
-      SEND_STRING("to "); \
+      SEND_STRING("to"); \
       break; \
     case CHORD_in: \
-      SEND_STRING("in "); \
+      SEND_STRING("in"); \
       break; \
     case CHORD_he: \
-      SEND_STRING("he "); \
+      SEND_STRING("he"); \
       break; \
     case CHORD_have: \
-      SEND_STRING("have "); \
+      SEND_STRING("have"); \
       break; \
     case CHORD_it: \
-      SEND_STRING("it "); \
+      SEND_STRING("it"); \
       break; \
     case CHORD_that: \
-      SEND_STRING("that "); \
+      SEND_STRING("that"); \
       break; \
     case CHORD_for: \
-      SEND_STRING("for "); \
+      SEND_STRING("for"); \
       break; \
     case CHORD_they: \
-      SEND_STRING("they "); \
+      SEND_STRING("they"); \
       break; \
     case CHORD_i: \
-      SEND_STRING("I "); \
+      SEND_STRING("I"); \
       break; \
     case CHORD_with: \
-      SEND_STRING("with "); \
+      SEND_STRING("with"); \
       break; \
     case CHORD_as: \
-      SEND_STRING("as "); \
+      SEND_STRING("as"); \
       break; \
     case CHORD_not: \
-      SEND_STRING("not "); \
+      SEND_STRING("not"); \
       break; \
     case CHORD_on: \
-      SEND_STRING("on "); \
+      SEND_STRING("on"); \
       break; \
     case CHORD_she: \
-      SEND_STRING("she "); \
+      SEND_STRING("she"); \
       break; \
     case CHORD_at: \
-      SEND_STRING("at "); \
+      SEND_STRING("at"); \
       break; \
     case CHORD_by: \
-      SEND_STRING("by "); \
+      SEND_STRING("by"); \
       break; \
     case CHORD_this: \
-      SEND_STRING("this "); \
+      SEND_STRING("this"); \
       break; \
     case CHORD_we: \
-      SEND_STRING("we "); \
+      SEND_STRING("we"); \
       break; \
     case CHORD_you: \
-      SEND_STRING("you "); \
+      SEND_STRING("you"); \
       break; \
     case CHORD_do: \
-      SEND_STRING("do "); \
+      SEND_STRING("do"); \
       break; \
     case CHORD_but: \
-      SEND_STRING("but "); \
+      SEND_STRING("but"); \
       break; \
     case CHORD_from: \
-      SEND_STRING("from "); \
+      SEND_STRING("from"); \
       break; \
     case CHORD_or: \
-      SEND_STRING("or "); \
+      SEND_STRING("or"); \
       break; \
     case CHORD_which: \
-      SEND_STRING("which "); \
+      SEND_STRING("which"); \
       break; \
     case CHORD_one: \
-      SEND_STRING("one "); \
+      SEND_STRING("one"); \
       break; \
     case CHORD_would: \
-      SEND_STRING("would "); \
+      SEND_STRING("would"); \
       break; \
     case CHORD_all: \
-      SEND_STRING("all "); \
+      SEND_STRING("all"); \
       break; \
     case CHORD_will: \
-      SEND_STRING("will "); \
+      SEND_STRING("will"); \
       break; \
     case CHORD_there: \
-      SEND_STRING("there "); \
+      SEND_STRING("there"); \
       break; \
     case CHORD_say: \
-      SEND_STRING("say "); \
+      SEND_STRING("say"); \
       break; \
     case CHORD_who: \
-      SEND_STRING("who "); \
+      SEND_STRING("who"); \
       break; \
     case CHORD_make: \
-      SEND_STRING("make "); \
+      SEND_STRING("make"); \
       break; \
     case CHORD_when: \
-      SEND_STRING("when "); \
+      SEND_STRING("when"); \
       break; \
     case CHORD_can: \
-      SEND_STRING("can "); \
+      SEND_STRING("can"); \
       break; \
     case CHORD_more: \
-      SEND_STRING("more "); \
+      SEND_STRING("more"); \
       break; \
     case CHORD_if: \
-      SEND_STRING("if "); \
+      SEND_STRING("if"); \
       break; \
     case CHORD_no: \
-      SEND_STRING("no "); \
+      SEND_STRING("no"); \
       break; \
     case CHORD_man: \
-      SEND_STRING("man "); \
+      SEND_STRING("man"); \
       break; \
     case CHORD_out: \
-      SEND_STRING("out "); \
+      SEND_STRING("out"); \
       break; \
     case CHORD_other: \
-      SEND_STRING("other "); \
+      SEND_STRING("other"); \
       break; \
     case CHORD_so: \
-      SEND_STRING("so "); \
+      SEND_STRING("so"); \
       break; \
     case CHORD_what: \
-      SEND_STRING("what "); \
+      SEND_STRING("what"); \
       break; \
     case CHORD_time: \
-      SEND_STRING("time "); \
+      SEND_STRING("time"); \
       break; \
     case CHORD_up: \
-      SEND_STRING("up "); \
+      SEND_STRING("up"); \
       break; \
     case CHORD_go: \
-      SEND_STRING("go "); \
+      SEND_STRING("go"); \
       break; \
     case CHORD_about: \
-      SEND_STRING("about "); \
+      SEND_STRING("about"); \
       break; \
     case CHORD_than: \
-      SEND_STRING("than "); \
+      SEND_STRING("than"); \
       break; \
     case CHORD_into: \
-      SEND_STRING("into "); \
+      SEND_STRING("into"); \
       break; \
     case CHORD_could: \
-      SEND_STRING("could "); \
+      SEND_STRING("could"); \
       break; \
     case CHORD_state: \
-      SEND_STRING("state "); \
+      SEND_STRING("state"); \
       break; \
     case CHORD_only: \
-      SEND_STRING("only "); \
+      SEND_STRING("only"); \
       break; \
     case CHORD_new: \
-      SEND_STRING("new "); \
+      SEND_STRING("new"); \
       break; \
     case CHORD_year: \
-      SEND_STRING("year "); \
+      SEND_STRING("year"); \
       break; \
     case CHORD_some: \
-      SEND_STRING("some "); \
+      SEND_STRING("some"); \
       break; \
     case CHORD_take: \
-      SEND_STRING("take "); \
+      SEND_STRING("take"); \
       break; \
     case CHORD_come: \
-      SEND_STRING("come "); \
+      SEND_STRING("come"); \
       break; \
     case CHORD_these: \
-      SEND_STRING("these "); \
+      SEND_STRING("these"); \
       break; \
     case CHORD_know: \
-      SEND_STRING("know "); \
+      SEND_STRING("know"); \
       break; \
     case CHORD_see: \
-      SEND_STRING("see "); \
+      SEND_STRING("see"); \
       break; \
     case CHORD_use: \
-      SEND_STRING("use "); \
+      SEND_STRING("use"); \
       break; \
     case CHORD_get: \
-      SEND_STRING("get "); \
+      SEND_STRING("get"); \
       break; \
     case CHORD_like: \
-      SEND_STRING("like "); \
+      SEND_STRING("like"); \
       break; \
     case CHORD_then: \
-      SEND_STRING("then "); \
+      SEND_STRING("then"); \
       break; \
     case CHORD_first: \
-      SEND_STRING("first "); \
+      SEND_STRING("first"); \
       break; \
     case CHORD_any: \
-      SEND_STRING("any "); \
+      SEND_STRING("any"); \
       break; \
     case CHORD_work: \
-      SEND_STRING("work "); \
+      SEND_STRING("work"); \
       break; \
     case CHORD_now: \
-      SEND_STRING("now "); \
+      SEND_STRING("now"); \
       break; \
     case CHORD_may: \
-      SEND_STRING("may "); \
+      SEND_STRING("may"); \
       break; \
     case CHORD_such: \
-      SEND_STRING("such "); \
+      SEND_STRING("such"); \
       break; \
     case CHORD_give: \
-      SEND_STRING("give "); \
+      SEND_STRING("give"); \
       break; \
     case CHORD_over: \
-      SEND_STRING("over "); \
+      SEND_STRING("over"); \
       break; \
     case CHORD_think: \
-      SEND_STRING("think "); \
+      SEND_STRING("think"); \
       break; \
     case CHORD_most: \
-      SEND_STRING("most "); \
+      SEND_STRING("most"); \
       break; \
     case CHORD_even: \
-      SEND_STRING("even "); \
+      SEND_STRING("even"); \
       break; \
     case CHORD_find: \
-      SEND_STRING("find "); \
+      SEND_STRING("find"); \
       break; \
     case CHORD_day: \
-      SEND_STRING("day "); \
+      SEND_STRING("day"); \
       break; \
     case CHORD_also: \
-      SEND_STRING("also "); \
+      SEND_STRING("also"); \
       break; \
     case CHORD_after: \
-      SEND_STRING("after "); \
+      SEND_STRING("after"); \
       break; \
     case CHORD_way: \
-      SEND_STRING("way "); \
+      SEND_STRING("way"); \
       break; \
     case CHORD_many: \
-      SEND_STRING("many "); \
+      SEND_STRING("many"); \
       break; \
     case CHORD_must: \
-      SEND_STRING("must "); \
+      SEND_STRING("must"); \
       break; \
     case CHORD_look: \
-      SEND_STRING("look "); \
+      SEND_STRING("look"); \
       break; \
     case CHORD_before: \
-      SEND_STRING("before "); \
+      SEND_STRING("before"); \
       break; \
     case CHORD_great: \
-      SEND_STRING("great "); \
+      SEND_STRING("great"); \
       break; \
     case CHORD_back: \
-      SEND_STRING("back "); \
+      SEND_STRING("back"); \
       break; \
     case CHORD_through: \
-      SEND_STRING("through "); \
+      SEND_STRING("through"); \
       break; \
     case CHORD_long: \
-      SEND_STRING("long "); \
+      SEND_STRING("long"); \
       break; \
     case CHORD_where: \
-      SEND_STRING("where "); \
+      SEND_STRING("where"); \
       break; \
     case CHORD_much: \
-      SEND_STRING("much "); \
+      SEND_STRING("much"); \
       break; \
     case CHORD_should: \
-      SEND_STRING("should "); \
+      SEND_STRING("should"); \
       break; \
     case CHORD_well: \
-      SEND_STRING("well "); \
+      SEND_STRING("well"); \
       break; \
     case CHORD_people: \
-      SEND_STRING("people "); \
+      SEND_STRING("people"); \
       break; \
     case CHORD_down: \
-      SEND_STRING("down "); \
+      SEND_STRING("down"); \
       break; \
     case CHORD_own: \
-      SEND_STRING("own "); \
+      SEND_STRING("own"); \
       break; \
     case CHORD_just: \
-      SEND_STRING("just "); \
+      SEND_STRING("just"); \
       break; \
     case CHORD_because: \
-      SEND_STRING("because "); \
+      SEND_STRING("because"); \
       break; \
     case CHORD_good: \
-      SEND_STRING("good "); \
+      SEND_STRING("good"); \
       break; \
     case CHORD_each: \
-      SEND_STRING("each "); \
+      SEND_STRING("each"); \
       break; \
     case CHORD_those: \
-      SEND_STRING("those "); \
+      SEND_STRING("those"); \
       break; \
     case CHORD_feel: \
-      SEND_STRING("feel "); \
+      SEND_STRING("feel"); \
       break; \
     case CHORD_seem: \
-      SEND_STRING("seem "); \
+      SEND_STRING("seem"); \
       break; \
     case CHORD_how: \
-      SEND_STRING("how "); \
+      SEND_STRING("how"); \
       break; \
     case CHORD_high: \
-      SEND_STRING("high "); \
+      SEND_STRING("high"); \
       break; \
     case CHORD_too: \
-      SEND_STRING("too "); \
+      SEND_STRING("too"); \
       break; \
     case CHORD_place: \
-      SEND_STRING("place "); \
+      SEND_STRING("place"); \
       break; \
     case CHORD_little: \
-      SEND_STRING("little "); \
+      SEND_STRING("little"); \
       break; \
     case CHORD_world: \
-      SEND_STRING("world "); \
+      SEND_STRING("world"); \
       break; \
     case CHORD_very: \
-      SEND_STRING("very "); \
+      SEND_STRING("very"); \
       break; \
     case CHORD_still: \
-      SEND_STRING("still "); \
+      SEND_STRING("still"); \
       break; \
     case CHORD_nation: \
-      SEND_STRING("nation "); \
+      SEND_STRING("nation"); \
       break; \
     case CHORD_hand: \
-      SEND_STRING("hand "); \
+      SEND_STRING("hand"); \
       break; \
     case CHORD_old: \
-      SEND_STRING("old "); \
+      SEND_STRING("old"); \
       break; \
     case CHORD_life: \
-      SEND_STRING("life "); \
+      SEND_STRING("life"); \
       break; \
     case CHORD_tell: \
-      SEND_STRING("tell "); \
+      SEND_STRING("tell"); \
       break; \
     case CHORD_write: \
-      SEND_STRING("write "); \
+      SEND_STRING("write"); \
       break; \
     case CHORD_become: \
-      SEND_STRING("become "); \
+      SEND_STRING("become"); \
       break; \
     case CHORD_here: \
-      SEND_STRING("here "); \
+      SEND_STRING("here"); \
       break; \
     case CHORD_show: \
-      SEND_STRING("show "); \
+      SEND_STRING("show"); \
       break; \
     case CHORD_house: \
-      SEND_STRING("house "); \
+      SEND_STRING("house"); \
       break; \
     case CHORD_both: \
-      SEND_STRING("both "); \
+      SEND_STRING("both"); \
       break; \
     case CHORD_between: \
-      SEND_STRING("between "); \
+      SEND_STRING("between"); \
       break; \
     case CHORD_need: \
-      SEND_STRING("need "); \
+      SEND_STRING("need"); \
       break; \
     case CHORD_mean: \
-      SEND_STRING("mean "); \
+      SEND_STRING("mean"); \
       break; \
     case CHORD_call: \
-      SEND_STRING("call "); \
+      SEND_STRING("call"); \
       break; \
     case CHORD_develop: \
-      SEND_STRING("develop "); \
+      SEND_STRING("develop"); \
       break; \
     case CHORD_under: \
-      SEND_STRING("under "); \
+      SEND_STRING("under"); \
       break; \
     case CHORD_last: \
-      SEND_STRING("last "); \
+      SEND_STRING("last"); \
       break; \
     case CHORD_right: \
-      SEND_STRING("right "); \
+      SEND_STRING("right"); \
       break; \
     case CHORD_move: \
-      SEND_STRING("move "); \
+      SEND_STRING("move"); \
       break; \
     case CHORD_thing: \
-      SEND_STRING("thing "); \
+      SEND_STRING("thing"); \
       break; \
     case CHORD_general: \
-      SEND_STRING("general "); \
+      SEND_STRING("general"); \
       break; \
     case CHORD_school: \
-      SEND_STRING("school "); \
+      SEND_STRING("school"); \
       break; \
     case CHORD_never: \
-      SEND_STRING("never "); \
+      SEND_STRING("never"); \
       break; \
     case CHORD_same: \
-      SEND_STRING("same "); \
+      SEND_STRING("same"); \
       break; \
     case CHORD_another: \
-      SEND_STRING("another "); \
+      SEND_STRING("another"); \
       break; \
     case CHORD_begin: \
-      SEND_STRING("begin "); \
+      SEND_STRING("begin"); \
       break; \
     case CHORD_while: \
-      SEND_STRING("while "); \
+      SEND_STRING("while"); \
       break; \
     case CHORD_number: \
-      SEND_STRING("number "); \
+      SEND_STRING("number"); \
       break; \
     case CHORD_part: \
-      SEND_STRING("part "); \
+      SEND_STRING("part"); \
       break; \
     case CHORD_turn: \
-      SEND_STRING("turn "); \
+      SEND_STRING("turn"); \
       break; \
     case CHORD_real: \
-      SEND_STRING("real "); \
+      SEND_STRING("real"); \
       break; \
     case CHORD_leave: \
-      SEND_STRING("leave "); \
+      SEND_STRING("leave"); \
       break; \
     case CHORD_might: \
-      SEND_STRING("might "); \
+      SEND_STRING("might"); \
       break; \
     case CHORD_want: \
-      SEND_STRING("want "); \
+      SEND_STRING("want"); \
       break; \
     case CHORD_point: \
-      SEND_STRING("point "); \
+      SEND_STRING("point"); \
       break; \
     case CHORD_form: \
-      SEND_STRING("form "); \
+      SEND_STRING("form"); \
       break; \
     case CHORD_off: \
-      SEND_STRING("off "); \
+      SEND_STRING("off"); \
       break; \
     case CHORD_child: \
-      SEND_STRING("child "); \
+      SEND_STRING("child"); \
       break; \
     case CHORD_few: \
-      SEND_STRING("few "); \
+      SEND_STRING("few"); \
       break; \
     case CHORD_small: \
-      SEND_STRING("small "); \
+      SEND_STRING("small"); \
       break; \
     case CHORD_since: \
-      SEND_STRING("since "); \
+      SEND_STRING("since"); \
       break; \
     case CHORD_against: \
-      SEND_STRING("against "); \
+      SEND_STRING("against"); \
       break; \
     case CHORD_ask: \
-      SEND_STRING("ask "); \
+      SEND_STRING("ask"); \
       break; \
     case CHORD_late: \
-      SEND_STRING("late "); \
+      SEND_STRING("late"); \
       break; \
     case CHORD_home: \
-      SEND_STRING("home "); \
+      SEND_STRING("home"); \
       break; \
     case CHORD_interes: \
-      SEND_STRING("interest "); \
+      SEND_STRING("interest"); \
       break; \
     case CHORD_large: \
-      SEND_STRING("large "); \
+      SEND_STRING("large"); \
       break; \
     case CHORD_person: \
-      SEND_STRING("person "); \
+      SEND_STRING("person"); \
       break; \
     case CHORD_end: \
-      SEND_STRING("end "); \
+      SEND_STRING("end"); \
       break; \
     case CHORD_open: \
-      SEND_STRING("open "); \
+      SEND_STRING("open"); \
       break; \
     case CHORD_public: \
-      SEND_STRING("public "); \
+      SEND_STRING("public"); \
       break; \
     case CHORD_follow: \
-      SEND_STRING("follow "); \
+      SEND_STRING("follow"); \
       break; \
     case CHORD_during: \
-      SEND_STRING("during "); \
+      SEND_STRING("during"); \
       break; \
     case CHORD_present: \
-      SEND_STRING("present "); \
+      SEND_STRING("present"); \
       break; \
     case CHORD_without: \
-      SEND_STRING("without "); \
+      SEND_STRING("without"); \
       break; \
     case CHORD_again: \
-      SEND_STRING("again "); \
+      SEND_STRING("again"); \
       break; \
     case CHORD_hold: \
-      SEND_STRING("hold "); \
+      SEND_STRING("hold"); \
       break; \
     case CHORD_govern: \
-      SEND_STRING("govern "); \
+      SEND_STRING("govern"); \
       break; \
     case CHORD_around: \
-      SEND_STRING("around "); \
+      SEND_STRING("around"); \
       break; \
     case CHORD_possibl: \
-      SEND_STRING("possible "); \
+      SEND_STRING("possible"); \
       break; \
     case CHORD_head: \
-      SEND_STRING("head "); \
+      SEND_STRING("head"); \
       break; \
     case CHORD_conside: \
-      SEND_STRING("consider "); \
+      SEND_STRING("consider"); \
       break; \
     case CHORD_word: \
-      SEND_STRING("word "); \
+      SEND_STRING("word"); \
       break; \
     case CHORD_program: \
-      SEND_STRING("program "); \
+      SEND_STRING("program"); \
       break; \
     case CHORD_problem: \
-      SEND_STRING("problem "); \
+      SEND_STRING("problem"); \
       break; \
     case CHORD_however: \
-      SEND_STRING("however "); \
+      SEND_STRING("however"); \
       break; \
     case CHORD_lead: \
-      SEND_STRING("lead "); \
+      SEND_STRING("lead"); \
       break; \
     case CHORD_system: \
-      SEND_STRING("system "); \
+      SEND_STRING("system"); \
       break; \
     case CHORD_set: \
-      SEND_STRING("set "); \
+      SEND_STRING("set"); \
       break; \
     case CHORD_order: \
-      SEND_STRING("order "); \
+      SEND_STRING("order"); \
       break; \
     case CHORD_eye: \
-      SEND_STRING("eye "); \
+      SEND_STRING("eye"); \
       break; \
     case CHORD_plan: \
-      SEND_STRING("plan "); \
+      SEND_STRING("plan"); \
       break; \
     case CHORD_run: \
-      SEND_STRING("run "); \
+      SEND_STRING("run"); \
       break; \
     case CHORD_keep: \
-      SEND_STRING("keep "); \
+      SEND_STRING("keep"); \
       break; \
     case CHORD_face: \
-      SEND_STRING("face "); \
+      SEND_STRING("face"); \
       break; \
     case CHORD_fact: \
-      SEND_STRING("fact "); \
+      SEND_STRING("fact"); \
       break; \
     case CHORD_group: \
-      SEND_STRING("group "); \
+      SEND_STRING("group"); \
       break; \
     case CHORD_play: \
-      SEND_STRING("play "); \
+      SEND_STRING("play"); \
       break; \
     case CHORD_stand: \
-      SEND_STRING("stand "); \
+      SEND_STRING("stand"); \
       break; \
     case CHORD_increas: \
-      SEND_STRING("increase "); \
+      SEND_STRING("increase"); \
       break; \
     case CHORD_early: \
-      SEND_STRING("early "); \
+      SEND_STRING("early"); \
       break; \
     case CHORD_course: \
-      SEND_STRING("course "); \
+      SEND_STRING("course"); \
       break; \
     case CHORD_change: \
-      SEND_STRING("change "); \
+      SEND_STRING("change"); \
       break; \
     case CHORD_help: \
-      SEND_STRING("help "); \
+      SEND_STRING("help"); \
       break; \
     case CHORD_line: \
-      SEND_STRING("line "); \
+      SEND_STRING("line"); \
       break; \
     case CHORD_his: \
-      SEND_STRING("his "); \
+      SEND_STRING("his"); \
       break; \
     case CHORD_her: \
-      SEND_STRING("her "); \
+      SEND_STRING("her"); \
       break; \
     case CHORD_an: \
-      SEND_STRING("an "); \
+      SEND_STRING("an"); \
       break; \
     case CHORD_my: \
-      SEND_STRING("my "); \
+      SEND_STRING("my"); \
       break; \
     case CHORD_their: \
-      SEND_STRING("their "); \
+      SEND_STRING("their"); \
       break; \
     case CHORD_me: \
-      SEND_STRING("me "); \
+      SEND_STRING("me"); \
       break; \
     case CHORD_him: \
-      SEND_STRING("him "); \
+      SEND_STRING("him"); \
       break; \
     case CHORD_your: \
-      SEND_STRING("your "); \
+      SEND_STRING("your"); \
       break; \
     case CHORD_its: \
-      SEND_STRING("its "); \
+      SEND_STRING("its"); \
       break; \
     case CHORD_two: \
-      SEND_STRING("two "); \
+      SEND_STRING("two"); \
       break; \
     case CHORD_our: \
-      SEND_STRING("our "); \
+      SEND_STRING("our"); \
       break; \
     case CHORD_us: \
-      SEND_STRING("us "); \
+      SEND_STRING("us"); \
       break; \
     case CHORD_is: \
-      SEND_STRING("is "); \
+      SEND_STRING("is"); \
       break; \
     case CHORD_was: \
-      SEND_STRING("was "); \
+      SEND_STRING("was"); \
       break; \
     case CHORD_are: \
-      SEND_STRING("are "); \
+      SEND_STRING("are"); \
       break; \
     case CHORD_had: \
-      SEND_STRING("had "); \
+      SEND_STRING("had"); \
       break; \
     case CHORD_were: \
-      SEND_STRING("were "); \
+      SEND_STRING("were"); \
       break; \
     case CHORD_said: \
-      SEND_STRING("said "); \
+      SEND_STRING("said"); \
       break; \
     case CHORD_has: \
-      SEND_STRING("has "); \
+      SEND_STRING("has"); \
       break; \
     case CHORD_sound: \
-      SEND_STRING("sound "); \
+      SEND_STRING("sound"); \
       break; \
     case CHORD_water: \
-      SEND_STRING("water "); \
+      SEND_STRING("water"); \
       break; \
     case CHORD_side: \
-      SEND_STRING("side "); \
+      SEND_STRING("side"); \
       break; \
     case CHORD_made: \
-      SEND_STRING("made "); \
+      SEND_STRING("made"); \
       break; \
     case CHORD_live: \
-      SEND_STRING("live "); \
+      SEND_STRING("live"); \
       break; \
     case CHORD_round: \
-      SEND_STRING("round "); \
+      SEND_STRING("round"); \
       break; \
     case CHORD_came: \
-      SEND_STRING("came "); \
+      SEND_STRING("came"); \
       break; \
     case CHORD_every: \
-      SEND_STRING("every "); \
+      SEND_STRING("every"); \
       break; \
     case CHORD_name: \
-      SEND_STRING("name "); \
+      SEND_STRING("name"); \
       break; \
     case CHORD_sentenc: \
-      SEND_STRING("sentence "); \
+      SEND_STRING("sentence"); \
       break; \
     case CHORD_low: \
-      SEND_STRING("low "); \
+      SEND_STRING("low"); \
       break; \
     case CHORD_differ: \
-      SEND_STRING("differ "); \
+      SEND_STRING("differ"); \
       break; \
     case CHORD_cause: \
-      SEND_STRING("cause "); \
+      SEND_STRING("cause"); \
       break; \
     case CHORD_boy: \
-      SEND_STRING("boy "); \
+      SEND_STRING("boy"); \
       break; \
     case CHORD_does: \
-      SEND_STRING("does "); \
+      SEND_STRING("does"); \
       break; \
     case CHORD_air: \
-      SEND_STRING("air "); \
+      SEND_STRING("air"); \
       break; \
     case CHORD_put: \
-      SEND_STRING("put "); \
+      SEND_STRING("put"); \
       break; \
     case CHORD_port: \
-      SEND_STRING("port "); \
+      SEND_STRING("port"); \
       break; \
     case CHORD_spell: \
-      SEND_STRING("spell "); \
+      SEND_STRING("spell"); \
       break; \
     case CHORD_land: \
-      SEND_STRING("land "); \
+      SEND_STRING("land"); \
       break; \
     case CHORD_big: \
-      SEND_STRING("big "); \
+      SEND_STRING("big"); \
       break; \
     case CHORD_act: \
-      SEND_STRING("act "); \
+      SEND_STRING("act"); \
       break; \
     case CHORD_why: \
-      SEND_STRING("why "); \
+      SEND_STRING("why"); \
       break; \
     case CHORD_men: \
-      SEND_STRING("men "); \
+      SEND_STRING("men"); \
       break; \
     case CHORD_went: \
-      SEND_STRING("went "); \
+      SEND_STRING("went"); \
       break; \
     case CHORD_light: \
-      SEND_STRING("light "); \
+      SEND_STRING("light"); \
       break; \
     case CHORD_kind: \
-      SEND_STRING("kind "); \
+      SEND_STRING("kind"); \
       break; \
     case CHORD_picture: \
-      SEND_STRING("picture "); \
+      SEND_STRING("picture"); \
       break; \
     case CHORD_try: \
-      SEND_STRING("try "); \
+      SEND_STRING("try"); \
       break; \
     case CHORD_animal: \
-      SEND_STRING("animal "); \
+      SEND_STRING("animal"); \
       break; \
     case CHORD_mother: \
-      SEND_STRING("mother "); \
+      SEND_STRING("mother"); \
       break; \
     case CHORD_build: \
-      SEND_STRING("build "); \
+      SEND_STRING("build"); \
       break; \
     case CHORD_self: \
-      SEND_STRING("self "); \
+      SEND_STRING("self"); \
       break; \
     case CHORD_earth: \
-      SEND_STRING("earth "); \
+      SEND_STRING("earth"); \
       break; \
     case CHORD_father: \
-      SEND_STRING("father "); \
+      SEND_STRING("father"); \
       break; \
     case CHORD_page: \
-      SEND_STRING("page "); \
+      SEND_STRING("page"); \
       break; \
     case CHORD_country: \
-      SEND_STRING("country "); \
+      SEND_STRING("country"); \
       break; \
     case CHORD_found: \
-      SEND_STRING("found "); \
+      SEND_STRING("found"); \
       break; \
     case CHORD_answer: \
-      SEND_STRING("answer "); \
+      SEND_STRING("answer"); \
       break; \
     case CHORD_grow: \
-      SEND_STRING("grow "); \
+      SEND_STRING("grow"); \
       break; \
     case CHORD_study: \
-      SEND_STRING("study "); \
+      SEND_STRING("study"); \
       break; \
     case CHORD_learn: \
-      SEND_STRING("learn "); \
+      SEND_STRING("learn"); \
       break; \
     case CHORD_plant: \
-      SEND_STRING("plant "); \
+      SEND_STRING("plant"); \
       break; \
     case CHORD_cover: \
-      SEND_STRING("cover "); \
+      SEND_STRING("cover"); \
       break; \
     case CHORD_food: \
-      SEND_STRING("food "); \
+      SEND_STRING("food"); \
       break; \
     case CHORD_sun: \
-      SEND_STRING("sun "); \
+      SEND_STRING("sun"); \
       break; \
     case CHORD_four: \
-      SEND_STRING("four "); \
+      SEND_STRING("four"); \
       break; \
     case CHORD_thought: \
-      SEND_STRING("thought "); \
+      SEND_STRING("thought"); \
       break; \
     case CHORD_city: \
-      SEND_STRING("city "); \
+      SEND_STRING("city"); \
       break; \
     case CHORD_cross: \
-      SEND_STRING("cross "); \
+      SEND_STRING("cross"); \
       break; \
     case CHORD_hard: \
-      SEND_STRING("hard "); \
+      SEND_STRING("hard"); \
       break; \
     case CHORD_far: \
-      SEND_STRING("far "); \
+      SEND_STRING("far"); \
       break; \
     case CHORD_sea: \
-      SEND_STRING("sea "); \
+      SEND_STRING("sea"); \
       break; \
     case CHORD_draw: \
-      SEND_STRING("draw "); \
+      SEND_STRING("draw"); \
       break; \
     case CHORD_left: \
-      SEND_STRING("left "); \
+      SEND_STRING("left"); \
       break; \
     case CHORD_press: \
-      SEND_STRING("press "); \
+      SEND_STRING("press"); \
       break; \
     case CHORD_close: \
-      SEND_STRING("close "); \
+      SEND_STRING("close"); \
       break; \
     case CHORD_night: \
-      SEND_STRING("night "); \
+      SEND_STRING("night"); \
       break; \
     case CHORD_north: \
-      SEND_STRING("north "); \
+      SEND_STRING("north"); \
       break; \
     case CHORD_togethe: \
-      SEND_STRING("together "); \
+      SEND_STRING("together"); \
       break; \
     case CHORD_next: \
-      SEND_STRING("next "); \
+      SEND_STRING("next"); \
       break; \
     case CHORD_white: \
-      SEND_STRING("white "); \
+      SEND_STRING("white"); \
       break; \
     case CHORD_childre: \
-      SEND_STRING("children "); \
+      SEND_STRING("children"); \
       break; \
     case CHORD_got: \
-      SEND_STRING("got "); \
+      SEND_STRING("got"); \
       break; \
     case CHORD_walk: \
-      SEND_STRING("walk "); \
+      SEND_STRING("walk"); \
       break; \
     case CHORD_example: \
-      SEND_STRING("example "); \
+      SEND_STRING("example"); \
       break; \
     case CHORD_always: \
-      SEND_STRING("always "); \
+      SEND_STRING("always"); \
       break; \
     case CHORD_music: \
-      SEND_STRING("music "); \
+      SEND_STRING("music"); \
       break; \
     case CHORD_mark: \
-      SEND_STRING("mark "); \
+      SEND_STRING("mark"); \
       break; \
     case CHORD_often: \
-      SEND_STRING("often "); \
+      SEND_STRING("often"); \
       break; \
     case CHORD_letter: \
-      SEND_STRING("letter "); \
+      SEND_STRING("letter"); \
       break; \
     case CHORD_until: \
-      SEND_STRING("until "); \
+      SEND_STRING("until"); \
       break; \
     case CHORD_mile: \
-      SEND_STRING("mile "); \
+      SEND_STRING("mile"); \
       break; \
     case CHORD_river: \
-      SEND_STRING("river "); \
+      SEND_STRING("river"); \
       break; \
     case CHORD_car: \
-      SEND_STRING("car "); \
+      SEND_STRING("car"); \
       break; \
     case CHORD_feet: \
-      SEND_STRING("feet "); \
+      SEND_STRING("feet"); \
       break; \
     case CHORD_care: \
-      SEND_STRING("care "); \
+      SEND_STRING("care"); \
       break; \
     case CHORD_second: \
-      SEND_STRING("second "); \
+      SEND_STRING("second"); \
       break; \
     case CHORD_carry: \
-      SEND_STRING("carry "); \
+      SEND_STRING("carry"); \
       break; \
     case CHORD_science: \
-      SEND_STRING("science "); \
+      SEND_STRING("science"); \
       break; \
     case CHORD_eat: \
-      SEND_STRING("eat "); \
+      SEND_STRING("eat"); \
       break; \
     case CHORD_friend: \
-      SEND_STRING("friend "); \
+      SEND_STRING("friend"); \
       break; \
     case CHORD_began: \
-      SEND_STRING("began "); \
+      SEND_STRING("began"); \
       break; \
     case CHORD_idea: \
-      SEND_STRING("idea "); \
+      SEND_STRING("idea"); \
       break; \
     case CHORD_fish: \
-      SEND_STRING("fish "); \
+      SEND_STRING("fish"); \
       break; \
     case CHORD_mountai: \
-      SEND_STRING("mountain "); \
+      SEND_STRING("mountain"); \
       break; \
     case CHORD_stop: \
-      SEND_STRING("stop "); \
+      SEND_STRING("stop"); \
       break; \
     case CHORD_once: \
-      SEND_STRING("once "); \
+      SEND_STRING("once"); \
       break; \
     case CHORD_base: \
-      SEND_STRING("base "); \
+      SEND_STRING("base"); \
       break; \
     case CHORD_horse: \
-      SEND_STRING("horse "); \
+      SEND_STRING("horse"); \
       break; \
     case CHORD_cut: \
-      SEND_STRING("cut "); \
+      SEND_STRING("cut"); \
       break; \
     case CHORD_sure: \
-      SEND_STRING("sure "); \
+      SEND_STRING("sure"); \
       break; \
     case CHORD_watch: \
-      SEND_STRING("watch "); \
+      SEND_STRING("watch"); \
       break; \
     case CHORD_color: \
-      SEND_STRING("color "); \
+      SEND_STRING("color"); \
       break; \
     case CHORD_wood: \
-      SEND_STRING("wood "); \
+      SEND_STRING("wood"); \
       break; \
     case CHORD_main: \
-      SEND_STRING("main "); \
+      SEND_STRING("main"); \
       break; \
     case CHORD_enough: \
-      SEND_STRING("enough "); \
+      SEND_STRING("enough"); \
       break; \
     case CHORD_plain: \
-      SEND_STRING("plain "); \
+      SEND_STRING("plain"); \
       break; \
     case CHORD_girl: \
-      SEND_STRING("girl "); \
+      SEND_STRING("girl"); \
       break; \
     case CHORD_usual: \
-      SEND_STRING("usual "); \
+      SEND_STRING("usual"); \
       break; \
     case CHORD_young: \
-      SEND_STRING("young "); \
+      SEND_STRING("young"); \
       break; \
     case CHORD_ready: \
-      SEND_STRING("ready "); \
+      SEND_STRING("ready"); \
       break; \
     case CHORD_above: \
-      SEND_STRING("above "); \
+      SEND_STRING("above"); \
       break; \
     case CHORD_red: \
-      SEND_STRING("red "); \
+      SEND_STRING("red"); \
       break; \
     case CHORD_list: \
-      SEND_STRING("list "); \
+      SEND_STRING("list"); \
       break; \
     case CHORD_though: \
-      SEND_STRING("though "); \
+      SEND_STRING("though"); \
       break; \
     case CHORD_bird: \
-      SEND_STRING("bird "); \
+      SEND_STRING("bird"); \
       break; \
     case CHORD_body: \
-      SEND_STRING("body "); \
+      SEND_STRING("body"); \
       break; \
     case CHORD_family: \
-      SEND_STRING("family "); \
+      SEND_STRING("family"); \
       break; \
     case CHORD_direct: \
-      SEND_STRING("direct "); \
+      SEND_STRING("direct"); \
       break; \
     case CHORD_pose: \
-      SEND_STRING("pose "); \
+      SEND_STRING("pose"); \
       break; \
     case CHORD_song: \
-      SEND_STRING("song "); \
+      SEND_STRING("song"); \
       break; \
     case CHORD_measure: \
-      SEND_STRING("measure "); \
+      SEND_STRING("measure"); \
       break; \
     case CHORD_product: \
-      SEND_STRING("product "); \
+      SEND_STRING("product"); \
       break; \
     case CHORD_black: \
-      SEND_STRING("black "); \
+      SEND_STRING("black"); \
       break; \
     case CHORD_short: \
-      SEND_STRING("short "); \
+      SEND_STRING("short"); \
       break; \
     case CHORD_numeral: \
-      SEND_STRING("numeral "); \
+      SEND_STRING("numeral"); \
       break; \
     case CHORD_class: \
-      SEND_STRING("class "); \
+      SEND_STRING("class"); \
       break; \
     case CHORD_wind: \
-      SEND_STRING("wind "); \
+      SEND_STRING("wind"); \
       break; \
     case CHORD_questio: \
-      SEND_STRING("question "); \
+      SEND_STRING("question"); \
       break; \
     case CHORD_happen: \
-      SEND_STRING("happen "); \
+      SEND_STRING("happen"); \
       break; \
     case CHORD_complet: \
-      SEND_STRING("complete "); \
+      SEND_STRING("complete"); \
       break; \
     case CHORD_ship: \
-      SEND_STRING("ship "); \
+      SEND_STRING("ship"); \
       break; \
     case CHORD_half: \
-      SEND_STRING("half "); \
+      SEND_STRING("half"); \
       break; \
     case CHORD_rock: \
-      SEND_STRING("rock "); \
+      SEND_STRING("rock"); \
       break; \
     case CHORD_fire: \
-      SEND_STRING("fire "); \
+      SEND_STRING("fire"); \
       break; \
     case CHORD_south: \
-      SEND_STRING("south "); \
+      SEND_STRING("south"); \
       break; \
     case CHORD_told: \
-      SEND_STRING("told "); \
+      SEND_STRING("told"); \
       break; \
     case CHORD_knew: \
-      SEND_STRING("knew "); \
+      SEND_STRING("knew"); \
       break; \
     case CHORD_pass: \
-      SEND_STRING("pass "); \
+      SEND_STRING("pass"); \
       break; \
     case CHORD_top: \
-      SEND_STRING("top "); \
+      SEND_STRING("top"); \
       break; \
     case CHORD_whole: \
-      SEND_STRING("whole "); \
+      SEND_STRING("whole"); \
       break; \
     case CHORD_space: \
-      SEND_STRING("space "); \
+      SEND_STRING("space"); \
       break; \
     case CHORD_best: \
-      SEND_STRING("best "); \
+      SEND_STRING("best"); \
       break; \
     case CHORD_hour: \
-      SEND_STRING("hour "); \
+      SEND_STRING("hour"); \
       break; \
     case CHORD_better: \
-      SEND_STRING("better "); \
+      SEND_STRING("better"); \
       break; \
     case CHORD_true: \
-      SEND_STRING("true "); \
+      SEND_STRING("true"); \
       break; \
     case CHORD_hundred: \
-      SEND_STRING("hundred "); \
+      SEND_STRING("hundred"); \
       break; \
     case CHORD_five: \
-      SEND_STRING("five "); \
+      SEND_STRING("five"); \
       break; \
     case CHORD_six: \
-      SEND_STRING("six "); \
+      SEND_STRING("six"); \
       break; \
     case CHORD_war: \
-      SEND_STRING("war "); \
+      SEND_STRING("war"); \
       break; \
     case CHORD_lay: \
-      SEND_STRING("lay "); \
+      SEND_STRING("lay"); \
       break; \
     case CHORD_map: \
-      SEND_STRING("map "); \
+      SEND_STRING("map"); \
       break; \
     case CHORD_fly: \
-      SEND_STRING("fly "); \
+      SEND_STRING("fly"); \
       break; \
     case CHORD_fall: \
-      SEND_STRING("fall "); \
+      SEND_STRING("fall"); \
       break; \
     case CHORD_cry: \
-      SEND_STRING("cry "); \
+      SEND_STRING("cry"); \
       break; \
     case CHORD_box: \
-      SEND_STRING("box "); \
+      SEND_STRING("box"); \
       break; \
     case CHORD_noun: \
-      SEND_STRING("noun "); \
+      SEND_STRING("noun"); \
       break; \
     case CHORD_week: \
-      SEND_STRING("week "); \
+      SEND_STRING("week"); \
       break; \
     case CHORD_oh: \
-      SEND_STRING("oh "); \
+      SEND_STRING("oh"); \
       break; \
     case CHORD_free: \
-      SEND_STRING("free "); \
+      SEND_STRING("free"); \
       break; \
     case CHORD_dry: \
-      SEND_STRING("dry "); \
+      SEND_STRING("dry"); \
       break; \
     case CHORD_ago: \
-      SEND_STRING("ago "); \
+      SEND_STRING("ago"); \
       break; \
     case CHORD_ran: \
-      SEND_STRING("ran "); \
+      SEND_STRING("ran"); \
       break; \
     case CHORD_hot: \
-      SEND_STRING("hot "); \
+      SEND_STRING("hot"); \
       break; \
     case CHORD_ball: \
-      SEND_STRING("ball "); \
+      SEND_STRING("ball"); \
       break; \
     case CHORD_yet: \
-      SEND_STRING("yet "); \
+      SEND_STRING("yet"); \
       break; \
     case CHORD_am: \
-      SEND_STRING("am "); \
+      SEND_STRING("am"); \
       break; \
     case CHORD_arm: \
-      SEND_STRING("arm "); \
+      SEND_STRING("arm"); \
       break; \
     case CHORD_ice: \
-      SEND_STRING("ice "); \
+      SEND_STRING("ice"); \
       break; \
     case CHORD_matter: \
-      SEND_STRING("matter "); \
+      SEND_STRING("matter"); \
       break; \
     case CHORD_art: \
-      SEND_STRING("art "); \
+      SEND_STRING("art"); \
       break; \
     case CHORD_cell: \
-      SEND_STRING("cell "); \
+      SEND_STRING("cell"); \
       break; \
     case CHORD_summer: \
-      SEND_STRING("summer "); \
+      SEND_STRING("summer"); \
       break; \
     case CHORD_leg: \
-      SEND_STRING("leg "); \
+      SEND_STRING("leg"); \
       break; \
     case CHORD_joy: \
-      SEND_STRING("joy "); \
+      SEND_STRING("joy"); \
       break; \
     case CHORD_job: \
-      SEND_STRING("job "); \
+      SEND_STRING("job"); \
       break; \
     case CHORD_gas: \
-      SEND_STRING("gas "); \
+      SEND_STRING("gas"); \
       break; \
     case CHORD_buy: \
-      SEND_STRING("buy "); \
+      SEND_STRING("buy"); \
       break; \
     case CHORD_cook: \
-      SEND_STRING("cook "); \
+      SEND_STRING("cook"); \
       break; \
     case CHORD_hill: \
-      SEND_STRING("hill "); \
+      SEND_STRING("hill"); \
       break; \
     case CHORD_law: \
-      SEND_STRING("law "); \
+      SEND_STRING("law"); \
       break; \
     case CHORD_lie: \
-      SEND_STRING("lie "); \
+      SEND_STRING("lie"); \
       break; \
     case CHORD_son: \
-      SEND_STRING("son "); \
+      SEND_STRING("son"); \
       break; \
     case CHORD_pay: \
-      SEND_STRING("pay "); \
+      SEND_STRING("pay"); \
       break; \
     case CHORD_age: \
-      SEND_STRING("age "); \
+      SEND_STRING("age"); \
       break; \
     case CHORD_cool: \
-      SEND_STRING("cool "); \
+      SEND_STRING("cool"); \
       break; \
     case CHORD_lot: \
-      SEND_STRING("lot "); \
+      SEND_STRING("lot"); \
       break; \
     case CHORD_key: \
-      SEND_STRING("key "); \
+      SEND_STRING("key"); \
       break; \
     case CHORD_row: \
-      SEND_STRING("row "); \
+      SEND_STRING("row"); \
       break; \
     case CHORD_die: \
-      SEND_STRING("die "); \
+      SEND_STRING("die"); \
       break; \
     case CHORD_oil: \
-      SEND_STRING("oil "); \
+      SEND_STRING("oil"); \
       break; \
     case CHORD_fit: \
-      SEND_STRING("fit "); \
+      SEND_STRING("fit"); \
       break; \
     case CHORD_hit: \
-      SEND_STRING("hit "); \
+      SEND_STRING("hit"); \
       break; \
     case CHORD_rub: \
-      SEND_STRING("rub "); \
+      SEND_STRING("rub"); \
       break; \
     case CHORD_tie: \
-      SEND_STRING("tie "); \
+      SEND_STRING("tie"); \
       break; \
     case CHORD_gun: \
-      SEND_STRING("gun "); \
+      SEND_STRING("gun"); \
       break; \
     case CHORD_nine: \
-      SEND_STRING("nine "); \
+      SEND_STRING("nine"); \
       break; \
     case CHORD_thank: \
-      SEND_STRING("thank "); \
+      SEND_STRING("thank"); \
       break; \
     case CHORD_experie: \
-      SEND_STRING("experience "); \
+      SEND_STRING("experience"); \
       break; \
     case CHORD_led: \
-      SEND_STRING("led "); \
+      SEND_STRING("led"); \
       break; \
     case CHORD_win: \
-      SEND_STRING("win "); \
+      SEND_STRING("win"); \
       break; \
     case CHORD_feed: \
-      SEND_STRING("feed "); \
+      SEND_STRING("feed"); \
       break; \
     case CHORD_nor: \
-      SEND_STRING("nor "); \
+      SEND_STRING("nor"); \
       break; \
     case CHORD_fat: \
-      SEND_STRING("fat "); \
+      SEND_STRING("fat"); \
       break; \
     case CHORD_bar: \
-      SEND_STRING("bar "); \
+      SEND_STRING("bar"); \
       break; \
     case CHORD_log: \
-      SEND_STRING("log "); \
+      SEND_STRING("log"); \
       break; \
     case CHORD_hey: \
-      SEND_STRING("hey "); \
+      SEND_STRING("hey"); \
       break; \
     case CHORD_return: \
-      SEND_STRING("return "); \
+      SEND_STRING("return"); \
       break; \
     case CHORD_probabl: \
-      SEND_STRING("probably "); \
+      SEND_STRING("probably"); \
       break; \
     case CHORD_thanks: \
-      SEND_STRING("thanks "); \
+      SEND_STRING("thanks"); \
       break; \
     case CHORD_i_ve: \
-      SEND_STRING("I've "); \
+      SEND_STRING("I've"); \
       break; \
     case CHORD_per: \
-      SEND_STRING("per "); \
+      SEND_STRING("per"); \
       break; \
     case CHORD_null: \
-      SEND_STRING("null "); \
+      SEND_STRING("null"); \
       break; \
     case CHORD_nil: \
-      SEND_STRING("nil "); \
+      SEND_STRING("nil"); \
       break; \
     case CHORD_array: \
-      SEND_STRING("array "); \
+      SEND_STRING("array"); \
       break; \
     case CHORD_sort: \
-      SEND_STRING("sort "); \
+      SEND_STRING("sort"); \
       break; \
     case CHORD_the_qui: \
+      space = false; \
       SEND_STRING("the quick brown fox jumps over the lazy dog"); \
       break; \
     case CHORD_elberet: \
+      space = false; \
       SEND_STRING("Elbereth"); \
       break; \
     case CHORD_shawn: \
-      SEND_STRING("Shawn "); \
+      SEND_STRING("Shawn"); \
       break; \
     case CHORD_moore: \
-      SEND_STRING("Moore "); \
+      SEND_STRING("Moore"); \
       break; \
     case CHORD_sartak: \
-      SEND_STRING("sartak "); \
+      SEND_STRING("sartak"); \
       break; \
     case CHORD_sartak_: \
-      SEND_STRING("sartak.org "); \
+      SEND_STRING("sartak.org"); \
       break; \
     case CHORD_shawn_d: \
-      SEND_STRING("shawn.dev "); \
+      SEND_STRING("shawn.dev"); \
       break; \
     case CHORD_somervi: \
-      SEND_STRING("Somerville "); \
+      SEND_STRING("Somerville"); \
       break; \
     case CHORD_boston: \
-      SEND_STRING("Boston "); \
+      SEND_STRING("Boston"); \
       break; \
     case CHORD_massach: \
-      SEND_STRING("Massachusetts "); \
+      SEND_STRING("Massachusetts"); \
       break; \
     case CHORD_x: \
-      SEND_STRING("Wheatland "); \
+      SEND_STRING("Wheatland"); \
+      break; \
+    default: \
+      space = false; \
       break; \
   } \
+  if (space) { \
+    tap_code(KC_SPC); \
+  } \
 }
+
 #define CHORD_DUP_FUNC \
 uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
   uint8_t next_chord_cycle = 0; \
   uint8_t backspaces = 0; \
   char *append = NULL; \
+  bool space = true; \
   switch(last_chord) { \
     case CHORD_have: \
       switch(last_chord_cycle) { \
         case 0: \
           /* have -> had */ \
           backspaces = 3; \
-          append = "d "; \
+          append = "d"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* had -> have */ \
           backspaces = 2; \
-          append = "ve "; \
+          append = "ve"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -2817,13 +2847,13 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* it -> them */ \
           backspaces = 3; \
-          append = "them "; \
+          append = "them"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* them -> it */ \
           backspaces = 5; \
-          append = "it "; \
+          append = "it"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -2833,13 +2863,13 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* that -> those */ \
           backspaces = 3; \
-          append = "ose "; \
+          append = "ose"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* those -> that */ \
           backspaces = 4; \
-          append = "at "; \
+          append = "at"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -2849,13 +2879,13 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* I -> we */ \
           backspaces = 2; \
-          append = "we "; \
+          append = "we"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* we -> I */ \
           backspaces = 3; \
-          append = "I "; \
+          append = "I"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -2865,13 +2895,13 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* she -> they */ \
           backspaces = 4; \
-          append = "they "; \
+          append = "they"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* they -> she */ \
           backspaces = 5; \
-          append = "she "; \
+          append = "she"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -2881,13 +2911,13 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* this -> these */ \
           backspaces = 3; \
-          append = "ese "; \
+          append = "ese"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* these -> this */ \
           backspaces = 4; \
-          append = "is "; \
+          append = "is"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -2897,13 +2927,13 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* we -> I */ \
           backspaces = 3; \
-          append = "I "; \
+          append = "I"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* I -> we */ \
           backspaces = 2; \
-          append = "we "; \
+          append = "we"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -2913,13 +2943,12 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* will -> wills */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* wills -> will */ \
           backspaces = 2; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -2929,13 +2958,13 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* say -> said */ \
           backspaces = 2; \
-          append = "id "; \
+          append = "id"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* said -> say */ \
           backspaces = 3; \
-          append = "y "; \
+          append = "y"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -2945,19 +2974,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* make -> made */ \
           backspaces = 3; \
-          append = "de "; \
+          append = "de"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* made -> will make */ \
           backspaces = 5; \
-          append = "will make "; \
+          append = "will make"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will make -> make */ \
           backspaces = 10; \
-          append = "make "; \
+          append = "make"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -2967,19 +2996,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* more -> most */ \
           backspaces = 3; \
-          append = "st "; \
+          append = "st"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* most -> many */ \
           backspaces = 4; \
-          append = "any "; \
+          append = "any"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* many -> more */ \
           backspaces = 4; \
-          append = "ore "; \
+          append = "ore"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -2989,13 +3018,13 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* man -> men */ \
           backspaces = 3; \
-          append = "en "; \
+          append = "en"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* men -> man */ \
           backspaces = 3; \
-          append = "an "; \
+          append = "an"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3005,13 +3034,12 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* out -> outs */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* outs -> out */ \
           backspaces = 2; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3021,13 +3049,12 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* other -> others */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* others -> other */ \
           backspaces = 2; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3037,13 +3064,12 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* time -> times */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* times -> time */ \
           backspaces = 2; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3053,19 +3079,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* go -> went */ \
           backspaces = 3; \
-          append = "went "; \
+          append = "went"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* went -> will go */ \
           backspaces = 4; \
-          append = "ill go "; \
+          append = "ill go"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will go -> go */ \
           backspaces = 8; \
-          append = "go "; \
+          append = "go"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3075,13 +3101,12 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* state -> states */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* states -> state */ \
           backspaces = 2; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3091,19 +3116,18 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* new -> newer */ \
           backspaces = 1; \
-          append = "er "; \
+          append = "er"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* newer -> newest */ \
           backspaces = 2; \
-          append = "st "; \
+          append = "st"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* newest -> new */ \
           backspaces = 4; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3113,13 +3137,12 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* year -> years */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* years -> year */ \
           backspaces = 2; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3129,19 +3152,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* take -> took */ \
           backspaces = 4; \
-          append = "ook "; \
+          append = "ook"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* took -> will take */ \
           backspaces = 5; \
-          append = "will take "; \
+          append = "will take"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will take -> take */ \
           backspaces = 10; \
-          append = "take "; \
+          append = "take"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3151,19 +3174,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* come -> came */ \
           backspaces = 4; \
-          append = "ame "; \
+          append = "ame"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* came -> will come */ \
           backspaces = 5; \
-          append = "will come "; \
+          append = "will come"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will come -> come */ \
           backspaces = 10; \
-          append = "come "; \
+          append = "come"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3173,19 +3196,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* know -> knew */ \
           backspaces = 3; \
-          append = "ew "; \
+          append = "ew"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* knew -> will know */ \
           backspaces = 5; \
-          append = "will know "; \
+          append = "will know"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will know -> know */ \
           backspaces = 10; \
-          append = "know "; \
+          append = "know"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3195,19 +3218,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* see -> saw */ \
           backspaces = 3; \
-          append = "aw "; \
+          append = "aw"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* saw -> will see */ \
           backspaces = 4; \
-          append = "will see "; \
+          append = "will see"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will see -> see */ \
           backspaces = 9; \
-          append = "see "; \
+          append = "see"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3217,19 +3240,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* use -> used */ \
           backspaces = 1; \
-          append = "d "; \
+          append = "d"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* used -> will use */ \
           backspaces = 5; \
-          append = "will use "; \
+          append = "will use"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will use -> use */ \
           backspaces = 9; \
-          append = "use "; \
+          append = "use"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3239,19 +3262,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* get -> got */ \
           backspaces = 3; \
-          append = "ot "; \
+          append = "ot"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* got -> will get */ \
           backspaces = 4; \
-          append = "will get "; \
+          append = "will get"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will get -> get */ \
           backspaces = 9; \
-          append = "get "; \
+          append = "get"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3261,19 +3284,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* like -> liked */ \
           backspaces = 1; \
-          append = "d "; \
+          append = "d"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* liked -> will like */ \
           backspaces = 6; \
-          append = "will like "; \
+          append = "will like"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will like -> like */ \
           backspaces = 10; \
-          append = "like "; \
+          append = "like"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3283,19 +3306,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* work -> worked */ \
           backspaces = 1; \
-          append = "ed "; \
+          append = "ed"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* worked -> will work */ \
           backspaces = 6; \
-          append = "ill work "; \
+          append = "ill work"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will work -> work */ \
           backspaces = 9; \
-          append = "ork "; \
+          append = "ork"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3305,19 +3328,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* give -> gave */ \
           backspaces = 4; \
-          append = "ave "; \
+          append = "ave"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* gave -> will give */ \
           backspaces = 5; \
-          append = "will give "; \
+          append = "will give"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will give -> give */ \
           backspaces = 10; \
-          append = "give "; \
+          append = "give"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3327,19 +3350,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* think -> thought */ \
           backspaces = 4; \
-          append = "ought "; \
+          append = "ought"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* thought -> will think */ \
           backspaces = 8; \
-          append = "will think "; \
+          append = "will think"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will think -> think */ \
           backspaces = 11; \
-          append = "think "; \
+          append = "think"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3349,19 +3372,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* most -> many */ \
           backspaces = 4; \
-          append = "any "; \
+          append = "any"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* many -> more */ \
           backspaces = 4; \
-          append = "ore "; \
+          append = "ore"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* more -> most */ \
           backspaces = 3; \
-          append = "st "; \
+          append = "st"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3371,19 +3394,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* find -> found */ \
           backspaces = 4; \
-          append = "ound "; \
+          append = "ound"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* found -> will find */ \
           backspaces = 6; \
-          append = "will find "; \
+          append = "will find"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will find -> find */ \
           backspaces = 10; \
-          append = "find "; \
+          append = "find"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3393,13 +3416,12 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* day -> days */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* days -> day */ \
           backspaces = 2; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3409,13 +3431,12 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* way -> ways */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* ways -> way */ \
           backspaces = 2; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3425,19 +3446,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* many -> more */ \
           backspaces = 4; \
-          append = "ore "; \
+          append = "ore"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* more -> most */ \
           backspaces = 3; \
-          append = "st "; \
+          append = "st"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* most -> many */ \
           backspaces = 4; \
-          append = "any "; \
+          append = "any"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3447,19 +3468,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* look -> looked */ \
           backspaces = 1; \
-          append = "ed "; \
+          append = "ed"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* looked -> will looked */ \
           backspaces = 7; \
-          append = "will looked "; \
+          append = "will looked"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will looked -> look */ \
           backspaces = 12; \
-          append = "look "; \
+          append = "look"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3469,19 +3490,18 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* great -> greater */ \
           backspaces = 1; \
-          append = "er "; \
+          append = "er"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* greater -> greatest */ \
           backspaces = 2; \
-          append = "st "; \
+          append = "st"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* greatest -> great */ \
           backspaces = 4; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3491,25 +3511,25 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* back -> backs */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* backs -> backed */ \
           backspaces = 2; \
-          append = "ed "; \
+          append = "ed"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* backed -> will back */ \
           backspaces = 7; \
-          append = "will back "; \
+          append = "will back"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
           /* will back -> back */ \
           backspaces = 10; \
-          append = "back "; \
+          append = "back"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3519,19 +3539,18 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* long -> longer */ \
           backspaces = 1; \
-          append = "er "; \
+          append = "er"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* longer -> longest */ \
           backspaces = 2; \
-          append = "st "; \
+          append = "st"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* longest -> long */ \
           backspaces = 4; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3541,19 +3560,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* people -> peoples */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* peoples -> person */ \
           backspaces = 6; \
-          append = "rson "; \
+          append = "rson"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* person -> people */ \
           backspaces = 5; \
-          append = "ople "; \
+          append = "ople"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3563,19 +3582,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* own -> owned */ \
           backspaces = 1; \
-          append = "ed "; \
+          append = "ed"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* owned -> will own */ \
           backspaces = 6; \
-          append = "will own "; \
+          append = "will own"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will own -> own */ \
           backspaces = 9; \
-          append = "own "; \
+          append = "own"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3585,19 +3604,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* good -> better */ \
           backspaces = 5; \
-          append = "better "; \
+          append = "better"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* better -> best */ \
           backspaces = 5; \
-          append = "st "; \
+          append = "st"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* best -> good */ \
           backspaces = 5; \
-          append = "good "; \
+          append = "good"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3607,19 +3626,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* feel -> felt */ \
           backspaces = 3; \
-          append = "lt "; \
+          append = "lt"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* felt -> will feel */ \
           backspaces = 5; \
-          append = "will feel "; \
+          append = "will feel"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will feel -> feel */ \
           backspaces = 10; \
-          append = "feel "; \
+          append = "feel"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3629,19 +3648,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* seem -> seemed */ \
           backspaces = 1; \
-          append = "ed "; \
+          append = "ed"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* seemed -> will seem */ \
           backspaces = 7; \
-          append = "will seem "; \
+          append = "will seem"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will seem -> seem */ \
           backspaces = 10; \
-          append = "seem "; \
+          append = "seem"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3651,19 +3670,18 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* high -> higher */ \
           backspaces = 1; \
-          append = "er "; \
+          append = "er"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* higher -> highest */ \
           backspaces = 2; \
-          append = "st "; \
+          append = "st"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* highest -> high */ \
           backspaces = 4; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3673,13 +3691,12 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* place -> places */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* places -> place */ \
           backspaces = 2; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3689,13 +3706,12 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* world -> worlds */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* worlds -> world */ \
           backspaces = 2; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3705,13 +3721,12 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* nation -> nations */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* nations -> nation */ \
           backspaces = 2; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3721,13 +3736,12 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* hand -> hands */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* hands -> hand */ \
           backspaces = 2; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3737,19 +3751,18 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* old -> older */ \
           backspaces = 1; \
-          append = "er "; \
+          append = "er"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* older -> oldest */ \
           backspaces = 2; \
-          append = "st "; \
+          append = "st"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* oldest -> old */ \
           backspaces = 4; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3759,13 +3772,13 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* life -> lives */ \
           backspaces = 3; \
-          append = "ves "; \
+          append = "ves"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* lives -> life */ \
           backspaces = 4; \
-          append = "fe "; \
+          append = "fe"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3775,19 +3788,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* tell -> told */ \
           backspaces = 4; \
-          append = "old "; \
+          append = "old"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* told -> will tell */ \
           backspaces = 5; \
-          append = "will tell "; \
+          append = "will tell"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will tell -> tell */ \
           backspaces = 10; \
-          append = "tell "; \
+          append = "tell"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3797,19 +3810,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* write -> wrote */ \
           backspaces = 4; \
-          append = "ote "; \
+          append = "ote"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* wrote -> will write */ \
           backspaces = 5; \
-          append = "ill write "; \
+          append = "ill write"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will write -> write */ \
           backspaces = 10; \
-          append = "rite "; \
+          append = "rite"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3819,19 +3832,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* become -> became */ \
           backspaces = 4; \
-          append = "ame "; \
+          append = "ame"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* became -> will become */ \
           backspaces = 7; \
-          append = "will become "; \
+          append = "will become"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will become -> become */ \
           backspaces = 12; \
-          append = "become "; \
+          append = "become"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3841,19 +3854,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* show -> showed */ \
           backspaces = 1; \
-          append = "ed "; \
+          append = "ed"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* showed -> will show */ \
           backspaces = 7; \
-          append = "will show "; \
+          append = "will show"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will show -> show */ \
           backspaces = 10; \
-          append = "show "; \
+          append = "show"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3863,13 +3876,12 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* house -> houses */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* houses -> house */ \
           backspaces = 2; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3879,19 +3891,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* need -> needed */ \
           backspaces = 1; \
-          append = "ed "; \
+          append = "ed"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* needed -> will need */ \
           backspaces = 7; \
-          append = "will need "; \
+          append = "will need"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will need -> need */ \
           backspaces = 10; \
-          append = "need "; \
+          append = "need"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3901,19 +3913,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* mean -> meant */ \
           backspaces = 1; \
-          append = "t "; \
+          append = "t"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* meant -> will mean */ \
           backspaces = 6; \
-          append = "will mean "; \
+          append = "will mean"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will mean -> mean */ \
           backspaces = 10; \
-          append = "mean "; \
+          append = "mean"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3923,19 +3935,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* call -> called */ \
           backspaces = 1; \
-          append = "ed "; \
+          append = "ed"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* called -> will call */ \
           backspaces = 7; \
-          append = "will call "; \
+          append = "will call"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will call -> call */ \
           backspaces = 10; \
-          append = "call "; \
+          append = "call"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3945,19 +3957,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* develop -> developed */ \
           backspaces = 1; \
-          append = "ed "; \
+          append = "ed"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* developed -> will develop */ \
           backspaces = 10; \
-          append = "will develop "; \
+          append = "will develop"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will develop -> develop */ \
           backspaces = 13; \
-          append = "develop "; \
+          append = "develop"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3967,13 +3979,12 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* right -> rights */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* rights -> right */ \
           backspaces = 2; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3983,19 +3994,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* move -> moved */ \
           backspaces = 1; \
-          append = "d "; \
+          append = "d"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* moved -> will move */ \
           backspaces = 6; \
-          append = "will move "; \
+          append = "will move"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will move -> move */ \
           backspaces = 10; \
-          append = "move "; \
+          append = "move"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4005,13 +4016,12 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* thing -> things */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* things -> thing */ \
           backspaces = 2; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4021,13 +4031,12 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* general -> generals */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* generals -> general */ \
           backspaces = 2; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4037,13 +4046,12 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* school -> schools */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* schools -> school */ \
           backspaces = 2; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4053,19 +4061,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* begin -> began */ \
           backspaces = 3; \
-          append = "an "; \
+          append = "an"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* began -> will begin */ \
           backspaces = 6; \
-          append = "will begin "; \
+          append = "will begin"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will begin -> begin */ \
           backspaces = 11; \
-          append = "begin "; \
+          append = "begin"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4075,13 +4083,12 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* number -> numbers */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* numbers -> number */ \
           backspaces = 2; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4091,25 +4098,25 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* part -> parts */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* parts -> parted */ \
           backspaces = 2; \
-          append = "ed "; \
+          append = "ed"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* parted -> will part */ \
           backspaces = 7; \
-          append = "will part "; \
+          append = "will part"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
           /* will part -> part */ \
           backspaces = 10; \
-          append = "part "; \
+          append = "part"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4119,25 +4126,25 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* turn -> turns */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* turns -> turned */ \
           backspaces = 2; \
-          append = "ed "; \
+          append = "ed"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* turned -> will turn */ \
           backspaces = 7; \
-          append = "will turn "; \
+          append = "will turn"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
           /* will turn -> turn */ \
           backspaces = 10; \
-          append = "turn "; \
+          append = "turn"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4147,19 +4154,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* leave -> left */ \
           backspaces = 4; \
-          append = "ft "; \
+          append = "ft"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* left -> will leave */ \
           backspaces = 5; \
-          append = "will leave "; \
+          append = "will leave"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will leave -> leave */ \
           backspaces = 11; \
-          append = "leave "; \
+          append = "leave"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4169,19 +4176,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* want -> wanted */ \
           backspaces = 1; \
-          append = "ed "; \
+          append = "ed"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* wanted -> will want */ \
           backspaces = 6; \
-          append = "ill want "; \
+          append = "ill want"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will want -> want */ \
           backspaces = 9; \
-          append = "ant "; \
+          append = "ant"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4191,25 +4198,25 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* point -> points */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* points -> pointed */ \
           backspaces = 2; \
-          append = "ed "; \
+          append = "ed"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* pointed -> will point */ \
           backspaces = 8; \
-          append = "will point "; \
+          append = "will point"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
           /* will point -> point */ \
           backspaces = 11; \
-          append = "point "; \
+          append = "point"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4219,25 +4226,25 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* form -> forms */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* forms -> formed */ \
           backspaces = 2; \
-          append = "ed "; \
+          append = "ed"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* formed -> will form */ \
           backspaces = 7; \
-          append = "will form "; \
+          append = "will form"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
           /* will form -> form */ \
           backspaces = 10; \
-          append = "form "; \
+          append = "form"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4247,13 +4254,12 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* child -> children */ \
           backspaces = 1; \
-          append = "ren "; \
+          append = "ren"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* children -> child */ \
           backspaces = 4; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4263,19 +4269,18 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* few -> fewer */ \
           backspaces = 1; \
-          append = "er "; \
+          append = "er"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* fewer -> fewest */ \
           backspaces = 2; \
-          append = "st "; \
+          append = "st"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* fewest -> few */ \
           backspaces = 4; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4285,19 +4290,18 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* small -> smaller */ \
           backspaces = 1; \
-          append = "er "; \
+          append = "er"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* smaller -> smallest */ \
           backspaces = 2; \
-          append = "st "; \
+          append = "st"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* smallest -> small */ \
           backspaces = 4; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4307,19 +4311,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* ask -> asked */ \
           backspaces = 1; \
-          append = "ed "; \
+          append = "ed"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* asked -> will ask */ \
           backspaces = 6; \
-          append = "will ask "; \
+          append = "will ask"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will ask -> ask */ \
           backspaces = 9; \
-          append = "ask "; \
+          append = "ask"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4329,19 +4333,18 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* late -> later */ \
           backspaces = 1; \
-          append = "r "; \
+          append = "r"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* later -> latest */ \
           backspaces = 2; \
-          append = "st "; \
+          append = "st"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* latest -> late */ \
           backspaces = 3; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4351,13 +4354,12 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* home -> homes */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* homes -> home */ \
           backspaces = 2; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4367,25 +4369,25 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* interest -> interests */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* interests -> interested */ \
           backspaces = 2; \
-          append = "ed "; \
+          append = "ed"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* interested -> will interest */ \
           backspaces = 11; \
-          append = "will interest "; \
+          append = "will interest"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
           /* will interest -> interest */ \
           backspaces = 14; \
-          append = "interest "; \
+          append = "interest"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4395,19 +4397,18 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* large -> larger */ \
           backspaces = 1; \
-          append = "r "; \
+          append = "r"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* larger -> largest */ \
           backspaces = 2; \
-          append = "st "; \
+          append = "st"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* largest -> large */ \
           backspaces = 3; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4417,13 +4418,13 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* person -> people */ \
           backspaces = 5; \
-          append = "ople "; \
+          append = "ople"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* people -> person */ \
           backspaces = 5; \
-          append = "rson "; \
+          append = "rson"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4433,25 +4434,25 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* end -> ends */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* ends -> ended */ \
           backspaces = 2; \
-          append = "ed "; \
+          append = "ed"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* ended -> will end */ \
           backspaces = 6; \
-          append = "will end "; \
+          append = "will end"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
           /* will end -> end */ \
           backspaces = 9; \
-          append = "end "; \
+          append = "end"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4461,19 +4462,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* open -> opened */ \
           backspaces = 1; \
-          append = "ed "; \
+          append = "ed"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* opened -> will open */ \
           backspaces = 7; \
-          append = "will open "; \
+          append = "will open"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will open -> open */ \
           backspaces = 10; \
-          append = "open "; \
+          append = "open"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4483,19 +4484,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* follow -> followed */ \
           backspaces = 1; \
-          append = "ed "; \
+          append = "ed"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* followed -> will follow */ \
           backspaces = 9; \
-          append = "will follow "; \
+          append = "will follow"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will follow -> follow */ \
           backspaces = 12; \
-          append = "follow "; \
+          append = "follow"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4505,25 +4506,25 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* present -> presents */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* presents -> presented */ \
           backspaces = 2; \
-          append = "ed "; \
+          append = "ed"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* presented -> will present */ \
           backspaces = 10; \
-          append = "will present "; \
+          append = "will present"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
           /* will present -> present */ \
           backspaces = 13; \
-          append = "present "; \
+          append = "present"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4533,19 +4534,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* hold -> held */ \
           backspaces = 4; \
-          append = "eld "; \
+          append = "eld"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* held -> will hold */ \
           backspaces = 5; \
-          append = "will hold "; \
+          append = "will hold"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will hold -> hold */ \
           backspaces = 10; \
-          append = "hold "; \
+          append = "hold"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4555,19 +4556,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* govern -> governed */ \
           backspaces = 1; \
-          append = "ed "; \
+          append = "ed"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* governed -> will govern */ \
           backspaces = 9; \
-          append = "will govern "; \
+          append = "will govern"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will govern -> govern */ \
           backspaces = 12; \
-          append = "govern "; \
+          append = "govern"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4577,25 +4578,25 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* head -> heads */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* heads -> headed */ \
           backspaces = 2; \
-          append = "ed "; \
+          append = "ed"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* headed -> will head */ \
           backspaces = 7; \
-          append = "will head "; \
+          append = "will head"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
           /* will head -> head */ \
           backspaces = 10; \
-          append = "head "; \
+          append = "head"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4605,19 +4606,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* consider -> considered */ \
           backspaces = 1; \
-          append = "ed "; \
+          append = "ed"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* considered -> will consider */ \
           backspaces = 11; \
-          append = "will consider "; \
+          append = "will consider"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will consider -> consider */ \
           backspaces = 14; \
-          append = "consider "; \
+          append = "consider"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4627,25 +4628,25 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* word -> words */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* words -> worded */ \
           backspaces = 2; \
-          append = "ed "; \
+          append = "ed"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* worded -> will word */ \
           backspaces = 6; \
-          append = "ill word "; \
+          append = "ill word"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
           /* will word -> word */ \
           backspaces = 9; \
-          append = "ord "; \
+          append = "ord"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4655,25 +4656,25 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* program -> programs */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* programs -> programmed */ \
           backspaces = 2; \
-          append = "med "; \
+          append = "med"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* programmed -> will program */ \
           backspaces = 11; \
-          append = "will program "; \
+          append = "will program"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
           /* will program -> program */ \
           backspaces = 13; \
-          append = "program "; \
+          append = "program"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4683,13 +4684,12 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* problem -> problems */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* problems -> problem */ \
           backspaces = 2; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4699,25 +4699,25 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* lead -> leads */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* leads -> led */ \
           backspaces = 4; \
-          append = "d "; \
+          append = "d"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* led -> will lead */ \
           backspaces = 4; \
-          append = "will lead "; \
+          append = "will lead"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
           /* will lead -> lead */ \
           backspaces = 10; \
-          append = "lead "; \
+          append = "lead"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4727,13 +4727,12 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* system -> systems */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* systems -> system */ \
           backspaces = 2; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4743,19 +4742,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* set -> sets */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* sets -> will set */ \
           backspaces = 5; \
-          append = "will set "; \
+          append = "will set"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will set -> set */ \
           backspaces = 9; \
-          append = "set "; \
+          append = "set"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4765,25 +4764,25 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* order -> orders */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* orders -> ordered */ \
           backspaces = 2; \
-          append = "ed "; \
+          append = "ed"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* ordered -> will order */ \
           backspaces = 8; \
-          append = "will order "; \
+          append = "will order"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
           /* will order -> order */ \
           backspaces = 11; \
-          append = "order "; \
+          append = "order"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4793,25 +4792,25 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* eye -> eyes */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* eyes -> eyed */ \
           backspaces = 2; \
-          append = "d "; \
+          append = "d"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* eyed -> will eye */ \
           backspaces = 5; \
-          append = "will eye "; \
+          append = "will eye"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
           /* will eye -> eye */ \
           backspaces = 9; \
-          append = "eye "; \
+          append = "eye"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4821,25 +4820,25 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* plan -> plans */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* plans -> planned */ \
           backspaces = 2; \
-          append = "ned "; \
+          append = "ned"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* planned -> will plan */ \
           backspaces = 8; \
-          append = "will plan "; \
+          append = "will plan"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
           /* will plan -> plan */ \
           backspaces = 10; \
-          append = "plan "; \
+          append = "plan"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4849,25 +4848,25 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* run -> runs */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* runs -> ran */ \
           backspaces = 4; \
-          append = "an "; \
+          append = "an"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* ran -> will run */ \
           backspaces = 4; \
-          append = "will run "; \
+          append = "will run"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
           /* will run -> run */ \
           backspaces = 9; \
-          append = "run "; \
+          append = "run"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4877,19 +4876,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* keep -> kept */ \
           backspaces = 3; \
-          append = "pt "; \
+          append = "pt"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* kept -> will keep */ \
           backspaces = 5; \
-          append = "will keep "; \
+          append = "will keep"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will keep -> keep */ \
           backspaces = 10; \
-          append = "keep "; \
+          append = "keep"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4899,25 +4898,25 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* face -> faces */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* faces -> faced */ \
           backspaces = 2; \
-          append = "d "; \
+          append = "d"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* faced -> will face */ \
           backspaces = 6; \
-          append = "will face "; \
+          append = "will face"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
           /* will face -> face */ \
           backspaces = 10; \
-          append = "face "; \
+          append = "face"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4927,13 +4926,12 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* fact -> facts */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* facts -> fact */ \
           backspaces = 2; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4943,25 +4941,25 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* group -> groups */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* groups -> grouped */ \
           backspaces = 2; \
-          append = "ed "; \
+          append = "ed"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* grouped -> will group */ \
           backspaces = 8; \
-          append = "will group "; \
+          append = "will group"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
           /* will group -> group */ \
           backspaces = 11; \
-          append = "group "; \
+          append = "group"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4971,25 +4969,25 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* play -> plays */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* plays -> played */ \
           backspaces = 2; \
-          append = "ed "; \
+          append = "ed"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* played -> will play */ \
           backspaces = 7; \
-          append = "will play "; \
+          append = "will play"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
           /* will play -> play */ \
           backspaces = 10; \
-          append = "play "; \
+          append = "play"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4999,25 +4997,25 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* stand -> stands */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* stands -> stood */ \
           backspaces = 5; \
-          append = "ood "; \
+          append = "ood"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* stood -> will stand */ \
           backspaces = 6; \
-          append = "will stand "; \
+          append = "will stand"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
           /* will stand -> stand */ \
           backspaces = 11; \
-          append = "stand "; \
+          append = "stand"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -5027,19 +5025,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* increase -> increased */ \
           backspaces = 1; \
-          append = "d "; \
+          append = "d"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* increased -> will increase */ \
           backspaces = 10; \
-          append = "will increase "; \
+          append = "will increase"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will increase -> increase */ \
           backspaces = 14; \
-          append = "increase "; \
+          append = "increase"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -5049,19 +5047,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* early -> earlier */ \
           backspaces = 2; \
-          append = "ier "; \
+          append = "ier"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* earlier -> earliest */ \
           backspaces = 2; \
-          append = "st "; \
+          append = "st"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* earliest -> early */ \
           backspaces = 5; \
-          append = "y "; \
+          append = "y"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -5071,13 +5069,12 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* course -> courses */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* courses -> course */ \
           backspaces = 2; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -5087,25 +5084,25 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* change -> changes */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* changes -> changed */ \
           backspaces = 2; \
-          append = "d "; \
+          append = "d"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* changed -> will change */ \
           backspaces = 8; \
-          append = "will change "; \
+          append = "will change"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
           /* will change -> change */ \
           backspaces = 12; \
-          append = "change "; \
+          append = "change"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -5115,19 +5112,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* help -> helped */ \
           backspaces = 1; \
-          append = "ed "; \
+          append = "ed"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* helped -> will help */ \
           backspaces = 7; \
-          append = "will help "; \
+          append = "will help"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* will help -> help */ \
           backspaces = 10; \
-          append = "help "; \
+          append = "help"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -5137,13 +5134,12 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* line -> lines */ \
           backspaces = 1; \
-          append = "s "; \
+          append = "s"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* lines -> line */ \
           backspaces = 2; \
-          append = " "; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -5153,19 +5149,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* thanks -> thank you */ \
           backspaces = 2; \
-          append = " you "; \
+          append = " you"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* thank you -> Thanks very much! */ \
           backspaces = 10; \
-          append = "Thanks very much! "; \
+          append = "Thanks very much!"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
           /* Thanks very much! -> thanks */ \
           backspaces = 18; \
-          append = "thanks "; \
+          append = "thanks"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -5175,13 +5171,13 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* sartak.org -> https://sartak.org */ \
           backspaces = 11; \
-          append = "https://sartak.org "; \
+          append = "https://sartak.org"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* https://sartak.org -> sartak.org */ \
           backspaces = 19; \
-          append = "sartak.org "; \
+          append = "sartak.org"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -5191,16 +5187,19 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
         case 0: \
           /* shawn.dev -> https://shawn.dev */ \
           backspaces = 10; \
-          append = "https://shawn.dev "; \
+          append = "https://shawn.dev"; \
           next_chord_cycle = 1; \
         break; \
         case 1: \
           /* https://shawn.dev -> shawn.dev */ \
           backspaces = 18; \
-          append = "shawn.dev "; \
+          append = "shawn.dev"; \
           next_chord_cycle = 0; \
         break; \
       } \
+      break; \
+    default: \
+      space = false; \
       break; \
   } \
   for (uint8_t i = 0; i < backspaces; i++) { \
@@ -5208,6 +5207,9 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
   } \
   if (append != NULL) { \
     send_string(append); \
+  } \
+  if (space) { \
+    tap_code(KC_SPC); \
   } \
   return next_chord_cycle; \
 }

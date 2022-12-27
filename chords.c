@@ -443,7 +443,6 @@
   CHORD_hey, \
   CHORD_return, \
   CHORD_probabl, \
-  CHORD_thank_y, \
   CHORD_thanks, \
   CHORD_i_ve, \
   CHORD_per, \
@@ -908,7 +907,6 @@ COMBO_FOR_CHORD(log, A_L, A_O, A_G);
 COMBO_FOR_CHORD(hey, A_H, A_E, A_Y);
 COMBO_FOR_CHORD(return, A_R, A_E, A_T);
 COMBO_FOR_CHORD(probabl, A_P, A_B, A_L, A_Y);
-COMBO_FOR_CHORD(thank_y, A_T, A_A, A_Y);
 COMBO_FOR_CHORD(thanks, A_T, A_N, A_S);
 COMBO_FOR_CHORD(i_ve, A_I, A_V, A_E);
 COMBO_FOR_CHORD(per, A_P, A_E, A_R);
@@ -1374,7 +1372,6 @@ COMBO_FOR_CHORD(x, A_W, A_T, A_L);
   CHORD_COMBO(hey), \
   CHORD_COMBO(return), \
   CHORD_COMBO(probabl), \
-  CHORD_COMBO(thank_y), \
   CHORD_COMBO(thanks), \
   CHORD_COMBO(i_ve), \
   CHORD_COMBO(per), \
@@ -2737,9 +2734,6 @@ void process_chord_event(uint16_t combo_index, bool pressed) { \
     case CHORD_probabl: \
       SEND_STRING("probably "); \
       break; \
-    case CHORD_thank_y: \
-      SEND_STRING("thank you "); \
-      break; \
     case CHORD_thanks: \
       SEND_STRING("thanks "); \
       break; \
@@ -2802,6 +2796,2412 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
   uint8_t backspaces = 0; \
   char *append = NULL; \
   switch(last_chord) { \
+    case CHORD_have: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* have -> had */ \
+          backspaces = 3; \
+          append = "d "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* had -> have */ \
+          backspaces = 2; \
+          append = "ve "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_it: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* it -> them */ \
+          backspaces = 3; \
+          append = "them "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* them -> it */ \
+          backspaces = 5; \
+          append = "it "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_that: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* that -> those */ \
+          backspaces = 3; \
+          append = "ose "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* those -> that */ \
+          backspaces = 4; \
+          append = "at "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_i: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* I -> we */ \
+          backspaces = 2; \
+          append = "we "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* we -> I */ \
+          backspaces = 3; \
+          append = "I "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_she: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* she -> they */ \
+          backspaces = 4; \
+          append = "they "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* they -> she */ \
+          backspaces = 5; \
+          append = "she "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_this: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* this -> these */ \
+          backspaces = 3; \
+          append = "ese "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* these -> this */ \
+          backspaces = 4; \
+          append = "is "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_we: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* we -> I */ \
+          backspaces = 3; \
+          append = "I "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* I -> we */ \
+          backspaces = 2; \
+          append = "we "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_will: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* will -> wills */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* wills -> will */ \
+          backspaces = 2; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_say: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* say -> said */ \
+          backspaces = 2; \
+          append = "id "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* said -> say */ \
+          backspaces = 3; \
+          append = "y "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_make: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* make -> made */ \
+          backspaces = 3; \
+          append = "de "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* made -> will make */ \
+          backspaces = 5; \
+          append = "will make "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will make -> make */ \
+          backspaces = 10; \
+          append = "make "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_more: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* more -> most */ \
+          backspaces = 3; \
+          append = "st "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* most -> many */ \
+          backspaces = 4; \
+          append = "any "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* many -> more */ \
+          backspaces = 4; \
+          append = "ore "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_man: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* man -> men */ \
+          backspaces = 3; \
+          append = "en "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* men -> man */ \
+          backspaces = 3; \
+          append = "an "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_out: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* out -> outs */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* outs -> out */ \
+          backspaces = 2; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_other: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* other -> others */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* others -> other */ \
+          backspaces = 2; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_time: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* time -> times */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* times -> time */ \
+          backspaces = 2; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_go: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* go -> went */ \
+          backspaces = 3; \
+          append = "went "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* went -> will go */ \
+          backspaces = 4; \
+          append = "ill go "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will go -> go */ \
+          backspaces = 8; \
+          append = "go "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_state: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* state -> states */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* states -> state */ \
+          backspaces = 2; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_new: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* new -> newer */ \
+          backspaces = 1; \
+          append = "er "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* newer -> newest */ \
+          backspaces = 2; \
+          append = "st "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* newest -> new */ \
+          backspaces = 4; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_year: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* year -> years */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* years -> year */ \
+          backspaces = 2; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_take: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* take -> took */ \
+          backspaces = 4; \
+          append = "ook "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* took -> will take */ \
+          backspaces = 5; \
+          append = "will take "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will take -> take */ \
+          backspaces = 10; \
+          append = "take "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_come: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* come -> came */ \
+          backspaces = 4; \
+          append = "ame "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* came -> will come */ \
+          backspaces = 5; \
+          append = "will come "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will come -> come */ \
+          backspaces = 10; \
+          append = "come "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_know: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* know -> knew */ \
+          backspaces = 3; \
+          append = "ew "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* knew -> will know */ \
+          backspaces = 5; \
+          append = "will know "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will know -> know */ \
+          backspaces = 10; \
+          append = "know "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_see: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* see -> saw */ \
+          backspaces = 3; \
+          append = "aw "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* saw -> will see */ \
+          backspaces = 4; \
+          append = "will see "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will see -> see */ \
+          backspaces = 9; \
+          append = "see "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_use: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* use -> used */ \
+          backspaces = 1; \
+          append = "d "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* used -> will use */ \
+          backspaces = 5; \
+          append = "will use "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will use -> use */ \
+          backspaces = 9; \
+          append = "use "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_get: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* get -> got */ \
+          backspaces = 3; \
+          append = "ot "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* got -> will get */ \
+          backspaces = 4; \
+          append = "will get "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will get -> get */ \
+          backspaces = 9; \
+          append = "get "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_like: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* like -> liked */ \
+          backspaces = 1; \
+          append = "d "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* liked -> will like */ \
+          backspaces = 6; \
+          append = "will like "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will like -> like */ \
+          backspaces = 10; \
+          append = "like "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_work: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* work -> worked */ \
+          backspaces = 1; \
+          append = "ed "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* worked -> will work */ \
+          backspaces = 6; \
+          append = "ill work "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will work -> work */ \
+          backspaces = 9; \
+          append = "ork "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_give: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* give -> gave */ \
+          backspaces = 4; \
+          append = "ave "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* gave -> will give */ \
+          backspaces = 5; \
+          append = "will give "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will give -> give */ \
+          backspaces = 10; \
+          append = "give "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_think: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* think -> thought */ \
+          backspaces = 4; \
+          append = "ought "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* thought -> will think */ \
+          backspaces = 8; \
+          append = "will think "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will think -> think */ \
+          backspaces = 11; \
+          append = "think "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_most: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* most -> many */ \
+          backspaces = 4; \
+          append = "any "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* many -> more */ \
+          backspaces = 4; \
+          append = "ore "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* more -> most */ \
+          backspaces = 3; \
+          append = "st "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_find: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* find -> found */ \
+          backspaces = 4; \
+          append = "ound "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* found -> will find */ \
+          backspaces = 6; \
+          append = "will find "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will find -> find */ \
+          backspaces = 10; \
+          append = "find "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_day: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* day -> days */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* days -> day */ \
+          backspaces = 2; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_way: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* way -> ways */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* ways -> way */ \
+          backspaces = 2; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_many: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* many -> more */ \
+          backspaces = 4; \
+          append = "ore "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* more -> most */ \
+          backspaces = 3; \
+          append = "st "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* most -> many */ \
+          backspaces = 4; \
+          append = "any "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_look: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* look -> looked */ \
+          backspaces = 1; \
+          append = "ed "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* looked -> will looked */ \
+          backspaces = 7; \
+          append = "will looked "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will looked -> look */ \
+          backspaces = 12; \
+          append = "look "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_great: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* great -> greater */ \
+          backspaces = 1; \
+          append = "er "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* greater -> greatest */ \
+          backspaces = 2; \
+          append = "st "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* greatest -> great */ \
+          backspaces = 4; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_back: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* back -> backs */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* backs -> backed */ \
+          backspaces = 2; \
+          append = "ed "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* backed -> will back */ \
+          backspaces = 7; \
+          append = "will back "; \
+          next_chord_cycle = 3; \
+        break; \
+        case 3: \
+          /* will back -> back */ \
+          backspaces = 10; \
+          append = "back "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_long: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* long -> longer */ \
+          backspaces = 1; \
+          append = "er "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* longer -> longest */ \
+          backspaces = 2; \
+          append = "st "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* longest -> long */ \
+          backspaces = 4; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_people: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* people -> peoples */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* peoples -> person */ \
+          backspaces = 6; \
+          append = "rson "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* person -> people */ \
+          backspaces = 5; \
+          append = "ople "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_own: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* own -> owned */ \
+          backspaces = 1; \
+          append = "ed "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* owned -> will own */ \
+          backspaces = 6; \
+          append = "will own "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will own -> own */ \
+          backspaces = 9; \
+          append = "own "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_good: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* good -> better */ \
+          backspaces = 5; \
+          append = "better "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* better -> best */ \
+          backspaces = 5; \
+          append = "st "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* best -> good */ \
+          backspaces = 5; \
+          append = "good "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_feel: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* feel -> felt */ \
+          backspaces = 3; \
+          append = "lt "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* felt -> will feel */ \
+          backspaces = 5; \
+          append = "will feel "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will feel -> feel */ \
+          backspaces = 10; \
+          append = "feel "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_seem: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* seem -> seemed */ \
+          backspaces = 1; \
+          append = "ed "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* seemed -> will seem */ \
+          backspaces = 7; \
+          append = "will seem "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will seem -> seem */ \
+          backspaces = 10; \
+          append = "seem "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_high: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* high -> higher */ \
+          backspaces = 1; \
+          append = "er "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* higher -> highest */ \
+          backspaces = 2; \
+          append = "st "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* highest -> high */ \
+          backspaces = 4; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_place: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* place -> places */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* places -> place */ \
+          backspaces = 2; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_world: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* world -> worlds */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* worlds -> world */ \
+          backspaces = 2; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_nation: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* nation -> nations */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* nations -> nation */ \
+          backspaces = 2; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_hand: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* hand -> hands */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* hands -> hand */ \
+          backspaces = 2; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_old: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* old -> older */ \
+          backspaces = 1; \
+          append = "er "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* older -> oldest */ \
+          backspaces = 2; \
+          append = "st "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* oldest -> old */ \
+          backspaces = 4; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_life: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* life -> lives */ \
+          backspaces = 3; \
+          append = "ves "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* lives -> life */ \
+          backspaces = 4; \
+          append = "fe "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_tell: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* tell -> told */ \
+          backspaces = 4; \
+          append = "old "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* told -> will tell */ \
+          backspaces = 5; \
+          append = "will tell "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will tell -> tell */ \
+          backspaces = 10; \
+          append = "tell "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_write: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* write -> wrote */ \
+          backspaces = 4; \
+          append = "ote "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* wrote -> will write */ \
+          backspaces = 5; \
+          append = "ill write "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will write -> write */ \
+          backspaces = 10; \
+          append = "rite "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_become: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* become -> became */ \
+          backspaces = 4; \
+          append = "ame "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* became -> will become */ \
+          backspaces = 7; \
+          append = "will become "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will become -> become */ \
+          backspaces = 12; \
+          append = "become "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_show: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* show -> showed */ \
+          backspaces = 1; \
+          append = "ed "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* showed -> will show */ \
+          backspaces = 7; \
+          append = "will show "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will show -> show */ \
+          backspaces = 10; \
+          append = "show "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_house: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* house -> houses */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* houses -> house */ \
+          backspaces = 2; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_need: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* need -> needed */ \
+          backspaces = 1; \
+          append = "ed "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* needed -> will need */ \
+          backspaces = 7; \
+          append = "will need "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will need -> need */ \
+          backspaces = 10; \
+          append = "need "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_mean: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* mean -> meant */ \
+          backspaces = 1; \
+          append = "t "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* meant -> will mean */ \
+          backspaces = 6; \
+          append = "will mean "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will mean -> mean */ \
+          backspaces = 10; \
+          append = "mean "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_call: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* call -> called */ \
+          backspaces = 1; \
+          append = "ed "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* called -> will call */ \
+          backspaces = 7; \
+          append = "will call "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will call -> call */ \
+          backspaces = 10; \
+          append = "call "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_develop: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* develop -> developed */ \
+          backspaces = 1; \
+          append = "ed "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* developed -> will develop */ \
+          backspaces = 10; \
+          append = "will develop "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will develop -> develop */ \
+          backspaces = 13; \
+          append = "develop "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_right: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* right -> rights */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* rights -> right */ \
+          backspaces = 2; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_move: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* move -> moved */ \
+          backspaces = 1; \
+          append = "d "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* moved -> will move */ \
+          backspaces = 6; \
+          append = "will move "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will move -> move */ \
+          backspaces = 10; \
+          append = "move "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_thing: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* thing -> things */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* things -> thing */ \
+          backspaces = 2; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_general: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* general -> generals */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* generals -> general */ \
+          backspaces = 2; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_school: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* school -> schools */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* schools -> school */ \
+          backspaces = 2; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_begin: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* begin -> began */ \
+          backspaces = 3; \
+          append = "an "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* began -> will begin */ \
+          backspaces = 6; \
+          append = "will begin "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will begin -> begin */ \
+          backspaces = 11; \
+          append = "begin "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_number: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* number -> numbers */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* numbers -> number */ \
+          backspaces = 2; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_part: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* part -> parts */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* parts -> parted */ \
+          backspaces = 2; \
+          append = "ed "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* parted -> will part */ \
+          backspaces = 7; \
+          append = "will part "; \
+          next_chord_cycle = 3; \
+        break; \
+        case 3: \
+          /* will part -> part */ \
+          backspaces = 10; \
+          append = "part "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_turn: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* turn -> turns */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* turns -> turned */ \
+          backspaces = 2; \
+          append = "ed "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* turned -> will turn */ \
+          backspaces = 7; \
+          append = "will turn "; \
+          next_chord_cycle = 3; \
+        break; \
+        case 3: \
+          /* will turn -> turn */ \
+          backspaces = 10; \
+          append = "turn "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_leave: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* leave -> left */ \
+          backspaces = 4; \
+          append = "ft "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* left -> will leave */ \
+          backspaces = 5; \
+          append = "will leave "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will leave -> leave */ \
+          backspaces = 11; \
+          append = "leave "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_want: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* want -> wanted */ \
+          backspaces = 1; \
+          append = "ed "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* wanted -> will want */ \
+          backspaces = 6; \
+          append = "ill want "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will want -> want */ \
+          backspaces = 9; \
+          append = "ant "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_point: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* point -> points */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* points -> pointed */ \
+          backspaces = 2; \
+          append = "ed "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* pointed -> will point */ \
+          backspaces = 8; \
+          append = "will point "; \
+          next_chord_cycle = 3; \
+        break; \
+        case 3: \
+          /* will point -> point */ \
+          backspaces = 11; \
+          append = "point "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_form: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* form -> forms */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* forms -> formed */ \
+          backspaces = 2; \
+          append = "ed "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* formed -> will form */ \
+          backspaces = 7; \
+          append = "will form "; \
+          next_chord_cycle = 3; \
+        break; \
+        case 3: \
+          /* will form -> form */ \
+          backspaces = 10; \
+          append = "form "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_child: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* child -> children */ \
+          backspaces = 1; \
+          append = "ren "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* children -> child */ \
+          backspaces = 4; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_few: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* few -> fewer */ \
+          backspaces = 1; \
+          append = "er "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* fewer -> fewest */ \
+          backspaces = 2; \
+          append = "st "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* fewest -> few */ \
+          backspaces = 4; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_small: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* small -> smaller */ \
+          backspaces = 1; \
+          append = "er "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* smaller -> smallest */ \
+          backspaces = 2; \
+          append = "st "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* smallest -> small */ \
+          backspaces = 4; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_ask: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* ask -> asked */ \
+          backspaces = 1; \
+          append = "ed "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* asked -> will ask */ \
+          backspaces = 6; \
+          append = "will ask "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will ask -> ask */ \
+          backspaces = 9; \
+          append = "ask "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_late: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* late -> later */ \
+          backspaces = 1; \
+          append = "r "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* later -> latest */ \
+          backspaces = 2; \
+          append = "st "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* latest -> late */ \
+          backspaces = 3; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_home: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* home -> homes */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* homes -> home */ \
+          backspaces = 2; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_interes: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* interest -> interests */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* interests -> interested */ \
+          backspaces = 2; \
+          append = "ed "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* interested -> will interest */ \
+          backspaces = 11; \
+          append = "will interest "; \
+          next_chord_cycle = 3; \
+        break; \
+        case 3: \
+          /* will interest -> interest */ \
+          backspaces = 14; \
+          append = "interest "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_large: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* large -> larger */ \
+          backspaces = 1; \
+          append = "r "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* larger -> largest */ \
+          backspaces = 2; \
+          append = "st "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* largest -> large */ \
+          backspaces = 3; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_person: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* person -> people */ \
+          backspaces = 5; \
+          append = "ople "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* people -> person */ \
+          backspaces = 5; \
+          append = "rson "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_end: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* end -> ends */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* ends -> ended */ \
+          backspaces = 2; \
+          append = "ed "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* ended -> will end */ \
+          backspaces = 6; \
+          append = "will end "; \
+          next_chord_cycle = 3; \
+        break; \
+        case 3: \
+          /* will end -> end */ \
+          backspaces = 9; \
+          append = "end "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_open: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* open -> opened */ \
+          backspaces = 1; \
+          append = "ed "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* opened -> will open */ \
+          backspaces = 7; \
+          append = "will open "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will open -> open */ \
+          backspaces = 10; \
+          append = "open "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_follow: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* follow -> followed */ \
+          backspaces = 1; \
+          append = "ed "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* followed -> will follow */ \
+          backspaces = 9; \
+          append = "will follow "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will follow -> follow */ \
+          backspaces = 12; \
+          append = "follow "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_present: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* present -> presents */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* presents -> presented */ \
+          backspaces = 2; \
+          append = "ed "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* presented -> will present */ \
+          backspaces = 10; \
+          append = "will present "; \
+          next_chord_cycle = 3; \
+        break; \
+        case 3: \
+          /* will present -> present */ \
+          backspaces = 13; \
+          append = "present "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_hold: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* hold -> held */ \
+          backspaces = 4; \
+          append = "eld "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* held -> will hold */ \
+          backspaces = 5; \
+          append = "will hold "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will hold -> hold */ \
+          backspaces = 10; \
+          append = "hold "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_govern: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* govern -> governed */ \
+          backspaces = 1; \
+          append = "ed "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* governed -> will govern */ \
+          backspaces = 9; \
+          append = "will govern "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will govern -> govern */ \
+          backspaces = 12; \
+          append = "govern "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_head: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* head -> heads */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* heads -> headed */ \
+          backspaces = 2; \
+          append = "ed "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* headed -> will head */ \
+          backspaces = 7; \
+          append = "will head "; \
+          next_chord_cycle = 3; \
+        break; \
+        case 3: \
+          /* will head -> head */ \
+          backspaces = 10; \
+          append = "head "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_conside: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* consider -> considered */ \
+          backspaces = 1; \
+          append = "ed "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* considered -> will consider */ \
+          backspaces = 11; \
+          append = "will consider "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will consider -> consider */ \
+          backspaces = 14; \
+          append = "consider "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_word: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* word -> words */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* words -> worded */ \
+          backspaces = 2; \
+          append = "ed "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* worded -> will word */ \
+          backspaces = 6; \
+          append = "ill word "; \
+          next_chord_cycle = 3; \
+        break; \
+        case 3: \
+          /* will word -> word */ \
+          backspaces = 9; \
+          append = "ord "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_program: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* program -> programs */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* programs -> programmed */ \
+          backspaces = 2; \
+          append = "med "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* programmed -> will program */ \
+          backspaces = 11; \
+          append = "will program "; \
+          next_chord_cycle = 3; \
+        break; \
+        case 3: \
+          /* will program -> program */ \
+          backspaces = 13; \
+          append = "program "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_problem: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* problem -> problems */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* problems -> problem */ \
+          backspaces = 2; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_lead: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* lead -> leads */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* leads -> led */ \
+          backspaces = 4; \
+          append = "d "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* led -> will lead */ \
+          backspaces = 4; \
+          append = "will lead "; \
+          next_chord_cycle = 3; \
+        break; \
+        case 3: \
+          /* will lead -> lead */ \
+          backspaces = 10; \
+          append = "lead "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_system: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* system -> systems */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* systems -> system */ \
+          backspaces = 2; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_set: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* set -> sets */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* sets -> will set */ \
+          backspaces = 5; \
+          append = "will set "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will set -> set */ \
+          backspaces = 9; \
+          append = "set "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_order: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* order -> orders */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* orders -> ordered */ \
+          backspaces = 2; \
+          append = "ed "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* ordered -> will order */ \
+          backspaces = 8; \
+          append = "will order "; \
+          next_chord_cycle = 3; \
+        break; \
+        case 3: \
+          /* will order -> order */ \
+          backspaces = 11; \
+          append = "order "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_eye: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* eye -> eyes */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* eyes -> eyed */ \
+          backspaces = 2; \
+          append = "d "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* eyed -> will eye */ \
+          backspaces = 5; \
+          append = "will eye "; \
+          next_chord_cycle = 3; \
+        break; \
+        case 3: \
+          /* will eye -> eye */ \
+          backspaces = 9; \
+          append = "eye "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_plan: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* plan -> plans */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* plans -> planned */ \
+          backspaces = 2; \
+          append = "ned "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* planned -> will plan */ \
+          backspaces = 8; \
+          append = "will plan "; \
+          next_chord_cycle = 3; \
+        break; \
+        case 3: \
+          /* will plan -> plan */ \
+          backspaces = 10; \
+          append = "plan "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_run: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* run -> runs */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* runs -> ran */ \
+          backspaces = 4; \
+          append = "an "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* ran -> will run */ \
+          backspaces = 4; \
+          append = "will run "; \
+          next_chord_cycle = 3; \
+        break; \
+        case 3: \
+          /* will run -> run */ \
+          backspaces = 9; \
+          append = "run "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_keep: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* keep -> kept */ \
+          backspaces = 3; \
+          append = "pt "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* kept -> will keep */ \
+          backspaces = 5; \
+          append = "will keep "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will keep -> keep */ \
+          backspaces = 10; \
+          append = "keep "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_face: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* face -> faces */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* faces -> faced */ \
+          backspaces = 2; \
+          append = "d "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* faced -> will face */ \
+          backspaces = 6; \
+          append = "will face "; \
+          next_chord_cycle = 3; \
+        break; \
+        case 3: \
+          /* will face -> face */ \
+          backspaces = 10; \
+          append = "face "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_fact: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* fact -> facts */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* facts -> fact */ \
+          backspaces = 2; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_group: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* group -> groups */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* groups -> grouped */ \
+          backspaces = 2; \
+          append = "ed "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* grouped -> will group */ \
+          backspaces = 8; \
+          append = "will group "; \
+          next_chord_cycle = 3; \
+        break; \
+        case 3: \
+          /* will group -> group */ \
+          backspaces = 11; \
+          append = "group "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_play: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* play -> plays */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* plays -> played */ \
+          backspaces = 2; \
+          append = "ed "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* played -> will play */ \
+          backspaces = 7; \
+          append = "will play "; \
+          next_chord_cycle = 3; \
+        break; \
+        case 3: \
+          /* will play -> play */ \
+          backspaces = 10; \
+          append = "play "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_stand: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* stand -> stands */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* stands -> stood */ \
+          backspaces = 5; \
+          append = "ood "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* stood -> will stand */ \
+          backspaces = 6; \
+          append = "will stand "; \
+          next_chord_cycle = 3; \
+        break; \
+        case 3: \
+          /* will stand -> stand */ \
+          backspaces = 11; \
+          append = "stand "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_increas: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* increase -> increased */ \
+          backspaces = 1; \
+          append = "d "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* increased -> will increase */ \
+          backspaces = 10; \
+          append = "will increase "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will increase -> increase */ \
+          backspaces = 14; \
+          append = "increase "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_early: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* early -> earlier */ \
+          backspaces = 2; \
+          append = "ier "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* earlier -> earliest */ \
+          backspaces = 2; \
+          append = "st "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* earliest -> early */ \
+          backspaces = 5; \
+          append = "y "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_course: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* course -> courses */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* courses -> course */ \
+          backspaces = 2; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_change: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* change -> changes */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* changes -> changed */ \
+          backspaces = 2; \
+          append = "d "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* changed -> will change */ \
+          backspaces = 8; \
+          append = "will change "; \
+          next_chord_cycle = 3; \
+        break; \
+        case 3: \
+          /* will change -> change */ \
+          backspaces = 12; \
+          append = "change "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_help: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* help -> helped */ \
+          backspaces = 1; \
+          append = "ed "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* helped -> will help */ \
+          backspaces = 7; \
+          append = "will help "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* will help -> help */ \
+          backspaces = 10; \
+          append = "help "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_line: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* line -> lines */ \
+          backspaces = 1; \
+          append = "s "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* lines -> line */ \
+          backspaces = 2; \
+          append = " "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_thanks: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* thanks -> thank you */ \
+          backspaces = 2; \
+          append = " you "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* thank you -> Thanks very much! */ \
+          backspaces = 10; \
+          append = "Thanks very much! "; \
+          next_chord_cycle = 2; \
+        break; \
+        case 2: \
+          /* Thanks very much! -> thanks */ \
+          backspaces = 18; \
+          append = "thanks "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_sartak_: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* sartak.org -> https://sartak.org */ \
+          backspaces = 11; \
+          append = "https://sartak.org "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* https://sartak.org -> sartak.org */ \
+          backspaces = 19; \
+          append = "sartak.org "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_shawn_d: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* shawn.dev -> https://shawn.dev */ \
+          backspaces = 10; \
+          append = "https://shawn.dev "; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* https://shawn.dev -> shawn.dev */ \
+          backspaces = 18; \
+          append = "shawn.dev "; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
   } \
   for (uint8_t i = 0; i < backspaces; i++) { \
     tap_code(KC_BSPC); \

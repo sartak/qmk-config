@@ -611,7 +611,7 @@ COMBO_FOR_CHORD(write, A_R, A_I, A_E);
 COMBO_FOR_CHORD(become, A_C, A_M, A_E);
 COMBO_FOR_CHORD(here, A_J, A_H, A_E);
 COMBO_FOR_CHORD(show, A_S, A_H, A_W);
-COMBO_FOR_CHORD(house, A_H, A_O, A_S);
+COMBO_FOR_CHORD(house, A_O, A_S, A_E);
 COMBO_FOR_CHORD(both, A_B, A_O, A_H);
 COMBO_FOR_CHORD(between, A_B, A_E, A_N);
 COMBO_FOR_CHORD(need, A_T, A_N, A_D);

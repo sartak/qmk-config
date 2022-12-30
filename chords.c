@@ -670,7 +670,7 @@ COMBO_FOR_CHORD(program, A_R, A_G, A_M);
 COMBO_FOR_CHORD(problem, A_L, A_E, A_M);
 COMBO_FOR_CHORD(however, A_H, A_E, A_V);
 COMBO_FOR_CHORD(lead, A_E, A_A, A_D);
-COMBO_FOR_CHORD(system, A_S, A_T, A_M);
+COMBO_FOR_CHORD(system, A_S, A_Y, A_T);
 COMBO_FOR_CHORD(set, A_S, A_E, A_T);
 COMBO_FOR_CHORD(order, A_O, A_R, A_D);
 COMBO_FOR_CHORD(eye, A_E, A_Y, A_X);

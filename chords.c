@@ -2835,15 +2835,15 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* had -> will have */ \
-          backspaces = 4; \
-          append = "will have"; \
+          /* had -> having */ \
+          backspaces = 2; \
+          append = "ving"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will have -> have */ \
-          backspaces = 10; \
-          append = "have"; \
+          /* having -> have */ \
+          backspaces = 4; \
+          append = "e"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -2953,15 +2953,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* did -> will do */ \
-          backspaces = 4; \
-          append = "will do"; \
+          /* did -> doing */ \
+          backspaces = 3; \
+          append = "oing"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will do -> do */ \
-          backspaces = 8; \
-          append = "do"; \
+          /* doing -> do */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3005,15 +3004,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* said -> will say */ \
-          backspaces = 5; \
-          append = "will say"; \
+          /* said -> saying */ \
+          backspaces = 3; \
+          append = "ying"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will say -> say */ \
-          backspaces = 9; \
-          append = "say"; \
+          /* saying -> say */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3027,15 +3025,15 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* made -> will make */ \
-          backspaces = 5; \
-          append = "will make"; \
+          /* made -> making */ \
+          backspaces = 3; \
+          append = "king"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will make -> make */ \
-          backspaces = 10; \
-          append = "make"; \
+          /* making -> make */ \
+          backspaces = 4; \
+          append = "e"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3132,15 +3130,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* went -> will go */ \
-          backspaces = 4; \
-          append = "ill go"; \
+          /* went -> going */ \
+          backspaces = 5; \
+          append = "going"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will go -> go */ \
-          backspaces = 8; \
-          append = "go"; \
+          /* going -> go */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3205,15 +3202,15 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* took -> will take */ \
-          backspaces = 5; \
-          append = "will take"; \
+          /* took -> taking */ \
+          backspaces = 4; \
+          append = "aking"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will take -> take */ \
-          backspaces = 10; \
-          append = "take"; \
+          /* taking -> take */ \
+          backspaces = 4; \
+          append = "e"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3227,15 +3224,15 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* came -> will come */ \
-          backspaces = 5; \
-          append = "will come"; \
+          /* came -> coming */ \
+          backspaces = 4; \
+          append = "oming"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will come -> come */ \
-          backspaces = 10; \
-          append = "come"; \
+          /* coming -> come */ \
+          backspaces = 4; \
+          append = "e"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3265,15 +3262,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* knew -> will know */ \
-          backspaces = 5; \
-          append = "will know"; \
+          /* knew -> knowing */ \
+          backspaces = 3; \
+          append = "owing"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will know -> know */ \
-          backspaces = 10; \
-          append = "know"; \
+          /* knowing -> know */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3287,15 +3283,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* saw -> will see */ \
-          backspaces = 4; \
-          append = "will see"; \
+          /* saw -> seeing */ \
+          backspaces = 3; \
+          append = "eeing"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will see -> see */ \
-          backspaces = 9; \
-          append = "see"; \
+          /* seeing -> see */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3309,15 +3304,15 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* used -> will use */ \
-          backspaces = 5; \
-          append = "will use"; \
+          /* used -> using */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will use -> use */ \
-          backspaces = 9; \
-          append = "use"; \
+          /* using -> use */ \
+          backspaces = 4; \
+          append = "e"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3331,15 +3326,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* got -> will get */ \
-          backspaces = 4; \
-          append = "will get"; \
+          /* got -> getting */ \
+          backspaces = 3; \
+          append = "etting"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will get -> get */ \
-          backspaces = 9; \
-          append = "get"; \
+          /* getting -> get */ \
+          backspaces = 5; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3353,15 +3347,15 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* liked -> will like */ \
-          backspaces = 6; \
-          append = "will like"; \
+          /* liked -> liking */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will like -> like */ \
-          backspaces = 10; \
-          append = "like"; \
+          /* liking -> like */ \
+          backspaces = 4; \
+          append = "e"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3375,15 +3369,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* worked -> will work */ \
-          backspaces = 6; \
-          append = "ill work"; \
+          /* worked -> working */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will work -> work */ \
-          backspaces = 9; \
-          append = "ork"; \
+          /* working -> work */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3397,15 +3390,15 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* gave -> will give */ \
-          backspaces = 5; \
-          append = "will give"; \
+          /* gave -> giving */ \
+          backspaces = 4; \
+          append = "iving"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will give -> give */ \
-          backspaces = 10; \
-          append = "give"; \
+          /* giving -> give */ \
+          backspaces = 4; \
+          append = "e"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3419,15 +3412,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* thought -> will think */ \
-          backspaces = 8; \
-          append = "will think"; \
+          /* thought -> thinking */ \
+          backspaces = 6; \
+          append = "inking"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will think -> think */ \
-          backspaces = 11; \
-          append = "think"; \
+          /* thinking -> think */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3463,15 +3455,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* found -> will find */ \
-          backspaces = 6; \
-          append = "will find"; \
+          /* found -> finding */ \
+          backspaces = 5; \
+          append = "inding"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will find -> find */ \
-          backspaces = 10; \
-          append = "find"; \
+          /* finding -> find */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3537,15 +3528,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* looked -> will looked */ \
-          backspaces = 7; \
-          append = "will looked"; \
+          /* looked -> looking */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will looked -> look */ \
-          backspaces = 12; \
-          append = "look"; \
+          /* looking -> look */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3586,15 +3576,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* backed -> will back */ \
-          backspaces = 7; \
-          append = "will back"; \
+          /* backed -> backing */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
-          /* will back -> back */ \
-          backspaces = 10; \
-          append = "back"; \
+          /* backing -> back */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3666,15 +3655,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* owned -> will own */ \
-          backspaces = 6; \
-          append = "will own"; \
+          /* owned -> owning */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will own -> own */ \
-          backspaces = 9; \
-          append = "own"; \
+          /* owning -> own */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3726,15 +3714,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* felt -> will feel */ \
-          backspaces = 5; \
-          append = "will feel"; \
+          /* felt -> feeling */ \
+          backspaces = 3; \
+          append = "eling"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will feel -> feel */ \
-          backspaces = 10; \
-          append = "feel"; \
+          /* feeling -> feel */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3748,15 +3735,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* seemed -> will seem */ \
-          backspaces = 7; \
-          append = "will seem"; \
+          /* seemed -> seeming */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will seem -> seem */ \
-          backspaces = 10; \
-          append = "seem"; \
+          /* seeming -> seem */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3909,15 +3895,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* told -> will tell */ \
-          backspaces = 5; \
-          append = "will tell"; \
+          /* told -> telling */ \
+          backspaces = 4; \
+          append = "elling"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will tell -> tell */ \
-          backspaces = 10; \
-          append = "tell"; \
+          /* telling -> tell */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3931,15 +3916,15 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* wrote -> will write */ \
-          backspaces = 5; \
-          append = "ill write"; \
+          /* wrote -> writing */ \
+          backspaces = 4; \
+          append = "iting"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will write -> write */ \
-          backspaces = 10; \
-          append = "rite"; \
+          /* writing -> write */ \
+          backspaces = 4; \
+          append = "e"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3953,15 +3938,15 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* became -> will become */ \
-          backspaces = 7; \
-          append = "will become"; \
+          /* became -> becoming */ \
+          backspaces = 4; \
+          append = "oming"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will become -> become */ \
-          backspaces = 12; \
-          append = "become"; \
+          /* becoming -> become */ \
+          backspaces = 4; \
+          append = "e"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -3975,15 +3960,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* showed -> will show */ \
-          backspaces = 7; \
-          append = "will show"; \
+          /* showed -> showing */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will show -> show */ \
-          backspaces = 10; \
-          append = "show"; \
+          /* showing -> show */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4012,15 +3996,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* needed -> will need */ \
-          backspaces = 7; \
-          append = "will need"; \
+          /* needed -> needing */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will need -> need */ \
-          backspaces = 10; \
-          append = "need"; \
+          /* needing -> need */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4034,15 +4017,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* meant -> will mean */ \
-          backspaces = 6; \
-          append = "will mean"; \
+          /* meant -> meaning */ \
+          backspaces = 2; \
+          append = "ing"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will mean -> mean */ \
-          backspaces = 10; \
-          append = "mean"; \
+          /* meaning -> mean */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4056,15 +4038,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* called -> will call */ \
-          backspaces = 7; \
-          append = "will call"; \
+          /* called -> calling */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will call -> call */ \
-          backspaces = 10; \
-          append = "call"; \
+          /* calling -> call */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4078,15 +4059,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* developed -> will develop */ \
-          backspaces = 10; \
-          append = "will develop"; \
+          /* developed -> developing */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will develop -> develop */ \
-          backspaces = 13; \
-          append = "develop"; \
+          /* developing -> develop */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4115,15 +4095,15 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* moved -> will move */ \
-          backspaces = 6; \
-          append = "will move"; \
+          /* moved -> moving */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will move -> move */ \
-          backspaces = 10; \
-          append = "move"; \
+          /* moving -> move */ \
+          backspaces = 4; \
+          append = "e"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4182,15 +4162,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* began -> will begin */ \
-          backspaces = 6; \
-          append = "will begin"; \
+          /* began -> beginning */ \
+          backspaces = 3; \
+          append = "inning"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will begin -> begin */ \
-          backspaces = 11; \
-          append = "begin"; \
+          /* beginning -> begin */ \
+          backspaces = 5; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4225,15 +4204,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* parted -> will part */ \
-          backspaces = 7; \
-          append = "will part"; \
+          /* parted -> parting */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
-          /* will part -> part */ \
-          backspaces = 10; \
-          append = "part"; \
+          /* parting -> part */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4253,15 +4231,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* turned -> will turn */ \
-          backspaces = 7; \
-          append = "will turn"; \
+          /* turned -> turning */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
-          /* will turn -> turn */ \
-          backspaces = 10; \
-          append = "turn"; \
+          /* turning -> turn */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4275,15 +4252,15 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* left -> will leave */ \
-          backspaces = 5; \
-          append = "will leave"; \
+          /* left -> leaving */ \
+          backspaces = 3; \
+          append = "aving"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will leave -> leave */ \
-          backspaces = 11; \
-          append = "leave"; \
+          /* leaving -> leave */ \
+          backspaces = 4; \
+          append = "e"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4297,15 +4274,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* wanted -> will want */ \
-          backspaces = 6; \
-          append = "ill want"; \
+          /* wanted -> wanting */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will want -> want */ \
-          backspaces = 9; \
-          append = "ant"; \
+          /* wanting -> want */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4325,15 +4301,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* pointed -> will point */ \
-          backspaces = 8; \
-          append = "will point"; \
+          /* pointed -> pointing */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
-          /* will point -> point */ \
-          backspaces = 11; \
-          append = "point"; \
+          /* pointing -> point */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4353,15 +4328,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* formed -> will form */ \
-          backspaces = 7; \
-          append = "will form"; \
+          /* formed -> forming */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
-          /* will form -> form */ \
-          backspaces = 10; \
-          append = "form"; \
+          /* forming -> form */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4432,15 +4406,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* asked -> will ask */ \
-          backspaces = 6; \
-          append = "will ask"; \
+          /* asked -> asking */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will ask -> ask */ \
-          backspaces = 9; \
-          append = "ask"; \
+          /* asking -> ask */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4496,15 +4469,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* interested -> will interest */ \
-          backspaces = 11; \
-          append = "will interest"; \
+          /* interested -> interesting */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
-          /* will interest -> interest */ \
-          backspaces = 14; \
-          append = "interest"; \
+          /* interesting -> interest */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4561,15 +4533,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* ended -> will end */ \
-          backspaces = 6; \
-          append = "will end"; \
+          /* ended -> ending */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
-          /* will end -> end */ \
-          backspaces = 9; \
-          append = "end"; \
+          /* ending -> end */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4583,15 +4554,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* opened -> will open */ \
-          backspaces = 7; \
-          append = "will open"; \
+          /* opened -> opening */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will open -> open */ \
-          backspaces = 10; \
-          append = "open"; \
+          /* opening -> open */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4605,15 +4575,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* followed -> will follow */ \
-          backspaces = 9; \
-          append = "will follow"; \
+          /* followed -> following */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will follow -> follow */ \
-          backspaces = 12; \
-          append = "follow"; \
+          /* following -> follow */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4633,15 +4602,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* presented -> will present */ \
-          backspaces = 10; \
-          append = "will present"; \
+          /* presented -> presenting */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
-          /* will present -> present */ \
-          backspaces = 13; \
-          append = "present"; \
+          /* presenting -> present */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4655,15 +4623,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* held -> will hold */ \
-          backspaces = 5; \
-          append = "will hold"; \
+          /* held -> holding */ \
+          backspaces = 4; \
+          append = "olding"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will hold -> hold */ \
-          backspaces = 10; \
-          append = "hold"; \
+          /* holding -> hold */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4677,15 +4644,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* governed -> will govern */ \
-          backspaces = 9; \
-          append = "will govern"; \
+          /* governed -> governing */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will govern -> govern */ \
-          backspaces = 12; \
-          append = "govern"; \
+          /* governing -> govern */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4705,15 +4671,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* headed -> will head */ \
-          backspaces = 7; \
-          append = "will head"; \
+          /* headed -> heading */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
-          /* will head -> head */ \
-          backspaces = 10; \
-          append = "head"; \
+          /* heading -> head */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4727,15 +4692,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* considered -> will consider */ \
-          backspaces = 11; \
-          append = "will consider"; \
+          /* considered -> considering */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will consider -> consider */ \
-          backspaces = 14; \
-          append = "consider"; \
+          /* considering -> consider */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4755,15 +4719,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* worded -> will word */ \
-          backspaces = 6; \
-          append = "ill word"; \
+          /* worded -> wording */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
-          /* will word -> word */ \
-          backspaces = 9; \
-          append = "ord"; \
+          /* wording -> word */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4783,15 +4746,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* programmed -> will program */ \
-          backspaces = 11; \
-          append = "will program"; \
+          /* programmed -> programming */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
-          /* will program -> program */ \
-          backspaces = 13; \
-          append = "program"; \
+          /* programming -> program */ \
+          backspaces = 5; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4826,15 +4788,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* led -> will lead */ \
-          backspaces = 4; \
-          append = "will lead"; \
+          /* led -> leading */ \
+          backspaces = 2; \
+          append = "ading"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
-          /* will lead -> lead */ \
-          backspaces = 10; \
-          append = "lead"; \
+          /* leading -> lead */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4863,15 +4824,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* sets -> will set */ \
-          backspaces = 5; \
-          append = "will set"; \
+          /* sets -> setting */ \
+          backspaces = 2; \
+          append = "ting"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will set -> set */ \
-          backspaces = 9; \
-          append = "set"; \
+          /* setting -> set */ \
+          backspaces = 5; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4891,15 +4851,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* ordered -> will order */ \
-          backspaces = 8; \
-          append = "will order"; \
+          /* ordered -> ordering */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
-          /* will order -> order */ \
-          backspaces = 11; \
-          append = "order"; \
+          /* ordering -> order */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4919,15 +4878,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* eyed -> will eye */ \
-          backspaces = 5; \
-          append = "will eye"; \
+          /* eyed -> eyeing */ \
+          backspaces = 2; \
+          append = "ing"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
-          /* will eye -> eye */ \
-          backspaces = 9; \
-          append = "eye"; \
+          /* eyeing -> eye */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4947,15 +4905,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* planned -> will plan */ \
-          backspaces = 8; \
-          append = "will plan"; \
+          /* planned -> planning */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
-          /* will plan -> plan */ \
-          backspaces = 10; \
-          append = "plan"; \
+          /* planning -> plan */ \
+          backspaces = 5; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4975,15 +4932,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* ran -> will run */ \
-          backspaces = 4; \
-          append = "will run"; \
+          /* ran -> running */ \
+          backspaces = 3; \
+          append = "unning"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
-          /* will run -> run */ \
-          backspaces = 9; \
-          append = "run"; \
+          /* running -> run */ \
+          backspaces = 5; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -4997,15 +4953,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* kept -> will keep */ \
-          backspaces = 5; \
-          append = "will keep"; \
+          /* kept -> keeping */ \
+          backspaces = 3; \
+          append = "eping"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will keep -> keep */ \
-          backspaces = 10; \
-          append = "keep"; \
+          /* keeping -> keep */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -5025,15 +4980,15 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* faced -> will face */ \
-          backspaces = 6; \
-          append = "will face"; \
+          /* faced -> facing */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
-          /* will face -> face */ \
-          backspaces = 10; \
-          append = "face"; \
+          /* facing -> face */ \
+          backspaces = 4; \
+          append = "e"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -5068,15 +5023,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* grouped -> will group */ \
-          backspaces = 8; \
-          append = "will group"; \
+          /* grouped -> grouping */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
-          /* will group -> group */ \
-          backspaces = 11; \
-          append = "group"; \
+          /* grouping -> group */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -5096,15 +5050,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* played -> will play */ \
-          backspaces = 7; \
-          append = "will play"; \
+          /* played -> playing */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
-          /* will play -> play */ \
-          backspaces = 10; \
-          append = "play"; \
+          /* playing -> play */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -5124,15 +5077,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* stood -> will stand */ \
-          backspaces = 6; \
-          append = "will stand"; \
+          /* stood -> standing */ \
+          backspaces = 4; \
+          append = "anding"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
-          /* will stand -> stand */ \
-          backspaces = 11; \
-          append = "stand"; \
+          /* standing -> stand */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -5146,15 +5098,15 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* increased -> will increase */ \
-          backspaces = 10; \
-          append = "will increase"; \
+          /* increased -> increasing */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will increase -> increase */ \
-          backspaces = 14; \
-          append = "increase"; \
+          /* increasing -> increase */ \
+          backspaces = 4; \
+          append = "e"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -5211,15 +5163,15 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* changed -> will change */ \
-          backspaces = 8; \
-          append = "will change"; \
+          /* changed -> changing */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 3; \
         break; \
         case 3: \
-          /* will change -> change */ \
-          backspaces = 12; \
-          append = "change"; \
+          /* changing -> change */ \
+          backspaces = 4; \
+          append = "e"; \
           next_chord_cycle = 0; \
         break; \
       } \
@@ -5233,15 +5185,14 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           next_chord_cycle = 1; \
         break; \
         case 1: \
-          /* helped -> will help */ \
-          backspaces = 7; \
-          append = "will help"; \
+          /* helped -> helping */ \
+          backspaces = 3; \
+          append = "ing"; \
           next_chord_cycle = 2; \
         break; \
         case 2: \
-          /* will help -> help */ \
-          backspaces = 10; \
-          append = "help"; \
+          /* helping -> help */ \
+          backspaces = 4; \
           next_chord_cycle = 0; \
         break; \
       } \

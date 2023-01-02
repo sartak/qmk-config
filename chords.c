@@ -568,7 +568,7 @@ COMBO_FOR_CHORD(think, A_H, A_I, A_K);
 COMBO_FOR_CHORD(most, A_M, A_O, A_T);
 COMBO_FOR_CHORD(even, A_E, A_V, A_N);
 COMBO_FOR_CHORD(find, A_F, A_I, A_D);
-COMBO_FOR_CHORD(day, A_D, A_A, A_Y);
+COMBO_FOR_CHORD(day, A_A, A_Y, AT0);
 COMBO_FOR_CHORD(also, A_A, A_L, A_O);
 COMBO_FOR_CHORD(after, A_F, A_T, A_R);
 COMBO_FOR_CHORD(way, A_W, A_A, A_Y);

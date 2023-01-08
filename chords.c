@@ -450,6 +450,8 @@
   CHORD_nil, \
   CHORD_array, \
   CHORD_sort, \
+  CHORD_http_, \
+  CHORD_https_, \
   CHORD_the_qui, \
   CHORD_elberet, \
   CHORD_shawn, \
@@ -914,6 +916,8 @@ COMBO_FOR_CHORD(null, A_N, A_U, A_L);
 COMBO_FOR_CHORD(nil, A_N, A_I, A_L);
 COMBO_FOR_CHORD(array, A_A, A_R, A_Y);
 COMBO_FOR_CHORD(sort, A_S, A_R, A_T);
+COMBO_FOR_CHORD(http_, A_H, A_T, A_P);
+COMBO_FOR_CHORD(https_, A_H, A_T, A_P, A_S);
 COMBO_FOR_CHORD(the_qui, A_B, A_Q, A_X, A_q);
 COMBO_FOR_CHORD(elberet, A_E, A_L, A_B, A_H);
 COMBO_FOR_CHORD(shawn, A_H, A_A, A_N);
@@ -1379,6 +1383,8 @@ COMBO_FOR_CHORD(x, A_W, A_T, A_L);
   CHORD_COMBO(nil), \
   CHORD_COMBO(array), \
   CHORD_COMBO(sort), \
+  CHORD_COMBO(http_), \
+  CHORD_COMBO(https_), \
   CHORD_COMBO(the_qui), \
   CHORD_COMBO(elberet), \
   CHORD_COMBO(shawn), \
@@ -2774,6 +2780,14 @@ void process_chord_event(uint16_t combo_index, bool pressed) { \
       break; \
     case CHORD_sort: \
       SEND_STRING("sort"); \
+      break; \
+    case CHORD_http_: \
+      space = false; \
+      SEND_STRING("http://"); \
+      break; \
+    case CHORD_https_: \
+      space = false; \
+      SEND_STRING("https://"); \
       break; \
     case CHORD_the_qui: \
       space = false; \
@@ -5331,6 +5345,42 @@ uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
           /* will sort -> sort */ \
           backspaces = 10; \
           append = "sort"; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_http_: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* http:// -> https:// */ \
+          backspaces = 3; \
+          append = "s://"; \
+          space = false; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* https:// -> http:// */ \
+          backspaces = 4; \
+          append = "://"; \
+          space = false; \
+          next_chord_cycle = 0; \
+        break; \
+      } \
+      break; \
+    case CHORD_https_: \
+      switch(last_chord_cycle) { \
+        case 0: \
+          /* https:// -> http:// */ \
+          backspaces = 4; \
+          append = "://"; \
+          space = false; \
+          next_chord_cycle = 1; \
+        break; \
+        case 1: \
+          /* http:// -> https:// */ \
+          backspaces = 3; \
+          append = "s://"; \
+          space = false; \
           next_chord_cycle = 0; \
         break; \
       } \

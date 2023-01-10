@@ -452,6 +452,17 @@
   CHORD_sort, \
   CHORD_http_, \
   CHORD_https_, \
+  CHORD_in_the, \
+  CHORD_of_the, \
+  CHORD_to_be, \
+  CHORD_to_the, \
+  CHORD_and_the, \
+  CHORD_and_i, \
+  CHORD_on_the, \
+  CHORD_it_is, \
+  CHORD_if_you, \
+  CHORD_the_wor, \
+  CHORD_in_a, \
   CHORD_the_qui, \
   CHORD_elberet, \
   CHORD_shawn, \
@@ -918,6 +929,17 @@ COMBO_FOR_CHORD(array, A_A, A_R, A_Y);
 COMBO_FOR_CHORD(sort, A_S, A_R, A_T);
 COMBO_FOR_CHORD(http_, A_H, A_T, A_P);
 COMBO_FOR_CHORD(https_, A_H, A_T, A_P, A_S);
+COMBO_FOR_CHORD(in_the, A_I, A_N, A_T, A_E);
+COMBO_FOR_CHORD(of_the, A_O, A_T, A_E, AT0);
+COMBO_FOR_CHORD(to_be, A_O, A_B, A_E, AT0);
+COMBO_FOR_CHORD(to_the, A_T, A_H, A_E, AT0);
+COMBO_FOR_CHORD(and_the, A_A, A_N, A_T, A_H);
+COMBO_FOR_CHORD(and_i, A_A, A_N, A_D, A_I);
+COMBO_FOR_CHORD(on_the, A_O, A_N, A_H, A_E);
+COMBO_FOR_CHORD(it_is, A_I, A_T, A_S, AT0);
+COMBO_FOR_CHORD(if_you, A_F, A_Y, A_O, A_U);
+COMBO_FOR_CHORD(the_wor, A_T, A_H, A_E, A_W);
+COMBO_FOR_CHORD(in_a, A_I, A_N, A_A, AT0);
 COMBO_FOR_CHORD(the_qui, A_B, A_Q, A_X, A_q);
 COMBO_FOR_CHORD(elberet, A_E, A_L, A_B, A_H);
 COMBO_FOR_CHORD(shawn, A_H, A_A, A_N);
@@ -1385,6 +1407,17 @@ COMBO_FOR_CHORD(x, A_W, A_T, A_L);
   CHORD_COMBO(sort), \
   CHORD_COMBO(http_), \
   CHORD_COMBO(https_), \
+  CHORD_COMBO(in_the), \
+  CHORD_COMBO(of_the), \
+  CHORD_COMBO(to_be), \
+  CHORD_COMBO(to_the), \
+  CHORD_COMBO(and_the), \
+  CHORD_COMBO(and_i), \
+  CHORD_COMBO(on_the), \
+  CHORD_COMBO(it_is), \
+  CHORD_COMBO(if_you), \
+  CHORD_COMBO(the_wor), \
+  CHORD_COMBO(in_a), \
   CHORD_COMBO(the_qui), \
   CHORD_COMBO(elberet), \
   CHORD_COMBO(shawn), \
@@ -2788,6 +2821,39 @@ void process_chord_event(uint16_t combo_index, bool pressed) { \
     case CHORD_https_: \
       space = false; \
       SEND_STRING("https://"); \
+      break; \
+    case CHORD_in_the: \
+      SEND_STRING("in the"); \
+      break; \
+    case CHORD_of_the: \
+      SEND_STRING("of the"); \
+      break; \
+    case CHORD_to_be: \
+      SEND_STRING("to be"); \
+      break; \
+    case CHORD_to_the: \
+      SEND_STRING("to the"); \
+      break; \
+    case CHORD_and_the: \
+      SEND_STRING("and the"); \
+      break; \
+    case CHORD_and_i: \
+      SEND_STRING("and I"); \
+      break; \
+    case CHORD_on_the: \
+      SEND_STRING("on the"); \
+      break; \
+    case CHORD_it_is: \
+      SEND_STRING("it is"); \
+      break; \
+    case CHORD_if_you: \
+      SEND_STRING("if you"); \
+      break; \
+    case CHORD_the_wor: \
+      SEND_STRING("the world"); \
+      break; \
+    case CHORD_in_a: \
+      SEND_STRING("in a"); \
       break; \
     case CHORD_the_qui: \
       space = false; \

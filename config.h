@@ -5,6 +5,6 @@
 #define PERMISSIVE_HOLD
 #define PERMISSIVE_HOLD_PER_KEY
 
-#define FORCE_DUP_KEY
+//#define FORCE_DUP_KEY
 
 #define VIRT_SIDECHANNEL

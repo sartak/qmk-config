@@ -2896,6 +2896,7 @@ COMBO_FOR_CHORD(x, A_W, A_T, A_L);
     } \
     if (space) { \
       tap_code(KC_SPC); \
+      last_chord_length++; \
     } \
   }
 

@@ -310,11 +310,17 @@ bool process_taphold(uint16_t keycode, keyrecord_t *record) {
 }
 
 uint16_t last_chord;
+uint16_t last_chord_length;
 uint8_t last_chord_cycle;
 
 CHORD_FUNC
 CHORD_DUP_FUNC
 void process_combo_event(uint16_t combo_index, bool pressed) {
+  uint16_t prev_chord_length = last_chord_length;
+  if (pressed) {
+    last_chord_length = 0;
+  }
+
 #ifdef VIRT_SIDECHANNEL
   emit_virt_combo(combo_index, pressed);
 #endif
@@ -334,7 +340,14 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
     case NCOMBO_DELETE_WORD:
     case SCOMBO_DELETE_WORD:
       if (pressed) {
-        tap_code16(LALT(KC_BSPC));
+        if (prev_chord_length) {
+          for (uint16_t i = 0; i < prev_chord_length; i++) {
+            tap_code16(KC_BSPC);
+          }
+        }
+        else {
+          tap_code16(LALT(KC_BSPC));
+        }
       }
       return;
 
@@ -439,6 +452,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
 
   last_chord = 0;
+  last_chord_length = 0;
 
   if (!process_taphold(keycode, record)) {
     return false;

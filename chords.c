@@ -1,3 +1,9 @@
+#define COMBO_FOR_CHORD(name, ...) const uint16_t PROGMEM chord_##name[] = {__VA_ARGS__, COMBO_END};
+
+#define CHORD_COMBO(name) [CHORD_##name] = COMBO_ACTION(chord_##name)
+
+#include "personal.c"
+
 #define CHORD_ENUM \
   CHORD_excl, \
   CHORD_qmark, \
@@ -465,17 +471,8 @@
   CHORD_in_a, \
   CHORD_the_qui, \
   CHORD_elberet, \
-  CHORD_shawn, \
-  CHORD_moore, \
-  CHORD_sartak, \
-  CHORD_sartak_, \
-  CHORD_shawn_d, \
-  CHORD_somervi, \
-  CHORD_boston, \
-  CHORD_massach, \
-  CHORD_x,
+  PERSONAL_CHORD_ENUM
 
-#define COMBO_FOR_CHORD(name, ...) const uint16_t PROGMEM chord_##name[] = {__VA_ARGS__, COMBO_END};
 COMBO_FOR_CHORD(excl, A_E, A_d);
 COMBO_FOR_CHORD(qmark, A_I, A_c);
 COMBO_FOR_CHORD(colon, A_A, A_r);
@@ -942,17 +939,7 @@ COMBO_FOR_CHORD(the_wor, A_T, A_H, A_E, A_W);
 COMBO_FOR_CHORD(in_a, A_I, A_N, A_A, AT0);
 COMBO_FOR_CHORD(the_qui, A_B, A_Q, A_X, A_q);
 COMBO_FOR_CHORD(elberet, A_E, A_L, A_B, A_H);
-COMBO_FOR_CHORD(shawn, A_H, A_A, A_N);
-COMBO_FOR_CHORD(moore, A_O, A_R, A_E);
-COMBO_FOR_CHORD(sartak, A_S, A_A, A_R);
-COMBO_FOR_CHORD(sartak_, A_S, A_R, A_d);
-COMBO_FOR_CHORD(shawn_d, A_H, A_N, A_d);
-COMBO_FOR_CHORD(somervi, A_S, A_E, A_V);
-COMBO_FOR_CHORD(boston, A_B, A_S, A_N);
-COMBO_FOR_CHORD(massach, A_C, A_H, A_U);
-COMBO_FOR_CHORD(x, A_W, A_T, A_L);
 
-#define CHORD_COMBO(name) [CHORD_##name] = COMBO_ACTION(chord_##name)
 #define CHORD_COMBOS \
   CHORD_COMBO(excl), \
   CHORD_COMBO(qmark), \
@@ -1420,15 +1407,7 @@ COMBO_FOR_CHORD(x, A_W, A_T, A_L);
   CHORD_COMBO(in_a), \
   CHORD_COMBO(the_qui), \
   CHORD_COMBO(elberet), \
-  CHORD_COMBO(shawn), \
-  CHORD_COMBO(moore), \
-  CHORD_COMBO(sartak), \
-  CHORD_COMBO(sartak_), \
-  CHORD_COMBO(shawn_d), \
-  CHORD_COMBO(somervi), \
-  CHORD_COMBO(boston), \
-  CHORD_COMBO(massach), \
-  CHORD_COMBO(x),
+  PERSONAL_CHORD_COMBOS
 
 #define CHORD_FUNC \
   void process_chord_event(uint16_t combo_index, bool pressed) { \
@@ -3329,42 +3308,7 @@ COMBO_FOR_CHORD(x, A_W, A_T, A_L);
         SEND_STRING("Elbereth"); \
         last_chord_length = 8; \
         break; \
-      case CHORD_shawn: \
-        SEND_STRING("Shawn"); \
-        last_chord_length = 5; \
-        break; \
-      case CHORD_moore: \
-        SEND_STRING("Moore"); \
-        last_chord_length = 5; \
-        break; \
-      case CHORD_sartak: \
-        SEND_STRING("sartak"); \
-        last_chord_length = 6; \
-        break; \
-      case CHORD_sartak_: \
-        SEND_STRING("sartak.org"); \
-        last_chord_length = 10; \
-        break; \
-      case CHORD_shawn_d: \
-        SEND_STRING("shawn.dev"); \
-        last_chord_length = 9; \
-        break; \
-      case CHORD_somervi: \
-        SEND_STRING("Somerville"); \
-        last_chord_length = 10; \
-        break; \
-      case CHORD_boston: \
-        SEND_STRING("Boston"); \
-        last_chord_length = 6; \
-        break; \
-      case CHORD_massach: \
-        SEND_STRING("Massachusetts"); \
-        last_chord_length = 13; \
-        break; \
-      case CHORD_x: \
-        SEND_STRING("Wheatland"); \
-        last_chord_length = 9; \
-        break; \
+      PERSONAL_CHORD_FUNC \
       default: \
         space = false; \
         break; \
@@ -5927,68 +5871,7 @@ COMBO_FOR_CHORD(x, A_W, A_T, A_L);
           break; \
         } \
         break; \
-      case CHORD_shawn: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            append = "Moore"; \
-            last_chord_length = 11; \
-            next_chord_cycle = 1; \
-          break; \
-          case 1: \
-            backspaces = 6; \
-            last_chord_length = 5; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_moore: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 6; \
-            append = "Shawn Moore"; \
-            last_chord_length = 11; \
-            next_chord_cycle = 1; \
-          break; \
-          case 1: \
-            backspaces = 12; \
-            append = "Moore"; \
-            last_chord_length = 5; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_sartak_: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 11; \
-            append = "https://sartak.org"; \
-            last_chord_length = 18; \
-            next_chord_cycle = 1; \
-          break; \
-          case 1: \
-            backspaces = 19; \
-            append = "sartak.org"; \
-            last_chord_length = 10; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_shawn_d: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 10; \
-            append = "https://shawn.dev"; \
-            last_chord_length = 17; \
-            next_chord_cycle = 1; \
-          break; \
-          case 1: \
-            backspaces = 18; \
-            append = "shawn.dev"; \
-            last_chord_length = 9; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
+      PERSONAL_DUP_FUNC \
       default: \
         space = false; \
         break; \

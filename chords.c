@@ -648,7 +648,7 @@ COMBO_FOR_CHORD(leave, A_E, A_A, A_V);
 COMBO_FOR_CHORD(might, A_M, A_I, A_T);
 COMBO_FOR_CHORD(want, A_W, A_A, A_T);
 COMBO_FOR_CHORD(point, A_P, A_O, A_I);
-COMBO_FOR_CHORD(form, A_Z, A_O, A_R);
+COMBO_FOR_CHORD(form, A_F, A_R, AT0);
 COMBO_FOR_CHORD(off, A_O, A_F, A_K);
 COMBO_FOR_CHORD(child, A_C, A_I, A_D);
 COMBO_FOR_CHORD(few, A_F, A_E, A_W);

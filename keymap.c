@@ -164,9 +164,6 @@ enum custom_keycodes {
 #include "chords.c"
 
 enum combo_events {
-  ACOMBO_LAYERS,
-  SCOMBO_LAYERS,
-  NCOMBO_LAYERS,
   ACOMBO_DELETE_WORD,
   SCOMBO_DELETE_WORD,
   NCOMBO_DELETE_WORD,
@@ -183,9 +180,6 @@ enum combo_events {
 };
 uint16_t COMBO_LEN = _COMBO_LENGTH;
 
-const uint16_t PROGMEM acombo_layers[] = {AT0, AT3, COMBO_END};
-const uint16_t PROGMEM scombo_layers[] = {ST0, ST3, COMBO_END};
-const uint16_t PROGMEM ncombo_layers[] = {NT0, NT3, COMBO_END};
 const uint16_t PROGMEM acombo_delete_word[] = {AT1, AT2, COMBO_END};
 const uint16_t PROGMEM scombo_delete_word[] = {ST1, ST2, COMBO_END};
 const uint16_t PROGMEM ncombo_delete_word[] = {NT1, NT2, COMBO_END};
@@ -198,10 +192,6 @@ const uint16_t PROGMEM ncombo_right_click[] = {NT2, NT3, COMBO_END};
 
 combo_t key_combos[] = {
 #define CHORD_COMBO(name) [CHORD_##name] = COMBO_ACTION(chord_##name)
-  [ACOMBO_LAYERS] = COMBO_ACTION(acombo_layers),
-  [SCOMBO_LAYERS] = COMBO_ACTION(scombo_layers),
-  [NCOMBO_LAYERS] = COMBO_ACTION(ncombo_layers),
-
   [ACOMBO_DELETE_WORD] = COMBO_ACTION(acombo_delete_word),
   [NCOMBO_DELETE_WORD] = COMBO_ACTION(ncombo_delete_word),
   [SCOMBO_DELETE_WORD] = COMBO_ACTION(scombo_delete_word),
@@ -326,16 +316,6 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 #endif
 
   switch(combo_index) {
-    case ACOMBO_LAYERS:
-    case SCOMBO_LAYERS:
-    case NCOMBO_LAYERS:
-      if (pressed) {
-        set_oneshot_layer(FUNCTION, ONESHOT_START);
-      } else {
-        clear_oneshot_layer_state(ONESHOT_PRESSED);
-      }
-      return;
-
     case ACOMBO_DELETE_WORD:
     case NCOMBO_DELETE_WORD:
     case SCOMBO_DELETE_WORD:

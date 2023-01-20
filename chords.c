@@ -5,6 +5,7 @@
 #include "personal.c"
 
 #define CHORD_ENUM \
+  CHORD_functio, \
   CHORD_excl, \
   CHORD_qmark, \
   CHORD_colon, \
@@ -473,6 +474,7 @@
   CHORD_elberet, \
   PERSONAL_CHORD_ENUM
 
+COMBO_FOR_CHORD(functio, AT0, AT3);
 COMBO_FOR_CHORD(excl, A_E, A_d);
 COMBO_FOR_CHORD(qmark, A_I, A_c);
 COMBO_FOR_CHORD(colon, A_A, A_r);
@@ -941,6 +943,7 @@ COMBO_FOR_CHORD(the_qui, A_B, A_Q, A_X, A_q);
 COMBO_FOR_CHORD(elberet, A_E, A_L, A_B, A_H);
 
 #define CHORD_COMBOS \
+  CHORD_COMBO(functio), \
   CHORD_COMBO(excl), \
   CHORD_COMBO(qmark), \
   CHORD_COMBO(colon), \
@@ -1413,6 +1416,13 @@ COMBO_FOR_CHORD(elberet, A_E, A_L, A_B, A_H);
   void process_chord_event(uint16_t combo_index, bool pressed) { \
     bool space = true; \
     switch(combo_index) { \
+      case CHORD_functio: \
+        if (pressed) { \
+          set_oneshot_layer(FUNCTION, ONESHOT_START); \
+        } else { \
+          clear_oneshot_layer_state(ONESHOT_PRESSED); \
+        } \
+        return; \
       PERSONAL_CHORD_BEHAVIOR_FUNC \
     } \
     if (!pressed) { \

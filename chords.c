@@ -1411,10 +1411,13 @@ COMBO_FOR_CHORD(elberet, A_E, A_L, A_B, A_H);
 
 #define CHORD_FUNC \
   void process_chord_event(uint16_t combo_index, bool pressed) { \
+    bool space = true; \
+    switch(combo_index) { \
+      PERSONAL_CHORD_BEHAVIOR_FUNC \
+    } \
     if (!pressed) { \
       return; \
     } \
-    bool space = true; \
     switch(combo_index) { \
       case CHORD_excl: \
         space = false; \
@@ -3308,7 +3311,7 @@ COMBO_FOR_CHORD(elberet, A_E, A_L, A_B, A_H);
         SEND_STRING("Elbereth"); \
         last_chord_length = 8; \
         break; \
-      PERSONAL_CHORD_FUNC \
+      PERSONAL_CHORD_OUTPUT_FUNC \
       default: \
         space = false; \
         break; \

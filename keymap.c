@@ -167,12 +167,6 @@ enum combo_events {
   ACOMBO_DELETE_WORD,
   SCOMBO_DELETE_WORD,
   NCOMBO_DELETE_WORD,
-  ACOMBO_LEFT_CLICK,
-  SCOMBO_LEFT_CLICK,
-  NCOMBO_LEFT_CLICK,
-  ACOMBO_RIGHT_CLICK,
-  SCOMBO_RIGHT_CLICK,
-  NCOMBO_RIGHT_CLICK,
 
   CHORD_ENUM
 
@@ -183,26 +177,12 @@ uint16_t COMBO_LEN = _COMBO_LENGTH;
 const uint16_t PROGMEM acombo_delete_word[] = {AT1, AT2, COMBO_END};
 const uint16_t PROGMEM scombo_delete_word[] = {ST1, ST2, COMBO_END};
 const uint16_t PROGMEM ncombo_delete_word[] = {NT1, NT2, COMBO_END};
-const uint16_t PROGMEM acombo_left_click[] = {AT0, AT1, COMBO_END};
-const uint16_t PROGMEM scombo_left_click[] = {ST0, ST1, COMBO_END};
-const uint16_t PROGMEM ncombo_left_click[] = {NT0, NT1, COMBO_END};
-const uint16_t PROGMEM acombo_right_click[] = {AT2, AT3, COMBO_END};
-const uint16_t PROGMEM scombo_right_click[] = {ST2, ST3, COMBO_END};
-const uint16_t PROGMEM ncombo_right_click[] = {NT2, NT3, COMBO_END};
 
 combo_t key_combos[] = {
 #define CHORD_COMBO(name) [CHORD_##name] = COMBO_ACTION(chord_##name)
   [ACOMBO_DELETE_WORD] = COMBO_ACTION(acombo_delete_word),
   [NCOMBO_DELETE_WORD] = COMBO_ACTION(ncombo_delete_word),
   [SCOMBO_DELETE_WORD] = COMBO_ACTION(scombo_delete_word),
-
-  [ACOMBO_LEFT_CLICK] = COMBO_ACTION(acombo_left_click),
-  [NCOMBO_LEFT_CLICK] = COMBO_ACTION(ncombo_left_click),
-  [SCOMBO_LEFT_CLICK] = COMBO_ACTION(scombo_left_click),
-
-  [ACOMBO_RIGHT_CLICK] = COMBO_ACTION(acombo_right_click),
-  [NCOMBO_RIGHT_CLICK] = COMBO_ACTION(ncombo_right_click),
-  [SCOMBO_RIGHT_CLICK] = COMBO_ACTION(scombo_right_click),
 
   CHORD_COMBOS
 };
@@ -328,22 +308,6 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
         else {
           tap_code16(LALT(KC_BSPC));
         }
-      }
-      return;
-
-    case ACOMBO_LEFT_CLICK:
-    case NCOMBO_LEFT_CLICK:
-    case SCOMBO_LEFT_CLICK:
-      if (pressed) {
-        tap_code16(KC_MS_BTN1);
-      }
-      return;
-
-    case ACOMBO_RIGHT_CLICK:
-    case NCOMBO_RIGHT_CLICK:
-    case SCOMBO_RIGHT_CLICK:
-      if (pressed) {
-        tap_code16(KC_MS_BTN2);
       }
       return;
   }

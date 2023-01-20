@@ -5,6 +5,8 @@
 #include "personal.c"
 
 #define CHORD_ENUM \
+  CHORD_left_cl, \
+  CHORD_right_c, \
   CHORD_functio, \
   CHORD_excl, \
   CHORD_qmark, \
@@ -474,6 +476,8 @@
   CHORD_elberet, \
   PERSONAL_CHORD_ENUM
 
+COMBO_FOR_CHORD(left_cl, AT0, AT1);
+COMBO_FOR_CHORD(right_c, AT2, AT3);
 COMBO_FOR_CHORD(functio, AT0, AT3);
 COMBO_FOR_CHORD(excl, A_E, A_d);
 COMBO_FOR_CHORD(qmark, A_I, A_c);
@@ -943,6 +947,8 @@ COMBO_FOR_CHORD(the_qui, A_B, A_Q, A_X, A_q);
 COMBO_FOR_CHORD(elberet, A_E, A_L, A_B, A_H);
 
 #define CHORD_COMBOS \
+  CHORD_COMBO(left_cl), \
+  CHORD_COMBO(right_c), \
   CHORD_COMBO(functio), \
   CHORD_COMBO(excl), \
   CHORD_COMBO(qmark), \
@@ -1416,6 +1422,16 @@ COMBO_FOR_CHORD(elberet, A_E, A_L, A_B, A_H);
   void process_chord_event(uint16_t combo_index, bool pressed) { \
     bool space = true; \
     switch(combo_index) { \
+      case CHORD_left_cl: \
+        if (pressed) { \
+          tap_code16(KC_MS_BTN1); \
+        } \
+        return; \
+      case CHORD_right_c: \
+        if (pressed) { \
+          tap_code16(KC_MS_BTN2); \
+        } \
+        return; \
       case CHORD_functio: \
         if (pressed) { \
           set_oneshot_layer(FUNCTION, ONESHOT_START); \

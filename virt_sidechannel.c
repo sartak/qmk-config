@@ -7,22 +7,24 @@
 #define VIRT_KEYMULT_HOLD 3
 #define VIRT_KEYMULT_LAST 4
 
-#define VIRT_WARN 0
-#define VIRT_HEARTBEAT 1
-#define VIRT_KEYS_START VIRT_HEARTBEAT+1
-#define VIRT_KEYS_END VIRT_KEYS_START+VIRT_KEYS*VIRT_KEYMULT_LAST
+#define VIRT_WARN          0
+#define VIRT_HEARTBEAT     1
+#define VIRT_KEYS_START    VIRT_HEARTBEAT+1
+#define VIRT_KEYS_END      VIRT_KEYS_START+VIRT_KEYS*VIRT_KEYMULT_LAST
 #define VIRT_CHORD_STARTED VIRT_KEYS_END+1
-#define VIRT_CHORD_ENDED VIRT_CHORD_STARTED+1
-#define VIRT_LAYER_ZERO VIRT_CHORD_ENDED+1
-#define VIRT_LAYER_LAST VIRT_LAYER_ZERO+TOPLAYER
-#define VIRT_LAYER_DOWN_SHIFT VIRT_LAYER_LAST+1
-#define VIRT_LAYER_UP_SHIFT VIRT_LAYER_DOWN_SHIFT+1
-#define VIRT_LAYER_DOWN_CTRL VIRT_LAYER_UP_SHIFT+1
-#define VIRT_LAYER_UP_CTRL VIRT_LAYER_DOWN_CTRL+1
-#define VIRT_LAYER_DOWN_ALT VIRT_LAYER_UP_CTRL+1
-#define VIRT_LAYER_UP_ALT VIRT_LAYER_DOWN_ALT+1
-#define VIRT_LAYER_DOWN_GUI VIRT_LAYER_UP_ALT+1
-#define VIRT_LAYER_UP_GUI VIRT_LAYER_DOWN_GUI+1
+#define VIRT_CHORD_ENDED   VIRT_CHORD_STARTED+1
+#define VIRT_LAYER_ZERO    VIRT_CHORD_ENDED+1
+#define VIRT_LAYER_LAST    VIRT_LAYER_ZERO+TOPLAYER
+#define VIRT_MOD_ZERO      VIRT_LAYER_LAST+1
+#define VIRT_SHIFT_DOWN    VIRT_MOD_ZERO
+#define VIRT_SHIFT_UP      VIRT_SHIFT_DOWN+1
+#define VIRT_CTRL_DOWN     VIRT_SHIFT_UP+1
+#define VIRT_CTRL_UP       VIRT_CTRL_DOWN+1
+#define VIRT_ALT_DOWN      VIRT_CTRL_UP+1
+#define VIRT_ALT_UP        VIRT_ALT_DOWN+1
+#define VIRT_GUI_DOWN      VIRT_ALT_UP+1
+#define VIRT_GUI_UP        VIRT_GUI_DOWN+1
+#define VIRT_MOD_LAST      VIRT_GUI_UP
 
 #define VIRT_TIMEOUT 1000
 
@@ -39,9 +41,9 @@ void emit_new_mods(keyrecord_t *record) {
   bool now_##modifier = mods & MOD_MASK_##modifier;      \
   bool was_##modifier = prev_mods & MOD_MASK_##modifier; \
   if (now_##modifier && !was_##modifier) {               \
-    virtser_send(VIRT_LAYER_DOWN_##modifier);            \
+    virtser_send(VIRT_##modifier##_DOWN);                \
   } else if (!now_##modifier && was_##modifier) {        \
-    virtser_send(VIRT_LAYER_UP_##modifier);              \
+    virtser_send(VIRT_##modifier##_UP);                  \
   }
 
   MOD_VIRTSEND(SHIFT);

@@ -631,7 +631,7 @@ COMBO_FOR_CHORD(house, A_O, A_S, A_E);
 COMBO_FOR_CHORD(both, A_B, A_O, A_H);
 COMBO_FOR_CHORD(between, A_B, A_E, A_N);
 COMBO_FOR_CHORD(need, A_T, A_N, A_D);
-COMBO_FOR_CHORD(mean, A_M, A_E, A_A);
+COMBO_FOR_CHORD(mean, A_M, A_N, AT0);
 COMBO_FOR_CHORD(call, A_C, A_A, A_L);
 COMBO_FOR_CHORD(develop, A_D, A_E, A_V);
 COMBO_FOR_CHORD(under, A_U, A_N, A_D);

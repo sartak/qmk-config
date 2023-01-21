@@ -1,7 +1,6 @@
 #include "virtser.h"
 
 #define VIRT_KEYS 34
-#define VIRT_START 1
 #define VIRT_KEYMULT_DOWN 0
 #define VIRT_KEYMULT_UP 1
 #define VIRT_KEYMULT_CHENTRY 2
@@ -9,6 +8,8 @@
 #define VIRT_KEYMULT_LAST 4
 
 #define VIRT_WARN 0
+#define VIRT_HEARTBEAT 1
+#define VIRT_START VIRT_HEARTBEAT+1
 #define VIRT_CHORD_STARTED VIRT_START+VIRT_KEYS*VIRT_KEYMULT_LAST
 #define VIRT_CHORD_ENDED VIRT_CHORD_STARTED+1
 #define VIRT_LAYER_ZERO VIRT_CHORD_ENDED+1
@@ -21,6 +22,7 @@
 #define VIRT_LAYER_UP_ALT VIRT_LAYER_DOWN_ALT+1
 #define VIRT_LAYER_DOWN_GUI VIRT_LAYER_UP_ALT+1
 #define VIRT_LAYER_UP_GUI VIRT_LAYER_DOWN_GUI+1
+
 #define VIRT_TIMEOUT 1000
 
 static uint16_t recv_timer;
@@ -186,7 +188,7 @@ void emit_virt_layer(layer_state_t state) {
 }
 
 void virtser_recv(const uint8_t ch) {
-  if (ch == '|') {
+  if (ch == VIRT_HEARTBEAT) {
     recv_timer = timer_read();
   }
 }

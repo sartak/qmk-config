@@ -618,7 +618,7 @@ COMBO_FOR_CHORD(little, A_L, A_I, A_T);
 COMBO_FOR_CHORD(world, A_W, A_L, A_D);
 COMBO_FOR_CHORD(very, A_V, A_E, A_R);
 COMBO_FOR_CHORD(still, A_S, A_T, A_L);
-COMBO_FOR_CHORD(nation, A_N, A_A, A_I);
+COMBO_FOR_CHORD(nation, A_A, A_T, A_I);
 COMBO_FOR_CHORD(hand, A_H, A_N, A_D);
 COMBO_FOR_CHORD(old, A_O, A_L, A_D);
 COMBO_FOR_CHORD(life, A_L, A_I, A_F);

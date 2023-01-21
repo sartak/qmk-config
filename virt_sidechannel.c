@@ -1,9 +1,15 @@
 #include "virtser.h"
 
-#define VIRT_WARN 0
 #define VIRT_KEYS 34
 #define VIRT_START 1
-#define VIRT_CHORD_STARTED VIRT_START+VIRT_KEYS*4
+#define VIRT_KEYMULT_DOWN 0
+#define VIRT_KEYMULT_UP 1
+#define VIRT_KEYMULT_CHENTRY 2
+#define VIRT_KEYMULT_HOLD 3
+#define VIRT_KEYMULT_LAST 4
+
+#define VIRT_WARN 0
+#define VIRT_CHORD_STARTED VIRT_START+VIRT_KEYS*VIRT_KEYMULT_LAST
 #define VIRT_CHORD_ENDED VIRT_CHORD_STARTED+1
 #define VIRT_LAYER_ZERO VIRT_CHORD_ENDED+1
 #define VIRT_LAYER_LAST VIRT_LAYER_ZERO+TOPLAYER
@@ -93,17 +99,22 @@ void emit_virt_sidechannel(keyrecord_t *record, bool pressed, bool held, bool ch
       return;
   }
 
-  uint8_t msg = VIRT_START + row * 10 + col;
+  uint8_t mult = 0;
+
   if (held) {
-    msg += 3 * VIRT_KEYS;
+    mult = VIRT_KEYMULT_HOLD;
   }
   else if (chentry) {
-    msg += 2 * VIRT_KEYS;
+    mult = VIRT_KEYMULT_CHENTRY;
   }
   else if (!record->event.pressed) {
-    msg += VIRT_KEYS;
+    mult = VIRT_KEYMULT_UP;
+  }
+  else {
+    mult = VIRT_KEYMULT_DOWN;
   }
 
+  uint8_t msg = VIRT_START + row * 10 + col + mult * VIRT_KEYS;
   virtser_send(msg);
 }
 

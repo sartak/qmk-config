@@ -3,7 +3,7 @@
 #define VIRT_KEYS 34
 #define VIRT_KEYMULT_DOWN 0
 #define VIRT_KEYMULT_UP 1
-#define VIRT_KEYMULT_CHENTRY 2
+#define VIRT_KEYMULT_TAP 2
 #define VIRT_KEYMULT_HOLD 3
 #define VIRT_KEYMULT_LAST 4
 
@@ -54,7 +54,7 @@ void emit_new_mods(keyrecord_t *record) {
   prev_mods = mods;
 }
 
-void emit_virt_sidechannel(keyrecord_t *record, bool pressed, bool held, bool chentry) {
+void emit_virt_sidechannel(keyrecord_t *record, bool pressed, bool held, bool tap) {
   if (timer_elapsed(recv_timer) > VIRT_TIMEOUT) {
     return;
   }
@@ -109,8 +109,8 @@ void emit_virt_sidechannel(keyrecord_t *record, bool pressed, bool held, bool ch
   if (held) {
     mult = VIRT_KEYMULT_HOLD;
   }
-  else if (chentry) {
-    mult = VIRT_KEYMULT_CHENTRY;
+  else if (tap) {
+    mult = VIRT_KEYMULT_TAP;
   }
   else if (!record->event.pressed) {
     mult = VIRT_KEYMULT_UP;

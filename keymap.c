@@ -322,11 +322,14 @@ uint16_t last_keycode = KC_NO;
 uint8_t last_modifier = 0;
 uint8_t mod_state;
 uint8_t oneshot_mod_state;
-bool process_repeat_key(uint16_t keycode, const keyrecord_t *record) {
+bool process_repeat_key(uint16_t keycode, keyrecord_t *record) {
   if ((keycode == AT0 || keycode == ST0 || keycode == NT0) && record->tap.count) {
     if (record->event.pressed) {
       if (last_chord) {
         last_chord_cycle = process_chord_dup(last_chord, last_chord_cycle);
+#ifdef VIRT_SIDECHANNEL
+        emit_virt_sidechannel(record, record->event.pressed, false, true);
+#endif
         return false;
       }
       register_mods(last_modifier);

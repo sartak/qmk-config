@@ -7,7 +7,7 @@
 #define CHORD_ENUM \
   CHORD_left_cl, \
   CHORD_right_c, \
-  CHORD_functio, \
+  CHORD_oneshot, \
   CHORD_excl, \
   CHORD_qmark, \
   CHORD_colon, \
@@ -478,7 +478,7 @@
 
 COMBO_FOR_CHORD(left_cl, AT0, AT1);
 COMBO_FOR_CHORD(right_c, AT2, AT3);
-COMBO_FOR_CHORD(functio, AT0, AT3);
+COMBO_FOR_CHORD(oneshot, AT0, AT3);
 COMBO_FOR_CHORD(excl, A_E, A_d);
 COMBO_FOR_CHORD(qmark, A_I, A_c);
 COMBO_FOR_CHORD(colon, A_A, A_r);
@@ -949,7 +949,7 @@ COMBO_FOR_CHORD(elberet, A_E, A_L, A_B, A_H);
 #define CHORD_COMBOS \
   CHORD_COMBO(left_cl), \
   CHORD_COMBO(right_c), \
-  CHORD_COMBO(functio), \
+  CHORD_COMBO(oneshot), \
   CHORD_COMBO(excl), \
   CHORD_COMBO(qmark), \
   CHORD_COMBO(colon), \
@@ -1432,7 +1432,7 @@ COMBO_FOR_CHORD(elberet, A_E, A_L, A_B, A_H);
           tap_code16(KC_MS_BTN2); \
         } \
         return; \
-      case CHORD_functio: \
+      case CHORD_oneshot: \
         if (pressed) { \
           set_oneshot_layer(FUNCTION, ONESHOT_START); \
         } else { \

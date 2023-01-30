@@ -164,26 +164,12 @@ enum custom_keycodes {
 #include "chords.c"
 
 enum combo_events {
-  ACOMBO_DELETE_WORD,
-  SCOMBO_DELETE_WORD,
-  NCOMBO_DELETE_WORD,
-
   CHORD_ENUM
-
   _COMBO_LENGTH,
 };
 uint16_t COMBO_LEN = _COMBO_LENGTH;
 
-const uint16_t PROGMEM acombo_delete_word[] = {AT1, AT2, COMBO_END};
-const uint16_t PROGMEM scombo_delete_word[] = {ST1, ST2, COMBO_END};
-const uint16_t PROGMEM ncombo_delete_word[] = {NT1, NT2, COMBO_END};
-
 combo_t key_combos[] = {
-#define CHORD_COMBO(name) [CHORD_##name] = COMBO_ACTION(chord_##name)
-  [ACOMBO_DELETE_WORD] = COMBO_ACTION(acombo_delete_word),
-  [NCOMBO_DELETE_WORD] = COMBO_ACTION(ncombo_delete_word),
-  [SCOMBO_DELETE_WORD] = COMBO_ACTION(scombo_delete_word),
-
   CHORD_COMBOS
 };
 
@@ -286,34 +272,10 @@ uint8_t last_chord_cycle;
 CHORD_FUNC
 CHORD_DUP_FUNC
 void process_combo_event(uint16_t combo_index, bool pressed) {
-  uint16_t prev_chord_length = last_chord_length;
-  if (pressed) {
-    last_chord_length = 0;
-  }
-
 #ifdef VIRT_SIDECHANNEL
   emit_virt_combo(combo_index, pressed);
 #endif
 
-  switch(combo_index) {
-    case ACOMBO_DELETE_WORD:
-    case NCOMBO_DELETE_WORD:
-    case SCOMBO_DELETE_WORD:
-      if (pressed) {
-        if (prev_chord_length) {
-          for (uint16_t i = 0; i < prev_chord_length; i++) {
-            tap_code16(KC_BSPC);
-          }
-        }
-        else {
-          tap_code16(LALT(KC_BSPC));
-        }
-      }
-      return;
-  }
-
-  last_chord = combo_index;
-  last_chord_cycle = 0;
   process_chord_event(combo_index, pressed);
 }
 

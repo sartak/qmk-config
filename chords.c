@@ -5,6 +5,7 @@
 #include "personal.c"
 
 #define CHORD_ENUM \
+  CHORD_delete_, \
   CHORD_left_cl, \
   CHORD_right_c, \
   CHORD_oneshot, \
@@ -476,6 +477,7 @@
   CHORD_elberet, \
   PERSONAL_CHORD_ENUM
 
+COMBO_FOR_CHORD(delete_, AT1, AT2);
 COMBO_FOR_CHORD(left_cl, AT0, AT1);
 COMBO_FOR_CHORD(right_c, AT2, AT3);
 COMBO_FOR_CHORD(oneshot, AT0, AT3);
@@ -947,6 +949,7 @@ COMBO_FOR_CHORD(the_qui, A_B, A_Q, A_X, A_q);
 COMBO_FOR_CHORD(elberet, A_E, A_L, A_B, A_H);
 
 #define CHORD_COMBOS \
+  CHORD_COMBO(delete_), \
   CHORD_COMBO(left_cl), \
   CHORD_COMBO(right_c), \
   CHORD_COMBO(oneshot), \
@@ -1421,7 +1424,27 @@ COMBO_FOR_CHORD(elberet, A_E, A_L, A_B, A_H);
 #define CHORD_FUNC \
   void process_chord_event(uint16_t combo_index, bool pressed) { \
     bool space = true; \
+    uint16_t prev_chord_length = last_chord_length; \
+   \
+    if (pressed) { \
+      last_chord_length = 0; \
+    } \
+    last_chord = combo_index; \
+    last_chord_cycle = 0; \
+   \
     switch(combo_index) { \
+      case CHORD_delete_: \
+        if (pressed) { \
+          if (prev_chord_length) { \
+            for (uint16_t i = 0; i < prev_chord_length; i++) { \
+              tap_code16(KC_BSPC); \
+            } \
+          } \
+          else { \
+            tap_code16(LALT(KC_BSPC)); \
+          } \
+        } \
+        return; \
       case CHORD_left_cl: \
         if (pressed) { \
           tap_code16(KC_MS_BTN1); \

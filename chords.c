@@ -1421,54 +1421,94 @@ COMBO_FOR_CHORD(elberet, A_E, A_L, A_B, A_H);
   CHORD_COMBO(elberet), \
   PERSONAL_CHORD_COMBOS
 
-#define CHORD_FUNC \
-  void process_chord_event(uint16_t combo_index, bool pressed) { \
-    bool space = true; \
-    uint16_t prev_chord_length = last_chord_length; \
+bool releasedWithinTapThreshold = true;
+deferred_token chord_token = INVALID_DEFERRED_TOKEN;
+uint16_t prev_chord_length;
+
+#define CHORD_FUNCS \
+  void process_chord_release(uint16_t combo_index) { \
+    cancel_deferred_exec(chord_token); \
    \
-    if (pressed) { \
-      last_chord_length = 0; \
-      emit_virt_combo(combo_index, VIRT_CHORD_ENDED_TAP); \
+    bool space = true; \
+   \
+    switch(combo_index) { \
+      case CHORD_oneshot: \
+        space = false; \
+        clear_oneshot_layer_state(ONESHOT_PRESSED); \
+        break; \
+      PERSONAL_RELEASE_CASES \
+      default: \
+        return; \
     } \
+   \
+    if (space) { \
+      tap_code(KC_SPC); \
+      last_chord_length++; \
+    } \
+   \
+    if (releasedWithinTapThreshold) { \
+      emit_virt_combo(last_chord, VIRT_CHORD_ENDED_TAP); \
+    } \
+  } \
+   \
+  uint32_t process_chord_hold(uint32_t trigger_time, void* cb_arg) { \
+    releasedWithinTapThreshold = false; \
+   \
+    bool space = true; \
+   \
+    switch(last_chord) { \
+      PERSONAL_HOLD_CASES \
+      default: \
+        return 0; \
+    } \
+    if (space) { \
+      tap_code(KC_SPC); \
+      last_chord_length++; \
+    } \
+    emit_virt_combo(last_chord, VIRT_CHORD_ENDED_HOLD); \
+    return 0; \
+  } \
+   \
+  void process_chord_event(uint16_t combo_index, bool pressed) { \
+    if (!pressed) { \
+      process_chord_release(combo_index); \
+      return; \
+    } \
+   \
+    releasedWithinTapThreshold = true; \
+    prev_chord_length = last_chord_length; \
+   \
+    last_chord_length = 0; \
     last_chord = combo_index; \
     last_chord_cycle = 0; \
    \
+    bool space = true; \
+    bool scheduleTimer = false; \
+   \
     switch(combo_index) { \
       case CHORD_delete_: \
-        if (pressed) { \
-          if (prev_chord_length) { \
-            for (uint16_t i = 0; i < prev_chord_length; i++) { \
-              tap_code16(KC_BSPC); \
-            } \
-          } \
-          else { \
-            tap_code16(LALT(KC_BSPC)); \
+        space = false; \
+        if (prev_chord_length) { \
+          for (uint16_t i = 0; i < prev_chord_length; i++) { \
+            tap_code16(KC_BSPC); \
           } \
         } \
-        return; \
+        else { \
+          tap_code16(LALT(KC_BSPC)); \
+        } \
+        break; \
       case CHORD_left_cl: \
-        if (pressed) { \
-          tap_code16(KC_MS_BTN1); \
-        } \
-        return; \
+        space = false; \
+        tap_code16(KC_MS_BTN1); \
+        break; \
       case CHORD_right_c: \
-        if (pressed) { \
-          tap_code16(KC_MS_BTN2); \
-        } \
-        return; \
+        space = false; \
+        tap_code16(KC_MS_BTN2); \
+        break; \
       case CHORD_oneshot: \
-        if (pressed) { \
-          set_oneshot_layer(FUNCTION, ONESHOT_START); \
-        } else { \
-          clear_oneshot_layer_state(ONESHOT_PRESSED); \
-        } \
-        return; \
-      PERSONAL_CHORD_BEHAVIOR_FUNC \
-    } \
-    if (!pressed) { \
-      return; \
-    } \
-    switch(combo_index) { \
+        space = false; \
+        set_oneshot_layer(FUNCTION, ONESHOT_START); \
+        break; \
       case CHORD_excl: \
         space = false; \
         SEND_STRING("!"); \
@@ -3361,7 +3401,7 @@ COMBO_FOR_CHORD(elberet, A_E, A_L, A_B, A_H);
         SEND_STRING("Elbereth"); \
         last_chord_length = 8; \
         break; \
-      PERSONAL_CHORD_OUTPUT_FUNC \
+      PERSONAL_TAP_CASES \
       default: \
         space = false; \
         break; \
@@ -3370,14 +3410,20 @@ COMBO_FOR_CHORD(elberet, A_E, A_L, A_B, A_H);
       tap_code(KC_SPC); \
       last_chord_length++; \
     } \
-  }
-
-#define CHORD_DUP_FUNC \
+    if (scheduleTimer) { \
+      chord_token = defer_exec(TAPPING_TERM, process_chord_hold, NULL); \
+    } \
+   \
+    emit_virt_combo(last_chord, scheduleTimer ? VIRT_CHORD_ENDED_INDETERMINATE : VIRT_CHORD_ENDED_TAP); \
+    return; \
+  } \
+   \
   uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
     uint8_t next_chord_cycle = 0; \
     uint8_t backspaces = 0; \
     char *append = NULL; \
     bool space = true; \
+   \
     switch(last_chord) { \
       case CHORD_have: \
         switch(last_chord_cycle) { \
@@ -5924,7 +5970,7 @@ COMBO_FOR_CHORD(elberet, A_E, A_L, A_B, A_H);
           break; \
         } \
         break; \
-      PERSONAL_DUP_FUNC \
+      PERSONAL_DUP_CASES \
       default: \
         space = false; \
         break; \

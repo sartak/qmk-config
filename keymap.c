@@ -271,8 +271,8 @@ uint16_t last_chord;
 uint16_t last_chord_length;
 uint8_t last_chord_cycle;
 
-CHORD_FUNC
-CHORD_DUP_FUNC
+CHORD_FUNCS
+
 void process_combo_event(uint16_t combo_index, bool pressed) {
   process_chord_event(combo_index, pressed);
 }

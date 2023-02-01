@@ -125,11 +125,7 @@ void emit_virt_key(keyrecord_t *record, bool pressed, bool held, bool tap) {
   virtser_send(msg);
 }
 
-void emit_virt_combo(uint16_t combo_index, bool pressed, uint8_t event) {
-  if (!pressed) {
-    return;
-  }
-
+void emit_virt_combo(uint16_t combo_index, uint8_t event) {
   if (timer_elapsed(recv_timer) > VIRT_TIMEOUT) {
     return;
   }

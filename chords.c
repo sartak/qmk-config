@@ -1428,11 +1428,10 @@ COMBO_FOR_CHORD(elberet, A_E, A_L, A_B, A_H);
    \
     if (pressed) { \
       last_chord_length = 0; \
+      emit_virt_combo(combo_index, VIRT_CHORD_ENDED_TAP); \
     } \
     last_chord = combo_index; \
     last_chord_cycle = 0; \
-   \
-    emit_virt_combo(combo_index, pressed, VIRT_CHORD_ENDED_TAP); \
    \
     switch(combo_index) { \
       case CHORD_delete_: \

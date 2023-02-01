@@ -1445,6 +1445,12 @@ uint16_t prev_chord_length;
           } \
         } \
         break; \
+      case CHORD_left_cl: \
+        space = false; \
+        if (releasedWithinTapThreshold) { \
+          tap_code16(KC_MS_BTN1); \
+        } \
+        break; \
       case CHORD_oneshot: \
         space = false; \
         clear_oneshot_layer_state(ONESHOT_PRESSED); \
@@ -1473,6 +1479,12 @@ uint16_t prev_chord_length;
       case CHORD_delete_: \
         space = false; \
         add_oneshot_mods(MOD_LCTL | MOD_LALT | MOD_LGUI); \
+        break; \
+      case CHORD_left_cl: \
+        space = false; \
+        register_mods(MOD_LGUI); \
+        tap_code16(KC_MS_BTN1); \
+        unregister_mods(MOD_LGUI); \
         break; \
       PERSONAL_HOLD_CASES \
       default: \
@@ -1503,10 +1515,6 @@ uint16_t prev_chord_length;
     bool scheduleTimer = false; \
    \
     switch(combo_index) { \
-      case CHORD_left_cl: \
-        space = false; \
-        tap_code16(KC_MS_BTN1); \
-        break; \
       case CHORD_right_c: \
         space = false; \
         tap_code16(KC_MS_BTN2); \
@@ -3408,6 +3416,7 @@ uint16_t prev_chord_length;
         last_chord_length = 8; \
         break; \
       case CHORD_delete_: \
+      case CHORD_left_cl: \
         space = false; \
         scheduleTimer = true; \
         break; \

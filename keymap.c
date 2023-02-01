@@ -212,17 +212,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #ifdef VIRT_SIDECHANNEL
 #include "virt_sidechannel.c"
 #else
-#define emit_virt_sidechannel(...) ;
+#define emit_virt_key(...) ;
+#define emit_virt_combo(...) ;
+#define emit_virt_layer(...) ;
 #endif
 
 #define TH_CASE(tap_kc, hold_kc)                      \
   case LT(0, tap_kc):                                 \
     if (record->tap.count && record->event.pressed) { \
       tap_code16(tap_kc);                             \
-      emit_virt_sidechannel(record, record->event.pressed, false, true); \
+      emit_virt_key(record, record->event.pressed, false, true); \
     } else if (record->event.pressed) {               \
       tap_code16(hold_kc);                            \
-      emit_virt_sidechannel(record, record->event.pressed, true, true); \
+      emit_virt_key(record, record->event.pressed, true, true); \
     }                                                 \
     return false;
 
@@ -272,10 +274,6 @@ uint8_t last_chord_cycle;
 CHORD_FUNC
 CHORD_DUP_FUNC
 void process_combo_event(uint16_t combo_index, bool pressed) {
-#ifdef VIRT_SIDECHANNEL
-  emit_virt_combo(combo_index, pressed);
-#endif
-
   process_chord_event(combo_index, pressed);
 }
 
@@ -290,7 +288,7 @@ bool process_repeat_key(uint16_t keycode, keyrecord_t *record) {
       if (last_chord) {
         last_chord_cycle = process_chord_dup(last_chord, last_chord_cycle);
 #ifdef VIRT_SIDECHANNEL
-        emit_virt_sidechannel(record, record->event.pressed, false, true);
+        emit_virt_key(record, record->event.pressed, false, true);
 #endif
         return false;
       }
@@ -384,14 +382,14 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
 
 #ifdef VIRT_SIDECHANNEL
 bool pre_process_record_user(keyrecord_t *record) {
-  emit_virt_sidechannel(record, true, false, false);
+  emit_virt_key(record, true, false, false);
   return true;
 }
 #endif
 
 #ifdef VIRT_SIDECHANNEL
 void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
-  emit_virt_sidechannel(record, record->event.pressed, false, true);
+  emit_virt_key(record, record->event.pressed, false, true);
 }
 #endif
 

@@ -1432,6 +1432,8 @@ COMBO_FOR_CHORD(elberet, A_E, A_L, A_B, A_H);
     last_chord = combo_index; \
     last_chord_cycle = 0; \
    \
+    emit_virt_combo(combo_index, pressed); \
+   \
     switch(combo_index) { \
       case CHORD_delete_: \
         if (pressed) { \

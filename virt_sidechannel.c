@@ -54,7 +54,7 @@ void emit_new_mods(keyrecord_t *record) {
   prev_mods = mods;
 }
 
-void emit_virt_sidechannel(keyrecord_t *record, bool pressed, bool held, bool tap) {
+void emit_virt_key(keyrecord_t *record, bool pressed, bool held, bool tap) {
   if (timer_elapsed(recv_timer) > VIRT_TIMEOUT) {
     return;
   }

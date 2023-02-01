@@ -1432,6 +1432,19 @@ uint16_t prev_chord_length;
     bool space = true; \
    \
     switch(combo_index) { \
+      case CHORD_delete_: \
+        space = false; \
+        if (releasedWithinTapThreshold) { \
+          if (prev_chord_length) { \
+            for (uint16_t i = 0; i < prev_chord_length; i++) { \
+              tap_code16(KC_BSPC); \
+            } \
+          } \
+          else { \
+            tap_code16(LALT(KC_BSPC)); \
+          } \
+        } \
+        break; \
       case CHORD_oneshot: \
         space = false; \
         clear_oneshot_layer_state(ONESHOT_PRESSED); \
@@ -1457,6 +1470,10 @@ uint16_t prev_chord_length;
     bool space = true; \
    \
     switch(last_chord) { \
+      case CHORD_delete_: \
+        space = false; \
+        add_oneshot_mods(MOD_LCTL | MOD_LALT | MOD_LGUI); \
+        break; \
       PERSONAL_HOLD_CASES \
       default: \
         return 0; \
@@ -1486,17 +1503,6 @@ uint16_t prev_chord_length;
     bool scheduleTimer = false; \
    \
     switch(combo_index) { \
-      case CHORD_delete_: \
-        space = false; \
-        if (prev_chord_length) { \
-          for (uint16_t i = 0; i < prev_chord_length; i++) { \
-            tap_code16(KC_BSPC); \
-          } \
-        } \
-        else { \
-          tap_code16(LALT(KC_BSPC)); \
-        } \
-        break; \
       case CHORD_left_cl: \
         space = false; \
         tap_code16(KC_MS_BTN1); \
@@ -3400,6 +3406,10 @@ uint16_t prev_chord_length;
         space = false; \
         SEND_STRING("Elbereth"); \
         last_chord_length = 8; \
+        break; \
+      case CHORD_delete_: \
+        space = false; \
+        scheduleTimer = true; \
         break; \
       PERSONAL_TAP_CASES \
       default: \

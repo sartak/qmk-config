@@ -2804,7 +2804,7 @@ bool chord_shifted;
     } \
    \
     if (releasedWithinTapThreshold) { \
-      emit_virt_combo(last_chord, VIRT_CHORD_ENDED_TAP); \
+      emit_virt_combo(last_chord, chord_shifted, VIRT_CHORD_ENDED_TAP); \
     } \
    \
     set_mods(mods); \
@@ -2858,7 +2858,7 @@ bool chord_shifted;
       last_chord_length++; \
     } \
    \
-    emit_virt_combo(last_chord, VIRT_CHORD_ENDED_HOLD); \
+    emit_virt_combo(last_chord, chord_shifted, VIRT_CHORD_ENDED_HOLD); \
     set_mods(mods); \
     return 0; \
   }
@@ -4838,7 +4838,7 @@ bool chord_shifted;
       chord_token = defer_exec(TAPPING_TERM, process_chord_hold, NULL); \
     } \
    \
-    emit_virt_combo(last_chord, scheduleTimer ? VIRT_CHORD_ENDED_INDETERMINATE : VIRT_CHORD_ENDED_TAP); \
+    emit_virt_combo(last_chord, chord_shifted, scheduleTimer ? VIRT_CHORD_ENDED_INDETERMINATE : VIRT_CHORD_ENDED_TAP); \
    \
     set_mods(mods); \
    \

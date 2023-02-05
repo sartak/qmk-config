@@ -11,7 +11,8 @@
 #define VIRT_HEARTBEAT                  1
 #define VIRT_KEYS_START                 VIRT_HEARTBEAT+1
 #define VIRT_KEYS_END                   VIRT_KEYS_START+VIRT_KEYS*VIRT_KEYMULT_LAST
-#define VIRT_CHORD_STARTED              VIRT_KEYS_END+1
+#define VIRT_COMBO_SHIFTED              VIRT_KEYS_END+1
+#define VIRT_CHORD_STARTED              VIRT_COMBO_SHIFTED+1
 #define VIRT_CHORD_ENDED_INDETERMINATE  VIRT_CHORD_STARTED+1
 #define VIRT_CHORD_ENDED_TAP            VIRT_CHORD_ENDED_INDETERMINATE+1
 #define VIRT_CHORD_ENDED_HOLD           VIRT_CHORD_ENDED_TAP+1
@@ -125,12 +126,16 @@ void emit_virt_key(keyrecord_t *record, bool pressed, bool held, bool tap) {
   virtser_send(msg);
 }
 
-void emit_virt_combo(uint16_t combo_index, uint8_t event) {
+void emit_virt_combo(uint16_t combo_index, bool shifted, uint8_t event) {
   if (timer_elapsed(recv_timer) > VIRT_TIMEOUT) {
     return;
   }
 
   virtser_send(VIRT_CHORD_STARTED);
+  if (shifted) {
+    virtser_send(VIRT_COMBO_SHIFTED);
+  }
+
   combo_t combo = key_combos[combo_index];
   int key_count = 0;
   while (true) {

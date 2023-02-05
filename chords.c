@@ -2741,12 +2741,14 @@ deferred_token chord_token = INVALID_DEFERRED_TOKEN;
 uint16_t prev_chord_length;
 bool chord_shifted;
 
-#define CHORD_FUNCS \
+#define CHORD_FUNC_RELEASE \
   void process_chord_release(uint16_t combo_index) { \
     cancel_deferred_exec(chord_token); \
    \
     bool space = true; \
     char *append = NULL; \
+    prev_chord_length = last_chord_length; \
+    last_chord_length = 0; \
    \
     const uint8_t mods = get_mods(); \
     del_mods(MOD_MASK_SHIFT); \
@@ -2755,12 +2757,14 @@ bool chord_shifted;
    \
     switch(combo_index) { \
       case CHORD_delete_: \
+        last_chord_length = prev_chord_length; \
         space = false; \
         if (releasedWithinTapThreshold) { \
           if (prev_chord_length) { \
             for (uint16_t i = 0; i < prev_chord_length; i++) { \
               tap_code16(KC_BSPC); \
             } \
+            last_chord_length = 0; \
           } \
           else { \
             tap_code16(LALT(KC_BSPC)); \
@@ -2768,18 +2772,21 @@ bool chord_shifted;
         } \
         break; \
       case CHORD_left_cl: \
+        last_chord_length = prev_chord_length; \
         space = false; \
         if (releasedWithinTapThreshold) { \
           tap_code16(KC_MS_BTN1); \
         } \
         break; \
       case CHORD_oneshot: \
+        last_chord_length = prev_chord_length; \
         space = false; \
         clear_oneshot_layer_state(ONESHOT_PRESSED); \
         break; \
       PERSONAL_RELEASE_CASES \
       default: \
         set_mods(mods); \
+        last_chord_length = prev_chord_length; \
         return; \
     } \
    \
@@ -2788,6 +2795,7 @@ bool chord_shifted;
         add_oneshot_mods(MOD_MASK_SHIFT); \
       } \
       SEND_STRING(append); \
+      last_chord_length += strlen(append); \
     } \
    \
     if (space) { \
@@ -2800,8 +2808,9 @@ bool chord_shifted;
     } \
    \
     set_mods(mods); \
-  } \
-   \
+  }
+
+#define CHORD_FUNC_HOLD \
   uint32_t process_chord_hold(uint32_t trigger_time, void* cb_arg) { \
     uint16_t combo_index = last_chord; \
    \
@@ -2809,6 +2818,7 @@ bool chord_shifted;
    \
     char *append = NULL; \
     bool space = true; \
+    last_chord_length = 0; \
    \
     const uint8_t mods = get_mods(); \
     del_mods(MOD_MASK_SHIFT); \
@@ -2818,10 +2828,12 @@ bool chord_shifted;
     switch(combo_index) { \
       case CHORD_delete_: \
         space = false; \
+        last_chord_length = prev_chord_length; \
         add_oneshot_mods(MOD_LCTL | MOD_LALT | MOD_LGUI); \
         break; \
       case CHORD_left_cl: \
         space = false; \
+        last_chord_length = prev_chord_length; \
         register_mods(MOD_LGUI); \
         tap_code16(KC_MS_BTN1); \
         unregister_mods(MOD_LGUI); \
@@ -2829,6 +2841,7 @@ bool chord_shifted;
       PERSONAL_HOLD_CASES \
       default: \
         set_mods(mods); \
+        last_chord_length = prev_chord_length; \
         return 0; \
     } \
    \
@@ -2837,6 +2850,7 @@ bool chord_shifted;
         add_oneshot_mods(MOD_MASK_SHIFT); \
       } \
       SEND_STRING(append); \
+      last_chord_length += strlen(append); \
     } \
    \
     if (space) { \
@@ -2847,8 +2861,9 @@ bool chord_shifted;
     emit_virt_combo(last_chord, VIRT_CHORD_ENDED_HOLD); \
     set_mods(mods); \
     return 0; \
-  } \
-   \
+  }
+
+#define CHORD_FUNC_TAP \
   void process_chord_event(uint16_t combo_index, bool pressed) { \
     if (!pressed) { \
       process_chord_release(combo_index); \
@@ -2878,10 +2893,12 @@ bool chord_shifted;
     switch(combo_index) { \
       case CHORD_right_c: \
         space = false; \
+        last_chord_length = prev_chord_length; \
         tap_code16(KC_MS_BTN2); \
         break; \
       case CHORD_oneshot: \
         space = false; \
+        last_chord_length = prev_chord_length; \
         set_oneshot_layer(FUNCTION, ONESHOT_START); \
         break; \
       case CHORD_excl: \
@@ -3006,27 +3023,22 @@ bool chord_shifted;
         break; \
       case CHORD_the: \
       case CHORD_S_the: \
-        last_chord_length = 3; \
         append = "the"; \
         break; \
       case CHORD_be: \
       case CHORD_S_be: \
-        last_chord_length = 2; \
         append = "be"; \
         break; \
       case CHORD_of: \
       case CHORD_S_of: \
-        last_chord_length = 2; \
         append = "of"; \
         break; \
       case CHORD_and: \
       case CHORD_S_and: \
-        last_chord_length = 3; \
         append = "and"; \
         break; \
       case CHORD_a: \
       case CHORD_S_a: \
-        last_chord_length = 1; \
         append = "a"; \
         break; \
       case CHORD_a1: \
@@ -3035,42 +3047,34 @@ bool chord_shifted;
         break; \
       case CHORD_to: \
       case CHORD_S_to: \
-        last_chord_length = 2; \
         append = "to"; \
         break; \
       case CHORD_in: \
       case CHORD_S_in: \
-        last_chord_length = 2; \
         append = "in"; \
         break; \
       case CHORD_he: \
       case CHORD_S_he: \
-        last_chord_length = 2; \
         append = "he"; \
         break; \
       case CHORD_have: \
       case CHORD_S_have: \
-        last_chord_length = 4; \
         append = "have"; \
         break; \
       case CHORD_it: \
       case CHORD_S_it: \
-        last_chord_length = 2; \
         append = "it"; \
         break; \
       case CHORD_that: \
       case CHORD_S_that: \
-        last_chord_length = 4; \
         append = "that"; \
         break; \
       case CHORD_for: \
       case CHORD_S_for: \
-        last_chord_length = 3; \
         append = "for"; \
         break; \
       case CHORD_they: \
       case CHORD_S_they: \
-        last_chord_length = 4; \
         append = "they"; \
         break; \
       case CHORD_i: \
@@ -3079,2032 +3083,1626 @@ bool chord_shifted;
         break; \
       case CHORD_with: \
       case CHORD_S_with: \
-        last_chord_length = 4; \
         append = "with"; \
         break; \
       case CHORD_as: \
       case CHORD_S_as: \
-        last_chord_length = 2; \
         append = "as"; \
         break; \
       case CHORD_not: \
       case CHORD_S_not: \
-        last_chord_length = 3; \
         append = "not"; \
         break; \
       case CHORD_on: \
       case CHORD_S_on: \
-        last_chord_length = 2; \
         append = "on"; \
         break; \
       case CHORD_she: \
       case CHORD_S_she: \
-        last_chord_length = 3; \
         append = "she"; \
         break; \
       case CHORD_at: \
       case CHORD_S_at: \
-        last_chord_length = 2; \
         append = "at"; \
         break; \
       case CHORD_by: \
       case CHORD_S_by: \
-        last_chord_length = 2; \
         append = "by"; \
         break; \
       case CHORD_this: \
       case CHORD_S_this: \
-        last_chord_length = 4; \
         append = "this"; \
         break; \
       case CHORD_we: \
       case CHORD_S_we: \
-        last_chord_length = 2; \
         append = "we"; \
         break; \
       case CHORD_you: \
       case CHORD_S_you: \
-        last_chord_length = 3; \
         append = "you"; \
         break; \
       case CHORD_do: \
       case CHORD_S_do: \
-        last_chord_length = 2; \
         append = "do"; \
         break; \
       case CHORD_but: \
       case CHORD_S_but: \
-        last_chord_length = 3; \
         append = "but"; \
         break; \
       case CHORD_from: \
       case CHORD_S_from: \
-        last_chord_length = 4; \
         append = "from"; \
         break; \
       case CHORD_or: \
       case CHORD_S_or: \
-        last_chord_length = 2; \
         append = "or"; \
         break; \
       case CHORD_which: \
       case CHORD_S_which: \
-        last_chord_length = 5; \
         append = "which"; \
         break; \
       case CHORD_one: \
       case CHORD_S_one: \
-        last_chord_length = 3; \
         append = "one"; \
         break; \
       case CHORD_would: \
       case CHORD_S_would: \
-        last_chord_length = 5; \
         append = "would"; \
         break; \
       case CHORD_all: \
       case CHORD_S_all: \
-        last_chord_length = 3; \
         append = "all"; \
         break; \
       case CHORD_will: \
       case CHORD_S_will: \
-        last_chord_length = 4; \
         append = "will"; \
         break; \
       case CHORD_there: \
       case CHORD_S_there: \
-        last_chord_length = 5; \
         append = "there"; \
         break; \
       case CHORD_say: \
       case CHORD_S_say: \
-        last_chord_length = 3; \
         append = "say"; \
         break; \
       case CHORD_who: \
       case CHORD_S_who: \
-        last_chord_length = 3; \
         append = "who"; \
         break; \
       case CHORD_make: \
       case CHORD_S_make: \
-        last_chord_length = 4; \
         append = "make"; \
         break; \
       case CHORD_when: \
       case CHORD_S_when: \
-        last_chord_length = 4; \
         append = "when"; \
         break; \
       case CHORD_can: \
       case CHORD_S_can: \
-        last_chord_length = 3; \
         append = "can"; \
         break; \
       case CHORD_more: \
       case CHORD_S_more: \
-        last_chord_length = 4; \
         append = "more"; \
         break; \
       case CHORD_if: \
       case CHORD_S_if: \
-        last_chord_length = 2; \
         append = "if"; \
         break; \
       case CHORD_no: \
       case CHORD_S_no: \
-        last_chord_length = 2; \
         append = "no"; \
         break; \
       case CHORD_man: \
       case CHORD_S_man: \
-        last_chord_length = 3; \
         append = "man"; \
         break; \
       case CHORD_out: \
       case CHORD_S_out: \
-        last_chord_length = 3; \
         append = "out"; \
         break; \
       case CHORD_other: \
       case CHORD_S_other: \
-        last_chord_length = 5; \
         append = "other"; \
         break; \
       case CHORD_so: \
       case CHORD_S_so: \
-        last_chord_length = 2; \
         append = "so"; \
         break; \
       case CHORD_what: \
       case CHORD_S_what: \
-        last_chord_length = 4; \
         append = "what"; \
         break; \
       case CHORD_time: \
       case CHORD_S_time: \
-        last_chord_length = 4; \
         append = "time"; \
         break; \
       case CHORD_up: \
       case CHORD_S_up: \
-        last_chord_length = 2; \
         append = "up"; \
         break; \
       case CHORD_go: \
       case CHORD_S_go: \
-        last_chord_length = 2; \
         append = "go"; \
         break; \
       case CHORD_about: \
       case CHORD_S_about: \
-        last_chord_length = 5; \
         append = "about"; \
         break; \
       case CHORD_than: \
       case CHORD_S_than: \
-        last_chord_length = 4; \
         append = "than"; \
         break; \
       case CHORD_into: \
       case CHORD_S_into: \
-        last_chord_length = 4; \
         append = "into"; \
         break; \
       case CHORD_could: \
       case CHORD_S_could: \
-        last_chord_length = 5; \
         append = "could"; \
         break; \
       case CHORD_state: \
       case CHORD_S_state: \
-        last_chord_length = 5; \
         append = "state"; \
         break; \
       case CHORD_only: \
       case CHORD_S_only: \
-        last_chord_length = 4; \
         append = "only"; \
         break; \
       case CHORD_new: \
       case CHORD_S_new: \
-        last_chord_length = 3; \
         append = "new"; \
         break; \
       case CHORD_year: \
       case CHORD_S_year: \
-        last_chord_length = 4; \
         append = "year"; \
         break; \
       case CHORD_some: \
       case CHORD_S_some: \
-        last_chord_length = 4; \
         append = "some"; \
         break; \
       case CHORD_take: \
       case CHORD_S_take: \
-        last_chord_length = 4; \
         append = "take"; \
         break; \
       case CHORD_come: \
       case CHORD_S_come: \
-        last_chord_length = 4; \
         append = "come"; \
         break; \
       case CHORD_these: \
       case CHORD_S_these: \
-        last_chord_length = 5; \
         append = "these"; \
         break; \
       case CHORD_know: \
       case CHORD_S_know: \
-        last_chord_length = 4; \
         append = "know"; \
         break; \
       case CHORD_see: \
       case CHORD_S_see: \
-        last_chord_length = 3; \
         append = "see"; \
         break; \
       case CHORD_use: \
       case CHORD_S_use: \
-        last_chord_length = 3; \
         append = "use"; \
         break; \
       case CHORD_get: \
       case CHORD_S_get: \
-        last_chord_length = 3; \
         append = "get"; \
         break; \
       case CHORD_like: \
       case CHORD_S_like: \
-        last_chord_length = 4; \
         append = "like"; \
         break; \
       case CHORD_then: \
       case CHORD_S_then: \
-        last_chord_length = 4; \
         append = "then"; \
         break; \
       case CHORD_first: \
       case CHORD_S_first: \
-        last_chord_length = 5; \
         append = "first"; \
         break; \
       case CHORD_any: \
       case CHORD_S_any: \
-        last_chord_length = 3; \
         append = "any"; \
         break; \
       case CHORD_work: \
       case CHORD_S_work: \
-        last_chord_length = 4; \
         append = "work"; \
         break; \
       case CHORD_now: \
       case CHORD_S_now: \
-        last_chord_length = 3; \
         append = "now"; \
         break; \
       case CHORD_may: \
       case CHORD_S_may: \
-        last_chord_length = 3; \
         append = "may"; \
         break; \
       case CHORD_such: \
       case CHORD_S_such: \
-        last_chord_length = 4; \
         append = "such"; \
         break; \
       case CHORD_give: \
       case CHORD_S_give: \
-        last_chord_length = 4; \
         append = "give"; \
         break; \
       case CHORD_over: \
       case CHORD_S_over: \
-        last_chord_length = 4; \
         append = "over"; \
         break; \
       case CHORD_think: \
       case CHORD_S_think: \
-        last_chord_length = 5; \
         append = "think"; \
         break; \
       case CHORD_most: \
       case CHORD_S_most: \
-        last_chord_length = 4; \
         append = "most"; \
         break; \
       case CHORD_even: \
       case CHORD_S_even: \
-        last_chord_length = 4; \
         append = "even"; \
         break; \
       case CHORD_find: \
       case CHORD_S_find: \
-        last_chord_length = 4; \
         append = "find"; \
         break; \
       case CHORD_day: \
       case CHORD_S_day: \
-        last_chord_length = 3; \
         append = "day"; \
         break; \
       case CHORD_also: \
       case CHORD_S_also: \
-        last_chord_length = 4; \
         append = "also"; \
         break; \
       case CHORD_after: \
       case CHORD_S_after: \
-        last_chord_length = 5; \
         append = "after"; \
         break; \
       case CHORD_way: \
       case CHORD_S_way: \
-        last_chord_length = 3; \
         append = "way"; \
         break; \
       case CHORD_many: \
       case CHORD_S_many: \
-        last_chord_length = 4; \
         append = "many"; \
         break; \
       case CHORD_must: \
       case CHORD_S_must: \
-        last_chord_length = 4; \
         append = "must"; \
         break; \
       case CHORD_look: \
       case CHORD_S_look: \
-        last_chord_length = 4; \
         append = "look"; \
         break; \
       case CHORD_before: \
       case CHORD_S_before: \
-        last_chord_length = 6; \
         append = "before"; \
         break; \
       case CHORD_great: \
       case CHORD_S_great: \
-        last_chord_length = 5; \
         append = "great"; \
         break; \
       case CHORD_back: \
       case CHORD_S_back: \
-        last_chord_length = 4; \
         append = "back"; \
         break; \
       case CHORD_through: \
       case CHORD_S_through: \
-        last_chord_length = 7; \
         append = "through"; \
         break; \
       case CHORD_long: \
       case CHORD_S_long: \
-        last_chord_length = 4; \
         append = "long"; \
         break; \
       case CHORD_where: \
       case CHORD_S_where: \
-        last_chord_length = 5; \
         append = "where"; \
         break; \
       case CHORD_much: \
       case CHORD_S_much: \
-        last_chord_length = 4; \
         append = "much"; \
         break; \
       case CHORD_should: \
       case CHORD_S_should: \
-        last_chord_length = 6; \
         append = "should"; \
         break; \
       case CHORD_well: \
       case CHORD_S_well: \
-        last_chord_length = 4; \
         append = "well"; \
         break; \
       case CHORD_people: \
       case CHORD_S_people: \
-        last_chord_length = 6; \
         append = "people"; \
         break; \
       case CHORD_down: \
       case CHORD_S_down: \
-        last_chord_length = 4; \
         append = "down"; \
         break; \
       case CHORD_own: \
       case CHORD_S_own: \
-        last_chord_length = 3; \
         append = "own"; \
         break; \
       case CHORD_just: \
       case CHORD_S_just: \
-        last_chord_length = 4; \
         append = "just"; \
         break; \
       case CHORD_because: \
       case CHORD_S_because: \
-        last_chord_length = 7; \
         append = "because"; \
         break; \
       case CHORD_good: \
       case CHORD_S_good: \
-        last_chord_length = 4; \
         append = "good"; \
         break; \
       case CHORD_each: \
       case CHORD_S_each: \
-        last_chord_length = 4; \
         append = "each"; \
         break; \
       case CHORD_those: \
       case CHORD_S_those: \
-        last_chord_length = 5; \
         append = "those"; \
         break; \
       case CHORD_feel: \
       case CHORD_S_feel: \
-        last_chord_length = 4; \
         append = "feel"; \
         break; \
       case CHORD_seem: \
       case CHORD_S_seem: \
-        last_chord_length = 4; \
         append = "seem"; \
         break; \
       case CHORD_how: \
       case CHORD_S_how: \
-        last_chord_length = 3; \
         append = "how"; \
         break; \
       case CHORD_high: \
       case CHORD_S_high: \
-        last_chord_length = 4; \
         append = "high"; \
         break; \
       case CHORD_too: \
       case CHORD_S_too: \
-        last_chord_length = 3; \
         append = "too"; \
         break; \
       case CHORD_place: \
       case CHORD_S_place: \
-        last_chord_length = 5; \
         append = "place"; \
         break; \
       case CHORD_little: \
       case CHORD_S_little: \
-        last_chord_length = 6; \
         append = "little"; \
         break; \
       case CHORD_world: \
       case CHORD_S_world: \
-        last_chord_length = 5; \
         append = "world"; \
         break; \
       case CHORD_very: \
       case CHORD_S_very: \
-        last_chord_length = 4; \
         append = "very"; \
         break; \
       case CHORD_still: \
       case CHORD_S_still: \
-        last_chord_length = 5; \
         append = "still"; \
         break; \
       case CHORD_nation: \
       case CHORD_S_nation: \
-        last_chord_length = 6; \
         append = "nation"; \
         break; \
       case CHORD_hand: \
       case CHORD_S_hand: \
-        last_chord_length = 4; \
         append = "hand"; \
         break; \
       case CHORD_old: \
       case CHORD_S_old: \
-        last_chord_length = 3; \
         append = "old"; \
         break; \
       case CHORD_life: \
       case CHORD_S_life: \
-        last_chord_length = 4; \
         append = "life"; \
         break; \
       case CHORD_tell: \
       case CHORD_S_tell: \
-        last_chord_length = 4; \
         append = "tell"; \
         break; \
       case CHORD_write: \
       case CHORD_S_write: \
-        last_chord_length = 5; \
         append = "write"; \
         break; \
       case CHORD_become: \
       case CHORD_S_become: \
-        last_chord_length = 6; \
         append = "become"; \
         break; \
       case CHORD_here: \
       case CHORD_S_here: \
-        last_chord_length = 4; \
         append = "here"; \
         break; \
       case CHORD_show: \
       case CHORD_S_show: \
-        last_chord_length = 4; \
         append = "show"; \
         break; \
       case CHORD_house: \
       case CHORD_S_house: \
-        last_chord_length = 5; \
         append = "house"; \
         break; \
       case CHORD_both: \
       case CHORD_S_both: \
-        last_chord_length = 4; \
         append = "both"; \
         break; \
       case CHORD_between: \
       case CHORD_S_between: \
-        last_chord_length = 7; \
         append = "between"; \
         break; \
       case CHORD_need: \
       case CHORD_S_need: \
-        last_chord_length = 4; \
         append = "need"; \
         break; \
       case CHORD_mean: \
       case CHORD_S_mean: \
-        last_chord_length = 4; \
         append = "mean"; \
         break; \
       case CHORD_call: \
       case CHORD_S_call: \
-        last_chord_length = 4; \
         append = "call"; \
         break; \
       case CHORD_develop: \
       case CHORD_S_develop: \
-        last_chord_length = 7; \
         append = "develop"; \
         break; \
       case CHORD_under: \
       case CHORD_S_under: \
-        last_chord_length = 5; \
         append = "under"; \
         break; \
       case CHORD_last: \
       case CHORD_S_last: \
-        last_chord_length = 4; \
         append = "last"; \
         break; \
       case CHORD_right: \
       case CHORD_S_right: \
-        last_chord_length = 5; \
         append = "right"; \
         break; \
       case CHORD_move: \
       case CHORD_S_move: \
-        last_chord_length = 4; \
         append = "move"; \
         break; \
       case CHORD_thing: \
       case CHORD_S_thing: \
-        last_chord_length = 5; \
         append = "thing"; \
         break; \
       case CHORD_general: \
       case CHORD_S_general: \
-        last_chord_length = 7; \
         append = "general"; \
         break; \
       case CHORD_school: \
       case CHORD_S_school: \
-        last_chord_length = 6; \
         append = "school"; \
         break; \
       case CHORD_never: \
       case CHORD_S_never: \
-        last_chord_length = 5; \
         append = "never"; \
         break; \
       case CHORD_same: \
       case CHORD_S_same: \
-        last_chord_length = 4; \
         append = "same"; \
         break; \
       case CHORD_another: \
       case CHORD_S_another: \
-        last_chord_length = 7; \
         append = "another"; \
         break; \
       case CHORD_begin: \
       case CHORD_S_begin: \
-        last_chord_length = 5; \
         append = "begin"; \
         break; \
       case CHORD_while: \
       case CHORD_S_while: \
-        last_chord_length = 5; \
         append = "while"; \
         break; \
       case CHORD_number: \
       case CHORD_S_number: \
-        last_chord_length = 6; \
         append = "number"; \
         break; \
       case CHORD_part: \
       case CHORD_S_part: \
-        last_chord_length = 4; \
         append = "part"; \
         break; \
       case CHORD_turn: \
       case CHORD_S_turn: \
-        last_chord_length = 4; \
         append = "turn"; \
         break; \
       case CHORD_real: \
       case CHORD_S_real: \
-        last_chord_length = 4; \
         append = "real"; \
         break; \
       case CHORD_leave: \
       case CHORD_S_leave: \
-        last_chord_length = 5; \
         append = "leave"; \
         break; \
       case CHORD_might: \
       case CHORD_S_might: \
-        last_chord_length = 5; \
         append = "might"; \
         break; \
       case CHORD_want: \
       case CHORD_S_want: \
-        last_chord_length = 4; \
         append = "want"; \
         break; \
       case CHORD_point: \
       case CHORD_S_point: \
-        last_chord_length = 5; \
         append = "point"; \
         break; \
       case CHORD_form: \
       case CHORD_S_form: \
-        last_chord_length = 4; \
         append = "form"; \
         break; \
       case CHORD_off: \
       case CHORD_S_off: \
-        last_chord_length = 3; \
         append = "off"; \
         break; \
       case CHORD_child: \
       case CHORD_S_child: \
-        last_chord_length = 5; \
         append = "child"; \
         break; \
       case CHORD_few: \
       case CHORD_S_few: \
-        last_chord_length = 3; \
         append = "few"; \
         break; \
       case CHORD_small: \
       case CHORD_S_small: \
-        last_chord_length = 5; \
         append = "small"; \
         break; \
       case CHORD_since: \
       case CHORD_S_since: \
-        last_chord_length = 5; \
         append = "since"; \
         break; \
       case CHORD_against: \
       case CHORD_S_against: \
-        last_chord_length = 7; \
         append = "against"; \
         break; \
       case CHORD_ask: \
       case CHORD_S_ask: \
-        last_chord_length = 3; \
         append = "ask"; \
         break; \
       case CHORD_late: \
       case CHORD_S_late: \
-        last_chord_length = 4; \
         append = "late"; \
         break; \
       case CHORD_home: \
       case CHORD_S_home: \
-        last_chord_length = 4; \
         append = "home"; \
         break; \
       case CHORD_interes: \
       case CHORD_S_interes: \
-        last_chord_length = 8; \
         append = "interest"; \
         break; \
       case CHORD_large: \
       case CHORD_S_large: \
-        last_chord_length = 5; \
         append = "large"; \
         break; \
       case CHORD_person: \
       case CHORD_S_person: \
-        last_chord_length = 6; \
         append = "person"; \
         break; \
       case CHORD_end: \
       case CHORD_S_end: \
-        last_chord_length = 3; \
         append = "end"; \
         break; \
       case CHORD_open: \
       case CHORD_S_open: \
-        last_chord_length = 4; \
         append = "open"; \
         break; \
       case CHORD_public: \
       case CHORD_S_public: \
-        last_chord_length = 6; \
         append = "public"; \
         break; \
       case CHORD_follow: \
       case CHORD_S_follow: \
-        last_chord_length = 6; \
         append = "follow"; \
         break; \
       case CHORD_during: \
       case CHORD_S_during: \
-        last_chord_length = 6; \
         append = "during"; \
         break; \
       case CHORD_present: \
       case CHORD_S_present: \
-        last_chord_length = 7; \
         append = "present"; \
         break; \
       case CHORD_without: \
       case CHORD_S_without: \
-        last_chord_length = 7; \
         append = "without"; \
         break; \
       case CHORD_again: \
       case CHORD_S_again: \
-        last_chord_length = 5; \
         append = "again"; \
         break; \
       case CHORD_hold: \
       case CHORD_S_hold: \
-        last_chord_length = 4; \
         append = "hold"; \
         break; \
       case CHORD_govern: \
       case CHORD_S_govern: \
-        last_chord_length = 6; \
         append = "govern"; \
         break; \
       case CHORD_around: \
       case CHORD_S_around: \
-        last_chord_length = 6; \
         append = "around"; \
         break; \
       case CHORD_possibl: \
       case CHORD_S_possibl: \
-        last_chord_length = 8; \
         append = "possible"; \
         break; \
       case CHORD_head: \
       case CHORD_S_head: \
-        last_chord_length = 4; \
         append = "head"; \
         break; \
       case CHORD_conside: \
       case CHORD_S_conside: \
-        last_chord_length = 8; \
         append = "consider"; \
         break; \
       case CHORD_word: \
       case CHORD_S_word: \
-        last_chord_length = 4; \
         append = "word"; \
         break; \
       case CHORD_program: \
       case CHORD_S_program: \
-        last_chord_length = 7; \
         append = "program"; \
         break; \
       case CHORD_problem: \
       case CHORD_S_problem: \
-        last_chord_length = 7; \
         append = "problem"; \
         break; \
       case CHORD_however: \
       case CHORD_S_however: \
-        last_chord_length = 7; \
         append = "however"; \
         break; \
       case CHORD_lead: \
       case CHORD_S_lead: \
-        last_chord_length = 4; \
         append = "lead"; \
         break; \
       case CHORD_system: \
       case CHORD_S_system: \
-        last_chord_length = 6; \
         append = "system"; \
         break; \
       case CHORD_set: \
       case CHORD_S_set: \
-        last_chord_length = 3; \
         append = "set"; \
         break; \
       case CHORD_order: \
       case CHORD_S_order: \
-        last_chord_length = 5; \
         append = "order"; \
         break; \
       case CHORD_eye: \
       case CHORD_S_eye: \
-        last_chord_length = 3; \
         append = "eye"; \
         break; \
       case CHORD_plan: \
       case CHORD_S_plan: \
-        last_chord_length = 4; \
         append = "plan"; \
         break; \
       case CHORD_run: \
       case CHORD_S_run: \
-        last_chord_length = 3; \
         append = "run"; \
         break; \
       case CHORD_keep: \
       case CHORD_S_keep: \
-        last_chord_length = 4; \
         append = "keep"; \
         break; \
       case CHORD_face: \
       case CHORD_S_face: \
-        last_chord_length = 4; \
         append = "face"; \
         break; \
       case CHORD_fact: \
       case CHORD_S_fact: \
-        last_chord_length = 4; \
         append = "fact"; \
         break; \
       case CHORD_group: \
       case CHORD_S_group: \
-        last_chord_length = 5; \
         append = "group"; \
         break; \
       case CHORD_play: \
       case CHORD_S_play: \
-        last_chord_length = 4; \
         append = "play"; \
         break; \
       case CHORD_stand: \
       case CHORD_S_stand: \
-        last_chord_length = 5; \
         append = "stand"; \
         break; \
       case CHORD_increas: \
       case CHORD_S_increas: \
-        last_chord_length = 8; \
         append = "increase"; \
         break; \
       case CHORD_early: \
       case CHORD_S_early: \
-        last_chord_length = 5; \
         append = "early"; \
         break; \
       case CHORD_course: \
       case CHORD_S_course: \
-        last_chord_length = 6; \
         append = "course"; \
         break; \
       case CHORD_change: \
       case CHORD_S_change: \
-        last_chord_length = 6; \
         append = "change"; \
         break; \
       case CHORD_help: \
       case CHORD_S_help: \
-        last_chord_length = 4; \
         append = "help"; \
         break; \
       case CHORD_line: \
       case CHORD_S_line: \
-        last_chord_length = 4; \
         append = "line"; \
         break; \
       case CHORD_his: \
       case CHORD_S_his: \
-        last_chord_length = 3; \
         append = "his"; \
         break; \
       case CHORD_her: \
       case CHORD_S_her: \
-        last_chord_length = 3; \
         append = "her"; \
         break; \
       case CHORD_an: \
       case CHORD_S_an: \
-        last_chord_length = 2; \
         append = "an"; \
         break; \
       case CHORD_my: \
       case CHORD_S_my: \
-        last_chord_length = 2; \
         append = "my"; \
         break; \
       case CHORD_their: \
       case CHORD_S_their: \
-        last_chord_length = 5; \
         append = "their"; \
         break; \
       case CHORD_me: \
       case CHORD_S_me: \
-        last_chord_length = 2; \
         append = "me"; \
         break; \
       case CHORD_him: \
       case CHORD_S_him: \
-        last_chord_length = 3; \
         append = "him"; \
         break; \
       case CHORD_your: \
       case CHORD_S_your: \
-        last_chord_length = 4; \
         append = "your"; \
         break; \
       case CHORD_its: \
       case CHORD_S_its: \
-        last_chord_length = 3; \
         append = "its"; \
         break; \
       case CHORD_two: \
       case CHORD_S_two: \
-        last_chord_length = 3; \
         append = "two"; \
         break; \
       case CHORD_our: \
       case CHORD_S_our: \
-        last_chord_length = 3; \
         append = "our"; \
         break; \
       case CHORD_us: \
       case CHORD_S_us: \
-        last_chord_length = 2; \
         append = "us"; \
         break; \
       case CHORD_is: \
       case CHORD_S_is: \
-        last_chord_length = 2; \
         append = "is"; \
         break; \
       case CHORD_was: \
       case CHORD_S_was: \
-        last_chord_length = 3; \
         append = "was"; \
         break; \
       case CHORD_are: \
       case CHORD_S_are: \
-        last_chord_length = 3; \
         append = "are"; \
         break; \
       case CHORD_had: \
       case CHORD_S_had: \
-        last_chord_length = 3; \
         append = "had"; \
         break; \
       case CHORD_were: \
       case CHORD_S_were: \
-        last_chord_length = 4; \
         append = "were"; \
         break; \
       case CHORD_said: \
       case CHORD_S_said: \
-        last_chord_length = 4; \
         append = "said"; \
         break; \
       case CHORD_has: \
       case CHORD_S_has: \
-        last_chord_length = 3; \
         append = "has"; \
         break; \
       case CHORD_sound: \
       case CHORD_S_sound: \
-        last_chord_length = 5; \
         append = "sound"; \
         break; \
       case CHORD_water: \
       case CHORD_S_water: \
-        last_chord_length = 5; \
         append = "water"; \
         break; \
       case CHORD_side: \
       case CHORD_S_side: \
-        last_chord_length = 4; \
         append = "side"; \
         break; \
       case CHORD_made: \
       case CHORD_S_made: \
-        last_chord_length = 4; \
         append = "made"; \
         break; \
       case CHORD_live: \
       case CHORD_S_live: \
-        last_chord_length = 4; \
         append = "live"; \
         break; \
       case CHORD_round: \
       case CHORD_S_round: \
-        last_chord_length = 5; \
         append = "round"; \
         break; \
       case CHORD_came: \
       case CHORD_S_came: \
-        last_chord_length = 4; \
         append = "came"; \
         break; \
       case CHORD_every: \
       case CHORD_S_every: \
-        last_chord_length = 5; \
         append = "every"; \
         break; \
       case CHORD_name: \
       case CHORD_S_name: \
-        last_chord_length = 4; \
         append = "name"; \
         break; \
       case CHORD_sentenc: \
       case CHORD_S_sentenc: \
-        last_chord_length = 8; \
         append = "sentence"; \
         break; \
       case CHORD_low: \
       case CHORD_S_low: \
-        last_chord_length = 3; \
         append = "low"; \
         break; \
       case CHORD_differ: \
       case CHORD_S_differ: \
-        last_chord_length = 6; \
         append = "differ"; \
         break; \
       case CHORD_cause: \
       case CHORD_S_cause: \
-        last_chord_length = 5; \
         append = "cause"; \
         break; \
       case CHORD_boy: \
       case CHORD_S_boy: \
-        last_chord_length = 3; \
         append = "boy"; \
         break; \
       case CHORD_does: \
       case CHORD_S_does: \
-        last_chord_length = 4; \
         append = "does"; \
         break; \
       case CHORD_air: \
       case CHORD_S_air: \
-        last_chord_length = 3; \
         append = "air"; \
         break; \
       case CHORD_put: \
       case CHORD_S_put: \
-        last_chord_length = 3; \
         append = "put"; \
         break; \
       case CHORD_port: \
       case CHORD_S_port: \
-        last_chord_length = 4; \
         append = "port"; \
         break; \
       case CHORD_spell: \
       case CHORD_S_spell: \
-        last_chord_length = 5; \
         append = "spell"; \
         break; \
       case CHORD_land: \
       case CHORD_S_land: \
-        last_chord_length = 4; \
         append = "land"; \
         break; \
       case CHORD_big: \
       case CHORD_S_big: \
-        last_chord_length = 3; \
         append = "big"; \
         break; \
       case CHORD_act: \
       case CHORD_S_act: \
-        last_chord_length = 3; \
         append = "act"; \
         break; \
       case CHORD_why: \
       case CHORD_S_why: \
-        last_chord_length = 3; \
         append = "why"; \
         break; \
       case CHORD_men: \
       case CHORD_S_men: \
-        last_chord_length = 3; \
         append = "men"; \
         break; \
       case CHORD_went: \
       case CHORD_S_went: \
-        last_chord_length = 4; \
         append = "went"; \
         break; \
       case CHORD_light: \
       case CHORD_S_light: \
-        last_chord_length = 5; \
         append = "light"; \
         break; \
       case CHORD_kind: \
       case CHORD_S_kind: \
-        last_chord_length = 4; \
         append = "kind"; \
         break; \
       case CHORD_picture: \
       case CHORD_S_picture: \
-        last_chord_length = 7; \
         append = "picture"; \
         break; \
       case CHORD_try: \
       case CHORD_S_try: \
-        last_chord_length = 3; \
         append = "try"; \
         break; \
       case CHORD_animal: \
       case CHORD_S_animal: \
-        last_chord_length = 6; \
         append = "animal"; \
         break; \
       case CHORD_mother: \
       case CHORD_S_mother: \
-        last_chord_length = 6; \
         append = "mother"; \
         break; \
       case CHORD_build: \
       case CHORD_S_build: \
-        last_chord_length = 5; \
         append = "build"; \
         break; \
       case CHORD_self: \
       case CHORD_S_self: \
-        last_chord_length = 4; \
         append = "self"; \
         break; \
       case CHORD_earth: \
       case CHORD_S_earth: \
-        last_chord_length = 5; \
         append = "earth"; \
         break; \
       case CHORD_father: \
       case CHORD_S_father: \
-        last_chord_length = 6; \
         append = "father"; \
         break; \
       case CHORD_page: \
       case CHORD_S_page: \
-        last_chord_length = 4; \
         append = "page"; \
         break; \
       case CHORD_country: \
       case CHORD_S_country: \
-        last_chord_length = 7; \
         append = "country"; \
         break; \
       case CHORD_found: \
       case CHORD_S_found: \
-        last_chord_length = 5; \
         append = "found"; \
         break; \
       case CHORD_answer: \
       case CHORD_S_answer: \
-        last_chord_length = 6; \
         append = "answer"; \
         break; \
       case CHORD_grow: \
       case CHORD_S_grow: \
-        last_chord_length = 4; \
         append = "grow"; \
         break; \
       case CHORD_study: \
       case CHORD_S_study: \
-        last_chord_length = 5; \
         append = "study"; \
         break; \
       case CHORD_learn: \
       case CHORD_S_learn: \
-        last_chord_length = 5; \
         append = "learn"; \
         break; \
       case CHORD_plant: \
       case CHORD_S_plant: \
-        last_chord_length = 5; \
         append = "plant"; \
         break; \
       case CHORD_cover: \
       case CHORD_S_cover: \
-        last_chord_length = 5; \
         append = "cover"; \
         break; \
       case CHORD_food: \
       case CHORD_S_food: \
-        last_chord_length = 4; \
         append = "food"; \
         break; \
       case CHORD_sun: \
       case CHORD_S_sun: \
-        last_chord_length = 3; \
         append = "sun"; \
         break; \
       case CHORD_four: \
       case CHORD_S_four: \
-        last_chord_length = 4; \
         append = "four"; \
         break; \
       case CHORD_thought: \
       case CHORD_S_thought: \
-        last_chord_length = 7; \
         append = "thought"; \
         break; \
       case CHORD_city: \
       case CHORD_S_city: \
-        last_chord_length = 4; \
         append = "city"; \
         break; \
       case CHORD_cross: \
       case CHORD_S_cross: \
-        last_chord_length = 5; \
         append = "cross"; \
         break; \
       case CHORD_hard: \
       case CHORD_S_hard: \
-        last_chord_length = 4; \
         append = "hard"; \
         break; \
       case CHORD_far: \
       case CHORD_S_far: \
-        last_chord_length = 3; \
         append = "far"; \
         break; \
       case CHORD_sea: \
       case CHORD_S_sea: \
-        last_chord_length = 3; \
         append = "sea"; \
         break; \
       case CHORD_draw: \
       case CHORD_S_draw: \
-        last_chord_length = 4; \
         append = "draw"; \
         break; \
       case CHORD_left: \
       case CHORD_S_left: \
-        last_chord_length = 4; \
         append = "left"; \
         break; \
       case CHORD_press: \
       case CHORD_S_press: \
-        last_chord_length = 5; \
         append = "press"; \
         break; \
       case CHORD_close: \
       case CHORD_S_close: \
-        last_chord_length = 5; \
         append = "close"; \
         break; \
       case CHORD_night: \
       case CHORD_S_night: \
-        last_chord_length = 5; \
         append = "night"; \
         break; \
       case CHORD_north: \
       case CHORD_S_north: \
-        last_chord_length = 5; \
         append = "north"; \
         break; \
       case CHORD_togethe: \
       case CHORD_S_togethe: \
-        last_chord_length = 8; \
         append = "together"; \
         break; \
       case CHORD_next: \
       case CHORD_S_next: \
-        last_chord_length = 4; \
         append = "next"; \
         break; \
       case CHORD_white: \
       case CHORD_S_white: \
-        last_chord_length = 5; \
         append = "white"; \
         break; \
       case CHORD_childre: \
       case CHORD_S_childre: \
-        last_chord_length = 8; \
         append = "children"; \
         break; \
       case CHORD_got: \
       case CHORD_S_got: \
-        last_chord_length = 3; \
         append = "got"; \
         break; \
       case CHORD_walk: \
       case CHORD_S_walk: \
-        last_chord_length = 4; \
         append = "walk"; \
         break; \
       case CHORD_example: \
       case CHORD_S_example: \
-        last_chord_length = 7; \
         append = "example"; \
         break; \
       case CHORD_always: \
       case CHORD_S_always: \
-        last_chord_length = 6; \
         append = "always"; \
         break; \
       case CHORD_music: \
       case CHORD_S_music: \
-        last_chord_length = 5; \
         append = "music"; \
         break; \
       case CHORD_mark: \
       case CHORD_S_mark: \
-        last_chord_length = 4; \
         append = "mark"; \
         break; \
       case CHORD_often: \
       case CHORD_S_often: \
-        last_chord_length = 5; \
         append = "often"; \
         break; \
       case CHORD_letter: \
       case CHORD_S_letter: \
-        last_chord_length = 6; \
         append = "letter"; \
         break; \
       case CHORD_until: \
       case CHORD_S_until: \
-        last_chord_length = 5; \
         append = "until"; \
         break; \
       case CHORD_mile: \
       case CHORD_S_mile: \
-        last_chord_length = 4; \
         append = "mile"; \
         break; \
       case CHORD_river: \
       case CHORD_S_river: \
-        last_chord_length = 5; \
         append = "river"; \
         break; \
       case CHORD_car: \
       case CHORD_S_car: \
-        last_chord_length = 3; \
         append = "car"; \
         break; \
       case CHORD_feet: \
       case CHORD_S_feet: \
-        last_chord_length = 4; \
         append = "feet"; \
         break; \
       case CHORD_care: \
       case CHORD_S_care: \
-        last_chord_length = 4; \
         append = "care"; \
         break; \
       case CHORD_second: \
       case CHORD_S_second: \
-        last_chord_length = 6; \
         append = "second"; \
         break; \
       case CHORD_carry: \
       case CHORD_S_carry: \
-        last_chord_length = 5; \
         append = "carry"; \
         break; \
       case CHORD_science: \
       case CHORD_S_science: \
-        last_chord_length = 7; \
         append = "science"; \
         break; \
       case CHORD_eat: \
       case CHORD_S_eat: \
-        last_chord_length = 3; \
         append = "eat"; \
         break; \
       case CHORD_friend: \
       case CHORD_S_friend: \
-        last_chord_length = 6; \
         append = "friend"; \
         break; \
       case CHORD_began: \
       case CHORD_S_began: \
-        last_chord_length = 5; \
         append = "began"; \
         break; \
       case CHORD_idea: \
       case CHORD_S_idea: \
-        last_chord_length = 4; \
         append = "idea"; \
         break; \
       case CHORD_fish: \
       case CHORD_S_fish: \
-        last_chord_length = 4; \
         append = "fish"; \
         break; \
       case CHORD_mountai: \
       case CHORD_S_mountai: \
-        last_chord_length = 8; \
         append = "mountain"; \
         break; \
       case CHORD_stop: \
       case CHORD_S_stop: \
-        last_chord_length = 4; \
         append = "stop"; \
         break; \
       case CHORD_once: \
       case CHORD_S_once: \
-        last_chord_length = 4; \
         append = "once"; \
         break; \
       case CHORD_base: \
       case CHORD_S_base: \
-        last_chord_length = 4; \
         append = "base"; \
         break; \
       case CHORD_horse: \
       case CHORD_S_horse: \
-        last_chord_length = 5; \
         append = "horse"; \
         break; \
       case CHORD_cut: \
       case CHORD_S_cut: \
-        last_chord_length = 3; \
         append = "cut"; \
         break; \
       case CHORD_sure: \
       case CHORD_S_sure: \
-        last_chord_length = 4; \
         append = "sure"; \
         break; \
       case CHORD_watch: \
       case CHORD_S_watch: \
-        last_chord_length = 5; \
         append = "watch"; \
         break; \
       case CHORD_color: \
       case CHORD_S_color: \
-        last_chord_length = 5; \
         append = "color"; \
         break; \
       case CHORD_wood: \
       case CHORD_S_wood: \
-        last_chord_length = 4; \
         append = "wood"; \
         break; \
       case CHORD_main: \
       case CHORD_S_main: \
-        last_chord_length = 4; \
         append = "main"; \
         break; \
       case CHORD_enough: \
       case CHORD_S_enough: \
-        last_chord_length = 6; \
         append = "enough"; \
         break; \
       case CHORD_plain: \
       case CHORD_S_plain: \
-        last_chord_length = 5; \
         append = "plain"; \
         break; \
       case CHORD_girl: \
       case CHORD_S_girl: \
-        last_chord_length = 4; \
         append = "girl"; \
         break; \
       case CHORD_usual: \
       case CHORD_S_usual: \
-        last_chord_length = 5; \
         append = "usual"; \
         break; \
       case CHORD_young: \
       case CHORD_S_young: \
-        last_chord_length = 5; \
         append = "young"; \
         break; \
       case CHORD_ready: \
       case CHORD_S_ready: \
-        last_chord_length = 5; \
         append = "ready"; \
         break; \
       case CHORD_above: \
       case CHORD_S_above: \
-        last_chord_length = 5; \
         append = "above"; \
         break; \
       case CHORD_red: \
       case CHORD_S_red: \
-        last_chord_length = 3; \
         append = "red"; \
         break; \
       case CHORD_list: \
       case CHORD_S_list: \
-        last_chord_length = 4; \
         append = "list"; \
         break; \
       case CHORD_though: \
       case CHORD_S_though: \
-        last_chord_length = 6; \
         append = "though"; \
         break; \
       case CHORD_bird: \
       case CHORD_S_bird: \
-        last_chord_length = 4; \
         append = "bird"; \
         break; \
       case CHORD_body: \
       case CHORD_S_body: \
-        last_chord_length = 4; \
         append = "body"; \
         break; \
       case CHORD_family: \
       case CHORD_S_family: \
-        last_chord_length = 6; \
         append = "family"; \
         break; \
       case CHORD_direct: \
       case CHORD_S_direct: \
-        last_chord_length = 6; \
         append = "direct"; \
         break; \
       case CHORD_pose: \
       case CHORD_S_pose: \
-        last_chord_length = 4; \
         append = "pose"; \
         break; \
       case CHORD_song: \
       case CHORD_S_song: \
-        last_chord_length = 4; \
         append = "song"; \
         break; \
       case CHORD_measure: \
       case CHORD_S_measure: \
-        last_chord_length = 7; \
         append = "measure"; \
         break; \
       case CHORD_product: \
       case CHORD_S_product: \
-        last_chord_length = 7; \
         append = "product"; \
         break; \
       case CHORD_black: \
       case CHORD_S_black: \
-        last_chord_length = 5; \
         append = "black"; \
         break; \
       case CHORD_short: \
       case CHORD_S_short: \
-        last_chord_length = 5; \
         append = "short"; \
         break; \
       case CHORD_numeral: \
       case CHORD_S_numeral: \
-        last_chord_length = 7; \
         append = "numeral"; \
         break; \
       case CHORD_class: \
       case CHORD_S_class: \
-        last_chord_length = 5; \
         append = "class"; \
         break; \
       case CHORD_wind: \
       case CHORD_S_wind: \
-        last_chord_length = 4; \
         append = "wind"; \
         break; \
       case CHORD_questio: \
       case CHORD_S_questio: \
-        last_chord_length = 8; \
         append = "question"; \
         break; \
       case CHORD_happen: \
       case CHORD_S_happen: \
-        last_chord_length = 6; \
         append = "happen"; \
         break; \
       case CHORD_complet: \
       case CHORD_S_complet: \
-        last_chord_length = 8; \
         append = "complete"; \
         break; \
       case CHORD_ship: \
       case CHORD_S_ship: \
-        last_chord_length = 4; \
         append = "ship"; \
         break; \
       case CHORD_half: \
       case CHORD_S_half: \
-        last_chord_length = 4; \
         append = "half"; \
         break; \
       case CHORD_rock: \
       case CHORD_S_rock: \
-        last_chord_length = 4; \
         append = "rock"; \
         break; \
       case CHORD_fire: \
       case CHORD_S_fire: \
-        last_chord_length = 4; \
         append = "fire"; \
         break; \
       case CHORD_south: \
       case CHORD_S_south: \
-        last_chord_length = 5; \
         append = "south"; \
         break; \
       case CHORD_told: \
       case CHORD_S_told: \
-        last_chord_length = 4; \
         append = "told"; \
         break; \
       case CHORD_knew: \
       case CHORD_S_knew: \
-        last_chord_length = 4; \
         append = "knew"; \
         break; \
       case CHORD_pass: \
       case CHORD_S_pass: \
-        last_chord_length = 4; \
         append = "pass"; \
         break; \
       case CHORD_top: \
       case CHORD_S_top: \
-        last_chord_length = 3; \
         append = "top"; \
         break; \
       case CHORD_whole: \
       case CHORD_S_whole: \
-        last_chord_length = 5; \
         append = "whole"; \
         break; \
       case CHORD_space: \
       case CHORD_S_space: \
-        last_chord_length = 5; \
         append = "space"; \
         break; \
       case CHORD_best: \
       case CHORD_S_best: \
-        last_chord_length = 4; \
         append = "best"; \
         break; \
       case CHORD_hour: \
       case CHORD_S_hour: \
-        last_chord_length = 4; \
         append = "hour"; \
         break; \
       case CHORD_better: \
       case CHORD_S_better: \
-        last_chord_length = 6; \
         append = "better"; \
         break; \
       case CHORD_true: \
       case CHORD_S_true: \
-        last_chord_length = 4; \
         append = "true"; \
         break; \
       case CHORD_hundred: \
       case CHORD_S_hundred: \
-        last_chord_length = 7; \
         append = "hundred"; \
         break; \
       case CHORD_five: \
       case CHORD_S_five: \
-        last_chord_length = 4; \
         append = "five"; \
         break; \
       case CHORD_six: \
       case CHORD_S_six: \
-        last_chord_length = 3; \
         append = "six"; \
         break; \
       case CHORD_war: \
       case CHORD_S_war: \
-        last_chord_length = 3; \
         append = "war"; \
         break; \
       case CHORD_lay: \
       case CHORD_S_lay: \
-        last_chord_length = 3; \
         append = "lay"; \
         break; \
       case CHORD_map: \
       case CHORD_S_map: \
-        last_chord_length = 3; \
         append = "map"; \
         break; \
       case CHORD_fly: \
       case CHORD_S_fly: \
-        last_chord_length = 3; \
         append = "fly"; \
         break; \
       case CHORD_fall: \
       case CHORD_S_fall: \
-        last_chord_length = 4; \
         append = "fall"; \
         break; \
       case CHORD_cry: \
       case CHORD_S_cry: \
-        last_chord_length = 3; \
         append = "cry"; \
         break; \
       case CHORD_box: \
       case CHORD_S_box: \
-        last_chord_length = 3; \
         append = "box"; \
         break; \
       case CHORD_noun: \
       case CHORD_S_noun: \
-        last_chord_length = 4; \
         append = "noun"; \
         break; \
       case CHORD_week: \
       case CHORD_S_week: \
-        last_chord_length = 4; \
         append = "week"; \
         break; \
       case CHORD_oh: \
       case CHORD_S_oh: \
-        last_chord_length = 2; \
         append = "oh"; \
         break; \
       case CHORD_free: \
       case CHORD_S_free: \
-        last_chord_length = 4; \
         append = "free"; \
         break; \
       case CHORD_dry: \
       case CHORD_S_dry: \
-        last_chord_length = 3; \
         append = "dry"; \
         break; \
       case CHORD_ago: \
       case CHORD_S_ago: \
-        last_chord_length = 3; \
         append = "ago"; \
         break; \
       case CHORD_ran: \
       case CHORD_S_ran: \
-        last_chord_length = 3; \
         append = "ran"; \
         break; \
       case CHORD_hot: \
       case CHORD_S_hot: \
-        last_chord_length = 3; \
         append = "hot"; \
         break; \
       case CHORD_ball: \
       case CHORD_S_ball: \
-        last_chord_length = 4; \
         append = "ball"; \
         break; \
       case CHORD_yet: \
       case CHORD_S_yet: \
-        last_chord_length = 3; \
         append = "yet"; \
         break; \
       case CHORD_am: \
       case CHORD_S_am: \
-        last_chord_length = 2; \
         append = "am"; \
         break; \
       case CHORD_arm: \
       case CHORD_S_arm: \
-        last_chord_length = 3; \
         append = "arm"; \
         break; \
       case CHORD_ice: \
       case CHORD_S_ice: \
-        last_chord_length = 3; \
         append = "ice"; \
         break; \
       case CHORD_matter: \
       case CHORD_S_matter: \
-        last_chord_length = 6; \
         append = "matter"; \
         break; \
       case CHORD_art: \
       case CHORD_S_art: \
-        last_chord_length = 3; \
         append = "art"; \
         break; \
       case CHORD_cell: \
       case CHORD_S_cell: \
-        last_chord_length = 4; \
         append = "cell"; \
         break; \
       case CHORD_summer: \
       case CHORD_S_summer: \
-        last_chord_length = 6; \
         append = "summer"; \
         break; \
       case CHORD_leg: \
       case CHORD_S_leg: \
-        last_chord_length = 3; \
         append = "leg"; \
         break; \
       case CHORD_joy: \
       case CHORD_S_joy: \
-        last_chord_length = 3; \
         append = "joy"; \
         break; \
       case CHORD_job: \
       case CHORD_S_job: \
-        last_chord_length = 3; \
         append = "job"; \
         break; \
       case CHORD_gas: \
       case CHORD_S_gas: \
-        last_chord_length = 3; \
         append = "gas"; \
         break; \
       case CHORD_buy: \
       case CHORD_S_buy: \
-        last_chord_length = 3; \
         append = "buy"; \
         break; \
       case CHORD_cook: \
       case CHORD_S_cook: \
-        last_chord_length = 4; \
         append = "cook"; \
         break; \
       case CHORD_hill: \
       case CHORD_S_hill: \
-        last_chord_length = 4; \
         append = "hill"; \
         break; \
       case CHORD_law: \
       case CHORD_S_law: \
-        last_chord_length = 3; \
         append = "law"; \
         break; \
       case CHORD_lie: \
       case CHORD_S_lie: \
-        last_chord_length = 3; \
         append = "lie"; \
         break; \
       case CHORD_son: \
       case CHORD_S_son: \
-        last_chord_length = 3; \
         append = "son"; \
         break; \
       case CHORD_pay: \
       case CHORD_S_pay: \
-        last_chord_length = 3; \
         append = "pay"; \
         break; \
       case CHORD_age: \
       case CHORD_S_age: \
-        last_chord_length = 3; \
         append = "age"; \
         break; \
       case CHORD_cool: \
       case CHORD_S_cool: \
-        last_chord_length = 4; \
         append = "cool"; \
         break; \
       case CHORD_lot: \
       case CHORD_S_lot: \
-        last_chord_length = 3; \
         append = "lot"; \
         break; \
       case CHORD_key: \
       case CHORD_S_key: \
-        last_chord_length = 3; \
         append = "key"; \
         break; \
       case CHORD_row: \
       case CHORD_S_row: \
-        last_chord_length = 3; \
         append = "row"; \
         break; \
       case CHORD_die: \
       case CHORD_S_die: \
-        last_chord_length = 3; \
         append = "die"; \
         break; \
       case CHORD_oil: \
       case CHORD_S_oil: \
-        last_chord_length = 3; \
         append = "oil"; \
         break; \
       case CHORD_fit: \
       case CHORD_S_fit: \
-        last_chord_length = 3; \
         append = "fit"; \
         break; \
       case CHORD_hit: \
       case CHORD_S_hit: \
-        last_chord_length = 3; \
         append = "hit"; \
         break; \
       case CHORD_rub: \
       case CHORD_S_rub: \
-        last_chord_length = 3; \
         append = "rub"; \
         break; \
       case CHORD_tie: \
       case CHORD_S_tie: \
-        last_chord_length = 3; \
         append = "tie"; \
         break; \
       case CHORD_gun: \
       case CHORD_S_gun: \
-        last_chord_length = 3; \
         append = "gun"; \
         break; \
       case CHORD_nine: \
       case CHORD_S_nine: \
-        last_chord_length = 4; \
         append = "nine"; \
         break; \
       case CHORD_thank: \
       case CHORD_S_thank: \
-        last_chord_length = 5; \
         append = "thank"; \
         break; \
       case CHORD_experie: \
       case CHORD_S_experie: \
-        last_chord_length = 10; \
         append = "experience"; \
         break; \
       case CHORD_led: \
       case CHORD_S_led: \
-        last_chord_length = 3; \
         append = "led"; \
         break; \
       case CHORD_win: \
       case CHORD_S_win: \
-        last_chord_length = 3; \
         append = "win"; \
         break; \
       case CHORD_feed: \
       case CHORD_S_feed: \
-        last_chord_length = 4; \
         append = "feed"; \
         break; \
       case CHORD_nor: \
       case CHORD_S_nor: \
-        last_chord_length = 3; \
         append = "nor"; \
         break; \
       case CHORD_fat: \
       case CHORD_S_fat: \
-        last_chord_length = 3; \
         append = "fat"; \
         break; \
       case CHORD_bar: \
       case CHORD_S_bar: \
-        last_chord_length = 3; \
         append = "bar"; \
         break; \
       case CHORD_log: \
       case CHORD_S_log: \
-        last_chord_length = 3; \
         append = "log"; \
         break; \
       case CHORD_hey: \
       case CHORD_S_hey: \
-        last_chord_length = 3; \
         append = "hey"; \
         break; \
       case CHORD_return: \
       case CHORD_S_return: \
-        last_chord_length = 6; \
         append = "return"; \
         break; \
       case CHORD_probabl: \
       case CHORD_S_probabl: \
-        last_chord_length = 8; \
         append = "probably"; \
         break; \
       case CHORD_thanks: \
       case CHORD_S_thanks: \
-        last_chord_length = 6; \
         append = "thanks"; \
         break; \
       case CHORD_i_ve: \
@@ -5113,82 +4711,66 @@ bool chord_shifted;
         break; \
       case CHORD_per: \
       case CHORD_S_per: \
-        last_chord_length = 3; \
         append = "per"; \
         break; \
       case CHORD_null: \
       case CHORD_S_null: \
-        last_chord_length = 4; \
         append = "null"; \
         break; \
       case CHORD_nil: \
       case CHORD_S_nil: \
-        last_chord_length = 3; \
         append = "nil"; \
         break; \
       case CHORD_array: \
       case CHORD_S_array: \
-        last_chord_length = 5; \
         append = "array"; \
         break; \
       case CHORD_sort: \
       case CHORD_S_sort: \
-        last_chord_length = 4; \
         append = "sort"; \
         break; \
       case CHORD_in_the: \
       case CHORD_S_in_the: \
-        last_chord_length = 6; \
         append = "in the"; \
         break; \
       case CHORD_of_the: \
       case CHORD_S_of_the: \
-        last_chord_length = 6; \
         append = "of the"; \
         break; \
       case CHORD_to_be: \
       case CHORD_S_to_be: \
-        last_chord_length = 5; \
         append = "to be"; \
         break; \
       case CHORD_to_the: \
       case CHORD_S_to_the: \
-        last_chord_length = 6; \
         append = "to the"; \
         break; \
       case CHORD_and_the: \
       case CHORD_S_and_the: \
-        last_chord_length = 7; \
         append = "and the"; \
         break; \
       case CHORD_and_i: \
       case CHORD_S_and_i: \
-        last_chord_length = 5; \
         append = "and I"; \
         break; \
       case CHORD_on_the: \
       case CHORD_S_on_the: \
-        last_chord_length = 6; \
         append = "on the"; \
         break; \
       case CHORD_it_is: \
       case CHORD_S_it_is: \
-        last_chord_length = 5; \
         append = "it is"; \
         break; \
       case CHORD_if_you: \
       case CHORD_S_if_you: \
-        last_chord_length = 6; \
         append = "if you"; \
         break; \
       case CHORD_the_wor: \
       case CHORD_S_the_wor: \
-        last_chord_length = 9; \
         append = "the world"; \
         break; \
       case CHORD_in_a: \
       case CHORD_S_in_a: \
-        last_chord_length = 4; \
         append = "in a"; \
         break; \
       case CHORD_the_qui: \
@@ -5229,11 +4811,13 @@ bool chord_shifted;
       case CHORD_delete_: \
       case CHORD_left_cl: \
         space = false; \
+        last_chord_length = prev_chord_length; \
         scheduleTimer = true; \
         break; \
       PERSONAL_TAP_CASES \
       default: \
         space = false; \
+        last_chord_length = prev_chord_length; \
         break; \
     } \
    \
@@ -5242,6 +4826,7 @@ bool chord_shifted;
         add_oneshot_mods(MOD_MASK_SHIFT); \
       } \
       SEND_STRING(append); \
+      last_chord_length += strlen(append); \
     } \
    \
     if (space) { \
@@ -5258,8 +4843,9 @@ bool chord_shifted;
     set_mods(mods); \
    \
     return; \
-  } \
-   \
+  }
+
+#define CHORD_FUNC_DUP \
   uint8_t process_chord_dup(uint16_t last_chord, uint8_t last_chord_cycle) { \
     uint8_t next_chord_cycle = last_chord_cycle + 1; \
     uint8_t backspaces = 0; \
@@ -5277,17 +4863,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 3; \
-            last_chord_length = 3; \
             append = "d"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 6; \
             append = "ving"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
             append = "e"; \
           break; \
@@ -5299,12 +4882,10 @@ bool chord_shifted;
           switch(last_chord_cycle) { \
             case 0: \
               backspaces = 3; \
-              last_chord_length = 4; \
               append = "Them"; \
             break; \
             case 1: \
               backspaces = 5; \
-              last_chord_length = 2; \
               next_chord_cycle = 0; \
               append = "It"; \
             break; \
@@ -5313,12 +4894,10 @@ bool chord_shifted;
           switch(last_chord_cycle) { \
             case 0: \
               backspaces = 3; \
-              last_chord_length = 4; \
               append = "them"; \
             break; \
             case 1: \
               backspaces = 5; \
-              last_chord_length = 2; \
               next_chord_cycle = 0; \
               append = "it"; \
             break; \
@@ -5330,12 +4909,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 3; \
-            last_chord_length = 5; \
             append = "ose"; \
           break; \
           case 1: \
             backspaces = 4; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
             append = "at"; \
           break; \
@@ -5345,12 +4922,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 2; \
-            last_chord_length = 2; \
             append = "we"; \
           break; \
           case 1: \
             backspaces = 3; \
-            last_chord_length = 1; \
             next_chord_cycle = 0; \
             append = "I"; \
           break; \
@@ -5362,12 +4937,10 @@ bool chord_shifted;
           switch(last_chord_cycle) { \
             case 0: \
               backspaces = 4; \
-              last_chord_length = 4; \
               append = "They"; \
             break; \
             case 1: \
               backspaces = 5; \
-              last_chord_length = 3; \
               next_chord_cycle = 0; \
               append = "She"; \
             break; \
@@ -5376,12 +4949,10 @@ bool chord_shifted;
           switch(last_chord_cycle) { \
             case 0: \
               backspaces = 4; \
-              last_chord_length = 4; \
               append = "they"; \
             break; \
             case 1: \
               backspaces = 5; \
-              last_chord_length = 3; \
               next_chord_cycle = 0; \
               append = "she"; \
             break; \
@@ -5393,12 +4964,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 3; \
-            last_chord_length = 5; \
             append = "ese"; \
           break; \
           case 1: \
             backspaces = 4; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
             append = "is"; \
           break; \
@@ -5410,12 +4979,10 @@ bool chord_shifted;
           switch(last_chord_cycle) { \
             case 0: \
               backspaces = 3; \
-              last_chord_length = 1; \
               append = "I"; \
             break; \
             case 1: \
               backspaces = 2; \
-              last_chord_length = 2; \
               next_chord_cycle = 0; \
               append = "We"; \
             break; \
@@ -5424,12 +4991,10 @@ bool chord_shifted;
           switch(last_chord_cycle) { \
             case 0: \
               backspaces = 3; \
-              last_chord_length = 1; \
               append = "I"; \
             break; \
             case 1: \
               backspaces = 2; \
-              last_chord_length = 2; \
               next_chord_cycle = 0; \
               append = "we"; \
             break; \
@@ -5441,17 +5006,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 2; \
-            last_chord_length = 3; \
             append = "id"; \
           break; \
           case 1: \
             backspaces = 3; \
-            last_chord_length = 5; \
             append = "oing"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 2; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -5461,12 +5023,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 4; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 3; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -5476,12 +5036,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 5; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -5491,17 +5049,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 2; \
-            last_chord_length = 4; \
             append = "id"; \
           break; \
           case 1: \
             backspaces = 3; \
-            last_chord_length = 6; \
             append = "ying"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 3; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -5511,17 +5066,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 3; \
-            last_chord_length = 4; \
             append = "de"; \
           break; \
           case 1: \
             backspaces = 3; \
-            last_chord_length = 6; \
             append = "king"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
             append = "e"; \
           break; \
@@ -5563,12 +5115,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 4; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 3; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -5578,12 +5128,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 6; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 5; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -5593,12 +5141,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 5; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -5609,17 +5155,14 @@ bool chord_shifted;
           switch(last_chord_cycle) { \
             case 0: \
               backspaces = 3; \
-              last_chord_length = 4; \
               append = "Went"; \
             break; \
             case 1: \
               backspaces = 5; \
-              last_chord_length = 5; \
               append = "Going"; \
             break; \
             case 2: \
               backspaces = 4; \
-              last_chord_length = 2; \
               next_chord_cycle = 0; \
             break; \
           } \
@@ -5627,17 +5170,14 @@ bool chord_shifted;
           switch(last_chord_cycle) { \
             case 0: \
               backspaces = 3; \
-              last_chord_length = 4; \
               append = "went"; \
             break; \
             case 1: \
               backspaces = 5; \
-              last_chord_length = 5; \
               append = "going"; \
             break; \
             case 2: \
               backspaces = 4; \
-              last_chord_length = 2; \
               next_chord_cycle = 0; \
             break; \
           } \
@@ -5648,12 +5188,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 6; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 5; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -5663,17 +5201,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 5; \
             append = "er"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 6; \
             append = "st"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 3; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -5683,12 +5218,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 5; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -5698,15 +5231,12 @@ bool chord_shifted;
         backspaces = 4; \
         switch(last_chord_cycle) { \
           case 0: \
-            last_chord_length = 4; \
             append = "ook"; \
           break; \
           case 1: \
-            last_chord_length = 6; \
             append = "aking"; \
           break; \
           case 2: \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
             append = "e"; \
           break; \
@@ -5717,15 +5247,12 @@ bool chord_shifted;
         backspaces = 4; \
         switch(last_chord_cycle) { \
           case 0: \
-            last_chord_length = 4; \
             append = "ame"; \
           break; \
           case 1: \
-            last_chord_length = 6; \
             append = "oming"; \
           break; \
           case 2: \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
             append = "e"; \
           break; \
@@ -5736,12 +5263,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 4; \
-            last_chord_length = 4; \
             append = "is"; \
           break; \
           case 1: \
             backspaces = 3; \
-            last_chord_length = 5; \
             next_chord_cycle = 0; \
             append = "ese"; \
           break; \
@@ -5752,17 +5277,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 3; \
-            last_chord_length = 4; \
             append = "ew"; \
           break; \
           case 1: \
             backspaces = 3; \
-            last_chord_length = 7; \
             append = "owing"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -5772,17 +5294,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 3; \
-            last_chord_length = 3; \
             append = "aw"; \
           break; \
           case 1: \
             backspaces = 3; \
-            last_chord_length = 6; \
             append = "eeing"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 3; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -5792,17 +5311,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 4; \
             append = "d"; \
           break; \
           case 1: \
             backspaces = 3; \
-            last_chord_length = 5; \
             append = "ing"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 3; \
             next_chord_cycle = 0; \
             append = "e"; \
           break; \
@@ -5813,17 +5329,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 3; \
-            last_chord_length = 3; \
             append = "ot"; \
           break; \
           case 1: \
             backspaces = 3; \
-            last_chord_length = 7; \
             append = "etting"; \
           break; \
           case 2: \
             backspaces = 5; \
-            last_chord_length = 3; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -5833,17 +5346,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 5; \
             append = "d"; \
           break; \
           case 1: \
             backspaces = 3; \
-            last_chord_length = 6; \
             append = "ing"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
             append = "e"; \
           break; \
@@ -5854,17 +5364,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 6; \
             append = "ed"; \
           break; \
           case 1: \
             backspaces = 3; \
-            last_chord_length = 7; \
             append = "ing"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -5874,15 +5381,12 @@ bool chord_shifted;
         backspaces = 4; \
         switch(last_chord_cycle) { \
           case 0: \
-            last_chord_length = 4; \
             append = "ave"; \
           break; \
           case 1: \
-            last_chord_length = 6; \
             append = "iving"; \
           break; \
           case 2: \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
             append = "e"; \
           break; \
@@ -5893,17 +5397,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 4; \
-            last_chord_length = 7; \
             append = "ought"; \
           break; \
           case 1: \
             backspaces = 6; \
-            last_chord_length = 8; \
             append = "inking"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 5; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -5931,17 +5432,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 4; \
-            last_chord_length = 5; \
             append = "ound"; \
           break; \
           case 1: \
             backspaces = 5; \
-            last_chord_length = 7; \
             append = "inding"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -5951,12 +5449,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 4; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 3; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -5966,12 +5462,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 4; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 3; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -5999,17 +5493,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 6; \
             append = "ed"; \
           break; \
           case 1: \
             backspaces = 3; \
-            last_chord_length = 7; \
             append = "ing"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6019,17 +5510,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 7; \
             append = "er"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 8; \
             append = "st"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 5; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6039,22 +5527,18 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 5; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 6; \
             append = "ed"; \
           break; \
           case 2: \
             backspaces = 3; \
-            last_chord_length = 7; \
             append = "ing"; \
           break; \
           case 3: \
             backspaces = 4; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6064,17 +5548,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 6; \
             append = "er"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 7; \
             append = "st"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6084,12 +5565,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 5; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6099,17 +5578,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 7; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 6; \
-            last_chord_length = 6; \
             append = "rson"; \
           break; \
           case 2: \
             backspaces = 5; \
-            last_chord_length = 6; \
             next_chord_cycle = 0; \
             append = "ople"; \
           break; \
@@ -6120,17 +5596,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 5; \
             append = "ed"; \
           break; \
           case 1: \
             backspaces = 3; \
-            last_chord_length = 6; \
             append = "ing"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 3; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6141,15 +5614,12 @@ bool chord_shifted;
           backspaces = 5; \
           switch(last_chord_cycle) { \
             case 0: \
-              last_chord_length = 6; \
               append = "Better"; \
             break; \
             case 1: \
-              last_chord_length = 4; \
               append = "st"; \
             break; \
             case 2: \
-              last_chord_length = 4; \
               next_chord_cycle = 0; \
               append = "Good"; \
             break; \
@@ -6158,15 +5628,12 @@ bool chord_shifted;
           backspaces = 5; \
           switch(last_chord_cycle) { \
             case 0: \
-              last_chord_length = 6; \
               append = "better"; \
             break; \
             case 1: \
-              last_chord_length = 4; \
               append = "st"; \
             break; \
             case 2: \
-              last_chord_length = 4; \
               next_chord_cycle = 0; \
               append = "good"; \
             break; \
@@ -6178,12 +5645,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 4; \
-            last_chord_length = 4; \
             append = "at"; \
           break; \
           case 1: \
             backspaces = 3; \
-            last_chord_length = 5; \
             next_chord_cycle = 0; \
             append = "ose"; \
           break; \
@@ -6194,17 +5659,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 3; \
-            last_chord_length = 4; \
             append = "lt"; \
           break; \
           case 1: \
             backspaces = 3; \
-            last_chord_length = 7; \
             append = "eling"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6214,17 +5676,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 6; \
             append = "ed"; \
           break; \
           case 1: \
             backspaces = 3; \
-            last_chord_length = 7; \
             append = "ing"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6234,17 +5693,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 6; \
             append = "er"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 7; \
             append = "st"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6254,12 +5710,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 6; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 5; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6269,17 +5723,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 7; \
             append = "r"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 8; \
             append = "st"; \
           break; \
           case 2: \
             backspaces = 3; \
-            last_chord_length = 6; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6289,12 +5740,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 6; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 5; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6304,12 +5753,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 7; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 6; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6319,12 +5766,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 5; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6334,17 +5779,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 5; \
             append = "er"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 6; \
             append = "st"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 3; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6354,12 +5796,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 3; \
-            last_chord_length = 5; \
             append = "ves"; \
           break; \
           case 1: \
             backspaces = 4; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
             append = "fe"; \
           break; \
@@ -6370,15 +5810,12 @@ bool chord_shifted;
         backspaces = 4; \
         switch(last_chord_cycle) { \
           case 0: \
-            last_chord_length = 4; \
             append = "old"; \
           break; \
           case 1: \
-            last_chord_length = 7; \
             append = "elling"; \
           break; \
           case 2: \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6388,15 +5825,12 @@ bool chord_shifted;
         backspaces = 4; \
         switch(last_chord_cycle) { \
           case 0: \
-            last_chord_length = 5; \
             append = "ote"; \
           break; \
           case 1: \
-            last_chord_length = 7; \
             append = "iting"; \
           break; \
           case 2: \
-            last_chord_length = 5; \
             next_chord_cycle = 0; \
             append = "e"; \
           break; \
@@ -6407,15 +5841,12 @@ bool chord_shifted;
         backspaces = 4; \
         switch(last_chord_cycle) { \
           case 0: \
-            last_chord_length = 6; \
             append = "ame"; \
           break; \
           case 1: \
-            last_chord_length = 8; \
             append = "oming"; \
           break; \
           case 2: \
-            last_chord_length = 6; \
             next_chord_cycle = 0; \
             append = "e"; \
           break; \
@@ -6426,17 +5857,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 6; \
             append = "ed"; \
           break; \
           case 1: \
             backspaces = 3; \
-            last_chord_length = 7; \
             append = "ing"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6446,12 +5874,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 6; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 5; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6461,17 +5887,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 6; \
             append = "ed"; \
           break; \
           case 1: \
             backspaces = 3; \
-            last_chord_length = 7; \
             append = "ing"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6481,17 +5904,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 5; \
             append = "t"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 7; \
             append = "ing"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6501,17 +5921,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 6; \
             append = "ed"; \
           break; \
           case 1: \
             backspaces = 3; \
-            last_chord_length = 7; \
             append = "ing"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6521,17 +5938,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 9; \
             append = "ed"; \
           break; \
           case 1: \
             backspaces = 3; \
-            last_chord_length = 10; \
             append = "ing"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 7; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6541,12 +5955,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 6; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 5; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6556,17 +5968,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 5; \
             append = "d"; \
           break; \
           case 1: \
             backspaces = 3; \
-            last_chord_length = 6; \
             append = "ing"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
             append = "e"; \
           break; \
@@ -6577,12 +5986,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 6; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 5; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6592,12 +5999,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 8; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 7; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6607,12 +6012,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 7; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 6; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6622,17 +6025,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 3; \
-            last_chord_length = 5; \
             append = "an"; \
           break; \
           case 1: \
             backspaces = 3; \
-            last_chord_length = 9; \
             append = "inning"; \
           break; \
           case 2: \
             backspaces = 5; \
-            last_chord_length = 5; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6642,12 +6042,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 7; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 6; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6657,22 +6055,18 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 5; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 6; \
             append = "ed"; \
           break; \
           case 2: \
             backspaces = 3; \
-            last_chord_length = 7; \
             append = "ing"; \
           break; \
           case 3: \
             backspaces = 4; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6682,22 +6076,18 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 5; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 6; \
             append = "ed"; \
           break; \
           case 2: \
             backspaces = 3; \
-            last_chord_length = 7; \
             append = "ing"; \
           break; \
           case 3: \
             backspaces = 4; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6707,17 +6097,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 4; \
-            last_chord_length = 4; \
             append = "ft"; \
           break; \
           case 1: \
             backspaces = 3; \
-            last_chord_length = 7; \
             append = "aving"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 5; \
             next_chord_cycle = 0; \
             append = "e"; \
           break; \
@@ -6728,17 +6115,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 6; \
             append = "ed"; \
           break; \
           case 1: \
             backspaces = 3; \
-            last_chord_length = 7; \
             append = "ing"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6748,22 +6132,18 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 6; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 7; \
             append = "ed"; \
           break; \
           case 2: \
             backspaces = 3; \
-            last_chord_length = 8; \
             append = "ing"; \
           break; \
           case 3: \
             backspaces = 4; \
-            last_chord_length = 5; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6773,22 +6153,18 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 5; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 6; \
             append = "ed"; \
           break; \
           case 2: \
             backspaces = 3; \
-            last_chord_length = 7; \
             append = "ing"; \
           break; \
           case 3: \
             backspaces = 4; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6798,12 +6174,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 8; \
             append = "ren"; \
           break; \
           case 1: \
             backspaces = 4; \
-            last_chord_length = 5; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6813,17 +6187,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 5; \
             append = "er"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 6; \
             append = "st"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 3; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6833,17 +6204,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 7; \
             append = "er"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 8; \
             append = "st"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 5; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6853,17 +6221,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 5; \
             append = "ed"; \
           break; \
           case 1: \
             backspaces = 3; \
-            last_chord_length = 6; \
             append = "ing"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 3; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6873,17 +6238,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 5; \
             append = "r"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 6; \
             append = "st"; \
           break; \
           case 2: \
             backspaces = 3; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6893,12 +6255,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 5; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6908,22 +6268,18 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 9; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 10; \
             append = "ed"; \
           break; \
           case 2: \
             backspaces = 3; \
-            last_chord_length = 11; \
             append = "ing"; \
           break; \
           case 3: \
             backspaces = 4; \
-            last_chord_length = 8; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6933,17 +6289,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 6; \
             append = "r"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 7; \
             append = "st"; \
           break; \
           case 2: \
             backspaces = 3; \
-            last_chord_length = 5; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6966,22 +6319,18 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 4; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 5; \
             append = "ed"; \
           break; \
           case 2: \
             backspaces = 3; \
-            last_chord_length = 6; \
             append = "ing"; \
           break; \
           case 3: \
             backspaces = 4; \
-            last_chord_length = 3; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6991,17 +6340,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 6; \
             append = "ed"; \
           break; \
           case 1: \
             backspaces = 3; \
-            last_chord_length = 7; \
             append = "ing"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -7011,17 +6357,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 8; \
             append = "ed"; \
           break; \
           case 1: \
             backspaces = 3; \
-            last_chord_length = 9; \
             append = "ing"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 6; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -7031,22 +6374,18 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 8; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 9; \
             append = "ed"; \
           break; \
           case 2: \
             backspaces = 3; \
-            last_chord_length = 10; \
             append = "ing"; \
           break; \
           case 3: \
             backspaces = 4; \
-            last_chord_length = 7; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -7056,15 +6395,12 @@ bool chord_shifted;
         backspaces = 4; \
         switch(last_chord_cycle) { \
           case 0: \
-            last_chord_length = 4; \
             append = "eld"; \
           break; \
           case 1: \
-            last_chord_length = 7; \
             append = "olding"; \
           break; \
           case 2: \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -7074,17 +6410,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 8; \
             append = "ed"; \
           break; \
           case 1: \
             backspaces = 3; \
-            last_chord_length = 9; \
             append = "ing"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 6; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -7094,22 +6427,18 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 5; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 6; \
             append = "ed"; \
           break; \
           case 2: \
             backspaces = 3; \
-            last_chord_length = 7; \
             append = "ing"; \
           break; \
           case 3: \
             backspaces = 4; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -7119,17 +6448,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 10; \
             append = "ed"; \
           break; \
           case 1: \
             backspaces = 3; \
-            last_chord_length = 11; \
             append = "ing"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 8; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -7139,22 +6465,18 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 5; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 6; \
             append = "ed"; \
           break; \
           case 2: \
             backspaces = 3; \
-            last_chord_length = 7; \
             append = "ing"; \
           break; \
           case 3: \
             backspaces = 4; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -7164,22 +6486,18 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 8; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 10; \
             append = "med"; \
           break; \
           case 2: \
             backspaces = 3; \
-            last_chord_length = 11; \
             append = "ing"; \
           break; \
           case 3: \
             backspaces = 5; \
-            last_chord_length = 7; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -7189,12 +6507,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 8; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 7; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -7204,22 +6520,18 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 5; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 4; \
-            last_chord_length = 3; \
             append = "d"; \
           break; \
           case 2: \
             backspaces = 2; \
-            last_chord_length = 7; \
             append = "ading"; \
           break; \
           case 3: \
             backspaces = 4; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -7229,12 +6541,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 7; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 6; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -7244,17 +6554,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 4; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 7; \
             append = "ting"; \
           break; \
           case 2: \
             backspaces = 5; \
-            last_chord_length = 3; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -7264,22 +6571,18 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 6; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 7; \
             append = "ed"; \
           break; \
           case 2: \
             backspaces = 3; \
-            last_chord_length = 8; \
             append = "ing"; \
           break; \
           case 3: \
             backspaces = 4; \
-            last_chord_length = 5; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -7289,22 +6592,18 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 4; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 4; \
             append = "d"; \
           break; \
           case 2: \
             backspaces = 2; \
-            last_chord_length = 6; \
             append = "ing"; \
           break; \
           case 3: \
             backspaces = 4; \
-            last_chord_length = 3; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -7314,22 +6613,18 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 5; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 7; \
             append = "ned"; \
           break; \
           case 2: \
             backspaces = 3; \
-            last_chord_length = 8; \
             append = "ing"; \
           break; \
           case 3: \
             backspaces = 5; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -7339,22 +6634,18 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 4; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 4; \
-            last_chord_length = 3; \
             append = "an"; \
           break; \
           case 2: \
             backspaces = 3; \
-            last_chord_length = 7; \
             append = "unning"; \
           break; \
           case 3: \
             backspaces = 5; \
-            last_chord_length = 3; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -7364,17 +6655,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 3; \
-            last_chord_length = 4; \
             append = "pt"; \
           break; \
           case 1: \
             backspaces = 3; \
-            last_chord_length = 7; \
             append = "eping"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -7384,22 +6672,18 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 5; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 5; \
             append = "d"; \
           break; \
           case 2: \
             backspaces = 3; \
-            last_chord_length = 6; \
             append = "ing"; \
           break; \
           case 3: \
             backspaces = 4; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
             append = "e"; \
           break; \
@@ -7410,12 +6694,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 5; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -7425,22 +6707,18 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 6; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 7; \
             append = "ed"; \
           break; \
           case 2: \
             backspaces = 3; \
-            last_chord_length = 8; \
             append = "ing"; \
           break; \
           case 3: \
             backspaces = 4; \
-            last_chord_length = 5; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -7450,22 +6728,18 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 5; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 6; \
             append = "ed"; \
           break; \
           case 2: \
             backspaces = 3; \
-            last_chord_length = 7; \
             append = "ing"; \
           break; \
           case 3: \
             backspaces = 4; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -7475,22 +6749,18 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 6; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 5; \
-            last_chord_length = 5; \
             append = "ood"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 8; \
             append = "anding"; \
           break; \
           case 3: \
             backspaces = 4; \
-            last_chord_length = 5; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -7500,17 +6770,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 9; \
             append = "d"; \
           break; \
           case 1: \
             backspaces = 3; \
-            last_chord_length = 10; \
             append = "ing"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 8; \
             next_chord_cycle = 0; \
             append = "e"; \
           break; \
@@ -7521,17 +6788,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 2; \
-            last_chord_length = 7; \
             append = "ier"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 8; \
             append = "st"; \
           break; \
           case 2: \
             backspaces = 5; \
-            last_chord_length = 5; \
             next_chord_cycle = 0; \
             append = "y"; \
           break; \
@@ -7542,12 +6806,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 7; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 6; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -7557,22 +6819,18 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 7; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 7; \
             append = "d"; \
           break; \
           case 2: \
             backspaces = 3; \
-            last_chord_length = 8; \
             append = "ing"; \
           break; \
           case 3: \
             backspaces = 4; \
-            last_chord_length = 6; \
             next_chord_cycle = 0; \
             append = "e"; \
           break; \
@@ -7583,17 +6841,14 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 6; \
             append = "ed"; \
           break; \
           case 1: \
             backspaces = 3; \
-            last_chord_length = 7; \
             append = "ing"; \
           break; \
           case 2: \
             backspaces = 4; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -7603,12 +6858,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 5; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -7619,22 +6872,18 @@ bool chord_shifted;
           switch(last_chord_cycle) { \
             case 0: \
               backspaces = 1; \
-              last_chord_length = 7; \
               append = "s"; \
             break; \
             case 1: \
               backspaces = 2; \
-              last_chord_length = 8; \
               append = "ed"; \
             break; \
             case 2: \
               backspaces = 9; \
-              last_chord_length = 11; \
               append = "Will return"; \
             break; \
             case 3: \
               backspaces = 12; \
-              last_chord_length = 6; \
               next_chord_cycle = 0; \
               append = "Return"; \
             break; \
@@ -7643,22 +6892,18 @@ bool chord_shifted;
           switch(last_chord_cycle) { \
             case 0: \
               backspaces = 1; \
-              last_chord_length = 7; \
               append = "s"; \
             break; \
             case 1: \
               backspaces = 2; \
-              last_chord_length = 8; \
               append = "ed"; \
             break; \
             case 2: \
               backspaces = 9; \
-              last_chord_length = 11; \
               append = "will return"; \
             break; \
             case 3: \
               backspaces = 12; \
-              last_chord_length = 6; \
               next_chord_cycle = 0; \
               append = "return"; \
             break; \
@@ -7671,17 +6916,14 @@ bool chord_shifted;
           switch(last_chord_cycle) { \
             case 0: \
               backspaces = 2; \
-              last_chord_length = 9; \
               append = " you"; \
             break; \
             case 1: \
               backspaces = 5; \
-              last_chord_length = 17; \
               append = "s very much!"; \
             break; \
             case 2: \
               backspaces = 11; \
-              last_chord_length = 6; \
               next_chord_cycle = 0; \
             break; \
           } \
@@ -7689,17 +6931,14 @@ bool chord_shifted;
           switch(last_chord_cycle) { \
             case 0: \
               backspaces = 2; \
-              last_chord_length = 9; \
               append = " you"; \
             break; \
             case 1: \
               backspaces = 10; \
-              last_chord_length = 17; \
               append = "Thanks very much!"; \
             break; \
             case 2: \
               backspaces = 18; \
-              last_chord_length = 6; \
               next_chord_cycle = 0; \
               append = "thanks"; \
             break; \
@@ -7711,12 +6950,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 5; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -7726,12 +6963,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 4; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 3; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -7741,12 +6976,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            last_chord_length = 6; \
             append = "s"; \
           break; \
           case 1: \
             backspaces = 2; \
-            last_chord_length = 5; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -7757,22 +6990,18 @@ bool chord_shifted;
           switch(last_chord_cycle) { \
             case 0: \
               backspaces = 1; \
-              last_chord_length = 5; \
               append = "s"; \
             break; \
             case 1: \
               backspaces = 2; \
-              last_chord_length = 6; \
               append = "ed"; \
             break; \
             case 2: \
               backspaces = 7; \
-              last_chord_length = 9; \
               append = "Will sort"; \
             break; \
             case 3: \
               backspaces = 10; \
-              last_chord_length = 4; \
               next_chord_cycle = 0; \
               append = "Sort"; \
             break; \
@@ -7781,22 +7010,18 @@ bool chord_shifted;
           switch(last_chord_cycle) { \
             case 0: \
               backspaces = 1; \
-              last_chord_length = 5; \
               append = "s"; \
             break; \
             case 1: \
               backspaces = 2; \
-              last_chord_length = 6; \
               append = "ed"; \
             break; \
             case 2: \
               backspaces = 7; \
-              last_chord_length = 9; \
               append = "will sort"; \
             break; \
             case 3: \
               backspaces = 10; \
-              last_chord_length = 4; \
               next_chord_cycle = 0; \
               append = "sort"; \
             break; \
@@ -7808,12 +7033,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 3; \
-            last_chord_length = 8; \
             append = "s://"; \
           break; \
           case 1: \
             backspaces = 4; \
-            last_chord_length = 7; \
             next_chord_cycle = 0; \
             append = "://"; \
           break; \
@@ -7824,12 +7047,10 @@ bool chord_shifted;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 4; \
-            last_chord_length = 7; \
             append = "://"; \
           break; \
           case 1: \
             backspaces = 3; \
-            last_chord_length = 8; \
             next_chord_cycle = 0; \
             append = "s://"; \
           break; \
@@ -7844,9 +7065,11 @@ bool chord_shifted;
     for (uint8_t i = 0; i < backspaces; i++) { \
       tap_code(KC_BSPC); \
     } \
+    last_chord_length -= backspaces; \
    \
     if (append != NULL) { \
       SEND_STRING(append); \
+      last_chord_length += strlen(append); \
     } \
    \
     if (space) { \
@@ -7858,3 +7081,9 @@ bool chord_shifted;
    \
     return next_chord_cycle; \
   }
+
+#define CHORD_FUNCS \
+  CHORD_FUNC_RELEASE \
+  CHORD_FUNC_HOLD \
+  CHORD_FUNC_TAP \
+  CHORD_FUNC_DUP

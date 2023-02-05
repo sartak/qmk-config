@@ -460,8 +460,6 @@
   CHORD_nil, \
   CHORD_array, \
   CHORD_sort, \
-  CHORD_http_, \
-  CHORD_https_, \
   CHORD_in_the, \
   CHORD_of_the, \
   CHORD_to_be, \
@@ -475,6 +473,9 @@
   CHORD_in_a, \
   CHORD_the_qui, \
   CHORD_elberet, \
+  CHORD_http_, \
+  CHORD_https_, \
+  CHORD_select_, \
   PERSONAL_CHORD_ENUM \
   CHORD_S_the, \
   CHORD_S_be, \
@@ -912,6 +913,7 @@
   CHORD_S_the_wor, \
   CHORD_S_in_a, \
   CHORD_S_the_qui, \
+  CHORD_S_select_, \
   PERSONAL_SHIFTED_ENUM
 
 COMBO_FOR_CHORD(delete_, AT1, AT2);
@@ -1793,8 +1795,6 @@ COMBO_FOR_CHORD(array, A_A, A_R, A_Y);
 COMBO_FOR_CHORD(S_array, A_A, A_R, A_Y, AT1);
 COMBO_FOR_CHORD(sort, A_S, A_R, A_T);
 COMBO_FOR_CHORD(S_sort, A_S, A_R, A_T, AT1);
-COMBO_FOR_CHORD(http_, A_H, A_T, A_P);
-COMBO_FOR_CHORD(https_, A_H, A_T, A_P, A_S);
 COMBO_FOR_CHORD(in_the, A_I, A_N, A_T, A_E);
 COMBO_FOR_CHORD(S_in_the, A_I, A_N, A_T, A_E, AT1);
 COMBO_FOR_CHORD(of_the, A_O, A_T, A_E, AT0);
@@ -1820,6 +1820,10 @@ COMBO_FOR_CHORD(S_in_a, A_I, A_N, A_A, AT0, AT1);
 COMBO_FOR_CHORD(the_qui, A_B, A_Q, A_X, A_q);
 COMBO_FOR_CHORD(S_the_qui, A_B, A_Q, A_X, A_q, AT1);
 COMBO_FOR_CHORD(elberet, A_E, A_L, A_B, A_H);
+COMBO_FOR_CHORD(http_, A_H, A_T, A_P);
+COMBO_FOR_CHORD(https_, A_H, A_T, A_P, A_S);
+COMBO_FOR_CHORD(select_, A_S, A_T, A_F, A_R);
+COMBO_FOR_CHORD(S_select_, A_S, A_T, A_F, A_R, AT1);
 
 #define CHORD_COMBOS \
   CHORD_COMBO(delete_), \
@@ -2701,8 +2705,6 @@ COMBO_FOR_CHORD(elberet, A_E, A_L, A_B, A_H);
   CHORD_COMBO(S_array), \
   CHORD_COMBO(sort), \
   CHORD_COMBO(S_sort), \
-  CHORD_COMBO(http_), \
-  CHORD_COMBO(https_), \
   CHORD_COMBO(in_the), \
   CHORD_COMBO(S_in_the), \
   CHORD_COMBO(of_the), \
@@ -2728,6 +2730,10 @@ COMBO_FOR_CHORD(elberet, A_E, A_L, A_B, A_H);
   CHORD_COMBO(the_qui), \
   CHORD_COMBO(S_the_qui), \
   CHORD_COMBO(elberet), \
+  CHORD_COMBO(http_), \
+  CHORD_COMBO(https_), \
+  CHORD_COMBO(select_), \
+  CHORD_COMBO(S_select_), \
   PERSONAL_CHORD_COMBOS
 
 bool releasedWithinTapThreshold = true;
@@ -5130,16 +5136,6 @@ bool chord_shifted;
         last_chord_length = 4; \
         append = "sort"; \
         break; \
-      case CHORD_http_: \
-        space = false; \
-        last_chord_length = 7; \
-        SEND_STRING("http://"); \
-        break; \
-      case CHORD_https_: \
-        space = false; \
-        last_chord_length = 8; \
-        SEND_STRING("https://"); \
-        break; \
       case CHORD_in_the: \
       case CHORD_S_in_the: \
         last_chord_length = 6; \
@@ -5210,6 +5206,25 @@ bool chord_shifted;
         space = false; \
         last_chord_length = 8; \
         SEND_STRING("Elbereth"); \
+        break; \
+      case CHORD_http_: \
+        space = false; \
+        last_chord_length = 7; \
+        SEND_STRING("http://"); \
+        break; \
+      case CHORD_https_: \
+        space = false; \
+        last_chord_length = 8; \
+        SEND_STRING("https://"); \
+        break; \
+      case CHORD_select_: \
+      case CHORD_S_select_: \
+        last_chord_length = 13; \
+        if (chord_shifted || combo_index == CHORD_S_select_) { \
+          SEND_STRING("SELECT * FROM"); \
+        } else { \
+          SEND_STRING("select * from"); \
+        } \
         break; \
       case CHORD_delete_: \
       case CHORD_left_cl: \

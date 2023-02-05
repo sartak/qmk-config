@@ -29,6 +29,10 @@
 #define VIRT_GUI_UP                     VIRT_GUI_DOWN+1
 #define VIRT_MOD_LAST                   VIRT_GUI_UP
 
+#if VIRT_MOD_LAST > 255
+#error Virt sidechannel message side exceeds one byte
+#endif
+
 #define VIRT_TIMEOUT 1000
 
 static uint16_t recv_timer;

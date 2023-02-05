@@ -1424,12 +1424,18 @@ COMBO_FOR_CHORD(elberet, A_E, A_L, A_B, A_H);
 bool releasedWithinTapThreshold = true;
 deferred_token chord_token = INVALID_DEFERRED_TOKEN;
 uint16_t prev_chord_length;
+bool chord_shifted;
 
 #define CHORD_FUNCS \
   void process_chord_release(uint16_t combo_index) { \
     cancel_deferred_exec(chord_token); \
    \
     bool space = true; \
+   \
+    const uint8_t mods = get_mods(); \
+    del_mods(MOD_MASK_SHIFT); \
+    del_weak_mods(MOD_MASK_SHIFT); \
+    del_oneshot_mods(MOD_MASK_SHIFT); \
    \
     switch(combo_index) { \
       case CHORD_delete_: \
@@ -1457,6 +1463,7 @@ uint16_t prev_chord_length;
         break; \
       PERSONAL_RELEASE_CASES \
       default: \
+        set_mods(mods); \
         return; \
     } \
    \
@@ -1468,14 +1475,23 @@ uint16_t prev_chord_length;
     if (releasedWithinTapThreshold) { \
       emit_virt_combo(last_chord, VIRT_CHORD_ENDED_TAP); \
     } \
+   \
+    set_mods(mods); \
   } \
    \
   uint32_t process_chord_hold(uint32_t trigger_time, void* cb_arg) { \
+    uint16_t combo_index = last_chord; \
+   \
     releasedWithinTapThreshold = false; \
    \
     bool space = true; \
    \
-    switch(last_chord) { \
+    const uint8_t mods = get_mods(); \
+    del_mods(MOD_MASK_SHIFT); \
+    del_weak_mods(MOD_MASK_SHIFT); \
+    del_oneshot_mods(MOD_MASK_SHIFT); \
+   \
+    switch(combo_index) { \
       case CHORD_delete_: \
         space = false; \
         add_oneshot_mods(MOD_LCTL | MOD_LALT | MOD_LGUI); \
@@ -1488,6 +1504,7 @@ uint16_t prev_chord_length;
         break; \
       PERSONAL_HOLD_CASES \
       default: \
+        set_mods(mods); \
         return 0; \
     } \
     if (space) { \
@@ -1495,6 +1512,7 @@ uint16_t prev_chord_length;
       last_chord_length++; \
     } \
     emit_virt_combo(last_chord, VIRT_CHORD_ENDED_HOLD); \
+    set_mods(mods); \
     return 0; \
   } \
    \
@@ -1513,6 +1531,12 @@ uint16_t prev_chord_length;
    \
     bool space = true; \
     bool scheduleTimer = false; \
+   \
+    const uint8_t mods = get_mods(); \
+    chord_shifted = (mods | get_weak_mods() | get_oneshot_mods()) & MOD_MASK_SHIFT; \
+    del_mods(MOD_MASK_SHIFT); \
+    del_weak_mods(MOD_MASK_SHIFT); \
+    del_oneshot_mods(MOD_MASK_SHIFT); \
    \
     switch(combo_index) { \
       case CHORD_right_c: \
@@ -3434,6 +3458,9 @@ uint16_t prev_chord_length;
     } \
    \
     emit_virt_combo(last_chord, scheduleTimer ? VIRT_CHORD_ENDED_INDETERMINATE : VIRT_CHORD_ENDED_TAP); \
+   \
+    set_mods(mods); \
+   \
     return; \
   } \
    \
@@ -3442,6 +3469,11 @@ uint16_t prev_chord_length;
     uint8_t backspaces = 0; \
     char *append = NULL; \
     bool space = true; \
+   \
+    const uint8_t mods = get_mods(); \
+    del_mods(MOD_MASK_SHIFT); \
+    del_weak_mods(MOD_MASK_SHIFT); \
+    del_oneshot_mods(MOD_MASK_SHIFT); \
    \
     switch(last_chord) { \
       case CHORD_have: \
@@ -6004,5 +6036,6 @@ uint16_t prev_chord_length;
       tap_code(KC_SPC); \
       last_chord_length++; \
     } \
+    set_mods(mods); \
     return next_chord_cycle; \
   }

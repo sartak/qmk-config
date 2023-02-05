@@ -476,7 +476,6 @@
   CHORD_the_qui, \
   CHORD_elberet, \
   PERSONAL_CHORD_ENUM \
-  CHORD_S_lambda, \
   CHORD_S_the, \
   CHORD_S_be, \
   CHORD_S_of, \
@@ -901,8 +900,6 @@
   CHORD_S_nil, \
   CHORD_S_array, \
   CHORD_S_sort, \
-  CHORD_S_http_, \
-  CHORD_S_https_, \
   CHORD_S_in_the, \
   CHORD_S_of_the, \
   CHORD_S_to_be, \
@@ -934,7 +931,6 @@ COMBO_FOR_CHORD(bullet, S_P, S_T);
 COMBO_FOR_CHORD(degrees, S_Y, S_S);
 COMBO_FOR_CHORD(infinit, S_W, S_C);
 COMBO_FOR_CHORD(lambda, S_L, S_R);
-COMBO_FOR_CHORD(S_lambda, S_L, S_R, S_BKSP);
 COMBO_FOR_CHORD(interro, S_B, S_G);
 COMBO_FOR_CHORD(ballot_, S_M, S_X);
 COMBO_FOR_CHORD(checkma, S_N, S_H);
@@ -1798,9 +1794,7 @@ COMBO_FOR_CHORD(S_array, A_A, A_R, A_Y, AT1);
 COMBO_FOR_CHORD(sort, A_S, A_R, A_T);
 COMBO_FOR_CHORD(S_sort, A_S, A_R, A_T, AT1);
 COMBO_FOR_CHORD(http_, A_H, A_T, A_P);
-COMBO_FOR_CHORD(S_http_, A_H, A_T, A_P, AT1);
 COMBO_FOR_CHORD(https_, A_H, A_T, A_P, A_S);
-COMBO_FOR_CHORD(S_https_, A_H, A_T, A_P, A_S, AT1);
 COMBO_FOR_CHORD(in_the, A_I, A_N, A_T, A_E);
 COMBO_FOR_CHORD(S_in_the, A_I, A_N, A_T, A_E, AT1);
 COMBO_FOR_CHORD(of_the, A_O, A_T, A_E, AT0);
@@ -1845,7 +1839,6 @@ COMBO_FOR_CHORD(elberet, A_E, A_L, A_B, A_H);
   CHORD_COMBO(degrees), \
   CHORD_COMBO(infinit), \
   CHORD_COMBO(lambda), \
-  CHORD_COMBO(S_lambda), \
   CHORD_COMBO(interro), \
   CHORD_COMBO(ballot_), \
   CHORD_COMBO(checkma), \
@@ -2709,9 +2702,7 @@ COMBO_FOR_CHORD(elberet, A_E, A_L, A_B, A_H);
   CHORD_COMBO(sort), \
   CHORD_COMBO(S_sort), \
   CHORD_COMBO(http_), \
-  CHORD_COMBO(S_http_), \
   CHORD_COMBO(https_), \
-  CHORD_COMBO(S_https_), \
   CHORD_COMBO(in_the), \
   CHORD_COMBO(S_in_the), \
   CHORD_COMBO(of_the), \
@@ -2875,7 +2866,7 @@ bool chord_shifted;
     del_weak_mods(MOD_MASK_SHIFT); \
     del_oneshot_mods(MOD_MASK_SHIFT); \
    \
-    bool combo_shifted = combo_index >= CHORD_S_lambda; \
+    bool combo_shifted = combo_index >= CHORD_S_the; \
     chord_shifted = mod_shifted || combo_shifted; \
    \
     switch(combo_index) { \
@@ -2948,7 +2939,6 @@ bool chord_shifted;
         send_unicode_string("∞"); \
         break; \
       case CHORD_lambda: \
-      case CHORD_S_lambda: \
         space = false; \
         last_chord_length = 1; \
         send_unicode_string("λ"); \
@@ -5141,16 +5131,14 @@ bool chord_shifted;
         append = "sort"; \
         break; \
       case CHORD_http_: \
-      case CHORD_S_http_: \
         space = false; \
         last_chord_length = 7; \
-        append = "http://"; \
+        SEND_STRING("http://"); \
         break; \
       case CHORD_https_: \
-      case CHORD_S_https_: \
         space = false; \
         last_chord_length = 8; \
-        append = "https://"; \
+        SEND_STRING("https://"); \
         break; \
       case CHORD_in_the: \
       case CHORD_S_in_the: \
@@ -5210,8 +5198,13 @@ bool chord_shifted;
       case CHORD_the_qui: \
       case CHORD_S_the_qui: \
         space = false; \
-        last_chord_length = 43; \
-        append = "the quick brown fox jumps over the lazy dog"; \
+        if (chord_shifted || combo_index == CHORD_S_the_qui) { \
+          last_chord_length = 44; \
+          SEND_STRING("The quick brown fox jumps over the lazy dog."); \
+        } else { \
+          last_chord_length = 43; \
+          SEND_STRING("the quick brown fox jumps over the lazy dog"); \
+        } \
         break; \
       case CHORD_elberet: \
         space = false; \
@@ -7796,7 +7789,6 @@ bool chord_shifted;
         } \
         break; \
       case CHORD_http_: \
-      case CHORD_S_http_: \
         space = false; \
         switch(last_chord_cycle) { \
           case 0: \
@@ -7813,7 +7805,6 @@ bool chord_shifted;
         } \
         break; \
       case CHORD_https_: \
-      case CHORD_S_https_: \
         space = false; \
         switch(last_chord_cycle) { \
           case 0: \

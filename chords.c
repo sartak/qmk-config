@@ -2953,6 +2953,7 @@ bool chord_shifted;
           oneshot_mods = MOD_MASK_SHIFT; \
         } else { \
           space = false; \
+          prev_chord_skipsentence = true; \
         } \
         SEND_STRING("!"); \
         break; \
@@ -2966,6 +2967,7 @@ bool chord_shifted;
           oneshot_mods = MOD_MASK_SHIFT; \
         } else { \
           space = false; \
+          prev_chord_skipsentence = true; \
         } \
         SEND_STRING("?"); \
         break; \
@@ -2978,6 +2980,7 @@ bool chord_shifted;
           space = prev_chord_space; \
         } else { \
           space = false; \
+          prev_chord_skipsentence = true; \
         } \
         SEND_STRING(":"); \
         break; \
@@ -2990,6 +2993,7 @@ bool chord_shifted;
           space = prev_chord_space; \
         } else { \
           space = false; \
+          prev_chord_skipsentence = true; \
         } \
         SEND_STRING(";"); \
         break; \
@@ -3003,6 +3007,7 @@ bool chord_shifted;
           oneshot_mods = MOD_MASK_SHIFT; \
         } else { \
           space = false; \
+          prev_chord_skipsentence = true; \
         } \
         send_unicode_string("‽"); \
         break; \

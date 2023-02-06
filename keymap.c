@@ -217,18 +217,40 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #define emit_virt_layer(...) ;
 #endif
 
-#define TH_CASE(tap_kc, hold_kc)                      \
+#define TH_CASE(tap_kc, hold_kc, tap_pre, tap_post)   \
   case LT(0, tap_kc):                                 \
     if (record->tap.count && record->event.pressed) { \
+      tap_pre                                         \
       tap_code16(tap_kc);                             \
       emit_virt_key(record, record->event.pressed, false, true); \
+      tap_post                                        \
     } else if (record->event.pressed) {               \
       tap_code16(hold_kc);                            \
       emit_virt_key(record, record->event.pressed, true, true); \
     }                                                 \
     return false;
 
-#define TH_GUI(key) TH_CASE(key, LGUI(key))
+#define TH_GUI(key) TH_CASE(key, LGUI(key), ;, ;)
+
+#define SENTENCE_PRE \
+  if (prev_chord_length && !prev_chord_skipsentence && prev_chord_space) { \
+    tap_code16(KC_BSPC); \
+  }
+
+#define SENTENCE_POST_SHIFT \
+  if (prev_chord_length && !prev_chord_skipsentence) { \
+    if (prev_chord_space) { \
+      tap_code16(KC_SPC); \
+    } \
+    add_oneshot_mods(MOD_MASK_SHIFT); \
+  }
+
+#define SENTENCE_POST_NOSHIFT \
+  if (prev_chord_length && !prev_chord_skipsentence) { \
+    if (prev_chord_space) { \
+      tap_code16(KC_SPC); \
+    } \
+  }
 
 bool process_taphold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
@@ -259,9 +281,9 @@ bool process_taphold(uint16_t keycode, keyrecord_t *record) {
       TH_GUI(KC_Y)
       TH_GUI(KC_Z)
       TH_GUI(KC_ENT)
-      TH_CASE(KC_QUOTE, KC_ESCAPE)
-      TH_CASE(KC_DOT, KC_TAB)
-      TH_CASE(KC_COMM, KC_ALFRED)
+      TH_CASE(KC_QUOTE, KC_ESCAPE, ;, ;)
+      TH_CASE(KC_DOT, KC_TAB, SENTENCE_PRE, SENTENCE_POST_SHIFT)
+      TH_CASE(KC_COMM, KC_ALFRED, SENTENCE_PRE, SENTENCE_POST_NOSHIFT)
     }
 
     return true;

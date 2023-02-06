@@ -13,6 +13,7 @@
   CHORD_qmark, \
   CHORD_colon, \
   CHORD_semi, \
+  CHORD_interro, \
   CHORD_cent, \
   CHORD_pound, \
   CHORD_yen, \
@@ -22,7 +23,7 @@
   CHORD_degrees, \
   CHORD_infinit, \
   CHORD_lambda, \
-  CHORD_interro, \
+  CHORD_command, \
   CHORD_ballot_, \
   CHORD_checkma, \
   CHORD_left_ar, \
@@ -473,9 +474,14 @@
   CHORD_in_a, \
   CHORD_the_qui, \
   CHORD_elberet, \
-  CHORD_http_, \
   CHORD_https_, \
   CHORD_select_, \
+  CHORD_pokemon, \
+  CHORD_graphql, \
+  CHORD_kuberne, \
+  CHORD__up_, \
+  CHORD__typesc, \
+  CHORD__go_up_, \
   PERSONAL_CHORD_ENUM \
   CHORD_S_the, \
   CHORD_S_be, \
@@ -914,6 +920,9 @@
   CHORD_S_in_a, \
   CHORD_S_the_qui, \
   CHORD_S_select_, \
+  CHORD_S_pokemon, \
+  CHORD_S_graphql, \
+  CHORD_S_kuberne, \
   PERSONAL_SHIFTED_ENUM
 
 COMBO_FOR_CHORD(delete_, AT1, AT2);
@@ -924,6 +933,7 @@ COMBO_FOR_CHORD(excl, A_E, A_d);
 COMBO_FOR_CHORD(qmark, A_I, A_c);
 COMBO_FOR_CHORD(colon, A_A, A_r);
 COMBO_FOR_CHORD(semi, A_A, A_q);
+COMBO_FOR_CHORD(interro, A_E, A_d, A_I, A_c);
 COMBO_FOR_CHORD(cent, S_C, S_Q);
 COMBO_FOR_CHORD(pound, S_R, S_J);
 COMBO_FOR_CHORD(yen, S_S, S_V);
@@ -933,7 +943,7 @@ COMBO_FOR_CHORD(bullet, S_P, S_T);
 COMBO_FOR_CHORD(degrees, S_Y, S_S);
 COMBO_FOR_CHORD(infinit, S_W, S_C);
 COMBO_FOR_CHORD(lambda, S_L, S_R);
-COMBO_FOR_CHORD(interro, S_B, S_G);
+COMBO_FOR_CHORD(command, S_B, S_G);
 COMBO_FOR_CHORD(ballot_, S_M, S_X);
 COMBO_FOR_CHORD(checkma, S_N, S_H);
 COMBO_FOR_CHORD(left_ar, S_Z, S_M);
@@ -1820,10 +1830,18 @@ COMBO_FOR_CHORD(S_in_a, A_I, A_N, A_A, AT0, AT1);
 COMBO_FOR_CHORD(the_qui, A_B, A_Q, A_X, A_q);
 COMBO_FOR_CHORD(S_the_qui, A_B, A_Q, A_X, A_q, AT1);
 COMBO_FOR_CHORD(elberet, A_E, A_L, A_B, A_H);
-COMBO_FOR_CHORD(http_, A_H, A_T, A_P);
-COMBO_FOR_CHORD(https_, A_H, A_T, A_P, A_S);
+COMBO_FOR_CHORD(https_, A_H, A_T, A_P);
 COMBO_FOR_CHORD(select_, A_S, A_T, A_F, A_R);
 COMBO_FOR_CHORD(S_select_, A_S, A_T, A_F, A_R, AT1);
+COMBO_FOR_CHORD(pokemon, A_P, A_O, A_M, A_N);
+COMBO_FOR_CHORD(S_pokemon, A_P, A_O, A_M, A_N, AT1);
+COMBO_FOR_CHORD(graphql, A_G, A_A, A_H, A_L);
+COMBO_FOR_CHORD(S_graphql, A_G, A_A, A_H, A_L, AT1);
+COMBO_FOR_CHORD(kuberne, A_K, A_E, A_N, A_S);
+COMBO_FOR_CHORD(S_kuberne, A_K, A_E, A_N, A_S, AT1);
+COMBO_FOR_CHORD(_up_, A_C, A_O, A_D, A_E);
+COMBO_FOR_CHORD(_typesc, A_T, A_S, A_O, A_E);
+COMBO_FOR_CHORD(_go_up_, A_G, A_L, A_O, A_E);
 
 #define CHORD_COMBOS \
   CHORD_COMBO(delete_), \
@@ -1834,6 +1852,7 @@ COMBO_FOR_CHORD(S_select_, A_S, A_T, A_F, A_R, AT1);
   CHORD_COMBO(qmark), \
   CHORD_COMBO(colon), \
   CHORD_COMBO(semi), \
+  CHORD_COMBO(interro), \
   CHORD_COMBO(cent), \
   CHORD_COMBO(pound), \
   CHORD_COMBO(yen), \
@@ -1843,7 +1862,7 @@ COMBO_FOR_CHORD(S_select_, A_S, A_T, A_F, A_R, AT1);
   CHORD_COMBO(degrees), \
   CHORD_COMBO(infinit), \
   CHORD_COMBO(lambda), \
-  CHORD_COMBO(interro), \
+  CHORD_COMBO(command), \
   CHORD_COMBO(ballot_), \
   CHORD_COMBO(checkma), \
   CHORD_COMBO(left_ar), \
@@ -2730,10 +2749,18 @@ COMBO_FOR_CHORD(S_select_, A_S, A_T, A_F, A_R, AT1);
   CHORD_COMBO(the_qui), \
   CHORD_COMBO(S_the_qui), \
   CHORD_COMBO(elberet), \
-  CHORD_COMBO(http_), \
   CHORD_COMBO(https_), \
   CHORD_COMBO(select_), \
   CHORD_COMBO(S_select_), \
+  CHORD_COMBO(pokemon), \
+  CHORD_COMBO(S_pokemon), \
+  CHORD_COMBO(graphql), \
+  CHORD_COMBO(S_graphql), \
+  CHORD_COMBO(kuberne), \
+  CHORD_COMBO(S_kuberne), \
+  CHORD_COMBO(_up_), \
+  CHORD_COMBO(_typesc), \
+  CHORD_COMBO(_go_up_), \
   PERSONAL_CHORD_COMBOS
 
 bool releasedWithinTapThreshold = true;
@@ -2966,6 +2993,19 @@ bool chord_shifted;
         } \
         SEND_STRING(";"); \
         break; \
+      case CHORD_interro: \
+        last_chord_length = 1; \
+        if (prev_chord_length && !prev_chord_skipsentence) { \
+          if (prev_chord_space) { \
+            tap_code16(KC_BSPC); \
+          } \
+          space = prev_chord_space; \
+          oneshot_mods = MOD_MASK_SHIFT; \
+        } else { \
+          space = false; \
+        } \
+        send_unicode_string("‽"); \
+        break; \
       case CHORD_cent: \
         last_chord_length = 1; \
         space = false; \
@@ -3011,10 +3051,10 @@ bool chord_shifted;
         space = false; \
         send_unicode_string("λ"); \
         break; \
-      case CHORD_interro: \
+      case CHORD_command: \
         last_chord_length = 1; \
         space = false; \
-        send_unicode_string("‽"); \
+        send_unicode_string("⌘"); \
         break; \
       case CHORD_ballot_: \
         last_chord_length = 1; \
@@ -4836,12 +4876,6 @@ bool chord_shifted;
         space = false; \
         SEND_STRING("Elbereth"); \
         break; \
-      case CHORD_http_: \
-        last_chord_length = 7; \
-        prev_chord_skipsentence = true; \
-        space = false; \
-        SEND_STRING("http://"); \
-        break; \
       case CHORD_https_: \
         last_chord_length = 8; \
         prev_chord_skipsentence = true; \
@@ -4857,6 +4891,48 @@ bool chord_shifted;
         } else { \
           SEND_STRING("select * from"); \
         } \
+        break; \
+      case CHORD_pokemon: \
+      case CHORD_S_pokemon: \
+        last_chord_length = 7; \
+        if (chord_shifted || combo_index == CHORD_S_pokemon) { \
+          SEND_STRING("Pok"); \
+          send_unicode_string("é"); \
+          SEND_STRING("mon"); \
+        } else { \
+          SEND_STRING("pokemon"); \
+        } \
+        break; \
+      case CHORD_graphql: \
+      case CHORD_S_graphql: \
+        last_chord_length = 7; \
+        if (chord_shifted || combo_index == CHORD_S_graphql) { \
+          SEND_STRING("GraphQL"); \
+        } else { \
+          SEND_STRING("graphql"); \
+        } \
+        break; \
+      case CHORD_kuberne: \
+      case CHORD_S_kuberne: \
+        append = "kubernetes"; \
+        break; \
+      case CHORD__up_: \
+        last_chord_length = 8; \
+        space = false; \
+        SEND_STRING("```\n\n```"); \
+        tap_code16(KC_UP); \
+        break; \
+      case CHORD__typesc: \
+        last_chord_length = 18; \
+        space = false; \
+        SEND_STRING("```typescript\n\n```"); \
+        tap_code16(KC_UP); \
+        break; \
+      case CHORD__go_up_: \
+        last_chord_length = 10; \
+        space = false; \
+        SEND_STRING("```go\n\n```"); \
+        tap_code16(KC_UP); \
         break; \
       case CHORD_delete_: \
       case CHORD_left_cl: \
@@ -7079,20 +7155,6 @@ bool chord_shifted;
               append = "sort"; \
             break; \
           } \
-        } \
-        break; \
-      case CHORD_http_: \
-        space = false; \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 3; \
-            append = "s://"; \
-          break; \
-          case 1: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-            append = "://"; \
-          break; \
         } \
         break; \
       case CHORD_https_: \

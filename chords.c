@@ -2739,6 +2739,8 @@ COMBO_FOR_CHORD(S_select_, A_S, A_T, A_F, A_R, AT1);
 bool releasedWithinTapThreshold = true;
 deferred_token chord_token = INVALID_DEFERRED_TOKEN;
 uint16_t prev_chord_length;
+bool prev_chord_space = false;
+bool prev_chord_skipsentence = false;
 bool chord_shifted;
 
 #define CHORD_FUNC_RELEASE \
@@ -2750,7 +2752,9 @@ bool chord_shifted;
     prev_chord_length = last_chord_length; \
     last_chord_length = 0; \
    \
-    const uint8_t mods = get_mods(); \
+    uint8_t mods = get_mods(); \
+    uint8_t oneshot_mods = get_oneshot_mods(); \
+   \
     del_mods(MOD_MASK_SHIFT); \
     del_weak_mods(MOD_MASK_SHIFT); \
     del_oneshot_mods(MOD_MASK_SHIFT); \
@@ -2769,6 +2773,8 @@ bool chord_shifted;
           else { \
             tap_code16(LALT(KC_BSPC)); \
           } \
+          prev_chord_skipsentence = false; \
+          prev_chord_space = false; \
         } \
         break; \
       case CHORD_left_cl: \
@@ -2786,6 +2792,7 @@ bool chord_shifted;
       PERSONAL_RELEASE_CASES \
       default: \
         set_mods(mods); \
+        set_oneshot_mods(oneshot_mods); \
         last_chord_length = prev_chord_length; \
         return; \
     } \
@@ -2798,6 +2805,7 @@ bool chord_shifted;
       last_chord_length += strlen(append); \
     } \
    \
+    prev_chord_space = space; \
     if (space) { \
       tap_code(KC_SPC); \
       last_chord_length++; \
@@ -2808,6 +2816,7 @@ bool chord_shifted;
     } \
    \
     set_mods(mods); \
+    set_oneshot_mods(oneshot_mods); \
   }
 
 #define CHORD_FUNC_HOLD \
@@ -2820,7 +2829,8 @@ bool chord_shifted;
     bool space = true; \
     last_chord_length = 0; \
    \
-    const uint8_t mods = get_mods(); \
+    uint8_t mods = get_mods(); \
+    uint8_t oneshot_mods = 0; \
     del_mods(MOD_MASK_SHIFT); \
     del_weak_mods(MOD_MASK_SHIFT); \
     del_oneshot_mods(MOD_MASK_SHIFT); \
@@ -2829,7 +2839,7 @@ bool chord_shifted;
       case CHORD_delete_: \
         space = false; \
         last_chord_length = prev_chord_length; \
-        add_oneshot_mods(MOD_LCTL | MOD_LALT | MOD_LGUI); \
+        oneshot_mods = MOD_LCTL | MOD_LALT | MOD_LGUI; \
         break; \
       case CHORD_left_cl: \
         space = false; \
@@ -2841,6 +2851,7 @@ bool chord_shifted;
       PERSONAL_HOLD_CASES \
       default: \
         set_mods(mods); \
+        set_oneshot_mods(oneshot_mods); \
         last_chord_length = prev_chord_length; \
         return 0; \
     } \
@@ -2853,6 +2864,7 @@ bool chord_shifted;
       last_chord_length += strlen(append); \
     } \
    \
+    prev_chord_space = space; \
     if (space) { \
       tap_code(KC_SPC); \
       last_chord_length++; \
@@ -2860,6 +2872,7 @@ bool chord_shifted;
    \
     emit_virt_combo(last_chord, chord_shifted, VIRT_CHORD_ENDED_HOLD); \
     set_mods(mods); \
+    set_oneshot_mods(oneshot_mods); \
     return 0; \
   }
 
@@ -2872,6 +2885,7 @@ bool chord_shifted;
    \
     releasedWithinTapThreshold = true; \
     prev_chord_length = last_chord_length; \
+    prev_chord_skipsentence = false; \
    \
     last_chord_length = 0; \
     last_chord = combo_index; \
@@ -2881,7 +2895,8 @@ bool chord_shifted;
     bool space = true; \
     bool scheduleTimer = false; \
    \
-    const uint8_t mods = get_mods(); \
+    uint8_t mods = get_mods(); \
+    uint8_t oneshot_mods = 0; \
     bool mod_shifted = (mods | get_weak_mods() | get_oneshot_mods()) & MOD_MASK_SHIFT; \
     del_mods(MOD_MASK_SHIFT); \
     del_weak_mods(MOD_MASK_SHIFT); \
@@ -2902,103 +2917,133 @@ bool chord_shifted;
         set_oneshot_layer(FUNCTION, ONESHOT_START); \
         break; \
       case CHORD_excl: \
-        space = false; \
         last_chord_length = 1; \
+        if (prev_chord_length && !prev_chord_skipsentence) { \
+          if (prev_chord_space) { \
+            tap_code16(KC_BSPC); \
+          } \
+          space = prev_chord_space; \
+          oneshot_mods = MOD_MASK_SHIFT; \
+        } else { \
+          space = false; \
+        } \
         SEND_STRING("!"); \
         break; \
       case CHORD_qmark: \
-        space = false; \
         last_chord_length = 1; \
+        if (prev_chord_length && !prev_chord_skipsentence) { \
+          if (prev_chord_space) { \
+            tap_code16(KC_BSPC); \
+          } \
+          space = prev_chord_space; \
+          oneshot_mods = MOD_MASK_SHIFT; \
+        } else { \
+          space = false; \
+        } \
         SEND_STRING("?"); \
         break; \
       case CHORD_colon: \
-        space = false; \
         last_chord_length = 1; \
+        if (prev_chord_length && !prev_chord_skipsentence) { \
+          if (prev_chord_space) { \
+            tap_code16(KC_BSPC); \
+          } \
+          space = prev_chord_space; \
+        } else { \
+          space = false; \
+        } \
         SEND_STRING(":"); \
         break; \
       case CHORD_semi: \
-        space = false; \
         last_chord_length = 1; \
+        if (prev_chord_length && !prev_chord_skipsentence) { \
+          if (prev_chord_space) { \
+            tap_code16(KC_BSPC); \
+          } \
+          space = prev_chord_space; \
+        } else { \
+          space = false; \
+        } \
         SEND_STRING(";"); \
         break; \
       case CHORD_cent: \
-        space = false; \
         last_chord_length = 1; \
+        space = false; \
         send_unicode_string("¢"); \
         break; \
       case CHORD_pound: \
-        space = false; \
         last_chord_length = 1; \
+        space = false; \
         send_unicode_string("£"); \
         break; \
       case CHORD_yen: \
-        space = false; \
         last_chord_length = 1; \
+        space = false; \
         send_unicode_string("¥"); \
         break; \
       case CHORD_euro: \
-        space = false; \
         last_chord_length = 1; \
+        space = false; \
         send_unicode_string("€"); \
         break; \
       case CHORD_mid_ell: \
-        space = false; \
         last_chord_length = 1; \
+        space = false; \
         send_unicode_string("⋯"); \
         break; \
       case CHORD_bullet: \
-        space = false; \
         last_chord_length = 1; \
+        space = false; \
         send_unicode_string("•"); \
         break; \
       case CHORD_degrees: \
-        space = false; \
         last_chord_length = 1; \
+        space = false; \
         send_unicode_string("°"); \
         break; \
       case CHORD_infinit: \
-        space = false; \
         last_chord_length = 1; \
+        space = false; \
         send_unicode_string("∞"); \
         break; \
       case CHORD_lambda: \
-        space = false; \
         last_chord_length = 1; \
+        space = false; \
         send_unicode_string("λ"); \
         break; \
       case CHORD_interro: \
-        space = false; \
         last_chord_length = 1; \
+        space = false; \
         send_unicode_string("‽"); \
         break; \
       case CHORD_ballot_: \
-        space = false; \
         last_chord_length = 1; \
+        space = false; \
         send_unicode_string("✗"); \
         break; \
       case CHORD_checkma: \
-        space = false; \
         last_chord_length = 1; \
+        space = false; \
         send_unicode_string("✔"); \
         break; \
       case CHORD_left_ar: \
-        space = false; \
         last_chord_length = 1; \
+        space = false; \
         send_unicode_string("←"); \
         break; \
       case CHORD_down_ar: \
-        space = false; \
         last_chord_length = 1; \
+        space = false; \
         send_unicode_string("↓"); \
         break; \
       case CHORD_up_arro: \
-        space = false; \
         last_chord_length = 1; \
+        space = false; \
         send_unicode_string("↑"); \
         break; \
       case CHORD_right_a: \
-        space = false; \
         last_chord_length = 1; \
+        space = false; \
         send_unicode_string("→"); \
         break; \
       case CHORD__ing: \
@@ -4775,33 +4820,38 @@ bool chord_shifted;
         break; \
       case CHORD_the_qui: \
       case CHORD_S_the_qui: \
-        space = false; \
         if (chord_shifted || combo_index == CHORD_S_the_qui) { \
+          space = false; \
           last_chord_length = 44; \
           SEND_STRING("The quick brown fox jumps over the lazy dog."); \
         } else { \
+          space = false; \
           last_chord_length = 43; \
           SEND_STRING("the quick brown fox jumps over the lazy dog"); \
         } \
         break; \
       case CHORD_elberet: \
-        space = false; \
         last_chord_length = 8; \
+        prev_chord_skipsentence = true; \
+        space = false; \
         SEND_STRING("Elbereth"); \
         break; \
       case CHORD_http_: \
-        space = false; \
         last_chord_length = 7; \
+        prev_chord_skipsentence = true; \
+        space = false; \
         SEND_STRING("http://"); \
         break; \
       case CHORD_https_: \
-        space = false; \
         last_chord_length = 8; \
+        prev_chord_skipsentence = true; \
+        space = false; \
         SEND_STRING("https://"); \
         break; \
       case CHORD_select_: \
       case CHORD_S_select_: \
         last_chord_length = 13; \
+        prev_chord_skipsentence = true; \
         if (chord_shifted || combo_index == CHORD_S_select_) { \
           SEND_STRING("SELECT * FROM"); \
         } else { \
@@ -4829,6 +4879,7 @@ bool chord_shifted;
       last_chord_length += strlen(append); \
     } \
    \
+    prev_chord_space = space; \
     if (space) { \
       tap_code(KC_SPC); \
       last_chord_length++; \
@@ -4841,6 +4892,7 @@ bool chord_shifted;
     emit_virt_combo(last_chord, chord_shifted, scheduleTimer ? VIRT_CHORD_ENDED_INDETERMINATE : VIRT_CHORD_ENDED_TAP); \
    \
     set_mods(mods); \
+    set_oneshot_mods(oneshot_mods); \
    \
     return; \
   }
@@ -4852,7 +4904,8 @@ bool chord_shifted;
     char *append = NULL; \
     bool space = true; \
    \
-    const uint8_t mods = get_mods(); \
+    uint8_t mods = get_mods(); \
+    uint8_t oneshot_mods = 0; \
     del_mods(MOD_MASK_SHIFT); \
     del_weak_mods(MOD_MASK_SHIFT); \
     del_oneshot_mods(MOD_MASK_SHIFT); \
@@ -7072,12 +7125,14 @@ bool chord_shifted;
       last_chord_length += strlen(append); \
     } \
    \
+    prev_chord_space = space; \
     if (space) { \
       tap_code(KC_SPC); \
       last_chord_length++; \
     } \
    \
     set_mods(mods); \
+    set_oneshot_mods(oneshot_mods); \
    \
     return next_chord_cycle; \
   }

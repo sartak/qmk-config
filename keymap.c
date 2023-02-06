@@ -282,7 +282,7 @@ bool process_taphold(uint16_t keycode, keyrecord_t *record) {
       TH_GUI(KC_Z)
       TH_GUI(KC_ENT)
       TH_CASE(KC_QUOTE, KC_ESCAPE, ;, ;)
-      TH_CASE(KC_DOT, KC_TAB, SENTENCE_PRE, SENTENCE_POST_SHIFT)
+      TH_CASE(KC_DOT, KC_NO, SENTENCE_PRE, SENTENCE_POST_SHIFT)
       TH_CASE(KC_COMM, KC_ALFRED, SENTENCE_PRE, SENTENCE_POST_NOSHIFT)
     }
 

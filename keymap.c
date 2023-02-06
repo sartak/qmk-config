@@ -91,11 +91,11 @@ enum custom_keycodes {
 #define ST2 MT(MOD_LCTL, KC_SPC)
 #define ST3 LT(NUMBER, KC_TAB)
 
-#define N_W KC_BRIU
+#define N_W KC_SCREENSHOT
 #define N_L KC_6
 #define N_Y KC_5
 #define N_P KC_4
-#define N_B KC_SCREENSHOT
+#define N_B KC_BRIU
 #define N_Z KC_MUTE
 #define N_F KC_MPRV
 #define N_O KC_MPLY
@@ -111,11 +111,11 @@ enum custom_keycodes {
 #define N_E KC_DOWN
 #define N_I KC_UP
 #define N_A KC_RIGHT
-#define N_Q KC_BRID
+#define N_Q KC_LOCKSCR
 #define N_J KC_9
 #define N_V KC_8
 #define N_D KC_7
-#define N_K KC_LOCKSCR
+#define N_K KC_BRID
 #define N_X KC_VOLD
 #define N_H KC_ZOOMIN
 #define N_d TH(KC_DOT)

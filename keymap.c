@@ -233,12 +233,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #define TH_GUI(key) TH_CASE(key, LGUI(key), ;, ;)
 
 #define SENTENCE_PRE \
-  if (prev_chord_length && !prev_chord_skipsentence && prev_chord_space) { \
-    tap_code16(KC_BSPC); \
+  if (prev_sentence_mode) { \
+    sentence_mode = true; \
+    if (prev_chord_space) { \
+      tap_code16(KC_BSPC); \
+    } \
   }
 
 #define SENTENCE_POST_SHIFT \
-  if (prev_chord_length && !prev_chord_skipsentence) { \
+  if (prev_sentence_mode) { \
     if (prev_chord_space) { \
       tap_code16(KC_SPC); \
     } \
@@ -246,13 +249,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   }
 
 #define SENTENCE_POST_NOSHIFT \
-  if (prev_chord_length && !prev_chord_skipsentence) { \
+  if (prev_sentence_mode) { \
     if (prev_chord_space) { \
       tap_code16(KC_SPC); \
     } \
   }
 
-bool process_taphold(uint16_t keycode, keyrecord_t *record) {
+bool process_taphold(uint16_t keycode, keyrecord_t *record, bool prev_sentence_mode) {
     switch (keycode) {
       TH_GUI(KC_A)
       TH_GUI(KC_B)
@@ -380,12 +383,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return false;
   }
 
+  bool prev_sentence_mode = sentence_mode;
+
   if (record->event.pressed) {
     last_chord = 0;
     last_chord_length = 0;
+    sentence_mode = false;
   }
 
-  if (!process_taphold(keycode, record)) {
+  if (!process_taphold(keycode, record, prev_sentence_mode)) {
     return false;
   }
 

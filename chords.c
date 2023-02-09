@@ -4911,9 +4911,7 @@ bool sentence_mode = false;
       case CHORD_S_pokemon: \
         last_chord_length = 7; \
         if (chord_shifted || combo_index == CHORD_S_pokemon) { \
-          SEND_STRING("Pok"); \
-          send_unicode_string("é"); \
-          SEND_STRING("mon"); \
+          send_unicode_string("Pokémon"); \
         } else { \
           SEND_STRING("pokemon"); \
         } \

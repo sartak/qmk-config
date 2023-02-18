@@ -5197,6 +5197,254 @@ bool sentence_mode = false;
         break; \
       case CHORD_one: \
       case CHORD_S_one: \
+      case CHORD_other: \
+      case CHORD_S_other: \
+      case CHORD_time: \
+      case CHORD_S_time: \
+      case CHORD_year: \
+      case CHORD_S_year: \
+      case CHORD_first: \
+      case CHORD_S_first: \
+      case CHORD_day: \
+      case CHORD_S_day: \
+      case CHORD_way: \
+      case CHORD_S_way: \
+      case CHORD_well: \
+      case CHORD_S_well: \
+      case CHORD_place: \
+      case CHORD_S_place: \
+      case CHORD_world: \
+      case CHORD_S_world: \
+      case CHORD_nation: \
+      case CHORD_S_nation: \
+      case CHORD_hand: \
+      case CHORD_S_hand: \
+      case CHORD_house: \
+      case CHORD_S_house: \
+      case CHORD_right: \
+      case CHORD_S_right: \
+      case CHORD_thing: \
+      case CHORD_S_thing: \
+      case CHORD_general: \
+      case CHORD_S_general: \
+      case CHORD_school: \
+      case CHORD_S_school: \
+      case CHORD_number: \
+      case CHORD_S_number: \
+      case CHORD_problem: \
+      case CHORD_S_problem: \
+      case CHORD_system: \
+      case CHORD_S_system: \
+      case CHORD_fact: \
+      case CHORD_S_fact: \
+      case CHORD_course: \
+      case CHORD_S_course: \
+      case CHORD_sound: \
+      case CHORD_S_sound: \
+      case CHORD_sentenc: \
+      case CHORD_S_sentenc: \
+      case CHORD_cause: \
+      case CHORD_S_cause: \
+      case CHORD_boy: \
+      case CHORD_S_boy: \
+      case CHORD_air: \
+      case CHORD_S_air: \
+      case CHORD_port: \
+      case CHORD_S_port: \
+      case CHORD_spell: \
+      case CHORD_S_spell: \
+      case CHORD_land: \
+      case CHORD_S_land: \
+      case CHORD_picture: \
+      case CHORD_S_picture: \
+      case CHORD_animal: \
+      case CHORD_S_animal: \
+      case CHORD_mother: \
+      case CHORD_S_mother: \
+      case CHORD_build: \
+      case CHORD_S_build: \
+      case CHORD_earth: \
+      case CHORD_S_earth: \
+      case CHORD_father: \
+      case CHORD_S_father: \
+      case CHORD_page: \
+      case CHORD_S_page: \
+      case CHORD_answer: \
+      case CHORD_S_answer: \
+      case CHORD_plant: \
+      case CHORD_S_plant: \
+      case CHORD_cover: \
+      case CHORD_S_cover: \
+      case CHORD_food: \
+      case CHORD_S_food: \
+      case CHORD_sun: \
+      case CHORD_S_sun: \
+      case CHORD_four: \
+      case CHORD_S_four: \
+      case CHORD_thought: \
+      case CHORD_S_thought: \
+      case CHORD_sea: \
+      case CHORD_S_sea: \
+      case CHORD_night: \
+      case CHORD_S_night: \
+      case CHORD_walk: \
+      case CHORD_S_walk: \
+      case CHORD_example: \
+      case CHORD_S_example: \
+      case CHORD_mark: \
+      case CHORD_S_mark: \
+      case CHORD_letter: \
+      case CHORD_S_letter: \
+      case CHORD_mile: \
+      case CHORD_S_mile: \
+      case CHORD_river: \
+      case CHORD_S_river: \
+      case CHORD_car: \
+      case CHORD_S_car: \
+      case CHORD_second: \
+      case CHORD_S_second: \
+      case CHORD_science: \
+      case CHORD_S_science: \
+      case CHORD_friend: \
+      case CHORD_S_friend: \
+      case CHORD_idea: \
+      case CHORD_S_idea: \
+      case CHORD_mountai: \
+      case CHORD_S_mountai: \
+      case CHORD_stop: \
+      case CHORD_S_stop: \
+      case CHORD_base: \
+      case CHORD_S_base: \
+      case CHORD_horse: \
+      case CHORD_S_horse: \
+      case CHORD_cut: \
+      case CHORD_S_cut: \
+      case CHORD_color: \
+      case CHORD_S_color: \
+      case CHORD_wood: \
+      case CHORD_S_wood: \
+      case CHORD_main: \
+      case CHORD_S_main: \
+      case CHORD_girl: \
+      case CHORD_S_girl: \
+      case CHORD_list: \
+      case CHORD_S_list: \
+      case CHORD_bird: \
+      case CHORD_S_bird: \
+      case CHORD_song: \
+      case CHORD_S_song: \
+      case CHORD_measure: \
+      case CHORD_S_measure: \
+      case CHORD_product: \
+      case CHORD_S_product: \
+      case CHORD_numeral: \
+      case CHORD_S_numeral: \
+      case CHORD_wind: \
+      case CHORD_S_wind: \
+      case CHORD_questio: \
+      case CHORD_S_questio: \
+      case CHORD_ship: \
+      case CHORD_S_ship: \
+      case CHORD_rock: \
+      case CHORD_S_rock: \
+      case CHORD_fire: \
+      case CHORD_S_fire: \
+      case CHORD_top: \
+      case CHORD_S_top: \
+      case CHORD_space: \
+      case CHORD_S_space: \
+      case CHORD_hour: \
+      case CHORD_S_hour: \
+      case CHORD_hundred: \
+      case CHORD_S_hundred: \
+      case CHORD_five: \
+      case CHORD_S_five: \
+      case CHORD_war: \
+      case CHORD_S_war: \
+      case CHORD_map: \
+      case CHORD_S_map: \
+      case CHORD_fall: \
+      case CHORD_S_fall: \
+      case CHORD_noun: \
+      case CHORD_S_noun: \
+      case CHORD_week: \
+      case CHORD_S_week: \
+      case CHORD_hot: \
+      case CHORD_S_hot: \
+      case CHORD_ball: \
+      case CHORD_S_ball: \
+      case CHORD_arm: \
+      case CHORD_S_arm: \
+      case CHORD_ice: \
+      case CHORD_S_ice: \
+      case CHORD_matter: \
+      case CHORD_S_matter: \
+      case CHORD_art: \
+      case CHORD_S_art: \
+      case CHORD_cell: \
+      case CHORD_S_cell: \
+      case CHORD_summer: \
+      case CHORD_S_summer: \
+      case CHORD_leg: \
+      case CHORD_S_leg: \
+      case CHORD_joy: \
+      case CHORD_S_joy: \
+      case CHORD_job: \
+      case CHORD_S_job: \
+      case CHORD_buy: \
+      case CHORD_S_buy: \
+      case CHORD_cook: \
+      case CHORD_S_cook: \
+      case CHORD_hill: \
+      case CHORD_S_hill: \
+      case CHORD_law: \
+      case CHORD_S_law: \
+      case CHORD_lie: \
+      case CHORD_S_lie: \
+      case CHORD_son: \
+      case CHORD_S_son: \
+      case CHORD_age: \
+      case CHORD_S_age: \
+      case CHORD_lot: \
+      case CHORD_S_lot: \
+      case CHORD_key: \
+      case CHORD_S_key: \
+      case CHORD_row: \
+      case CHORD_S_row: \
+      case CHORD_die: \
+      case CHORD_S_die: \
+      case CHORD_oil: \
+      case CHORD_S_oil: \
+      case CHORD_fit: \
+      case CHORD_S_fit: \
+      case CHORD_hit: \
+      case CHORD_S_hit: \
+      case CHORD_rub: \
+      case CHORD_S_rub: \
+      case CHORD_tie: \
+      case CHORD_S_tie: \
+      case CHORD_gun: \
+      case CHORD_S_gun: \
+      case CHORD_nine: \
+      case CHORD_S_nine: \
+      case CHORD_experie: \
+      case CHORD_S_experie: \
+      case CHORD_win: \
+      case CHORD_S_win: \
+      case CHORD_feed: \
+      case CHORD_S_feed: \
+      case CHORD_fat: \
+      case CHORD_S_fat: \
+      case CHORD_bar: \
+      case CHORD_S_bar: \
+      case CHORD_log: \
+      case CHORD_S_log: \
+      case CHORD_null: \
+      case CHORD_S_null: \
+      case CHORD_nil: \
+      case CHORD_S_nil: \
+      case CHORD_array: \
+      case CHORD_S_array: \
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
@@ -5210,6 +5458,38 @@ bool sentence_mode = false;
         break; \
       case CHORD_will: \
       case CHORD_S_will: \
+      case CHORD_out: \
+      case CHORD_S_out: \
+      case CHORD_work: \
+      case CHORD_S_work: \
+      case CHORD_back: \
+      case CHORD_S_back: \
+      case CHORD_part: \
+      case CHORD_S_part: \
+      case CHORD_turn: \
+      case CHORD_S_turn: \
+      case CHORD_point: \
+      case CHORD_S_point: \
+      case CHORD_form: \
+      case CHORD_S_form: \
+      case CHORD_interes: \
+      case CHORD_S_interes: \
+      case CHORD_end: \
+      case CHORD_S_end: \
+      case CHORD_present: \
+      case CHORD_S_present: \
+      case CHORD_head: \
+      case CHORD_S_head: \
+      case CHORD_word: \
+      case CHORD_S_word: \
+      case CHORD_order: \
+      case CHORD_S_order: \
+      case CHORD_group: \
+      case CHORD_S_group: \
+      case CHORD_play: \
+      case CHORD_S_play: \
+      case CHORD_water: \
+      case CHORD_S_water: \
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
@@ -5315,53 +5595,6 @@ bool sentence_mode = false;
           break; \
         } \
         break; \
-      case CHORD_out: \
-      case CHORD_S_out: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_ed = true; \
-          break; \
-          case 2: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 3: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_other: \
-      case CHORD_S_other: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_time: \
-      case CHORD_S_time: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
       case CHORD_go: \
       case CHORD_S_go: \
         if (chord_shifted || last_chord == CHORD_S_go) { \
@@ -5398,6 +5631,20 @@ bool sentence_mode = false;
         break; \
       case CHORD_state: \
       case CHORD_S_state: \
+      case CHORD_home: \
+      case CHORD_S_home: \
+      case CHORD_face: \
+      case CHORD_S_face: \
+      case CHORD_increas: \
+      case CHORD_S_increas: \
+      case CHORD_change: \
+      case CHORD_S_change: \
+      case CHORD_line: \
+      case CHORD_S_line: \
+      case CHORD_side: \
+      case CHORD_S_side: \
+      case CHORD_name: \
+      case CHORD_S_name: \
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
@@ -5420,6 +5667,36 @@ bool sentence_mode = false;
         break; \
       case CHORD_new: \
       case CHORD_S_new: \
+      case CHORD_great: \
+      case CHORD_S_great: \
+      case CHORD_long: \
+      case CHORD_S_long: \
+      case CHORD_high: \
+      case CHORD_S_high: \
+      case CHORD_old: \
+      case CHORD_S_old: \
+      case CHORD_few: \
+      case CHORD_S_few: \
+      case CHORD_small: \
+      case CHORD_S_small: \
+      case CHORD_round: \
+      case CHORD_S_round: \
+      case CHORD_low: \
+      case CHORD_S_low: \
+      case CHORD_kind: \
+      case CHORD_S_kind: \
+      case CHORD_hard: \
+      case CHORD_S_hard: \
+      case CHORD_plain: \
+      case CHORD_S_plain: \
+      case CHORD_young: \
+      case CHORD_S_young: \
+      case CHORD_short: \
+      case CHORD_S_short: \
+      case CHORD_dry: \
+      case CHORD_S_dry: \
+      case CHORD_cool: \
+      case CHORD_S_cool: \
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
@@ -5431,19 +5708,6 @@ bool sentence_mode = false;
           break; \
           case 2: \
             backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_year: \
-      case CHORD_S_year: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -5466,6 +5730,8 @@ bool sentence_mode = false;
         break; \
       case CHORD_come: \
       case CHORD_S_come: \
+      case CHORD_become: \
+      case CHORD_S_become: \
         backspaces = 4; \
         switch(last_chord_cycle) { \
           case 0: \
@@ -5533,6 +5799,10 @@ bool sentence_mode = false;
         break; \
       case CHORD_use: \
       case CHORD_S_use: \
+      case CHORD_like: \
+      case CHORD_S_like: \
+      case CHORD_move: \
+      case CHORD_S_move: \
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
@@ -5563,58 +5833,6 @@ bool sentence_mode = false;
           break; \
           case 2: \
             backspaces = 5; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_like: \
-      case CHORD_S_like: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_d = true; \
-          break; \
-          case 1: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 2: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-            append_e = true; \
-          break; \
-        } \
-        break; \
-      case CHORD_first: \
-      case CHORD_S_first: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_work: \
-      case CHORD_S_work: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_ed = true; \
-          break; \
-          case 2: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 3: \
-            backspaces = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -5687,32 +5905,6 @@ bool sentence_mode = false;
           break; \
         } \
         break; \
-      case CHORD_day: \
-      case CHORD_S_day: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_way: \
-      case CHORD_S_way: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
       case CHORD_many: \
       case CHORD_S_many: \
         switch(last_chord_cycle) { \
@@ -5733,6 +5925,32 @@ bool sentence_mode = false;
         break; \
       case CHORD_look: \
       case CHORD_S_look: \
+      case CHORD_own: \
+      case CHORD_S_own: \
+      case CHORD_seem: \
+      case CHORD_S_seem: \
+      case CHORD_show: \
+      case CHORD_S_show: \
+      case CHORD_need: \
+      case CHORD_S_need: \
+      case CHORD_call: \
+      case CHORD_S_call: \
+      case CHORD_develop: \
+      case CHORD_S_develop: \
+      case CHORD_want: \
+      case CHORD_S_want: \
+      case CHORD_ask: \
+      case CHORD_S_ask: \
+      case CHORD_open: \
+      case CHORD_S_open: \
+      case CHORD_follow: \
+      case CHORD_S_follow: \
+      case CHORD_govern: \
+      case CHORD_S_govern: \
+      case CHORD_conside: \
+      case CHORD_S_conside: \
+      case CHORD_help: \
+      case CHORD_S_help: \
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
@@ -5744,74 +5962,6 @@ bool sentence_mode = false;
           break; \
           case 2: \
             backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_great: \
-      case CHORD_S_great: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_er = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_st = true; \
-          break; \
-          case 2: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_back: \
-      case CHORD_S_back: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_ed = true; \
-          break; \
-          case 2: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 3: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_long: \
-      case CHORD_S_long: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_er = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_st = true; \
-          break; \
-          case 2: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_well: \
-      case CHORD_S_well: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -5832,23 +5982,6 @@ bool sentence_mode = false;
             backspaces = 5; \
             next_chord_cycle = 0; \
             append = "ople"; \
-          break; \
-        } \
-        break; \
-      case CHORD_own: \
-      case CHORD_S_own: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_ed = true; \
-          break; \
-          case 1: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 2: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
           break; \
         } \
         break; \
@@ -5916,55 +6049,18 @@ bool sentence_mode = false;
           break; \
         } \
         break; \
-      case CHORD_seem: \
-      case CHORD_S_seem: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_ed = true; \
-          break; \
-          case 1: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 2: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_high: \
-      case CHORD_S_high: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_er = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_st = true; \
-          break; \
-          case 2: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_place: \
-      case CHORD_S_place: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
       case CHORD_little: \
       case CHORD_S_little: \
+      case CHORD_late: \
+      case CHORD_S_late: \
+      case CHORD_large: \
+      case CHORD_S_large: \
+      case CHORD_close: \
+      case CHORD_S_close: \
+      case CHORD_white: \
+      case CHORD_S_white: \
+      case CHORD_true: \
+      case CHORD_S_true: \
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
@@ -5976,62 +6072,6 @@ bool sentence_mode = false;
           break; \
           case 2: \
             backspaces = 3; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_world: \
-      case CHORD_S_world: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_nation: \
-      case CHORD_S_nation: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_hand: \
-      case CHORD_S_hand: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_old: \
-      case CHORD_S_old: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_er = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_st = true; \
-          break; \
-          case 2: \
-            backspaces = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6082,69 +6122,6 @@ bool sentence_mode = false;
           break; \
         } \
         break; \
-      case CHORD_become: \
-      case CHORD_S_become: \
-        backspaces = 4; \
-        switch(last_chord_cycle) { \
-          case 0: \
-            append = "ame"; \
-          break; \
-          case 1: \
-            append = "oming"; \
-          break; \
-          case 2: \
-            next_chord_cycle = 0; \
-            append_e = true; \
-          break; \
-        } \
-        break; \
-      case CHORD_show: \
-      case CHORD_S_show: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_ed = true; \
-          break; \
-          case 1: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 2: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_house: \
-      case CHORD_S_house: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_need: \
-      case CHORD_S_need: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_ed = true; \
-          break; \
-          case 1: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 2: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
       case CHORD_mean: \
       case CHORD_S_mean: \
         switch(last_chord_cycle) { \
@@ -6162,110 +6139,6 @@ bool sentence_mode = false;
           break; \
         } \
         break; \
-      case CHORD_call: \
-      case CHORD_S_call: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_ed = true; \
-          break; \
-          case 1: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 2: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_develop: \
-      case CHORD_S_develop: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_ed = true; \
-          break; \
-          case 1: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 2: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_right: \
-      case CHORD_S_right: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_move: \
-      case CHORD_S_move: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_d = true; \
-          break; \
-          case 1: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 2: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-            append_e = true; \
-          break; \
-        } \
-        break; \
-      case CHORD_thing: \
-      case CHORD_S_thing: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_general: \
-      case CHORD_S_general: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_school: \
-      case CHORD_S_school: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
       case CHORD_begin: \
       case CHORD_S_begin: \
         switch(last_chord_cycle) { \
@@ -6279,61 +6152,6 @@ bool sentence_mode = false;
           break; \
           case 2: \
             backspaces = 5; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_number: \
-      case CHORD_S_number: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_part: \
-      case CHORD_S_part: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_ed = true; \
-          break; \
-          case 2: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 3: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_turn: \
-      case CHORD_S_turn: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_ed = true; \
-          break; \
-          case 2: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 3: \
-            backspaces = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6356,65 +6174,6 @@ bool sentence_mode = false;
           break; \
         } \
         break; \
-      case CHORD_want: \
-      case CHORD_S_want: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_ed = true; \
-          break; \
-          case 1: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 2: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_point: \
-      case CHORD_S_point: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_ed = true; \
-          break; \
-          case 2: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 3: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_form: \
-      case CHORD_S_form: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_ed = true; \
-          break; \
-          case 2: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 3: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
       case CHORD_child: \
       case CHORD_S_child: \
         switch(last_chord_cycle) { \
@@ -6425,134 +6184,6 @@ bool sentence_mode = false;
           break; \
           case 1: \
             backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_few: \
-      case CHORD_S_few: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_er = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_st = true; \
-          break; \
-          case 2: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_small: \
-      case CHORD_S_small: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_er = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_st = true; \
-          break; \
-          case 2: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_ask: \
-      case CHORD_S_ask: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_ed = true; \
-          break; \
-          case 1: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 2: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_late: \
-      case CHORD_S_late: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_r = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_st = true; \
-          break; \
-          case 2: \
-            backspaces = 3; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_home: \
-      case CHORD_S_home: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_d = true; \
-          break; \
-          case 2: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 3: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-            append_e = true; \
-          break; \
-        } \
-        break; \
-      case CHORD_interes: \
-      case CHORD_S_interes: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_ed = true; \
-          break; \
-          case 2: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 3: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_large: \
-      case CHORD_S_large: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_r = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_st = true; \
-          break; \
-          case 2: \
-            backspaces = 3; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6571,82 +6202,6 @@ bool sentence_mode = false;
           break; \
         } \
         break; \
-      case CHORD_end: \
-      case CHORD_S_end: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_ed = true; \
-          break; \
-          case 2: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 3: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_open: \
-      case CHORD_S_open: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_ed = true; \
-          break; \
-          case 1: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 2: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_follow: \
-      case CHORD_S_follow: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_ed = true; \
-          break; \
-          case 1: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 2: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_present: \
-      case CHORD_S_present: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_ed = true; \
-          break; \
-          case 2: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 3: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
       case CHORD_hold: \
       case CHORD_S_hold: \
         backspaces = 4; \
@@ -6659,82 +6214,6 @@ bool sentence_mode = false;
             append = "olding"; \
           break; \
           case 2: \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_govern: \
-      case CHORD_S_govern: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_ed = true; \
-          break; \
-          case 1: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 2: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_head: \
-      case CHORD_S_head: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_ed = true; \
-          break; \
-          case 2: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 3: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_conside: \
-      case CHORD_S_conside: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_ed = true; \
-          break; \
-          case 1: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 2: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_word: \
-      case CHORD_S_word: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_ed = true; \
-          break; \
-          case 2: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 3: \
-            backspaces = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6760,19 +6239,6 @@ bool sentence_mode = false;
           break; \
         } \
         break; \
-      case CHORD_problem: \
-      case CHORD_S_problem: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
       case CHORD_lead: \
       case CHORD_S_lead: \
         switch(last_chord_cycle) { \
@@ -6794,19 +6260,6 @@ bool sentence_mode = false;
           break; \
         } \
         break; \
-      case CHORD_system: \
-      case CHORD_S_system: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
       case CHORD_set: \
       case CHORD_S_set: \
         switch(last_chord_cycle) { \
@@ -6820,27 +6273,6 @@ bool sentence_mode = false;
           break; \
           case 2: \
             backspaces = 5; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_order: \
-      case CHORD_S_order: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_ed = true; \
-          break; \
-          case 2: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 3: \
-            backspaces = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -6930,83 +6362,6 @@ bool sentence_mode = false;
           break; \
         } \
         break; \
-      case CHORD_face: \
-      case CHORD_S_face: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_d = true; \
-          break; \
-          case 2: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 3: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-            append_e = true; \
-          break; \
-        } \
-        break; \
-      case CHORD_fact: \
-      case CHORD_S_fact: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_group: \
-      case CHORD_S_group: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_ed = true; \
-          break; \
-          case 2: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 3: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_play: \
-      case CHORD_S_play: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_ed = true; \
-          break; \
-          case 2: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 3: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
       case CHORD_stand: \
       case CHORD_S_stand: \
         switch(last_chord_cycle) { \
@@ -7028,30 +6383,10 @@ bool sentence_mode = false;
           break; \
         } \
         break; \
-      case CHORD_increas: \
-      case CHORD_S_increas: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_d = true; \
-          break; \
-          case 2: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 3: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-            append_e = true; \
-          break; \
-        } \
-        break; \
       case CHORD_early: \
       case CHORD_S_early: \
+      case CHORD_ready: \
+      case CHORD_S_ready: \
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 2; \
@@ -7065,80 +6400,6 @@ bool sentence_mode = false;
             backspaces = 5; \
             next_chord_cycle = 0; \
             append_y = true; \
-          break; \
-        } \
-        break; \
-      case CHORD_course: \
-      case CHORD_S_course: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_change: \
-      case CHORD_S_change: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_d = true; \
-          break; \
-          case 2: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 3: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-            append_e = true; \
-          break; \
-        } \
-        break; \
-      case CHORD_help: \
-      case CHORD_S_help: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_ed = true; \
-          break; \
-          case 1: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 2: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_line: \
-      case CHORD_S_line: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_d = true; \
-          break; \
-          case 2: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 3: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-            append_e = true; \
           break; \
         } \
         break; \
@@ -7224,209 +6485,6 @@ bool sentence_mode = false;
           } \
         } \
         break; \
-      case CHORD_sound: \
-      case CHORD_S_sound: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_water: \
-      case CHORD_S_water: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_ed = true; \
-          break; \
-          case 2: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 3: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_side: \
-      case CHORD_S_side: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_d = true; \
-          break; \
-          case 2: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 3: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-            append_e = true; \
-          break; \
-        } \
-        break; \
-      case CHORD_round: \
-      case CHORD_S_round: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_er = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_st = true; \
-          break; \
-          case 2: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_name: \
-      case CHORD_S_name: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_d = true; \
-          break; \
-          case 2: \
-            backspaces = 3; \
-            append_ing = true; \
-          break; \
-          case 3: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-            append_e = true; \
-          break; \
-        } \
-        break; \
-      case CHORD_sentenc: \
-      case CHORD_S_sentenc: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_low: \
-      case CHORD_S_low: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_er = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_st = true; \
-          break; \
-          case 2: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_cause: \
-      case CHORD_S_cause: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_boy: \
-      case CHORD_S_boy: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_air: \
-      case CHORD_S_air: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_port: \
-      case CHORD_S_port: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_spell: \
-      case CHORD_S_spell: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_land: \
-      case CHORD_S_land: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
       case CHORD_big: \
       case CHORD_S_big: \
         switch(last_chord_cycle) { \
@@ -7446,6 +6504,8 @@ bool sentence_mode = false;
         break; \
       case CHORD_light: \
       case CHORD_S_light: \
+      case CHORD_black: \
+      case CHORD_S_black: \
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
@@ -7465,77 +6525,10 @@ bool sentence_mode = false;
           break; \
         } \
         break; \
-      case CHORD_kind: \
-      case CHORD_S_kind: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_er = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_st = true; \
-          break; \
-          case 2: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_picture: \
-      case CHORD_S_picture: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_animal: \
-      case CHORD_S_animal: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_mother: \
-      case CHORD_S_mother: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_build: \
-      case CHORD_S_build: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
       case CHORD_self: \
       case CHORD_S_self: \
+      case CHORD_half: \
+      case CHORD_S_half: \
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 2; \
@@ -7548,166 +6541,18 @@ bool sentence_mode = false;
           break; \
         } \
         break; \
-      case CHORD_earth: \
-      case CHORD_S_earth: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_father: \
-      case CHORD_S_father: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_page: \
-      case CHORD_S_page: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
       case CHORD_country: \
       case CHORD_S_country: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 2; \
-            append = "ies"; \
-          break; \
-          case 1: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-            append_y = true; \
-          break; \
-        } \
-        break; \
-      case CHORD_answer: \
-      case CHORD_S_answer: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
       case CHORD_study: \
       case CHORD_S_study: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 2; \
-            append = "ies"; \
-          break; \
-          case 1: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-            append_y = true; \
-          break; \
-        } \
-        break; \
-      case CHORD_plant: \
-      case CHORD_S_plant: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_cover: \
-      case CHORD_S_cover: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_food: \
-      case CHORD_S_food: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_sun: \
-      case CHORD_S_sun: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_four: \
-      case CHORD_S_four: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_thought: \
-      case CHORD_S_thought: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
       case CHORD_city: \
       case CHORD_S_city: \
+      case CHORD_body: \
+      case CHORD_S_body: \
+      case CHORD_family: \
+      case CHORD_S_family: \
+      case CHORD_fly: \
+      case CHORD_S_fly: \
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 2; \
@@ -7722,6 +6567,20 @@ bool sentence_mode = false;
         break; \
       case CHORD_cross: \
       case CHORD_S_cross: \
+      case CHORD_press: \
+      case CHORD_S_press: \
+      case CHORD_fish: \
+      case CHORD_S_fish: \
+      case CHORD_watch: \
+      case CHORD_S_watch: \
+      case CHORD_class: \
+      case CHORD_S_class: \
+      case CHORD_pass: \
+      case CHORD_S_pass: \
+      case CHORD_six: \
+      case CHORD_S_six: \
+      case CHORD_box: \
+      case CHORD_S_box: \
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
@@ -7729,23 +6588,6 @@ bool sentence_mode = false;
           break; \
           case 1: \
             backspaces = 3; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_hard: \
-      case CHORD_S_hard: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_er = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_st = true; \
-          break; \
-          case 2: \
-            backspaces = 4; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -7767,79 +6609,6 @@ bool sentence_mode = false;
           break; \
         } \
         break; \
-      case CHORD_sea: \
-      case CHORD_S_sea: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_press: \
-      case CHORD_S_press: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_es = true; \
-          break; \
-          case 1: \
-            backspaces = 3; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_close: \
-      case CHORD_S_close: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_r = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_st = true; \
-          break; \
-          case 2: \
-            backspaces = 3; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_night: \
-      case CHORD_S_night: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_white: \
-      case CHORD_S_white: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_r = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_st = true; \
-          break; \
-          case 2: \
-            backspaces = 3; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
       case CHORD_childre: \
       case CHORD_S_childre: \
         switch(last_chord_cycle) { \
@@ -7851,344 +6620,6 @@ bool sentence_mode = false;
             next_chord_cycle = 0; \
             append_r = true; \
             append = "en"; \
-          break; \
-        } \
-        break; \
-      case CHORD_walk: \
-      case CHORD_S_walk: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_example: \
-      case CHORD_S_example: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_mark: \
-      case CHORD_S_mark: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_letter: \
-      case CHORD_S_letter: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_mile: \
-      case CHORD_S_mile: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_river: \
-      case CHORD_S_river: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_car: \
-      case CHORD_S_car: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_second: \
-      case CHORD_S_second: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_science: \
-      case CHORD_S_science: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_friend: \
-      case CHORD_S_friend: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_idea: \
-      case CHORD_S_idea: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_fish: \
-      case CHORD_S_fish: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_es = true; \
-          break; \
-          case 1: \
-            backspaces = 3; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_mountai: \
-      case CHORD_S_mountai: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_stop: \
-      case CHORD_S_stop: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_base: \
-      case CHORD_S_base: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_horse: \
-      case CHORD_S_horse: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_cut: \
-      case CHORD_S_cut: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_watch: \
-      case CHORD_S_watch: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_es = true; \
-          break; \
-          case 1: \
-            backspaces = 3; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_color: \
-      case CHORD_S_color: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_wood: \
-      case CHORD_S_wood: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_main: \
-      case CHORD_S_main: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_plain: \
-      case CHORD_S_plain: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_er = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_st = true; \
-          break; \
-          case 2: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_girl: \
-      case CHORD_S_girl: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_young: \
-      case CHORD_S_young: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_er = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_st = true; \
-          break; \
-          case 2: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_ready: \
-      case CHORD_S_ready: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 2; \
-            append = "ier"; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_st = true; \
-          break; \
-          case 2: \
-            backspaces = 5; \
-            next_chord_cycle = 0; \
-            append_y = true; \
           break; \
         } \
         break; \
@@ -8214,602 +6645,6 @@ bool sentence_mode = false;
           break; \
         } \
         break; \
-      case CHORD_list: \
-      case CHORD_S_list: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_bird: \
-      case CHORD_S_bird: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_body: \
-      case CHORD_S_body: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 2; \
-            append = "ies"; \
-          break; \
-          case 1: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-            append_y = true; \
-          break; \
-        } \
-        break; \
-      case CHORD_family: \
-      case CHORD_S_family: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 2; \
-            append = "ies"; \
-          break; \
-          case 1: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-            append_y = true; \
-          break; \
-        } \
-        break; \
-      case CHORD_song: \
-      case CHORD_S_song: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_measure: \
-      case CHORD_S_measure: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_product: \
-      case CHORD_S_product: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_black: \
-      case CHORD_S_black: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_er = true; \
-          break; \
-          case 2: \
-            backspaces = 2; \
-            append_st = true; \
-          break; \
-          case 3: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_short: \
-      case CHORD_S_short: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_er = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_st = true; \
-          break; \
-          case 2: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_numeral: \
-      case CHORD_S_numeral: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_class: \
-      case CHORD_S_class: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_es = true; \
-          break; \
-          case 1: \
-            backspaces = 3; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_wind: \
-      case CHORD_S_wind: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_questio: \
-      case CHORD_S_questio: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_ship: \
-      case CHORD_S_ship: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_half: \
-      case CHORD_S_half: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 2; \
-            append = "ves"; \
-          break; \
-          case 1: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-            append = "f"; \
-          break; \
-        } \
-        break; \
-      case CHORD_rock: \
-      case CHORD_S_rock: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_fire: \
-      case CHORD_S_fire: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_pass: \
-      case CHORD_S_pass: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_es = true; \
-          break; \
-          case 1: \
-            backspaces = 3; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_top: \
-      case CHORD_S_top: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_space: \
-      case CHORD_S_space: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_hour: \
-      case CHORD_S_hour: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_true: \
-      case CHORD_S_true: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_r = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_st = true; \
-          break; \
-          case 2: \
-            backspaces = 3; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_hundred: \
-      case CHORD_S_hundred: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_five: \
-      case CHORD_S_five: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_six: \
-      case CHORD_S_six: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_es = true; \
-          break; \
-          case 1: \
-            backspaces = 3; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_war: \
-      case CHORD_S_war: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_map: \
-      case CHORD_S_map: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_fly: \
-      case CHORD_S_fly: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 2; \
-            append = "ies"; \
-          break; \
-          case 1: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-            append_y = true; \
-          break; \
-        } \
-        break; \
-      case CHORD_fall: \
-      case CHORD_S_fall: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_box: \
-      case CHORD_S_box: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_es = true; \
-          break; \
-          case 1: \
-            backspaces = 3; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_noun: \
-      case CHORD_S_noun: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_week: \
-      case CHORD_S_week: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_dry: \
-      case CHORD_S_dry: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_er = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_st = true; \
-          break; \
-          case 2: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_hot: \
-      case CHORD_S_hot: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_ball: \
-      case CHORD_S_ball: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_arm: \
-      case CHORD_S_arm: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_ice: \
-      case CHORD_S_ice: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_matter: \
-      case CHORD_S_matter: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_art: \
-      case CHORD_S_art: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_cell: \
-      case CHORD_S_cell: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_summer: \
-      case CHORD_S_summer: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_leg: \
-      case CHORD_S_leg: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_joy: \
-      case CHORD_S_joy: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_job: \
-      case CHORD_S_job: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
       case CHORD_gas: \
       case CHORD_S_gas: \
         switch(last_chord_cycle) { \
@@ -8821,335 +6656,6 @@ bool sentence_mode = false;
           break; \
           case 1: \
             backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_buy: \
-      case CHORD_S_buy: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_cook: \
-      case CHORD_S_cook: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_hill: \
-      case CHORD_S_hill: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_law: \
-      case CHORD_S_law: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_lie: \
-      case CHORD_S_lie: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_son: \
-      case CHORD_S_son: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_age: \
-      case CHORD_S_age: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_cool: \
-      case CHORD_S_cool: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_er = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append_st = true; \
-          break; \
-          case 2: \
-            backspaces = 4; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_lot: \
-      case CHORD_S_lot: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_key: \
-      case CHORD_S_key: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_row: \
-      case CHORD_S_row: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_die: \
-      case CHORD_S_die: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_oil: \
-      case CHORD_S_oil: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_fit: \
-      case CHORD_S_fit: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_hit: \
-      case CHORD_S_hit: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_rub: \
-      case CHORD_S_rub: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_tie: \
-      case CHORD_S_tie: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_gun: \
-      case CHORD_S_gun: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_nine: \
-      case CHORD_S_nine: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_experie: \
-      case CHORD_S_experie: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_win: \
-      case CHORD_S_win: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_feed: \
-      case CHORD_S_feed: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_fat: \
-      case CHORD_S_fat: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_bar: \
-      case CHORD_S_bar: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_log: \
-      case CHORD_S_log: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
             next_chord_cycle = 0; \
           break; \
         } \
@@ -9233,45 +6739,6 @@ bool sentence_mode = false;
               append = "thanks"; \
             break; \
           } \
-        } \
-        break; \
-      case CHORD_null: \
-      case CHORD_S_null: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_nil: \
-      case CHORD_S_nil: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
-        } \
-        break; \
-      case CHORD_array: \
-      case CHORD_S_array: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            next_chord_cycle = 0; \
-          break; \
         } \
         break; \
       case CHORD_sort: \

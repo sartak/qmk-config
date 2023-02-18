@@ -4992,6 +4992,16 @@ bool sentence_mode = false;
     uint8_t next_chord_cycle = last_chord_cycle + 1; \
     uint8_t backspaces = 0; \
     char *append = NULL; \
+    bool append_ing = false; \
+    bool append_ed = false; \
+    bool append_st = false; \
+    bool append_er = false; \
+    bool append_es = false; \
+    bool append_s = false; \
+    bool append_e = false; \
+    bool append_d = false; \
+    bool append_y = false; \
+    bool append_r = false; \
     bool space = true; \
    \
     uint8_t mods = get_mods(); \
@@ -5006,11 +5016,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 4; \
-            append = "d"; \
+            append_d = true; \
           break; \
           case 2: \
             backspaces = 2; \
@@ -5019,7 +5029,7 @@ bool sentence_mode = false;
           case 3: \
             backspaces = 4; \
             next_chord_cycle = 0; \
-            append = "e"; \
+            append_e = true; \
           break; \
         } \
         break; \
@@ -5101,7 +5111,8 @@ bool sentence_mode = false;
             case 1: \
               backspaces = 5; \
               next_chord_cycle = 0; \
-              append = "she"; \
+              append_s = true; \
+              append = "he"; \
             break; \
           } \
         } \
@@ -5111,7 +5122,8 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 3; \
-            append = "ese"; \
+            append_es = true; \
+            append_e = true; \
           break; \
           case 1: \
             backspaces = 4; \
@@ -5167,7 +5179,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "es"; \
+            append_es = true; \
           break; \
           case 1: \
             backspaces = 4; \
@@ -5188,7 +5200,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -5201,15 +5213,15 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "ed"; \
+            append_ed = true; \
           break; \
           case 2: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 3: \
             backspaces = 4; \
@@ -5222,7 +5234,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 3; \
@@ -5230,7 +5242,8 @@ bool sentence_mode = false;
           break; \
           case 2: \
             backspaces = 3; \
-            append = "ying"; \
+            append_y = true; \
+            append = "ing"; \
           break; \
           case 3: \
             backspaces = 4; \
@@ -5256,7 +5269,8 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 3; \
-            append = "de"; \
+            append_d = true; \
+            append = "e"; \
           break; \
           case 1: \
             backspaces = 3; \
@@ -5265,7 +5279,7 @@ bool sentence_mode = false;
           case 2: \
             backspaces = 4; \
             next_chord_cycle = 0; \
-            append = "e"; \
+            append_e = true; \
           break; \
         } \
         break; \
@@ -5274,7 +5288,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 3; \
-            append = "st"; \
+            append_st = true; \
           break; \
           case 1: \
             backspaces = 4; \
@@ -5292,7 +5306,8 @@ bool sentence_mode = false;
         backspaces = 3; \
         switch(last_chord_cycle) { \
           case 0: \
-            append = "en"; \
+            append_e = true; \
+            append = "n"; \
           break; \
           case 1: \
             next_chord_cycle = 0; \
@@ -5305,15 +5320,15 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "ed"; \
+            append_ed = true; \
           break; \
           case 2: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 3: \
             backspaces = 4; \
@@ -5326,7 +5341,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -5339,7 +5354,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -5386,20 +5401,20 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "d"; \
+            append_d = true; \
           break; \
           case 2: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 3: \
             backspaces = 4; \
             next_chord_cycle = 0; \
-            append = "e"; \
+            append_e = true; \
           break; \
         } \
         break; \
@@ -5408,11 +5423,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "er"; \
+            append_er = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "st"; \
+            append_st = true; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -5425,7 +5440,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -5445,7 +5460,7 @@ bool sentence_mode = false;
           break; \
           case 2: \
             next_chord_cycle = 0; \
-            append = "e"; \
+            append_e = true; \
           break; \
         } \
         break; \
@@ -5461,7 +5476,7 @@ bool sentence_mode = false;
           break; \
           case 2: \
             next_chord_cycle = 0; \
-            append = "e"; \
+            append_e = true; \
           break; \
         } \
         break; \
@@ -5475,7 +5490,8 @@ bool sentence_mode = false;
           case 1: \
             backspaces = 3; \
             next_chord_cycle = 0; \
-            append = "ese"; \
+            append_es = true; \
+            append_e = true; \
           break; \
         } \
         break; \
@@ -5484,7 +5500,8 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 3; \
-            append = "ew"; \
+            append_e = true; \
+            append = "w"; \
           break; \
           case 1: \
             backspaces = 3; \
@@ -5505,7 +5522,8 @@ bool sentence_mode = false;
           break; \
           case 1: \
             backspaces = 3; \
-            append = "eeing"; \
+            append_e = true; \
+            append = "eing"; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -5518,16 +5536,16 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "d"; \
+            append_d = true; \
           break; \
           case 1: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 2: \
             backspaces = 4; \
             next_chord_cycle = 0; \
-            append = "e"; \
+            append_e = true; \
           break; \
         } \
         break; \
@@ -5540,7 +5558,8 @@ bool sentence_mode = false;
           break; \
           case 1: \
             backspaces = 3; \
-            append = "etting"; \
+            append_e = true; \
+            append = "tting"; \
           break; \
           case 2: \
             backspaces = 5; \
@@ -5553,16 +5572,16 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "d"; \
+            append_d = true; \
           break; \
           case 1: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 2: \
             backspaces = 4; \
             next_chord_cycle = 0; \
-            append = "e"; \
+            append_e = true; \
           break; \
         } \
         break; \
@@ -5571,7 +5590,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -5584,15 +5603,15 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "ed"; \
+            append_ed = true; \
           break; \
           case 2: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 3: \
             backspaces = 4; \
@@ -5612,7 +5631,7 @@ bool sentence_mode = false;
           break; \
           case 2: \
             next_chord_cycle = 0; \
-            append = "e"; \
+            append_e = true; \
           break; \
         } \
         break; \
@@ -5647,7 +5666,7 @@ bool sentence_mode = false;
           case 2: \
             backspaces = 3; \
             next_chord_cycle = 0; \
-            append = "st"; \
+            append_st = true; \
           break; \
         } \
         break; \
@@ -5673,7 +5692,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -5686,7 +5705,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -5703,7 +5722,7 @@ bool sentence_mode = false;
           break; \
           case 1: \
             backspaces = 3; \
-            append = "st"; \
+            append_st = true; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -5717,11 +5736,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "ed"; \
+            append_ed = true; \
           break; \
           case 1: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -5734,11 +5753,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "er"; \
+            append_er = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "st"; \
+            append_st = true; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -5751,15 +5770,15 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "ed"; \
+            append_ed = true; \
           break; \
           case 2: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 3: \
             backspaces = 4; \
@@ -5772,11 +5791,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "er"; \
+            append_er = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "st"; \
+            append_st = true; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -5789,7 +5808,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -5802,11 +5821,12 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 6; \
-            append = "rson"; \
+            append_r = true; \
+            append = "son"; \
           break; \
           case 2: \
             backspaces = 5; \
@@ -5820,11 +5840,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "ed"; \
+            append_ed = true; \
           break; \
           case 1: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -5841,7 +5861,7 @@ bool sentence_mode = false;
               append = "Better"; \
             break; \
             case 1: \
-              append = "st"; \
+              append_st = true; \
             break; \
             case 2: \
               next_chord_cycle = 0; \
@@ -5855,7 +5875,7 @@ bool sentence_mode = false;
               append = "better"; \
             break; \
             case 1: \
-              append = "st"; \
+              append_st = true; \
             break; \
             case 2: \
               next_chord_cycle = 0; \
@@ -5887,7 +5907,8 @@ bool sentence_mode = false;
           break; \
           case 1: \
             backspaces = 3; \
-            append = "eling"; \
+            append_e = true; \
+            append = "ling"; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -5900,11 +5921,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "ed"; \
+            append_ed = true; \
           break; \
           case 1: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -5917,11 +5938,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "er"; \
+            append_er = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "st"; \
+            append_st = true; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -5934,7 +5955,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -5947,11 +5968,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "r"; \
+            append_r = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "st"; \
+            append_st = true; \
           break; \
           case 2: \
             backspaces = 3; \
@@ -5964,7 +5985,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -5977,7 +5998,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -5990,7 +6011,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -6003,11 +6024,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "er"; \
+            append_er = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "st"; \
+            append_st = true; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -6037,7 +6058,8 @@ bool sentence_mode = false;
             append = "old"; \
           break; \
           case 1: \
-            append = "elling"; \
+            append_e = true; \
+            append = "lling"; \
           break; \
           case 2: \
             next_chord_cycle = 0; \
@@ -6056,7 +6078,7 @@ bool sentence_mode = false;
           break; \
           case 2: \
             next_chord_cycle = 0; \
-            append = "e"; \
+            append_e = true; \
           break; \
         } \
         break; \
@@ -6072,7 +6094,7 @@ bool sentence_mode = false;
           break; \
           case 2: \
             next_chord_cycle = 0; \
-            append = "e"; \
+            append_e = true; \
           break; \
         } \
         break; \
@@ -6081,11 +6103,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "ed"; \
+            append_ed = true; \
           break; \
           case 1: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -6098,7 +6120,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -6111,11 +6133,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "ed"; \
+            append_ed = true; \
           break; \
           case 1: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -6132,7 +6154,7 @@ bool sentence_mode = false;
           break; \
           case 1: \
             backspaces = 2; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -6145,11 +6167,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "ed"; \
+            append_ed = true; \
           break; \
           case 1: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -6162,11 +6184,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "ed"; \
+            append_ed = true; \
           break; \
           case 1: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -6179,7 +6201,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -6192,16 +6214,16 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "d"; \
+            append_d = true; \
           break; \
           case 1: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 2: \
             backspaces = 4; \
             next_chord_cycle = 0; \
-            append = "e"; \
+            append_e = true; \
           break; \
         } \
         break; \
@@ -6210,7 +6232,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -6223,7 +6245,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -6236,7 +6258,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -6266,7 +6288,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -6279,15 +6301,15 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "ed"; \
+            append_ed = true; \
           break; \
           case 2: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 3: \
             backspaces = 4; \
@@ -6300,15 +6322,15 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "ed"; \
+            append_ed = true; \
           break; \
           case 2: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 3: \
             backspaces = 4; \
@@ -6330,7 +6352,7 @@ bool sentence_mode = false;
           case 2: \
             backspaces = 4; \
             next_chord_cycle = 0; \
-            append = "e"; \
+            append_e = true; \
           break; \
         } \
         break; \
@@ -6339,11 +6361,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "ed"; \
+            append_ed = true; \
           break; \
           case 1: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -6356,15 +6378,15 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "ed"; \
+            append_ed = true; \
           break; \
           case 2: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 3: \
             backspaces = 4; \
@@ -6377,15 +6399,15 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "ed"; \
+            append_ed = true; \
           break; \
           case 2: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 3: \
             backspaces = 4; \
@@ -6398,7 +6420,8 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "ren"; \
+            append_r = true; \
+            append = "en"; \
           break; \
           case 1: \
             backspaces = 4; \
@@ -6411,11 +6434,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "er"; \
+            append_er = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "st"; \
+            append_st = true; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -6428,11 +6451,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "er"; \
+            append_er = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "st"; \
+            append_st = true; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -6445,11 +6468,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "ed"; \
+            append_ed = true; \
           break; \
           case 1: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -6462,11 +6485,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "r"; \
+            append_r = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "st"; \
+            append_st = true; \
           break; \
           case 2: \
             backspaces = 3; \
@@ -6479,20 +6502,20 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "d"; \
+            append_d = true; \
           break; \
           case 2: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 3: \
             backspaces = 4; \
             next_chord_cycle = 0; \
-            append = "e"; \
+            append_e = true; \
           break; \
         } \
         break; \
@@ -6501,15 +6524,15 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "ed"; \
+            append_ed = true; \
           break; \
           case 2: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 3: \
             backspaces = 4; \
@@ -6522,11 +6545,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "r"; \
+            append_r = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "st"; \
+            append_st = true; \
           break; \
           case 2: \
             backspaces = 3; \
@@ -6543,7 +6566,8 @@ bool sentence_mode = false;
           break; \
           case 1: \
             next_chord_cycle = 0; \
-            append = "rson"; \
+            append_r = true; \
+            append = "son"; \
           break; \
         } \
         break; \
@@ -6552,15 +6576,15 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "ed"; \
+            append_ed = true; \
           break; \
           case 2: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 3: \
             backspaces = 4; \
@@ -6573,11 +6597,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "ed"; \
+            append_ed = true; \
           break; \
           case 1: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -6590,11 +6614,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "ed"; \
+            append_ed = true; \
           break; \
           case 1: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -6607,15 +6631,15 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "ed"; \
+            append_ed = true; \
           break; \
           case 2: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 3: \
             backspaces = 4; \
@@ -6628,7 +6652,8 @@ bool sentence_mode = false;
         backspaces = 4; \
         switch(last_chord_cycle) { \
           case 0: \
-            append = "eld"; \
+            append_e = true; \
+            append = "ld"; \
           break; \
           case 1: \
             append = "olding"; \
@@ -6643,11 +6668,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "ed"; \
+            append_ed = true; \
           break; \
           case 1: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -6660,15 +6685,15 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "ed"; \
+            append_ed = true; \
           break; \
           case 2: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 3: \
             backspaces = 4; \
@@ -6681,11 +6706,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "ed"; \
+            append_ed = true; \
           break; \
           case 1: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -6698,15 +6723,15 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "ed"; \
+            append_ed = true; \
           break; \
           case 2: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 3: \
             backspaces = 4; \
@@ -6719,7 +6744,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -6727,7 +6752,7 @@ bool sentence_mode = false;
           break; \
           case 2: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 3: \
             backspaces = 5; \
@@ -6740,7 +6765,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -6753,11 +6778,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 4; \
-            append = "d"; \
+            append_d = true; \
           break; \
           case 2: \
             backspaces = 2; \
@@ -6774,7 +6799,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -6787,7 +6812,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -6804,15 +6829,15 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "ed"; \
+            append_ed = true; \
           break; \
           case 2: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 3: \
             backspaces = 4; \
@@ -6825,15 +6850,15 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "d"; \
+            append_d = true; \
           break; \
           case 2: \
             backspaces = 2; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 3: \
             backspaces = 4; \
@@ -6846,7 +6871,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -6854,7 +6879,7 @@ bool sentence_mode = false;
           break; \
           case 2: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 3: \
             backspaces = 5; \
@@ -6867,7 +6892,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 4; \
@@ -6888,7 +6913,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 4; \
@@ -6896,7 +6921,8 @@ bool sentence_mode = false;
           break; \
           case 2: \
             backspaces = 3; \
-            append = "eping"; \
+            append_e = true; \
+            append = "ping"; \
           break; \
           case 3: \
             backspaces = 4; \
@@ -6909,20 +6935,20 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "d"; \
+            append_d = true; \
           break; \
           case 2: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 3: \
             backspaces = 4; \
             next_chord_cycle = 0; \
-            append = "e"; \
+            append_e = true; \
           break; \
         } \
         break; \
@@ -6931,7 +6957,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -6944,15 +6970,15 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "ed"; \
+            append_ed = true; \
           break; \
           case 2: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 3: \
             backspaces = 4; \
@@ -6965,15 +6991,15 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "ed"; \
+            append_ed = true; \
           break; \
           case 2: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 3: \
             backspaces = 4; \
@@ -6986,7 +7012,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 5; \
@@ -7007,20 +7033,20 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "d"; \
+            append_d = true; \
           break; \
           case 2: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 3: \
             backspaces = 4; \
             next_chord_cycle = 0; \
-            append = "e"; \
+            append_e = true; \
           break; \
         } \
         break; \
@@ -7033,12 +7059,12 @@ bool sentence_mode = false;
           break; \
           case 1: \
             backspaces = 2; \
-            append = "st"; \
+            append_st = true; \
           break; \
           case 2: \
             backspaces = 5; \
             next_chord_cycle = 0; \
-            append = "y"; \
+            append_y = true; \
           break; \
         } \
         break; \
@@ -7047,7 +7073,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7060,20 +7086,20 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "d"; \
+            append_d = true; \
           break; \
           case 2: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 3: \
             backspaces = 4; \
             next_chord_cycle = 0; \
-            append = "e"; \
+            append_e = true; \
           break; \
         } \
         break; \
@@ -7082,11 +7108,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "ed"; \
+            append_ed = true; \
           break; \
           case 1: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -7099,20 +7125,20 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "d"; \
+            append_d = true; \
           break; \
           case 2: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 3: \
             backspaces = 4; \
             next_chord_cycle = 0; \
-            append = "e"; \
+            append_e = true; \
           break; \
         } \
         break; \
@@ -7203,7 +7229,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7216,15 +7242,15 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "ed"; \
+            append_ed = true; \
           break; \
           case 2: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 3: \
             backspaces = 4; \
@@ -7237,20 +7263,20 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "d"; \
+            append_d = true; \
           break; \
           case 2: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 3: \
             backspaces = 4; \
             next_chord_cycle = 0; \
-            append = "e"; \
+            append_e = true; \
           break; \
         } \
         break; \
@@ -7259,11 +7285,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "er"; \
+            append_er = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "st"; \
+            append_st = true; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -7276,20 +7302,20 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "d"; \
+            append_d = true; \
           break; \
           case 2: \
             backspaces = 3; \
-            append = "ing"; \
+            append_ing = true; \
           break; \
           case 3: \
             backspaces = 4; \
             next_chord_cycle = 0; \
-            append = "e"; \
+            append_e = true; \
           break; \
         } \
         break; \
@@ -7298,7 +7324,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7311,11 +7337,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "er"; \
+            append_er = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "st"; \
+            append_st = true; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -7328,7 +7354,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7341,7 +7367,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7354,7 +7380,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7367,7 +7393,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7380,7 +7406,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7393,7 +7419,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7410,7 +7436,7 @@ bool sentence_mode = false;
           break; \
           case 1: \
             backspaces = 2; \
-            append = "st"; \
+            append_st = true; \
           break; \
           case 2: \
             backspaces = 5; \
@@ -7423,15 +7449,15 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "er"; \
+            append_er = true; \
           break; \
           case 2: \
             backspaces = 2; \
-            append = "st"; \
+            append_st = true; \
           break; \
           case 3: \
             backspaces = 4; \
@@ -7444,11 +7470,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "er"; \
+            append_er = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "st"; \
+            append_st = true; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -7461,7 +7487,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7474,7 +7500,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7487,7 +7513,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7500,7 +7526,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7527,7 +7553,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7540,7 +7566,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7553,7 +7579,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7571,7 +7597,7 @@ bool sentence_mode = false;
           case 1: \
             backspaces = 4; \
             next_chord_cycle = 0; \
-            append = "y"; \
+            append_y = true; \
           break; \
         } \
         break; \
@@ -7580,7 +7606,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7598,7 +7624,7 @@ bool sentence_mode = false;
           case 1: \
             backspaces = 4; \
             next_chord_cycle = 0; \
-            append = "y"; \
+            append_y = true; \
           break; \
         } \
         break; \
@@ -7607,7 +7633,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7620,7 +7646,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7633,7 +7659,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7646,7 +7672,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7659,7 +7685,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7672,7 +7698,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7690,7 +7716,7 @@ bool sentence_mode = false;
           case 1: \
             backspaces = 4; \
             next_chord_cycle = 0; \
-            append = "y"; \
+            append_y = true; \
           break; \
         } \
         break; \
@@ -7699,7 +7725,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "es"; \
+            append_es = true; \
           break; \
           case 1: \
             backspaces = 3; \
@@ -7712,11 +7738,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "er"; \
+            append_er = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "st"; \
+            append_st = true; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -7733,7 +7759,7 @@ bool sentence_mode = false;
           break; \
           case 1: \
             backspaces = 2; \
-            append = "st"; \
+            append_st = true; \
           break; \
           case 2: \
             backspaces = 6; \
@@ -7746,7 +7772,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7759,7 +7785,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "es"; \
+            append_es = true; \
           break; \
           case 1: \
             backspaces = 3; \
@@ -7772,11 +7798,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "r"; \
+            append_r = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "st"; \
+            append_st = true; \
           break; \
           case 2: \
             backspaces = 3; \
@@ -7789,7 +7815,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7802,11 +7828,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "r"; \
+            append_r = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "st"; \
+            append_st = true; \
           break; \
           case 2: \
             backspaces = 3; \
@@ -7823,7 +7849,8 @@ bool sentence_mode = false;
           case 1: \
             backspaces = 1; \
             next_chord_cycle = 0; \
-            append = "ren"; \
+            append_r = true; \
+            append = "en"; \
           break; \
         } \
         break; \
@@ -7832,7 +7859,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7845,7 +7872,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7858,7 +7885,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7871,7 +7898,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7884,7 +7911,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7897,7 +7924,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7910,7 +7937,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7923,7 +7950,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7936,7 +7963,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7949,7 +7976,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7962,7 +7989,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -7975,7 +8002,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "es"; \
+            append_es = true; \
           break; \
           case 1: \
             backspaces = 3; \
@@ -7988,7 +8015,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8001,7 +8028,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8014,7 +8041,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8027,7 +8054,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8040,7 +8067,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8053,7 +8080,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "es"; \
+            append_es = true; \
           break; \
           case 1: \
             backspaces = 3; \
@@ -8066,7 +8093,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8079,7 +8106,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8092,7 +8119,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8105,11 +8132,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "er"; \
+            append_er = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "st"; \
+            append_st = true; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -8122,7 +8149,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8135,11 +8162,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "er"; \
+            append_er = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "st"; \
+            append_st = true; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -8156,12 +8183,12 @@ bool sentence_mode = false;
           break; \
           case 1: \
             backspaces = 2; \
-            append = "st"; \
+            append_st = true; \
           break; \
           case 2: \
             backspaces = 5; \
             next_chord_cycle = 0; \
-            append = "y"; \
+            append_y = true; \
           break; \
         } \
         break; \
@@ -8170,15 +8197,16 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "der"; \
+            append_d = true; \
+            append = "er"; \
           break; \
           case 2: \
             backspaces = 2; \
-            append = "st"; \
+            append_st = true; \
           break; \
           case 3: \
             backspaces = 5; \
@@ -8191,7 +8219,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8204,7 +8232,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8222,7 +8250,7 @@ bool sentence_mode = false;
           case 1: \
             backspaces = 4; \
             next_chord_cycle = 0; \
-            append = "y"; \
+            append_y = true; \
           break; \
         } \
         break; \
@@ -8236,7 +8264,7 @@ bool sentence_mode = false;
           case 1: \
             backspaces = 4; \
             next_chord_cycle = 0; \
-            append = "y"; \
+            append_y = true; \
           break; \
         } \
         break; \
@@ -8245,7 +8273,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8258,7 +8286,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8271,7 +8299,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8284,15 +8312,15 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "er"; \
+            append_er = true; \
           break; \
           case 2: \
             backspaces = 2; \
-            append = "st"; \
+            append_st = true; \
           break; \
           case 3: \
             backspaces = 4; \
@@ -8305,11 +8333,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "er"; \
+            append_er = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "st"; \
+            append_st = true; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -8322,7 +8350,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8335,7 +8363,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "es"; \
+            append_es = true; \
           break; \
           case 1: \
             backspaces = 3; \
@@ -8348,7 +8376,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8361,7 +8389,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8374,7 +8402,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8401,7 +8429,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8414,7 +8442,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8427,7 +8455,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "es"; \
+            append_es = true; \
           break; \
           case 1: \
             backspaces = 3; \
@@ -8440,7 +8468,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8453,7 +8481,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8466,7 +8494,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8479,11 +8507,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "r"; \
+            append_r = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "st"; \
+            append_st = true; \
           break; \
           case 2: \
             backspaces = 3; \
@@ -8496,7 +8524,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8509,7 +8537,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8522,7 +8550,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "es"; \
+            append_es = true; \
           break; \
           case 1: \
             backspaces = 3; \
@@ -8535,7 +8563,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8548,7 +8576,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8566,7 +8594,7 @@ bool sentence_mode = false;
           case 1: \
             backspaces = 4; \
             next_chord_cycle = 0; \
-            append = "y"; \
+            append_y = true; \
           break; \
         } \
         break; \
@@ -8575,7 +8603,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8588,7 +8616,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "es"; \
+            append_es = true; \
           break; \
           case 1: \
             backspaces = 3; \
@@ -8601,7 +8629,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8614,7 +8642,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8627,11 +8655,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "er"; \
+            append_er = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "st"; \
+            append_st = true; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -8644,7 +8672,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8657,7 +8685,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8670,7 +8698,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8683,7 +8711,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8696,7 +8724,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8709,7 +8737,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8722,7 +8750,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8735,7 +8763,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8748,7 +8776,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8761,7 +8789,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8774,7 +8802,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8787,7 +8815,9 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "ses"; \
+            append_s = true; \
+            append_e = true; \
+            append = "s"; \
           break; \
           case 1: \
             backspaces = 4; \
@@ -8800,7 +8830,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8813,7 +8843,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8826,7 +8856,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8839,7 +8869,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8852,7 +8882,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8865,7 +8895,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8878,7 +8908,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8891,11 +8921,11 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "er"; \
+            append_er = true; \
           break; \
           case 1: \
             backspaces = 2; \
-            append = "st"; \
+            append_st = true; \
           break; \
           case 2: \
             backspaces = 4; \
@@ -8908,7 +8938,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8921,7 +8951,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8934,7 +8964,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8947,7 +8977,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8960,7 +8990,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8973,7 +9003,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8986,7 +9016,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -8999,7 +9029,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -9012,7 +9042,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -9025,7 +9055,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -9038,7 +9068,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -9051,7 +9081,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -9064,7 +9094,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -9077,7 +9107,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -9090,7 +9120,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -9103,7 +9133,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -9116,7 +9146,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -9130,11 +9160,11 @@ bool sentence_mode = false;
           switch(last_chord_cycle) { \
             case 0: \
               backspaces = 1; \
-              append = "s"; \
+              append_s = true; \
             break; \
             case 1: \
               backspaces = 2; \
-              append = "ed"; \
+              append_ed = true; \
             break; \
             case 2: \
               backspaces = 9; \
@@ -9150,11 +9180,11 @@ bool sentence_mode = false;
           switch(last_chord_cycle) { \
             case 0: \
               backspaces = 1; \
-              append = "s"; \
+              append_s = true; \
             break; \
             case 1: \
               backspaces = 2; \
-              append = "ed"; \
+              append_ed = true; \
             break; \
             case 2: \
               backspaces = 9; \
@@ -9163,7 +9193,8 @@ bool sentence_mode = false;
             case 3: \
               backspaces = 12; \
               next_chord_cycle = 0; \
-              append = "return"; \
+              append_r = true; \
+              append = "eturn"; \
             break; \
           } \
         } \
@@ -9178,7 +9209,8 @@ bool sentence_mode = false;
             break; \
             case 1: \
               backspaces = 5; \
-              append = "s very much!"; \
+              append_s = true; \
+              append = " very much!"; \
             break; \
             case 2: \
               backspaces = 11; \
@@ -9208,7 +9240,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -9221,7 +9253,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -9234,7 +9266,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append = "s"; \
+            append_s = true; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -9248,11 +9280,11 @@ bool sentence_mode = false;
           switch(last_chord_cycle) { \
             case 0: \
               backspaces = 1; \
-              append = "s"; \
+              append_s = true; \
             break; \
             case 1: \
               backspaces = 2; \
-              append = "ed"; \
+              append_ed = true; \
             break; \
             case 2: \
               backspaces = 7; \
@@ -9268,11 +9300,11 @@ bool sentence_mode = false;
           switch(last_chord_cycle) { \
             case 0: \
               backspaces = 1; \
-              append = "s"; \
+              append_s = true; \
             break; \
             case 1: \
               backspaces = 2; \
-              append = "ed"; \
+              append_ed = true; \
             break; \
             case 2: \
               backspaces = 7; \
@@ -9281,7 +9313,8 @@ bool sentence_mode = false;
             case 3: \
               backspaces = 10; \
               next_chord_cycle = 0; \
-              append = "sort"; \
+              append_s = true; \
+              append = "ort"; \
             break; \
           } \
         } \
@@ -9296,7 +9329,8 @@ bool sentence_mode = false;
           case 1: \
             backspaces = 3; \
             next_chord_cycle = 0; \
-            append = "s://"; \
+            append_s = true; \
+            append = "://"; \
           break; \
         } \
         break; \
@@ -9310,6 +9344,56 @@ bool sentence_mode = false;
       tap_code(KC_BSPC); \
     } \
     last_chord_length -= backspaces; \
+   \
+    if (append_ing) { \
+      SEND_STRING("ing"); \
+      last_chord_length += 3; \
+    } \
+   \
+    if (append_ed) { \
+      SEND_STRING("ed"); \
+      last_chord_length += 2; \
+    } \
+   \
+    if (append_st) { \
+      SEND_STRING("st"); \
+      last_chord_length += 2; \
+    } \
+   \
+    if (append_er) { \
+      SEND_STRING("er"); \
+      last_chord_length += 2; \
+    } \
+   \
+    if (append_es) { \
+      SEND_STRING("es"); \
+      last_chord_length += 2; \
+    } \
+   \
+    if (append_s) { \
+      SEND_STRING("s"); \
+      last_chord_length += 1; \
+    } \
+   \
+    if (append_e) { \
+      SEND_STRING("e"); \
+      last_chord_length += 1; \
+    } \
+   \
+    if (append_d) { \
+      SEND_STRING("d"); \
+      last_chord_length += 1; \
+    } \
+   \
+    if (append_y) { \
+      SEND_STRING("y"); \
+      last_chord_length += 1; \
+    } \
+   \
+    if (append_r) { \
+      SEND_STRING("r"); \
+      last_chord_length += 1; \
+    } \
    \
     if (append != NULL) { \
       SEND_STRING(append); \

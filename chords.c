@@ -928,7 +928,7 @@
 COMBO_FOR_CHORD(delete_, AT1, AT2);
 COMBO_FOR_CHORD(left_cl, AT0, AT1);
 COMBO_FOR_CHORD(right_c, AT2, AT3);
-COMBO_FOR_CHORD(oneshot, AT0, AT3);
+COMBO_FOR_CHORD(oneshot, AT0, AT1, AT2, AT3);
 COMBO_FOR_CHORD(excl, A_E, A_d);
 COMBO_FOR_CHORD(qmark, A_I, A_c);
 COMBO_FOR_CHORD(colon, A_A, A_r);

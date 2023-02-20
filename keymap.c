@@ -217,81 +217,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #define emit_virt_layer(...) ;
 #endif
 
-#define TH_CASE(tap_kc, hold_kc, tap_pre, tap_post)   \
-  case LT(0, tap_kc):                                 \
-    if (record->tap.count && record->event.pressed) { \
-      tap_pre                                         \
-      tap_code16(tap_kc);                             \
-      emit_virt_key(record, record->event.pressed, false, true); \
-      tap_post                                        \
-    } else if (record->event.pressed) {               \
-      tap_code16(hold_kc);                            \
-      emit_virt_key(record, record->event.pressed, true, true); \
-    }                                                 \
-    return false;
-
-#define TH_GUI(key) TH_CASE(key, LGUI(key), ;, ;)
-
-#define SENTENCE_PRE \
-  if (prev_sentence_mode) { \
-    sentence_mode = true; \
-    if (prev_chord_space) { \
-      tap_code16(KC_BSPC); \
-    } \
-  }
-
-#define SENTENCE_POST_SHIFT \
-  if (prev_sentence_mode) { \
-    if (prev_chord_space) { \
-      tap_code16(KC_SPC); \
-    } \
-    add_oneshot_mods(MOD_MASK_SHIFT); \
-  }
-
-#define SENTENCE_POST_NOSHIFT \
-  if (prev_sentence_mode) { \
-    if (prev_chord_space) { \
-      tap_code16(KC_SPC); \
-    } \
-  }
-
-bool process_taphold(uint16_t keycode, keyrecord_t *record, bool prev_sentence_mode) {
-    switch (keycode) {
-      TH_GUI(KC_A)
-      TH_GUI(KC_B)
-      TH_GUI(KC_C)
-      TH_GUI(KC_D)
-      TH_GUI(KC_E)
-      TH_GUI(KC_F)
-      TH_GUI(KC_G)
-      TH_GUI(KC_H)
-      TH_GUI(KC_I)
-      TH_GUI(KC_J)
-      TH_GUI(KC_K)
-      TH_GUI(KC_L)
-      TH_GUI(KC_M)
-      TH_GUI(KC_N)
-      TH_GUI(KC_O)
-      TH_GUI(KC_P)
-      TH_GUI(KC_Q)
-      TH_GUI(KC_R)
-      TH_GUI(KC_S)
-      TH_GUI(KC_T)
-      TH_GUI(KC_U)
-      TH_GUI(KC_V)
-      TH_GUI(KC_W)
-      TH_GUI(KC_X)
-      TH_GUI(KC_Y)
-      TH_GUI(KC_Z)
-      TH_GUI(KC_ENT)
-      TH_CASE(KC_QUOTE, KC_ESCAPE, ;, ;)
-      TH_CASE(KC_DOT, KC_NO, SENTENCE_PRE, SENTENCE_POST_SHIFT)
-      TH_CASE(KC_COMM, KC_ALFRED, SENTENCE_PRE, SENTENCE_POST_NOSHIFT)
-    }
-
-    return true;
-}
-
 uint16_t last_chord;
 uint16_t last_chord_length;
 uint8_t last_chord_cycle;
@@ -376,6 +301,81 @@ bool process_repeat_key(uint16_t keycode, keyrecord_t *record) {
   mod_state = get_mods();
   oneshot_mod_state = get_oneshot_mods();
   return true;
+}
+
+#define TH_CASE(tap_kc, hold_kc, tap_pre, tap_post)   \
+  case LT(0, tap_kc):                                 \
+    if (record->tap.count && record->event.pressed) { \
+      tap_pre                                         \
+      tap_code16(tap_kc);                             \
+      emit_virt_key(record, record->event.pressed, false, true); \
+      tap_post                                        \
+    } else if (record->event.pressed) {               \
+      tap_code16(hold_kc);                            \
+      emit_virt_key(record, record->event.pressed, true, true); \
+    }                                                 \
+    return false;
+
+#define TH_GUI(key) TH_CASE(key, LGUI(key), ;, ;)
+
+#define SENTENCE_PRE \
+  if (prev_sentence_mode) { \
+    sentence_mode = true; \
+    if (prev_chord_space) { \
+      tap_code16(KC_BSPC); \
+    } \
+  }
+
+#define SENTENCE_POST_SHIFT \
+  if (prev_sentence_mode) { \
+    if (prev_chord_space) { \
+      tap_code16(KC_SPC); \
+    } \
+    add_oneshot_mods(MOD_MASK_SHIFT); \
+  }
+
+#define SENTENCE_POST_NOSHIFT \
+  if (prev_sentence_mode) { \
+    if (prev_chord_space) { \
+      tap_code16(KC_SPC); \
+    } \
+  }
+
+bool process_taphold(uint16_t keycode, keyrecord_t *record, bool prev_sentence_mode) {
+    switch (keycode) {
+      TH_GUI(KC_A)
+      TH_GUI(KC_B)
+      TH_GUI(KC_C)
+      TH_GUI(KC_D)
+      TH_GUI(KC_E)
+      TH_GUI(KC_F)
+      TH_GUI(KC_G)
+      TH_GUI(KC_H)
+      TH_GUI(KC_I)
+      TH_GUI(KC_J)
+      TH_GUI(KC_K)
+      TH_GUI(KC_L)
+      TH_GUI(KC_M)
+      TH_GUI(KC_N)
+      TH_GUI(KC_O)
+      TH_GUI(KC_P)
+      TH_GUI(KC_Q)
+      TH_GUI(KC_R)
+      TH_GUI(KC_S)
+      TH_GUI(KC_T)
+      TH_GUI(KC_U)
+      TH_GUI(KC_V)
+      TH_GUI(KC_W)
+      TH_GUI(KC_X)
+      TH_GUI(KC_Y)
+      TH_GUI(KC_Z)
+      TH_GUI(KC_ENT)
+      TH_CASE(KC_QUOTE, KC_ESCAPE, ;, ;)
+      TH_CASE(KC_DOT, KC_NO, SENTENCE_PRE, SENTENCE_POST_SHIFT)
+      TH_CASE(KC_COMM, KC_ALFRED, SENTENCE_PRE, SENTENCE_POST_NOSHIFT)
+    }
+
+    return true;
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {

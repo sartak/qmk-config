@@ -308,10 +308,12 @@ bool process_repeat_key(uint16_t keycode, keyrecord_t *record) {
     if (record->tap.count && record->event.pressed) { \
       tap_pre                                         \
       tap_code16(tap_kc);                             \
+      last_keycode = tap_kc;                          \
       emit_virt_key(record, record->event.pressed, false, true); \
       tap_post                                        \
     } else if (record->event.pressed) {               \
       tap_code16(hold_kc);                            \
+      last_keycode = hold_kc;                         \
       emit_virt_key(record, record->event.pressed, true, true); \
     }                                                 \
     return false;

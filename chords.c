@@ -472,6 +472,7 @@
   CHORD_if_you, \
   CHORD_the_wor, \
   CHORD_in_a, \
+  CHORD_of_cour, \
   CHORD_the_qui, \
   CHORD_elberet, \
   CHORD_https_, \
@@ -918,6 +919,7 @@
   CHORD_S_if_you, \
   CHORD_S_the_wor, \
   CHORD_S_in_a, \
+  CHORD_S_of_cour, \
   CHORD_S_the_qui, \
   CHORD_S_select_, \
   CHORD_S_pokemon, \
@@ -1827,6 +1829,8 @@ COMBO_FOR_CHORD(the_wor, A_T, A_H, A_E, A_W);
 COMBO_FOR_CHORD(S_the_wor, A_T, A_H, A_E, A_W, AT1);
 COMBO_FOR_CHORD(in_a, A_I, A_N, A_A, AT0);
 COMBO_FOR_CHORD(S_in_a, A_I, A_N, A_A, AT0, AT1);
+COMBO_FOR_CHORD(of_cour, A_O, A_F, A_C);
+COMBO_FOR_CHORD(S_of_cour, A_O, A_F, A_C, AT1);
 COMBO_FOR_CHORD(the_qui, A_B, A_Q, A_X, A_q);
 COMBO_FOR_CHORD(S_the_qui, A_B, A_Q, A_X, A_q, AT1);
 COMBO_FOR_CHORD(elberet, A_E, A_L, A_B, A_H);
@@ -2746,6 +2750,8 @@ COMBO_FOR_CHORD(_go_up_, A_G, A_L, A_O, A_E);
   CHORD_COMBO(S_the_wor), \
   CHORD_COMBO(in_a), \
   CHORD_COMBO(S_in_a), \
+  CHORD_COMBO(of_cour), \
+  CHORD_COMBO(S_of_cour), \
   CHORD_COMBO(the_qui), \
   CHORD_COMBO(S_the_qui), \
   CHORD_COMBO(elberet), \
@@ -4872,6 +4878,10 @@ bool sentence_mode = false;
       case CHORD_in_a: \
       case CHORD_S_in_a: \
         append = "in a"; \
+        break; \
+      case CHORD_of_cour: \
+      case CHORD_S_of_cour: \
+        append = "of course"; \
         break; \
       case CHORD_the_qui: \
       case CHORD_S_the_qui: \

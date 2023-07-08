@@ -461,6 +461,7 @@
   CHORD_nil, \
   CHORD_array, \
   CHORD_sort, \
+  CHORD_schema, \
   CHORD_in_the, \
   CHORD_of_the, \
   CHORD_to_be, \
@@ -908,6 +909,7 @@
   CHORD_S_nil, \
   CHORD_S_array, \
   CHORD_S_sort, \
+  CHORD_S_schema, \
   CHORD_S_in_the, \
   CHORD_S_of_the, \
   CHORD_S_to_be, \
@@ -1807,6 +1809,8 @@ COMBO_FOR_CHORD(array, A_A, A_R, A_Y);
 COMBO_FOR_CHORD(S_array, A_A, A_R, A_Y, AT1);
 COMBO_FOR_CHORD(sort, A_S, A_R, A_T);
 COMBO_FOR_CHORD(S_sort, A_S, A_R, A_T, AT1);
+COMBO_FOR_CHORD(schema, A_C, A_E, A_A);
+COMBO_FOR_CHORD(S_schema, A_C, A_E, A_A, AT1);
 COMBO_FOR_CHORD(in_the, A_I, A_N, A_T, A_E);
 COMBO_FOR_CHORD(S_in_the, A_I, A_N, A_T, A_E, AT1);
 COMBO_FOR_CHORD(of_the, A_O, A_T, A_E, AT0);
@@ -2728,6 +2732,8 @@ COMBO_FOR_CHORD(_go_up_, A_G, A_L, A_O, A_E);
   CHORD_COMBO(S_array), \
   CHORD_COMBO(sort), \
   CHORD_COMBO(S_sort), \
+  CHORD_COMBO(schema), \
+  CHORD_COMBO(S_schema), \
   CHORD_COMBO(in_the), \
   CHORD_COMBO(S_in_the), \
   CHORD_COMBO(of_the), \
@@ -4835,6 +4841,10 @@ bool sentence_mode = false;
       case CHORD_S_sort: \
         append = "sort"; \
         break; \
+      case CHORD_schema: \
+      case CHORD_S_schema: \
+        append = "schema"; \
+        break; \
       case CHORD_in_the: \
       case CHORD_S_in_the: \
         append = "in the"; \
@@ -6794,6 +6804,23 @@ bool sentence_mode = false;
               append = "ort"; \
             break; \
           } \
+        } \
+        break; \
+      case CHORD_schema: \
+      case CHORD_S_schema: \
+        switch(last_chord_cycle) { \
+          case 0: \
+            backspaces = 1; \
+            append_s = true; \
+          break; \
+          case 1: \
+            backspaces = 2; \
+            append = "ta"; \
+          break; \
+          case 2: \
+            backspaces = 3; \
+            next_chord_cycle = 0; \
+          break; \
         } \
         break; \
       case CHORD_https_: \

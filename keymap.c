@@ -251,6 +251,7 @@ bool process_repeat_key(uint16_t keycode, keyrecord_t *record) {
       unregister_code16(last_keycode);
       unregister_mods(last_modifier);
     }
+    return false;
   } else {
     switch (keycode) {
       case QK_DEF_LAYER ... QK_DEF_LAYER_MAX:

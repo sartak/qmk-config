@@ -313,6 +313,12 @@ bool process_repeat_key(uint16_t keycode, keyrecord_t *record) {
           }
         }
 
+        if (CONFIG_CHORD_MODE == CHORD_MODE_EXCLUSIVE) {
+          if (next_keycode >= KC_A && next_keycode <= KC_Z) {
+            return false;
+          }
+        }
+
         last_modifier = next_modifier;
 
         if (next_keycode != KC_NO) {

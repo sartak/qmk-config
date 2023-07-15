@@ -576,8 +576,10 @@ bool process_setting_keys(uint16_t keycode, keyrecord_t *record) {
 bool process_postcomplete_action(uint16_t keycode, keyrecord_t *record) {
   if (record->event.pressed && record->tap.count && (keycode == AT3 || keycode == ST3 || keycode == NT3)) {
     if (last_correction != NULL) {
+      SEND_STRING("[");
       SEND_STRING(last_correction);
-      last_chord_length = strlen(last_correction);
+      SEND_STRING("]");
+      last_chord_length = 2 + strlen(last_correction);
       reset_correction(true);
       return false;
     } else if (last_chord_length && last_chord == 0) {

@@ -286,10 +286,27 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
   process_chord_event(combo_index, pressed);
 }
 
+bool try_correct(void) {
+  last_correction = correct_chord(correction_buffer);
+  if (last_correction == NULL) {
+    return true;
+  }
+
+  for (uint16_t i = 0; i < correction_buffer_length - 1; i++) { \
+    tap_code16(KC_BSPC);
+  }
+  reset_correction(false);
+  return false;
+}
+
 bool process_chord_correction(uint16_t keycode, uint8_t mods) {
   if (keycode == KC_NO) {
     return true;
   }
+  if (timer_elapsed(correction_timer) > 2000) {
+    correction_buffer_skip = true;
+  }
+
   if ((mods & MOD_MASK_CAG) == 0 && keycode >= KC_A && keycode <= KC_Z) {
     if (correction_buffer_skip) {
       return true;
@@ -301,20 +318,14 @@ bool process_chord_correction(uint16_t keycode, uint8_t mods) {
     char c = (keycode - KC_A + 'A') | ((mods & MOD_MASK_SHIFT) ? 0 : 0x20);
     correction_buffer[correction_buffer_length++] = c;
     correction_buffer[correction_buffer_length] = 0;
-  } else if (keycode == KC_SPC || keycode == KC_ENT) {
-    if (timer_elapsed(correction_timer) > 2000) {
-      correction_buffer_skip = true;
+    if (!try_correct()) {
+      return false;
     }
-
+  } else if (keycode == KC_SPC || keycode == KC_ENT) {
     if (!correction_buffer_skip) {
       correction_buffer[correction_buffer_length++] = ' ';
       correction_buffer[correction_buffer_length] = 0;
-      last_correction = correct_chord(correction_buffer);
-      if (last_correction != NULL) {
-        for (uint16_t i = 0; i < correction_buffer_length - 1; i++) { \
-          tap_code16(KC_BSPC);
-        }
-        reset_correction(false);
+      if (!try_correct()) {
         return false;
       }
     }

@@ -241,6 +241,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #define emit_virt_key(...) ;
 #define emit_virt_combo(...) ;
 #define emit_virt_layer(...) ;
+#define virt_send(...) ;
 #endif
 
 uint16_t last_chord;
@@ -322,6 +323,9 @@ bool process_repeat_key(uint16_t keycode, keyrecord_t *record) {
         if (SETTING_DUP_FORCE == DUP_FORCE_ON) {
           if (next_keycode >= KC_A && next_keycode <= KC_Z) {
             if (last_keycode == next_keycode && last_modifier == next_modifier) {
+#ifdef VIRT_SIDECHANNEL
+              virt_send(VIRT_SUPPRESSED_KEY);
+#endif
               return false;
             }
           }
@@ -329,6 +333,9 @@ bool process_repeat_key(uint16_t keycode, keyrecord_t *record) {
 
         if (SETTING_CHORD_MODE == CHORD_MODE_EXCLUSIVE) {
           if (next_keycode >= KC_A && next_keycode <= KC_Z) {
+#ifdef VIRT_SIDECHANNEL
+            virt_send(VIRT_SUPPRESSED_KEY);
+#endif
             return false;
           }
         }

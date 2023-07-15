@@ -29,7 +29,8 @@
 #define VIRT_GUI_UP                     VIRT_GUI_DOWN+1
 #define VIRT_MOD_LAST                   VIRT_GUI_UP
 #define VIRT_SETTINGS                   VIRT_MOD_LAST+1
-#define VIRT_LAST                       VIRT_SETTINGS
+#define VIRT_SUPPRESSED_KEY             VIRT_SETTINGS+1
+#define VIRT_LAST                       VIRT_SUPPRESS_KEY
 
 #define VIRT_SETTING_DUP_FORCE 0
 #define VIRT_SETTING_VIRT_SERIAL 1

@@ -267,6 +267,49 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
   process_chord_event(combo_index, pressed);
 }
 
+#define CORRECTION_BUFFER_LENGTH 20
+char correction_buffer[CORRECTION_BUFFER_LENGTH];
+int correction_buffer_length = 0;
+bool correction_buffer_skip = true; // wait til we see the first space
+uint16_t correction_timer;
+
+void handle_chord_correction(uint16_t keycode, uint8_t mods) {
+  if (keycode == KC_NO) {
+    return;
+  }
+  if ((mods & MOD_MASK_CAG) == 0 && keycode >= KC_A && keycode <= KC_Z) {
+    if (correction_buffer_skip) {
+      return;
+    }
+    if (correction_buffer_length >= CORRECTION_BUFFER_LENGTH - 2) {
+      correction_buffer_skip = true;
+      return;
+    }
+    char c = (keycode - KC_A + 'A') | ((mods & MOD_MASK_SHIFT) ? 0 : 0x20);
+    correction_buffer[correction_buffer_length++] = c;
+    correction_buffer[correction_buffer_length] = 0;
+  } else if (keycode == KC_SPC) {
+    if (timer_elapsed(correction_timer) > 2000) {
+      correction_buffer_skip = true;
+    }
+
+    if (!correction_buffer_skip) {
+      correction_buffer[correction_buffer_length++] = ' ';
+      correction_buffer[correction_buffer_length] = 0;
+      // commit correction_buffer
+    }
+
+    correction_buffer_skip = false;
+    correction_buffer_length = 0;
+    correction_buffer[correction_buffer_length] = 0;
+    correction_timer = timer_read();
+  } else if (keycode == 42) {
+    correction_timer = timer_read();
+  } else {
+    correction_buffer_skip = true;
+  }
+}
+
 #define GET_TAP_KC(dual_role_key) (dual_role_key & 0xFF)
 uint16_t last_keycode = KC_NO;
 uint8_t last_modifier = 0;
@@ -334,6 +377,7 @@ bool process_repeat_key(uint16_t keycode, keyrecord_t *record) {
         uint8_t current_mod_state = get_mods();
         uint8_t current_oneshot_mod_state = get_oneshot_mods();
         uint8_t current_modifier = current_oneshot_mod_state > current_mod_state ? current_oneshot_mod_state : current_mod_state;
+
         if (SETTING_CHORD_MODE == CHORD_MODE_EXCLUSIVE) {
           if ((current_modifier & MOD_MASK_CAG) == 0 && next_keycode >= KC_A && next_keycode <= KC_Z) {
 #ifdef VIRT_SIDECHANNEL
@@ -341,6 +385,10 @@ bool process_repeat_key(uint16_t keycode, keyrecord_t *record) {
 #endif
             return false;
           }
+        }
+
+        if (SETTING_CHORD_MODE == CHORD_MODE_CORRECTIVE) {
+          handle_chord_correction(next_keycode, current_modifier);
         }
 
         last_modifier = next_modifier;

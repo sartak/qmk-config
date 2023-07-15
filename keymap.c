@@ -427,14 +427,27 @@ bool process_setting_keys(uint16_t keycode, keyrecord_t *record) {
 #endif
       return false;
 
-    case KC_VIRT_SERIAL:
-      if (++SETTING_VIRT_SERIAL == _VIRT_SERUAL_LENGTH) {
-        SETTING_VIRT_SERIAL = 0;
-      }
+    case KC_VIRT_SERIAL: {
 #ifdef VIRT_SIDECHANNEL
-      emit_virt_setting_enum(VIRT_SETTING_VIRT_SERIAL, SETTING_VIRT_SERIAL);
+      // We want to make sure the last event before disabling gets sent
+      setting_virt_serial next = SETTING_VIRT_SERIAL;
+      if (++next == _VIRT_SERUAL_LENGTH) {
+        next = 0;
+      }
+
+      if (next == VIRT_SERIAL_DISABLED) {
+        emit_virt_setting_enum(VIRT_SETTING_VIRT_SERIAL, next);
+      }
+
+      SETTING_VIRT_SERIAL = next;
+
+      if (SETTING_VIRT_SERIAL == VIRT_SERIAL_ENABLED) {
+        emit_virt_setting_enum(VIRT_SETTING_VIRT_SERIAL, SETTING_VIRT_SERIAL);
+      }
 #endif
+
       return false;
+    }
 
     case KC_CHORD_MODE:
       if (++SETTING_CHORD_MODE == _CHORD_MODE_LENGTH) {

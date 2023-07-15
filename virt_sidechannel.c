@@ -48,7 +48,7 @@ void virt_send(uint8_t byte) {
     return;
   }
 
-  if (SETTING_VIRT_SERIAL == VIRT_SERIAL_OFF) {
+  if (SETTING_VIRT_SERIAL == VIRT_SERIAL_DISABLED) {
     return;
   }
 

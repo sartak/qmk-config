@@ -172,8 +172,8 @@ typedef enum {
 setting_dup_force SETTING_DUP_FORCE = 0;
 
 typedef enum {
-  VIRT_SERIAL_OFF,
-  VIRT_SERIAL_ON,
+  VIRT_SERIAL_ENABLED,
+  VIRT_SERIAL_DISABLED,
   _VIRT_SERUAL_LENGTH,
 } setting_virt_serial;
 setting_virt_serial SETTING_VIRT_SERIAL = 0;

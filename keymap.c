@@ -180,8 +180,8 @@ setting_virt_serial SETTING_VIRT_SERIAL = 0;
 
 typedef enum {
   CHORD_MODE_NORMAL,
-  CHORD_MODE_EXCLUSIVE,
   CHORD_MODE_CORRECTIVE,
+  CHORD_MODE_EXCLUSIVE,
   _CHORD_MODE_LENGTH,
 } setting_chord_mode;
 setting_chord_mode SETTING_CHORD_MODE = 0;

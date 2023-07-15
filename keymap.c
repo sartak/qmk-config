@@ -331,8 +331,11 @@ bool process_repeat_key(uint16_t keycode, keyrecord_t *record) {
           }
         }
 
+        uint8_t current_mod_state = get_mods();
+        uint8_t current_oneshot_mod_state = get_oneshot_mods();
+        uint8_t current_modifier = current_oneshot_mod_state > current_mod_state ? current_oneshot_mod_state : current_mod_state;
         if (SETTING_CHORD_MODE == CHORD_MODE_EXCLUSIVE) {
-          if (next_keycode >= KC_A && next_keycode <= KC_Z) {
+          if ((current_modifier & MOD_MASK_CAG) == 0 && next_keycode >= KC_A && next_keycode <= KC_Z) {
 #ifdef VIRT_SIDECHANNEL
             virt_send(VIRT_SUPPRESSED_KEY);
 #endif

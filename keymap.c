@@ -265,6 +265,7 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
 }
 
 #define CORRECTION_BUFFER_LENGTH 20
+#define CORRECTION_TIMEOUT 5000
 char correction_buffer[CORRECTION_BUFFER_LENGTH];
 int correction_buffer_length = 0;
 bool correction_buffer_skip = true; // wait til we see the first space
@@ -311,7 +312,7 @@ bool process_chord_correction(uint16_t keycode, uint8_t mods) {
     return true;
   }
 
-  if (timer_elapsed(correction_timer) > 2000) {
+  if (timer_elapsed(correction_timer) > CORRECTION_TIMEOUT) {
     if (!correction_buffer_skip && correction_buffer_length == 0) {
       correction_timer = timer_read();
     } else {

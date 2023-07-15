@@ -27,7 +27,8 @@
 #define VIRT_ALT_UP                     VIRT_ALT_DOWN+1
 #define VIRT_GUI_DOWN                   VIRT_ALT_UP+1
 #define VIRT_GUI_UP                     VIRT_GUI_DOWN+1
-#define VIRT_MOD_LAST                   VIRT_GUI_UP
+#define VIRT_CONFIG                     VIRT_GUI_UP+1
+#define VIRT_MOD_LAST                   VIRT_CONFIG
 
 #if VIRT_MOD_LAST > 255
 #error Virt sidechannel message size exceeds one byte
@@ -195,6 +196,16 @@ void emit_virt_layer(layer_state_t state) {
   }
 
   virtser_send(VIRT_LAYER_ZERO + get_highest_layer(state));
+}
+
+void emit_virt_config_enum(uint8_t option, uint8_t value) {
+  if (timer_elapsed(recv_timer) > VIRT_TIMEOUT) {
+    return;
+  }
+
+  virtser_send(VIRT_CONFIG);
+  virtser_send(option);
+  virtser_send(value);
 }
 
 void virtser_recv(const uint8_t ch) {

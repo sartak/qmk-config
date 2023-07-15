@@ -297,7 +297,8 @@ void handle_chord_correction(uint16_t keycode, uint8_t mods) {
     if (!correction_buffer_skip) {
       correction_buffer[correction_buffer_length++] = ' ';
       correction_buffer[correction_buffer_length] = 0;
-      if (should_correct_chord(correction_buffer)) {
+      char *correction = correct_chord(correction_buffer);
+      if (correction != NULL) {
         for (uint16_t i = 0; i < correction_buffer_length; i++) { \
           tap_code16(KC_BSPC);
         }

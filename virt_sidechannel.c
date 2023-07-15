@@ -211,7 +211,14 @@ void emit_virt_setting_enum(uint8_t option, uint8_t value) {
 }
 
 void virtser_recv(const uint8_t ch) {
-  if (ch == VIRT_HEARTBEAT) {
-    recv_timer = timer_read();
+  switch (ch) {
+    case VIRT_HEARTBEAT:
+      recv_timer = timer_read();
+      break;
+    case VIRT_SETTINGS:
+      emit_virt_setting_enum(VIRT_SETTING_DUP_FORCE, SETTING_DUP_FORCE);
+      emit_virt_setting_enum(VIRT_SETTING_VIRT_SERIAL, SETTING_VIRT_SERIAL);
+      emit_virt_setting_enum(VIRT_SETTING_CHORD_MODE, SETTING_CHORD_MODE);
+      break;
   }
 }

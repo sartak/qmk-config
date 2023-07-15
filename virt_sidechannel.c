@@ -41,6 +41,14 @@
 static uint16_t recv_timer;
 static uint8_t prev_mods;
 
+void virt_send(uint8_t byte) {
+  if (timer_elapsed(recv_timer) > VIRT_TIMEOUT) {
+    return;
+  }
+
+  virtser_send(byte);
+}
+
 void emit_new_mods(keyrecord_t *record) {
   uint8_t mods = get_mods() | get_oneshot_mods();
   if (mods == prev_mods) {
@@ -51,9 +59,9 @@ void emit_new_mods(keyrecord_t *record) {
   bool now_##modifier = mods & MOD_MASK_##modifier;      \
   bool was_##modifier = prev_mods & MOD_MASK_##modifier; \
   if (now_##modifier && !was_##modifier) {               \
-    virtser_send(VIRT_##modifier##_DOWN);                \
+    virt_send(VIRT_##modifier##_DOWN);                   \
   } else if (!now_##modifier && was_##modifier) {        \
-    virtser_send(VIRT_##modifier##_UP);                  \
+    virt_send(VIRT_##modifier##_UP);                     \
   }
 
   MOD_VIRTSEND(SHIFT);
@@ -65,10 +73,6 @@ void emit_new_mods(keyrecord_t *record) {
 }
 
 void emit_virt_key(keyrecord_t *record, bool pressed, bool held, bool tap) {
-  if (timer_elapsed(recv_timer) > VIRT_TIMEOUT) {
-    return;
-  }
-
   emit_new_mods(record);
 
   if (!pressed) {
@@ -130,17 +134,13 @@ void emit_virt_key(keyrecord_t *record, bool pressed, bool held, bool tap) {
   }
 
   uint8_t msg = VIRT_KEYS_START + row * 10 + col + mult * VIRT_KEYS;
-  virtser_send(msg);
+  virt_send(msg);
 }
 
 void emit_virt_combo(uint16_t combo_index, bool shifted, uint8_t event) {
-  if (timer_elapsed(recv_timer) > VIRT_TIMEOUT) {
-    return;
-  }
-
-  virtser_send(VIRT_CHORD_STARTED);
+  virt_send(VIRT_CHORD_STARTED);
   if (shifted) {
-    virtser_send(VIRT_COMBO_SHIFTED);
+    virt_send(VIRT_COMBO_SHIFTED);
   }
 
   combo_t combo = key_combos[combo_index];
@@ -150,64 +150,56 @@ void emit_virt_combo(uint16_t combo_index, bool shifted, uint8_t event) {
     if (COMBO_END == key) break;
 
     switch (key) {
-      case A_W: virtser_send(VIRT_KEYS_START+0); break;
-      case A_L: virtser_send(VIRT_KEYS_START+1); break;
-      case A_Y: virtser_send(VIRT_KEYS_START+2); break;
-      case A_P: virtser_send(VIRT_KEYS_START+3); break;
-      case A_B: virtser_send(VIRT_KEYS_START+4); break;
-      case A_Z: virtser_send(VIRT_KEYS_START+5); break;
-      case A_F: virtser_send(VIRT_KEYS_START+6); break;
-      case A_O: virtser_send(VIRT_KEYS_START+7); break;
-      case A_U: virtser_send(VIRT_KEYS_START+8); break;
-      case A_q: virtser_send(VIRT_KEYS_START+9); break;
-      case A_C: virtser_send(VIRT_KEYS_START+10); break;
-      case A_R: virtser_send(VIRT_KEYS_START+11); break;
-      case A_S: virtser_send(VIRT_KEYS_START+12); break;
-      case A_T: virtser_send(VIRT_KEYS_START+13); break;
-      case A_G: virtser_send(VIRT_KEYS_START+14); break;
-      case A_M: virtser_send(VIRT_KEYS_START+15); break;
-      case A_N: virtser_send(VIRT_KEYS_START+16); break;
-      case A_E: virtser_send(VIRT_KEYS_START+17); break;
-      case A_I: virtser_send(VIRT_KEYS_START+18); break;
-      case A_A: virtser_send(VIRT_KEYS_START+19); break;
-      case A_Q: virtser_send(VIRT_KEYS_START+20); break;
-      case A_J: virtser_send(VIRT_KEYS_START+21); break;
-      case A_V: virtser_send(VIRT_KEYS_START+22); break;
-      case A_D: virtser_send(VIRT_KEYS_START+23); break;
-      case A_K: virtser_send(VIRT_KEYS_START+24); break;
-      case A_X: virtser_send(VIRT_KEYS_START+25); break;
-      case A_H: virtser_send(VIRT_KEYS_START+26); break;
-      case A_d: virtser_send(VIRT_KEYS_START+27); break;
-      case A_c: virtser_send(VIRT_KEYS_START+28); break;
-      case A_r: virtser_send(VIRT_KEYS_START+29); break;
-      case AT0: virtser_send(VIRT_KEYS_START+30); break;
-      case AT1: virtser_send(VIRT_KEYS_START+31); break;
-      case AT2: virtser_send(VIRT_KEYS_START+32); break;
-      case AT3: virtser_send(VIRT_KEYS_START+33); break;
-      default: virtser_send(VIRT_WARN); break;
+      case A_W: virt_send(VIRT_KEYS_START+0); break;
+      case A_L: virt_send(VIRT_KEYS_START+1); break;
+      case A_Y: virt_send(VIRT_KEYS_START+2); break;
+      case A_P: virt_send(VIRT_KEYS_START+3); break;
+      case A_B: virt_send(VIRT_KEYS_START+4); break;
+      case A_Z: virt_send(VIRT_KEYS_START+5); break;
+      case A_F: virt_send(VIRT_KEYS_START+6); break;
+      case A_O: virt_send(VIRT_KEYS_START+7); break;
+      case A_U: virt_send(VIRT_KEYS_START+8); break;
+      case A_q: virt_send(VIRT_KEYS_START+9); break;
+      case A_C: virt_send(VIRT_KEYS_START+10); break;
+      case A_R: virt_send(VIRT_KEYS_START+11); break;
+      case A_S: virt_send(VIRT_KEYS_START+12); break;
+      case A_T: virt_send(VIRT_KEYS_START+13); break;
+      case A_G: virt_send(VIRT_KEYS_START+14); break;
+      case A_M: virt_send(VIRT_KEYS_START+15); break;
+      case A_N: virt_send(VIRT_KEYS_START+16); break;
+      case A_E: virt_send(VIRT_KEYS_START+17); break;
+      case A_I: virt_send(VIRT_KEYS_START+18); break;
+      case A_A: virt_send(VIRT_KEYS_START+19); break;
+      case A_Q: virt_send(VIRT_KEYS_START+20); break;
+      case A_J: virt_send(VIRT_KEYS_START+21); break;
+      case A_V: virt_send(VIRT_KEYS_START+22); break;
+      case A_D: virt_send(VIRT_KEYS_START+23); break;
+      case A_K: virt_send(VIRT_KEYS_START+24); break;
+      case A_X: virt_send(VIRT_KEYS_START+25); break;
+      case A_H: virt_send(VIRT_KEYS_START+26); break;
+      case A_d: virt_send(VIRT_KEYS_START+27); break;
+      case A_c: virt_send(VIRT_KEYS_START+28); break;
+      case A_r: virt_send(VIRT_KEYS_START+29); break;
+      case AT0: virt_send(VIRT_KEYS_START+30); break;
+      case AT1: virt_send(VIRT_KEYS_START+31); break;
+      case AT2: virt_send(VIRT_KEYS_START+32); break;
+      case AT3: virt_send(VIRT_KEYS_START+33); break;
+      default: virt_send(VIRT_WARN); break;
     }
 
     key_count++;
   }
-  virtser_send(event);
+  virt_send(event);
 }
 
 void emit_virt_layer(layer_state_t state) {
-  if (timer_elapsed(recv_timer) > VIRT_TIMEOUT) {
-    return;
-  }
-
-  virtser_send(VIRT_LAYER_ZERO + get_highest_layer(state));
+  virt_send(VIRT_LAYER_ZERO + get_highest_layer(state));
 }
 
 void emit_virt_config_enum(uint8_t option, uint8_t value) {
-  if (timer_elapsed(recv_timer) > VIRT_TIMEOUT) {
-    return;
-  }
-
-  virtser_send(VIRT_CONFIG);
-  virtser_send(option);
-  virtser_send(value);
+  virt_send(VIRT_CONFIG);
+  virt_send(option);
+  virt_send(value);
 }
 
 void virtser_recv(const uint8_t ch) {

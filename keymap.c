@@ -264,27 +264,37 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
   return true;
 }
 
-void process_combo_event(uint16_t combo_index, bool pressed) {
-  process_chord_event(combo_index, pressed);
-}
-
 #define CORRECTION_BUFFER_LENGTH 20
 char correction_buffer[CORRECTION_BUFFER_LENGTH];
 int correction_buffer_length = 0;
 bool correction_buffer_skip = true; // wait til we see the first space
 uint16_t correction_timer;
+char* last_correction = NULL;
 
-void handle_chord_correction(uint16_t keycode, uint8_t mods) {
+void reset_correction() {
+  last_correction = NULL;
+  correction_buffer_skip = false;
+  correction_buffer_length = 0;
+  correction_buffer[correction_buffer_length] = 0;
+  correction_timer = timer_read();
+}
+
+void process_combo_event(uint16_t combo_index, bool pressed) {
+  last_correction = NULL;
+  process_chord_event(combo_index, pressed);
+}
+
+bool process_chord_correction(uint16_t keycode, uint8_t mods) {
   if (keycode == KC_NO) {
-    return;
+    return true;
   }
   if ((mods & MOD_MASK_CAG) == 0 && keycode >= KC_A && keycode <= KC_Z) {
     if (correction_buffer_skip) {
-      return;
+      return true;
     }
     if (correction_buffer_length >= CORRECTION_BUFFER_LENGTH - 2) {
       correction_buffer_skip = true;
-      return;
+      return true;
     }
     char c = (keycode - KC_A + 'A') | ((mods & MOD_MASK_SHIFT) ? 0 : 0x20);
     correction_buffer[correction_buffer_length++] = c;
@@ -297,23 +307,24 @@ void handle_chord_correction(uint16_t keycode, uint8_t mods) {
     if (!correction_buffer_skip) {
       correction_buffer[correction_buffer_length++] = ' ';
       correction_buffer[correction_buffer_length] = 0;
-      char *correction = correct_chord(correction_buffer);
-      if (correction != NULL) {
-        for (uint16_t i = 0; i < correction_buffer_length; i++) { \
+      last_correction = correct_chord(correction_buffer);
+      if (last_correction != NULL) {
+        for (uint16_t i = 0; i < correction_buffer_length - 1; i++) { \
           tap_code16(KC_BSPC);
         }
+        reset_correction();
+        return false;
       }
     }
 
-    correction_buffer_skip = false;
-    correction_buffer_length = 0;
-    correction_buffer[correction_buffer_length] = 0;
-    correction_timer = timer_read();
+    reset_correction();
   } else if (keycode == 42) {
     correction_timer = timer_read();
   } else {
     correction_buffer_skip = true;
   }
+
+  return true;
 }
 
 #define GET_TAP_KC(dual_role_key) (dual_role_key & 0xFF)
@@ -394,7 +405,9 @@ bool process_repeat_key(uint16_t keycode, keyrecord_t *record) {
         }
 
         if (SETTING_CHORD_MODE == CHORD_MODE_CORRECTIVE) {
-          handle_chord_correction(next_keycode, current_modifier);
+          if (!process_chord_correction(next_keycode, current_modifier)) {
+            return false;
+          }
         }
 
         last_modifier = next_modifier;
@@ -540,7 +553,30 @@ bool process_setting_keys(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
 
+bool process_postcomplete_action(uint16_t keycode, keyrecord_t *record) {
+  if (record->event.pressed && record->tap.count && (keycode == AT3 || keycode == ST3 || keycode == NT3)) {
+    if (last_correction != NULL) {
+      SEND_STRING(last_correction);
+      last_chord_length = strlen(last_correction);
+      last_correction = NULL;
+      return false;
+    } else if (last_chord_length && last_chord == 0) {
+      for (int i = 0; i < last_chord_length; i++) {
+        tap_code16(KC_BSPC);
+      }
+      last_chord_length = 0;
+      return false;
+    }
+  }
+
+  return true;
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (!process_postcomplete_action(keycode, record)) {
+    return false;
+  }
+
   if (!process_repeat_key(keycode, record)) {
     return false;
   }
@@ -551,6 +587,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     last_chord = 0;
     last_chord_length = 0;
     sentence_mode = false;
+    last_correction = NULL;
   }
 
   if (!process_taphold(keycode, record, prev_sentence_mode)) {

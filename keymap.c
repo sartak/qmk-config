@@ -182,6 +182,7 @@ typedef enum {
   CHORD_MODE_NORMAL,
   CHORD_MODE_CORRECTIVE,
   CHORD_MODE_EXCLUSIVE,
+  CHORD_MODE_OFF,
   _CHORD_MODE_LENGTH,
 } setting_chord_mode;
 setting_chord_mode SETTING_CHORD_MODE = 0;
@@ -247,6 +248,19 @@ uint16_t last_chord_length;
 uint8_t last_chord_cycle;
 
 CHORD_FUNCS
+
+bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
+  // We need this otherwise there's no way to toggle chords back on
+  if (combo_index == CHORD_oneshot) {
+    return true;
+  }
+
+  if (SETTING_CHORD_MODE == CHORD_MODE_OFF) {
+    return false;
+  }
+
+  return true;
+}
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
   process_chord_event(combo_index, pressed);

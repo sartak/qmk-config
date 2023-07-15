@@ -3,6 +3,7 @@
 enum custom_keycodes {
   KC_DUP = SAFE_RANGE,
   KC_DUP_FORCE,
+  KC_VIRT_SERIAL,
 };
 
 #define TH(key) LT(0, key)
@@ -149,7 +150,7 @@ enum custom_keycodes {
 #define F_A KC_NO
 #define F_Q KC_NO
 #define F_J KC_NO
-#define F_V KC_NO
+#define F_V KC_VIRT_SERIAL
 #define F_D KC_DUP_FORCE
 #define F_K KC_NO
 #define F_X KC_NO
@@ -168,6 +169,13 @@ typedef enum {
   _DUP_FORCE_LENGTH,
 } config_dup_force_mode;
 config_dup_force_mode CONFIG_DUP_FORCE = 0;
+
+typedef enum {
+  VIRT_SERIAL_OFF,
+  VIRT_SERIAL_ON,
+  _VIRT_SERUAL_LENGTH,
+} config_virt_serial_mode;
+config_virt_serial_mode CONFIG_VIRT_SERIAL = 0;
 
 #include "chords.c"
 
@@ -401,6 +409,15 @@ bool process_config_keys(uint16_t keycode, keyrecord_t *record) {
       }
 #ifdef VIRT_SIDECHANNEL
       emit_virt_config_enum(VIRT_CONFIG_DUP_FORCE, CONFIG_DUP_FORCE);
+#endif
+      return false;
+
+    case KC_VIRT_SERIAL:
+      if (++CONFIG_VIRT_SERIAL == _VIRT_SERUAL_LENGTH) {
+        CONFIG_VIRT_SERIAL = 0;
+      }
+#ifdef VIRT_SIDECHANNEL
+      emit_virt_config_enum(VIRT_CONFIG_VIRT_SERIAL, CONFIG_VIRT_SERIAL);
 #endif
       return false;
   }

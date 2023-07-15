@@ -31,6 +31,7 @@
 #define VIRT_MOD_LAST                   VIRT_CONFIG
 
 #define VIRT_CONFIG_DUP_FORCE 0
+#define VIRT_CONFIG_VIRT_SERIAL 1
 
 #if VIRT_MOD_LAST > 255
 #error Virt sidechannel message size exceeds one byte
@@ -43,6 +44,10 @@ static uint8_t prev_mods;
 
 void virt_send(uint8_t byte) {
   if (timer_elapsed(recv_timer) > VIRT_TIMEOUT) {
+    return;
+  }
+
+  if (CONFIG_VIRT_SERIAL == VIRT_SERIAL_OFF) {
     return;
   }
 

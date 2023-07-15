@@ -30,7 +30,7 @@
 #define VIRT_MOD_LAST                   VIRT_GUI_UP
 
 #if VIRT_MOD_LAST > 255
-#error Virt sidechannel message side exceeds one byte
+#error Virt sidechannel message size exceeds one byte
 #endif
 
 #define VIRT_TIMEOUT 1000

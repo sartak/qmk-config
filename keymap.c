@@ -310,8 +310,13 @@ bool process_chord_correction(uint16_t keycode, uint8_t mods) {
   if (keycode == KC_NO) {
     return true;
   }
+
   if (timer_elapsed(correction_timer) > 2000) {
-    correction_buffer_skip = true;
+    if (!correction_buffer_skip && correction_buffer_length == 0) {
+      correction_timer = timer_read();
+    } else {
+      correction_buffer_skip = true;
+    }
   }
 
   if ((mods & MOD_MASK_CAG) == 0 && keycode >= KC_A && keycode <= KC_Z) {

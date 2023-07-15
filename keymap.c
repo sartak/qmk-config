@@ -271,8 +271,10 @@ bool correction_buffer_skip = true; // wait til we see the first space
 uint16_t correction_timer;
 char* last_correction = NULL;
 
-void reset_correction() {
-  last_correction = NULL;
+void reset_correction(bool clear_correction) {
+  if (clear_correction) {
+    last_correction = NULL;
+  }
   correction_buffer_skip = false;
   correction_buffer_length = 0;
   correction_buffer[correction_buffer_length] = 0;
@@ -280,7 +282,7 @@ void reset_correction() {
 }
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
-  last_correction = NULL;
+  reset_correction(true);
   process_chord_event(combo_index, pressed);
 }
 
@@ -299,7 +301,7 @@ bool process_chord_correction(uint16_t keycode, uint8_t mods) {
     char c = (keycode - KC_A + 'A') | ((mods & MOD_MASK_SHIFT) ? 0 : 0x20);
     correction_buffer[correction_buffer_length++] = c;
     correction_buffer[correction_buffer_length] = 0;
-  } else if (keycode == KC_SPC) {
+  } else if (keycode == KC_SPC || keycode == KC_ENT) {
     if (timer_elapsed(correction_timer) > 2000) {
       correction_buffer_skip = true;
     }
@@ -312,12 +314,12 @@ bool process_chord_correction(uint16_t keycode, uint8_t mods) {
         for (uint16_t i = 0; i < correction_buffer_length - 1; i++) { \
           tap_code16(KC_BSPC);
         }
-        reset_correction();
+        reset_correction(false);
         return false;
       }
     }
 
-    reset_correction();
+    reset_correction(true);
   } else if (keycode == 42) {
     correction_timer = timer_read();
   } else {
@@ -494,7 +496,7 @@ bool process_taphold(uint16_t keycode, keyrecord_t *record, bool prev_sentence_m
       TH_GUI(KC_X)
       TH_GUI(KC_Y)
       TH_GUI(KC_Z)
-      TH_GUI(KC_ENT)
+      TH_CASE(KC_ENT, LGUI(KC_ENT), ;, reset_correction(true);)
       TH_CASE(KC_QUOTE, KC_ESCAPE, ;, ;)
       TH_CASE(KC_DOT, KC_NO, SENTENCE_PRE, SENTENCE_POST_SHIFT)
       TH_CASE(KC_COMM, KC_ALFRED, SENTENCE_PRE, SENTENCE_POST_NOSHIFT)

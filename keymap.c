@@ -578,13 +578,14 @@ bool process_postcomplete_action(uint16_t keycode, keyrecord_t *record) {
     if (last_correction != NULL) {
       SEND_STRING(last_correction);
       last_chord_length = strlen(last_correction);
-      last_correction = NULL;
+      reset_correction(true);
       return false;
     } else if (last_chord_length && last_chord == 0) {
       for (int i = 0; i < last_chord_length; i++) {
         tap_code16(KC_BSPC);
       }
       last_chord_length = 0;
+      reset_correction(true);
       return false;
     }
   }

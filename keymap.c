@@ -168,23 +168,23 @@ typedef enum {
   DUP_FORCE_OFF,
   DUP_FORCE_ON,
   _DUP_FORCE_LENGTH,
-} config_dup_force_mode;
-config_dup_force_mode CONFIG_DUP_FORCE = 0;
+} setting_dup_force;
+setting_dup_force SETTING_DUP_FORCE = 0;
 
 typedef enum {
   VIRT_SERIAL_OFF,
   VIRT_SERIAL_ON,
   _VIRT_SERUAL_LENGTH,
-} config_virt_serial_mode;
-config_virt_serial_mode CONFIG_VIRT_SERIAL = 0;
+} setting_virt_serial;
+setting_virt_serial SETTING_VIRT_SERIAL = 0;
 
 typedef enum {
   CHORD_MODE_NORMAL,
   CHORD_MODE_EXCLUSIVE,
   CHORD_MODE_CORRECTIVE,
   _CHORD_MODE_LENGTH,
-} config_chord_mode;
-config_chord_mode CONFIG_CHORD_MODE = 0;
+} setting_chord_mode;
+setting_chord_mode SETTING_CHORD_MODE = 0;
 
 #include "chords.c"
 
@@ -305,7 +305,7 @@ bool process_repeat_key(uint16_t keycode, keyrecord_t *record) {
             break;
         }
 
-        if (CONFIG_DUP_FORCE == DUP_FORCE_ON) {
+        if (SETTING_DUP_FORCE == DUP_FORCE_ON) {
           if (next_keycode >= KC_A && next_keycode <= KC_Z) {
             if (last_keycode == next_keycode && last_modifier == next_modifier) {
               return false;
@@ -313,7 +313,7 @@ bool process_repeat_key(uint16_t keycode, keyrecord_t *record) {
           }
         }
 
-        if (CONFIG_CHORD_MODE == CHORD_MODE_EXCLUSIVE) {
+        if (SETTING_CHORD_MODE == CHORD_MODE_EXCLUSIVE) {
           if (next_keycode >= KC_A && next_keycode <= KC_Z) {
             return false;
           }
@@ -412,36 +412,36 @@ bool process_taphold(uint16_t keycode, keyrecord_t *record, bool prev_sentence_m
     return true;
 }
 
-bool process_config_keys(uint16_t keycode, keyrecord_t *record) {
+bool process_setting_keys(uint16_t keycode, keyrecord_t *record) {
   if (!record->event.pressed) {
     return true;
   }
 
   switch (keycode) {
     case KC_DUP_FORCE:
-      if (++CONFIG_DUP_FORCE == _DUP_FORCE_LENGTH) {
-        CONFIG_DUP_FORCE = 0;
+      if (++SETTING_DUP_FORCE == _DUP_FORCE_LENGTH) {
+        SETTING_DUP_FORCE = 0;
       }
 #ifdef VIRT_SIDECHANNEL
-      emit_virt_config_enum(VIRT_CONFIG_DUP_FORCE, CONFIG_DUP_FORCE);
+      emit_virt_setting_enum(VIRT_SETTING_DUP_FORCE, SETTING_DUP_FORCE);
 #endif
       return false;
 
     case KC_VIRT_SERIAL:
-      if (++CONFIG_VIRT_SERIAL == _VIRT_SERUAL_LENGTH) {
-        CONFIG_VIRT_SERIAL = 0;
+      if (++SETTING_VIRT_SERIAL == _VIRT_SERUAL_LENGTH) {
+        SETTING_VIRT_SERIAL = 0;
       }
 #ifdef VIRT_SIDECHANNEL
-      emit_virt_config_enum(VIRT_CONFIG_VIRT_SERIAL, CONFIG_VIRT_SERIAL);
+      emit_virt_setting_enum(VIRT_SETTING_VIRT_SERIAL, SETTING_VIRT_SERIAL);
 #endif
       return false;
 
     case KC_CHORD_MODE:
-      if (++CONFIG_CHORD_MODE == _CHORD_MODE_LENGTH) {
-        CONFIG_CHORD_MODE = 0;
+      if (++SETTING_CHORD_MODE == _CHORD_MODE_LENGTH) {
+        SETTING_CHORD_MODE = 0;
       }
 #ifdef VIRT_SIDECHANNEL
-      emit_virt_config_enum(VIRT_CONFIG_CHORD_MODE, CONFIG_CHORD_MODE);
+      emit_virt_setting_enum(VIRT_SETTING_CHORD_MODE, SETTING_CHORD_MODE);
 #endif
       return false;
   }
@@ -466,7 +466,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return false;
   }
 
-  if (!process_config_keys(keycode, record)) {
+  if (!process_setting_keys(keycode, record)) {
     return false;
   }
 

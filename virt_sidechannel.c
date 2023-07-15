@@ -27,12 +27,12 @@
 #define VIRT_ALT_UP                     VIRT_ALT_DOWN+1
 #define VIRT_GUI_DOWN                   VIRT_ALT_UP+1
 #define VIRT_GUI_UP                     VIRT_GUI_DOWN+1
-#define VIRT_CONFIG                     VIRT_GUI_UP+1
-#define VIRT_MOD_LAST                   VIRT_CONFIG
+#define VIRT_SETTINGS                    VIRT_GUI_UP+1
+#define VIRT_MOD_LAST                   VIRT_SETTINGS
 
-#define VIRT_CONFIG_DUP_FORCE 0
-#define VIRT_CONFIG_VIRT_SERIAL 1
-#define VIRT_CONFIG_CHORD_MODE 2
+#define VIRT_SETTING_DUP_FORCE 0
+#define VIRT_SETTING_VIRT_SERIAL 1
+#define VIRT_SETTING_CHORD_MODE 2
 
 #if VIRT_MOD_LAST > 255
 #error Virt sidechannel message size exceeds one byte
@@ -48,7 +48,7 @@ void virt_send(uint8_t byte) {
     return;
   }
 
-  if (CONFIG_VIRT_SERIAL == VIRT_SERIAL_OFF) {
+  if (SETTING_VIRT_SERIAL == VIRT_SERIAL_OFF) {
     return;
   }
 
@@ -202,8 +202,8 @@ void emit_virt_layer(layer_state_t state) {
   virt_send(VIRT_LAYER_ZERO + get_highest_layer(state));
 }
 
-void emit_virt_config_enum(uint8_t option, uint8_t value) {
-  virt_send(VIRT_CONFIG);
+void emit_virt_setting_enum(uint8_t option, uint8_t value) {
+  virt_send(VIRT_SETTINGS);
   virt_send(option);
   virt_send(value);
 }

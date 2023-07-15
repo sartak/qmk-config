@@ -2,6 +2,7 @@
 
 enum custom_keycodes {
   KC_DUP = SAFE_RANGE,
+  KC_DUP_FORCE,
 };
 
 #define TH(key) LT(0, key)
@@ -149,7 +150,7 @@ enum custom_keycodes {
 #define F_Q KC_NO
 #define F_J KC_NO
 #define F_V KC_NO
-#define F_D KC_NO
+#define F_D KC_DUP_FORCE
 #define F_K KC_NO
 #define F_X KC_NO
 #define F_H KC_NO
@@ -160,6 +161,13 @@ enum custom_keycodes {
 #define FT1 KC_NO
 #define FT2 KC_NO
 #define FT3 KC_NO
+
+typedef enum {
+  DUP_FORCE_OFF,
+  DUP_FORCE_ON,
+  _DUP_FORCE_LENGTH,
+} config_dup_force_mode;
+config_dup_force_mode CONFIG_DUP_FORCE = 0;
 
 #include "chords.c"
 
@@ -280,13 +288,13 @@ bool process_repeat_key(uint16_t keycode, keyrecord_t *record) {
             break;
         }
 
-#ifdef FORCE_DUP_KEY
-        if (next_keycode >= KC_A && next_keycode <= KC_Z) {
-          if (last_keycode == next_keycode && last_modifier == next_modifier) {
-            return false;
+        if (CONFIG_DUP_FORCE == DUP_FORCE_ON) {
+          if (next_keycode >= KC_A && next_keycode <= KC_Z) {
+            if (last_keycode == next_keycode && last_modifier == next_modifier) {
+              return false;
+            }
           }
         }
-#endif
 
         last_modifier = next_modifier;
 
@@ -381,6 +389,25 @@ bool process_taphold(uint16_t keycode, keyrecord_t *record, bool prev_sentence_m
     return true;
 }
 
+bool process_config_keys(uint16_t keycode, keyrecord_t *record) {
+  if (!record->event.pressed) {
+    return true;
+  }
+
+  switch (keycode) {
+    case KC_DUP_FORCE:
+      if (++CONFIG_DUP_FORCE == _DUP_FORCE_LENGTH) {
+        CONFIG_DUP_FORCE = 0;
+      }
+#ifdef VIRT_SIDECHANNEL
+      emit_virt_config_enum(VIRT_CONFIG_DUP_FORCE, CONFIG_DUP_FORCE);
+#endif
+      return false;
+  }
+
+  return true;
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (!process_repeat_key(keycode, record)) {
     return false;
@@ -395,6 +422,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
 
   if (!process_taphold(keycode, record, prev_sentence_mode)) {
+    return false;
+  }
+
+  if (!process_config_keys(keycode, record)) {
     return false;
   }
 

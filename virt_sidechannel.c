@@ -30,6 +30,8 @@
 #define VIRT_CONFIG                     VIRT_GUI_UP+1
 #define VIRT_MOD_LAST                   VIRT_CONFIG
 
+#define VIRT_CONFIG_DUP_FORCE 0
+
 #if VIRT_MOD_LAST > 255
 #error Virt sidechannel message size exceeds one byte
 #endif

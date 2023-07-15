@@ -282,6 +282,13 @@ void reset_correction(bool clear_correction) {
 }
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
+  if (last_correction == NULL && last_chord_length && last_chord == 0) {
+    for (int i = 0; i < last_chord_length; i++) {
+      tap_code16(KC_BSPC);
+    }
+    last_chord_length = 0;
+  }
+
   reset_correction(true);
   process_chord_event(combo_index, pressed);
 }

@@ -188,6 +188,7 @@ typedef enum {
 setting_chord_mode SETTING_CHORD_MODE = 0;
 
 #include "chords.c"
+#include "corrections.c"
 
 enum combo_events {
   CHORD_ENUM
@@ -272,13 +273,6 @@ char correction_buffer[CORRECTION_BUFFER_LENGTH];
 int correction_buffer_length = 0;
 bool correction_buffer_skip = true; // wait til we see the first space
 uint16_t correction_timer;
-
-bool should_correct_chord(char* buffer) {
-  if (strcmp(buffer, "the ") == 0) {
-    return true;
-  }
-  return false;
-}
 
 void handle_chord_correction(uint16_t keycode, uint8_t mods) {
   if (keycode == KC_NO) {

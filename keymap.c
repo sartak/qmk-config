@@ -264,10 +264,26 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
   return true;
 }
 
+uint8_t last_message_length = 0;
+#define SEND_MESSAGE(msg) { \
+  last_message_length += strlen(msg); \
+  SEND_STRING(msg); \
+}
+
+void clear_last_message(void) {
+  if (last_message_length == 0) {
+    return;
+  }
+
+  do {
+    tap_code16(KC_BSPC);
+  } while (--last_message_length);
+}
+
 #define CORRECTION_BUFFER_LENGTH 20
 #define CORRECTION_TIMEOUT 5000
 char correction_buffer[CORRECTION_BUFFER_LENGTH];
-int correction_buffer_length = 0;
+uint8_t correction_buffer_length = 0;
 bool correction_buffer_skip = true; // wait til we see the first space
 uint16_t correction_timer;
 char* last_correction = NULL;
@@ -283,13 +299,6 @@ void reset_correction(bool clear_correction) {
 }
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
-  if (last_correction == NULL && last_chord_length && last_chord == 0) {
-    for (int i = 0; i < last_chord_length; i++) {
-      tap_code16(KC_BSPC);
-    }
-    last_chord_length = 0;
-  }
-
   reset_correction(true);
   process_chord_event(combo_index, pressed);
 }
@@ -582,17 +591,9 @@ bool process_setting_keys(uint16_t keycode, keyrecord_t *record) {
 bool process_postcomplete_action(uint16_t keycode, keyrecord_t *record) {
   if (record->event.pressed && record->tap.count && (keycode == AT3 || keycode == ST3 || keycode == NT3)) {
     if (last_correction != NULL) {
-      SEND_STRING("[");
-      SEND_STRING(last_correction);
-      SEND_STRING("]");
-      last_chord_length = 2 + strlen(last_correction);
-      reset_correction(true);
-      return false;
-    } else if (last_chord_length && last_chord == 0) {
-      for (int i = 0; i < last_chord_length; i++) {
-        tap_code16(KC_BSPC);
-      }
-      last_chord_length = 0;
+      SEND_MESSAGE("[");
+      SEND_MESSAGE(last_correction);
+      SEND_MESSAGE("]");
       reset_correction(true);
       return false;
     }
@@ -642,12 +643,17 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     }
 }
 
-#ifdef VIRT_SIDECHANNEL
 bool pre_process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (record->event.pressed) {
+    clear_last_message();
+  }
+
+#ifdef VIRT_SIDECHANNEL
   emit_virt_key(record, true, false, false);
+#endif
+
   return true;
 }
-#endif
 
 #ifdef VIRT_SIDECHANNEL
 void post_process_record_user(uint16_t keycode, keyrecord_t *record) {

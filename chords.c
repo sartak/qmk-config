@@ -34,6 +34,9 @@
   CHORD__n_t, \
   CHORD__ve, \
   CHORD__re, \
+  CHORD__s, \
+  CHORD__d, \
+  CHORD__ll, \
   CHORD_the, \
   CHORD_be, \
   CHORD_of, \
@@ -243,6 +246,7 @@
   CHORD_me, \
   CHORD_him, \
   CHORD_your, \
+  CHORD_them, \
   CHORD_its, \
   CHORD_two, \
   CHORD_our, \
@@ -254,9 +258,11 @@
   CHORD_were, \
   CHORD_said, \
   CHORD_has, \
+  CHORD_did, \
   CHORD_sound, \
   CHORD_water, \
   CHORD_side, \
+  CHORD_been, \
   CHORD_made, \
   CHORD_live, \
   CHORD_round, \
@@ -269,10 +275,13 @@
   CHORD_cause, \
   CHORD_boy, \
   CHORD_does, \
+  CHORD_three, \
   CHORD_air, \
   CHORD_put, \
+  CHORD_read, \
   CHORD_port, \
   CHORD_spell, \
+  CHORD_add, \
   CHORD_land, \
   CHORD_big, \
   CHORD_act, \
@@ -285,6 +294,7 @@
   CHORD_try, \
   CHORD_animal, \
   CHORD_mother, \
+  CHORD_near, \
   CHORD_build, \
   CHORD_self, \
   CHORD_earth, \
@@ -301,10 +311,13 @@
   CHORD_food, \
   CHORD_sun, \
   CHORD_four, \
+  CHORD_let, \
   CHORD_thought, \
   CHORD_city, \
+  CHORD_tree, \
   CHORD_cross, \
   CHORD_hard, \
+  CHORD_start, \
   CHORD_far, \
   CHORD_sea, \
   CHORD_draw, \
@@ -393,18 +406,27 @@
   CHORD_true, \
   CHORD_hundred, \
   CHORD_five, \
+  CHORD_remembe, \
   CHORD_six, \
   CHORD_war, \
   CHORD_lay, \
+  CHORD_pattern, \
+  CHORD_center, \
+  CHORD_love, \
   CHORD_map, \
   CHORD_fly, \
   CHORD_fall, \
   CHORD_cry, \
+  CHORD_machine, \
   CHORD_box, \
   CHORD_noun, \
+  CHORD_field, \
   CHORD_week, \
+  CHORD_final, \
   CHORD_oh, \
   CHORD_free, \
+  CHORD_object, \
+  CHORD_test, \
   CHORD_dry, \
   CHORD_ago, \
   CHORD_ran, \
@@ -415,53 +437,88 @@
   CHORD_arm, \
   CHORD_ice, \
   CHORD_matter, \
+  CHORD_count, \
+  CHORD_length, \
   CHORD_art, \
   CHORD_cell, \
   CHORD_summer, \
   CHORD_leg, \
+  CHORD_catch, \
   CHORD_joy, \
   CHORD_job, \
   CHORD_gas, \
   CHORD_buy, \
   CHORD_cook, \
   CHORD_hill, \
+  CHORD_type, \
   CHORD_law, \
+  CHORD_bit, \
+  CHORD_copy, \
   CHORD_lie, \
+  CHORD_else, \
+  CHORD_case, \
   CHORD_son, \
+  CHORD_method, \
   CHORD_pay, \
   CHORD_age, \
   CHORD_cool, \
+  CHORD_design, \
   CHORD_lot, \
   CHORD_key, \
+  CHORD_office, \
   CHORD_row, \
   CHORD_die, \
+  CHORD_break, \
   CHORD_oil, \
+  CHORD_team, \
   CHORD_fit, \
+  CHORD_charact, \
+  CHORD_element, \
   CHORD_hit, \
+  CHORD_string, \
   CHORD_rub, \
   CHORD_tie, \
+  CHORD_search, \
   CHORD_gun, \
+  CHORD_print, \
+  CHORD_continu, \
   CHORD_nine, \
+  CHORD_throw, \
+  CHORD_select, \
   CHORD_thank, \
+  CHORD_branch, \
+  CHORD_match, \
   CHORD_experie, \
   CHORD_led, \
   CHORD_win, \
+  CHORD_conditi, \
   CHORD_feed, \
   CHORD_nor, \
+  CHORD_double, \
+  CHORD_master, \
+  CHORD_post, \
+  CHORD_chord, \
   CHORD_fat, \
   CHORD_bar, \
+  CHORD_enemy, \
+  CHORD_support, \
+  CHORD_range, \
   CHORD_log, \
   CHORD_hey, \
-  CHORD_return, \
+  CHORD_yep, \
   CHORD_probabl, \
   CHORD_thanks, \
   CHORD_i_ve, \
   CHORD_per, \
-  CHORD_null, \
-  CHORD_nil, \
-  CHORD_array, \
-  CHORD_sort, \
-  CHORD_schema, \
+  CHORD_acknowl, \
+  CHORD_attack, \
+  CHORD_defend, \
+  CHORD_expansi, \
+  CHORD_fuck, \
+  CHORD_hell, \
+  CHORD_heck, \
+  CHORD_shit, \
+  CHORD_persona, \
   CHORD_in_the, \
   CHORD_of_the, \
   CHORD_to_be, \
@@ -474,16 +531,51 @@
   CHORD_the_wor, \
   CHORD_in_a, \
   CHORD_of_cour, \
-  CHORD_the_qui, \
-  CHORD_elberet, \
-  CHORD_https_, \
-  CHORD_select_, \
-  CHORD_pokemon, \
+  CHORD_admin, \
+  CHORD_array, \
+  CHORD_async, \
+  CHORD_await, \
+  CHORD_define, \
+  CHORD_div, \
+  CHORD_environ, \
+  CHORD_git, \
   CHORD_graphql, \
+  CHORD_https_, \
+  CHORD_immutab, \
+  CHORD_impleme, \
+  CHORD_import, \
+  CHORD_infra, \
+  CHORD_insert, \
+  CHORD_int, \
+  CHORD_interfa, \
+  CHORD_json, \
   CHORD_kuberne, \
+  CHORD_library, \
+  CHORD_module, \
+  CHORD_nil, \
+  CHORD_null, \
+  CHORD_project, \
+  CHORD_pub, \
+  CHORD_regex, \
+  CHORD_return, \
+  CHORD_schema, \
+  CHORD_select_, \
+  CHORD_server, \
+  CHORD_service, \
+  CHORD_sort, \
+  CHORD_sudo, \
+  CHORD_tempora, \
+  CHORD_trait, \
+  CHORD_queue, \
+  CHORD_quote, \
+  CHORD_undefin, \
   CHORD__up_, \
   CHORD__typesc, \
   CHORD__go_up_, \
+  CHORD_the_qui, \
+  CHORD_elberet, \
+  CHORD_pokemon, \
+  CHORD_final_f, \
   PERSONAL_CHORD_ENUM \
   CHORD_S_the, \
   CHORD_S_be, \
@@ -692,6 +784,7 @@
   CHORD_S_me, \
   CHORD_S_him, \
   CHORD_S_your, \
+  CHORD_S_them, \
   CHORD_S_its, \
   CHORD_S_two, \
   CHORD_S_our, \
@@ -703,9 +796,11 @@
   CHORD_S_were, \
   CHORD_S_said, \
   CHORD_S_has, \
+  CHORD_S_did, \
   CHORD_S_sound, \
   CHORD_S_water, \
   CHORD_S_side, \
+  CHORD_S_been, \
   CHORD_S_made, \
   CHORD_S_live, \
   CHORD_S_round, \
@@ -718,10 +813,13 @@
   CHORD_S_cause, \
   CHORD_S_boy, \
   CHORD_S_does, \
+  CHORD_S_three, \
   CHORD_S_air, \
   CHORD_S_put, \
+  CHORD_S_read, \
   CHORD_S_port, \
   CHORD_S_spell, \
+  CHORD_S_add, \
   CHORD_S_land, \
   CHORD_S_big, \
   CHORD_S_act, \
@@ -734,6 +832,7 @@
   CHORD_S_try, \
   CHORD_S_animal, \
   CHORD_S_mother, \
+  CHORD_S_near, \
   CHORD_S_build, \
   CHORD_S_self, \
   CHORD_S_earth, \
@@ -750,10 +849,13 @@
   CHORD_S_food, \
   CHORD_S_sun, \
   CHORD_S_four, \
+  CHORD_S_let, \
   CHORD_S_thought, \
   CHORD_S_city, \
+  CHORD_S_tree, \
   CHORD_S_cross, \
   CHORD_S_hard, \
+  CHORD_S_start, \
   CHORD_S_far, \
   CHORD_S_sea, \
   CHORD_S_draw, \
@@ -842,18 +944,27 @@
   CHORD_S_true, \
   CHORD_S_hundred, \
   CHORD_S_five, \
+  CHORD_S_remembe, \
   CHORD_S_six, \
   CHORD_S_war, \
   CHORD_S_lay, \
+  CHORD_S_pattern, \
+  CHORD_S_center, \
+  CHORD_S_love, \
   CHORD_S_map, \
   CHORD_S_fly, \
   CHORD_S_fall, \
   CHORD_S_cry, \
+  CHORD_S_machine, \
   CHORD_S_box, \
   CHORD_S_noun, \
+  CHORD_S_field, \
   CHORD_S_week, \
+  CHORD_S_final, \
   CHORD_S_oh, \
   CHORD_S_free, \
+  CHORD_S_object, \
+  CHORD_S_test, \
   CHORD_S_dry, \
   CHORD_S_ago, \
   CHORD_S_ran, \
@@ -864,52 +975,87 @@
   CHORD_S_arm, \
   CHORD_S_ice, \
   CHORD_S_matter, \
+  CHORD_S_count, \
+  CHORD_S_length, \
   CHORD_S_art, \
   CHORD_S_cell, \
   CHORD_S_summer, \
   CHORD_S_leg, \
+  CHORD_S_catch, \
   CHORD_S_joy, \
   CHORD_S_job, \
   CHORD_S_gas, \
   CHORD_S_buy, \
   CHORD_S_cook, \
   CHORD_S_hill, \
+  CHORD_S_type, \
   CHORD_S_law, \
+  CHORD_S_bit, \
+  CHORD_S_copy, \
   CHORD_S_lie, \
+  CHORD_S_else, \
+  CHORD_S_case, \
   CHORD_S_son, \
+  CHORD_S_method, \
   CHORD_S_pay, \
   CHORD_S_age, \
   CHORD_S_cool, \
+  CHORD_S_design, \
   CHORD_S_lot, \
   CHORD_S_key, \
+  CHORD_S_office, \
   CHORD_S_row, \
   CHORD_S_die, \
+  CHORD_S_break, \
   CHORD_S_oil, \
+  CHORD_S_team, \
   CHORD_S_fit, \
+  CHORD_S_charact, \
+  CHORD_S_element, \
   CHORD_S_hit, \
+  CHORD_S_string, \
   CHORD_S_rub, \
   CHORD_S_tie, \
+  CHORD_S_search, \
   CHORD_S_gun, \
+  CHORD_S_print, \
+  CHORD_S_continu, \
   CHORD_S_nine, \
+  CHORD_S_throw, \
+  CHORD_S_select, \
   CHORD_S_thank, \
+  CHORD_S_branch, \
+  CHORD_S_match, \
   CHORD_S_experie, \
   CHORD_S_led, \
   CHORD_S_win, \
+  CHORD_S_conditi, \
   CHORD_S_feed, \
   CHORD_S_nor, \
+  CHORD_S_double, \
+  CHORD_S_master, \
+  CHORD_S_post, \
+  CHORD_S_chord, \
   CHORD_S_fat, \
   CHORD_S_bar, \
+  CHORD_S_enemy, \
+  CHORD_S_support, \
+  CHORD_S_range, \
   CHORD_S_log, \
   CHORD_S_hey, \
-  CHORD_S_return, \
+  CHORD_S_yep, \
   CHORD_S_probabl, \
   CHORD_S_thanks, \
   CHORD_S_per, \
-  CHORD_S_null, \
-  CHORD_S_nil, \
-  CHORD_S_array, \
-  CHORD_S_sort, \
-  CHORD_S_schema, \
+  CHORD_S_acknowl, \
+  CHORD_S_attack, \
+  CHORD_S_defend, \
+  CHORD_S_expansi, \
+  CHORD_S_fuck, \
+  CHORD_S_hell, \
+  CHORD_S_heck, \
+  CHORD_S_shit, \
+  CHORD_S_persona, \
   CHORD_S_in_the, \
   CHORD_S_of_the, \
   CHORD_S_to_be, \
@@ -922,11 +1068,46 @@
   CHORD_S_the_wor, \
   CHORD_S_in_a, \
   CHORD_S_of_cour, \
-  CHORD_S_the_qui, \
-  CHORD_S_select_, \
-  CHORD_S_pokemon, \
+  CHORD_S_admin, \
+  CHORD_S_array, \
+  CHORD_S_async, \
+  CHORD_S_await, \
+  CHORD_S_define, \
+  CHORD_S_div, \
+  CHORD_S_environ, \
+  CHORD_S_git, \
   CHORD_S_graphql, \
+  CHORD_S_immutab, \
+  CHORD_S_impleme, \
+  CHORD_S_import, \
+  CHORD_S_infra, \
+  CHORD_S_insert, \
+  CHORD_S_int, \
+  CHORD_S_interfa, \
+  CHORD_S_json, \
   CHORD_S_kuberne, \
+  CHORD_S_library, \
+  CHORD_S_module, \
+  CHORD_S_nil, \
+  CHORD_S_null, \
+  CHORD_S_project, \
+  CHORD_S_pub, \
+  CHORD_S_regex, \
+  CHORD_S_return, \
+  CHORD_S_schema, \
+  CHORD_S_select_, \
+  CHORD_S_server, \
+  CHORD_S_service, \
+  CHORD_S_sort, \
+  CHORD_S_sudo, \
+  CHORD_S_tempora, \
+  CHORD_S_trait, \
+  CHORD_S_queue, \
+  CHORD_S_quote, \
+  CHORD_S_undefin, \
+  CHORD_S_the_qui, \
+  CHORD_S_pokemon, \
+  CHORD_S_final_f, \
   PERSONAL_SHIFTED_ENUM
 
 COMBO_FOR_CHORD(delete_, AT1, AT2);
@@ -958,6 +1139,9 @@ COMBO_FOR_CHORD(_ing, A_I, A_N, A_G);
 COMBO_FOR_CHORD(_n_t, A_N, A_q, A_T);
 COMBO_FOR_CHORD(_ve, A_q, A_V, A_E);
 COMBO_FOR_CHORD(_re, A_q, A_R, A_E);
+COMBO_FOR_CHORD(_s, A_q, A_S, AT0);
+COMBO_FOR_CHORD(_d, A_q, A_D, AT0);
+COMBO_FOR_CHORD(_ll, A_q, A_L, AT0);
 COMBO_FOR_CHORD(the, A_T, A_H, A_E);
 COMBO_FOR_CHORD(S_the, A_T, A_H, A_E, AT1);
 COMBO_FOR_CHORD(be, A_B, A_E, AT0);
@@ -1374,6 +1558,8 @@ COMBO_FOR_CHORD(him, A_B, A_I, A_M);
 COMBO_FOR_CHORD(S_him, A_B, A_I, A_M, AT1);
 COMBO_FOR_CHORD(your, A_Y, A_O, A_R);
 COMBO_FOR_CHORD(S_your, A_Y, A_O, A_R, AT1);
+COMBO_FOR_CHORD(them, A_H, A_M, A_N, A_X);
+COMBO_FOR_CHORD(S_them, A_H, A_M, A_N, A_X, AT1);
 COMBO_FOR_CHORD(its, A_I, A_T, A_S);
 COMBO_FOR_CHORD(S_its, A_I, A_T, A_S, AT1);
 COMBO_FOR_CHORD(two, A_T, A_W, A_O);
@@ -1396,12 +1582,16 @@ COMBO_FOR_CHORD(said, A_S, A_A, A_I);
 COMBO_FOR_CHORD(S_said, A_S, A_A, A_I, AT1);
 COMBO_FOR_CHORD(has, A_H, A_A, A_S);
 COMBO_FOR_CHORD(S_has, A_H, A_A, A_S, AT1);
+COMBO_FOR_CHORD(did, A_D, A_I, AT0);
+COMBO_FOR_CHORD(S_did, A_D, A_I, AT0, AT1);
 COMBO_FOR_CHORD(sound, A_S, A_U, A_D);
 COMBO_FOR_CHORD(S_sound, A_S, A_U, A_D, AT1);
 COMBO_FOR_CHORD(water, A_W, A_T, A_R);
 COMBO_FOR_CHORD(S_water, A_W, A_T, A_R, AT1);
 COMBO_FOR_CHORD(side, A_S, A_I, A_D);
 COMBO_FOR_CHORD(S_side, A_S, A_I, A_D, AT1);
+COMBO_FOR_CHORD(been, A_B, A_N, AT0);
+COMBO_FOR_CHORD(S_been, A_B, A_N, AT0, AT1);
 COMBO_FOR_CHORD(made, A_M, A_D, A_E);
 COMBO_FOR_CHORD(S_made, A_M, A_D, A_E, AT1);
 COMBO_FOR_CHORD(live, A_L, A_I, A_V);
@@ -1426,14 +1616,20 @@ COMBO_FOR_CHORD(boy, A_B, A_O, A_Y);
 COMBO_FOR_CHORD(S_boy, A_B, A_O, A_Y, AT1);
 COMBO_FOR_CHORD(does, A_D, A_E, A_S);
 COMBO_FOR_CHORD(S_does, A_D, A_E, A_S, AT1);
+COMBO_FOR_CHORD(three, A_T, A_E, AT0);
+COMBO_FOR_CHORD(S_three, A_T, A_E, AT0, AT1);
 COMBO_FOR_CHORD(air, A_A, A_I, A_R);
 COMBO_FOR_CHORD(S_air, A_A, A_I, A_R, AT1);
 COMBO_FOR_CHORD(put, A_P, A_U, A_T);
 COMBO_FOR_CHORD(S_put, A_P, A_U, A_T, AT1);
+COMBO_FOR_CHORD(read, A_R, A_A, AT0);
+COMBO_FOR_CHORD(S_read, A_R, A_A, AT0, AT1);
 COMBO_FOR_CHORD(port, A_P, A_O, A_R);
 COMBO_FOR_CHORD(S_port, A_P, A_O, A_R, AT1);
 COMBO_FOR_CHORD(spell, A_S, A_P, A_L);
 COMBO_FOR_CHORD(S_spell, A_S, A_P, A_L, AT1);
+COMBO_FOR_CHORD(add, A_A, A_D, AT0);
+COMBO_FOR_CHORD(S_add, A_A, A_D, AT0, AT1);
 COMBO_FOR_CHORD(land, A_L, A_N, A_D);
 COMBO_FOR_CHORD(S_land, A_L, A_N, A_D, AT1);
 COMBO_FOR_CHORD(big, A_B, A_I, A_G);
@@ -1458,6 +1654,8 @@ COMBO_FOR_CHORD(animal, A_A, A_N, A_L);
 COMBO_FOR_CHORD(S_animal, A_A, A_N, A_L, AT1);
 COMBO_FOR_CHORD(mother, A_M, A_T, A_R);
 COMBO_FOR_CHORD(S_mother, A_M, A_T, A_R, AT1);
+COMBO_FOR_CHORD(near, A_N, A_R, AT0);
+COMBO_FOR_CHORD(S_near, A_N, A_R, AT0, AT1);
 COMBO_FOR_CHORD(build, A_B, A_U, A_L);
 COMBO_FOR_CHORD(S_build, A_B, A_U, A_L, AT1);
 COMBO_FOR_CHORD(self, A_S, A_L, A_F);
@@ -1490,14 +1688,20 @@ COMBO_FOR_CHORD(sun, A_S, A_U, A_N);
 COMBO_FOR_CHORD(S_sun, A_S, A_U, A_N, AT1);
 COMBO_FOR_CHORD(four, A_F, A_O, A_U);
 COMBO_FOR_CHORD(S_four, A_F, A_O, A_U, AT1);
+COMBO_FOR_CHORD(let, A_L, A_E, AT0);
+COMBO_FOR_CHORD(S_let, A_L, A_E, AT0, AT1);
 COMBO_FOR_CHORD(thought, A_T, A_H, A_U);
 COMBO_FOR_CHORD(S_thought, A_T, A_H, A_U, AT1);
 COMBO_FOR_CHORD(city, A_C, A_T, A_Y);
 COMBO_FOR_CHORD(S_city, A_C, A_T, A_Y, AT1);
+COMBO_FOR_CHORD(tree, A_T, A_R, AT0);
+COMBO_FOR_CHORD(S_tree, A_T, A_R, AT0, AT1);
 COMBO_FOR_CHORD(cross, A_C, A_R, A_S);
 COMBO_FOR_CHORD(S_cross, A_C, A_R, A_S, AT1);
 COMBO_FOR_CHORD(hard, A_H, A_R, A_D);
 COMBO_FOR_CHORD(S_hard, A_H, A_R, A_D, AT1);
+COMBO_FOR_CHORD(start, A_S, A_R, AT0);
+COMBO_FOR_CHORD(S_start, A_S, A_R, AT0, AT1);
 COMBO_FOR_CHORD(far, A_F, A_A, A_R);
 COMBO_FOR_CHORD(S_far, A_F, A_A, A_R, AT1);
 COMBO_FOR_CHORD(sea, A_S, A_E, A_A);
@@ -1674,12 +1878,20 @@ COMBO_FOR_CHORD(hundred, A_H, A_U, A_E);
 COMBO_FOR_CHORD(S_hundred, A_H, A_U, A_E, AT1);
 COMBO_FOR_CHORD(five, A_F, A_I, A_V);
 COMBO_FOR_CHORD(S_five, A_F, A_I, A_V, AT1);
+COMBO_FOR_CHORD(remembe, A_R, A_E, A_M);
+COMBO_FOR_CHORD(S_remembe, A_R, A_E, A_M, AT1);
 COMBO_FOR_CHORD(six, A_S, A_I, A_X);
 COMBO_FOR_CHORD(S_six, A_S, A_I, A_X, AT1);
 COMBO_FOR_CHORD(war, A_W, A_A, A_R);
 COMBO_FOR_CHORD(S_war, A_W, A_A, A_R, AT1);
 COMBO_FOR_CHORD(lay, A_L, A_A, A_Y);
 COMBO_FOR_CHORD(S_lay, A_L, A_A, A_Y, AT1);
+COMBO_FOR_CHORD(pattern, A_P, A_E, A_N);
+COMBO_FOR_CHORD(S_pattern, A_P, A_E, A_N, AT1);
+COMBO_FOR_CHORD(center, A_C, A_T, A_R);
+COMBO_FOR_CHORD(S_center, A_C, A_T, A_R, AT1);
+COMBO_FOR_CHORD(love, A_O, A_V, A_E);
+COMBO_FOR_CHORD(S_love, A_O, A_V, A_E, AT1);
 COMBO_FOR_CHORD(map, A_M, A_A, A_P);
 COMBO_FOR_CHORD(S_map, A_M, A_A, A_P, AT1);
 COMBO_FOR_CHORD(fly, A_F, A_L, A_Y);
@@ -1688,16 +1900,26 @@ COMBO_FOR_CHORD(fall, A_F, A_A, A_L);
 COMBO_FOR_CHORD(S_fall, A_F, A_A, A_L, AT1);
 COMBO_FOR_CHORD(cry, A_C, A_R, A_Y);
 COMBO_FOR_CHORD(S_cry, A_C, A_R, A_Y, AT1);
+COMBO_FOR_CHORD(machine, A_C, A_H, A_N);
+COMBO_FOR_CHORD(S_machine, A_C, A_H, A_N, AT1);
 COMBO_FOR_CHORD(box, A_B, A_O, A_X);
 COMBO_FOR_CHORD(S_box, A_B, A_O, A_X, AT1);
 COMBO_FOR_CHORD(noun, A_N, A_O, A_U);
 COMBO_FOR_CHORD(S_noun, A_N, A_O, A_U, AT1);
+COMBO_FOR_CHORD(field, A_F, A_I, A_D);
+COMBO_FOR_CHORD(S_field, A_F, A_I, A_D, AT1);
 COMBO_FOR_CHORD(week, A_W, A_E, A_K);
 COMBO_FOR_CHORD(S_week, A_W, A_E, A_K, AT1);
+COMBO_FOR_CHORD(final, A_F, A_I, A_N);
+COMBO_FOR_CHORD(S_final, A_F, A_I, A_N, AT1);
 COMBO_FOR_CHORD(oh, A_O, A_H, AT0);
 COMBO_FOR_CHORD(S_oh, A_O, A_H, AT0, AT1);
 COMBO_FOR_CHORD(free, A_F, A_R, A_E);
 COMBO_FOR_CHORD(S_free, A_F, A_R, A_E, AT1);
+COMBO_FOR_CHORD(object, A_O, A_B, A_E);
+COMBO_FOR_CHORD(S_object, A_O, A_B, A_E, AT1);
+COMBO_FOR_CHORD(test, A_T, A_S, AT0);
+COMBO_FOR_CHORD(S_test, A_T, A_S, AT0, AT1);
 COMBO_FOR_CHORD(dry, A_D, A_R, A_Y);
 COMBO_FOR_CHORD(S_dry, A_D, A_R, A_Y, AT1);
 COMBO_FOR_CHORD(ago, A_A, A_G, A_O);
@@ -1718,6 +1940,10 @@ COMBO_FOR_CHORD(ice, A_I, A_C, A_E);
 COMBO_FOR_CHORD(S_ice, A_I, A_C, A_E, AT1);
 COMBO_FOR_CHORD(matter, A_M, A_A, A_T);
 COMBO_FOR_CHORD(S_matter, A_M, A_A, A_T, AT1);
+COMBO_FOR_CHORD(count, A_C, A_O, A_N);
+COMBO_FOR_CHORD(S_count, A_C, A_O, A_N, AT1);
+COMBO_FOR_CHORD(length, A_L, A_N, A_G);
+COMBO_FOR_CHORD(S_length, A_L, A_N, A_G, AT1);
 COMBO_FOR_CHORD(art, A_A, A_R, A_T);
 COMBO_FOR_CHORD(S_art, A_A, A_R, A_T, AT1);
 COMBO_FOR_CHORD(cell, A_C, A_E, A_L);
@@ -1726,6 +1952,8 @@ COMBO_FOR_CHORD(summer, A_S, A_M, A_R);
 COMBO_FOR_CHORD(S_summer, A_S, A_M, A_R, AT1);
 COMBO_FOR_CHORD(leg, A_L, A_E, A_G);
 COMBO_FOR_CHORD(S_leg, A_L, A_E, A_G, AT1);
+COMBO_FOR_CHORD(catch, A_C, A_T, A_H);
+COMBO_FOR_CHORD(S_catch, A_C, A_T, A_H, AT1);
 COMBO_FOR_CHORD(joy, A_J, A_O, A_Y);
 COMBO_FOR_CHORD(S_joy, A_J, A_O, A_Y, AT1);
 COMBO_FOR_CHORD(job, A_J, A_O, A_B);
@@ -1738,62 +1966,118 @@ COMBO_FOR_CHORD(cook, A_C, A_O, A_K);
 COMBO_FOR_CHORD(S_cook, A_C, A_O, A_K, AT1);
 COMBO_FOR_CHORD(hill, A_H, A_I, A_L);
 COMBO_FOR_CHORD(S_hill, A_H, A_I, A_L, AT1);
+COMBO_FOR_CHORD(type, A_T, A_P, A_E);
+COMBO_FOR_CHORD(S_type, A_T, A_P, A_E, AT1);
 COMBO_FOR_CHORD(law, A_L, A_A, A_W);
 COMBO_FOR_CHORD(S_law, A_L, A_A, A_W, AT1);
+COMBO_FOR_CHORD(bit, A_B, A_I, AT0);
+COMBO_FOR_CHORD(S_bit, A_B, A_I, AT0, AT1);
+COMBO_FOR_CHORD(copy, A_O, A_P, A_Y);
+COMBO_FOR_CHORD(S_copy, A_O, A_P, A_Y, AT1);
 COMBO_FOR_CHORD(lie, A_L, A_I, A_E);
 COMBO_FOR_CHORD(S_lie, A_L, A_I, A_E, AT1);
+COMBO_FOR_CHORD(else, A_E, A_L, A_S);
+COMBO_FOR_CHORD(S_else, A_E, A_L, A_S, AT1);
+COMBO_FOR_CHORD(case, A_C, A_E, AT0);
+COMBO_FOR_CHORD(S_case, A_C, A_E, AT0, AT1);
 COMBO_FOR_CHORD(son, A_S, A_O, A_N);
 COMBO_FOR_CHORD(S_son, A_S, A_O, A_N, AT1);
+COMBO_FOR_CHORD(method, A_M, A_T, AT0);
+COMBO_FOR_CHORD(S_method, A_M, A_T, AT0, AT1);
 COMBO_FOR_CHORD(pay, A_P, A_A, A_Y);
 COMBO_FOR_CHORD(S_pay, A_P, A_A, A_Y, AT1);
 COMBO_FOR_CHORD(age, A_A, A_G, A_E);
 COMBO_FOR_CHORD(S_age, A_A, A_G, A_E, AT1);
 COMBO_FOR_CHORD(cool, A_C, A_O, A_L);
 COMBO_FOR_CHORD(S_cool, A_C, A_O, A_L, AT1);
+COMBO_FOR_CHORD(design, A_E, A_S, A_G);
+COMBO_FOR_CHORD(S_design, A_E, A_S, A_G, AT1);
 COMBO_FOR_CHORD(lot, A_L, A_O, A_T);
 COMBO_FOR_CHORD(S_lot, A_L, A_O, A_T, AT1);
 COMBO_FOR_CHORD(key, A_K, A_E, A_Y);
 COMBO_FOR_CHORD(S_key, A_K, A_E, A_Y, AT1);
+COMBO_FOR_CHORD(office, A_F, A_O, A_N, A_E, A_C);
+COMBO_FOR_CHORD(S_office, A_F, A_O, A_N, A_E, A_C, AT1);
 COMBO_FOR_CHORD(row, A_R, A_O, A_W);
 COMBO_FOR_CHORD(S_row, A_R, A_O, A_W, AT1);
 COMBO_FOR_CHORD(die, A_D, A_I, A_E);
 COMBO_FOR_CHORD(S_die, A_D, A_I, A_E, AT1);
+COMBO_FOR_CHORD(break, A_R, A_E, A_K);
+COMBO_FOR_CHORD(S_break, A_R, A_E, A_K, AT1);
 COMBO_FOR_CHORD(oil, A_O, A_I, A_L);
 COMBO_FOR_CHORD(S_oil, A_O, A_I, A_L, AT1);
+COMBO_FOR_CHORD(team, A_E, A_A, AT0);
+COMBO_FOR_CHORD(S_team, A_E, A_A, AT0, AT1);
 COMBO_FOR_CHORD(fit, A_F, A_I, A_T);
 COMBO_FOR_CHORD(S_fit, A_F, A_I, A_T, AT1);
+COMBO_FOR_CHORD(charact, A_C, A_H, A_R);
+COMBO_FOR_CHORD(S_charact, A_C, A_H, A_R, AT1);
+COMBO_FOR_CHORD(element, A_L, A_M, A_T);
+COMBO_FOR_CHORD(S_element, A_L, A_M, A_T, AT1);
 COMBO_FOR_CHORD(hit, A_H, A_I, A_T);
 COMBO_FOR_CHORD(S_hit, A_H, A_I, A_T, AT1);
+COMBO_FOR_CHORD(string, A_S, A_R, A_N);
+COMBO_FOR_CHORD(S_string, A_S, A_R, A_N, AT1);
 COMBO_FOR_CHORD(rub, A_R, A_U, A_B);
 COMBO_FOR_CHORD(S_rub, A_R, A_U, A_B, AT1);
 COMBO_FOR_CHORD(tie, A_T, A_I, A_E);
 COMBO_FOR_CHORD(S_tie, A_T, A_I, A_E, AT1);
+COMBO_FOR_CHORD(search, A_S, A_E, A_R);
+COMBO_FOR_CHORD(S_search, A_S, A_E, A_R, AT1);
 COMBO_FOR_CHORD(gun, A_G, A_U, A_N);
 COMBO_FOR_CHORD(S_gun, A_G, A_U, A_N, AT1);
+COMBO_FOR_CHORD(print, A_P, A_I, A_N);
+COMBO_FOR_CHORD(S_print, A_P, A_I, A_N, AT1);
+COMBO_FOR_CHORD(continu, A_C, A_N, A_T);
+COMBO_FOR_CHORD(S_continu, A_C, A_N, A_T, AT1);
 COMBO_FOR_CHORD(nine, A_N, A_I, A_E);
 COMBO_FOR_CHORD(S_nine, A_N, A_I, A_E, AT1);
+COMBO_FOR_CHORD(throw, AT0, A_O, A_W);
+COMBO_FOR_CHORD(S_throw, AT0, A_O, A_W, AT1);
+COMBO_FOR_CHORD(select, A_E, A_C, A_T);
+COMBO_FOR_CHORD(S_select, A_E, A_C, A_T, AT1);
 COMBO_FOR_CHORD(thank, A_H, A_A, A_K);
 COMBO_FOR_CHORD(S_thank, A_H, A_A, A_K, AT1);
+COMBO_FOR_CHORD(branch, A_B, A_N, A_H);
+COMBO_FOR_CHORD(S_branch, A_B, A_N, A_H, AT1);
+COMBO_FOR_CHORD(match, A_M, A_C, AT0);
+COMBO_FOR_CHORD(S_match, A_M, A_C, AT0, AT1);
 COMBO_FOR_CHORD(experie, A_E, A_X, A_P);
 COMBO_FOR_CHORD(S_experie, A_E, A_X, A_P, AT1);
 COMBO_FOR_CHORD(led, A_L, A_E, A_D);
 COMBO_FOR_CHORD(S_led, A_L, A_E, A_D, AT1);
 COMBO_FOR_CHORD(win, A_W, A_I, A_N);
 COMBO_FOR_CHORD(S_win, A_W, A_I, A_N, AT1);
+COMBO_FOR_CHORD(conditi, A_C, A_D, A_T);
+COMBO_FOR_CHORD(S_conditi, A_C, A_D, A_T, AT1);
 COMBO_FOR_CHORD(feed, A_F, A_E, A_D);
 COMBO_FOR_CHORD(S_feed, A_F, A_E, A_D, AT1);
 COMBO_FOR_CHORD(nor, A_N, A_O, A_R);
 COMBO_FOR_CHORD(S_nor, A_N, A_O, A_R, AT1);
+COMBO_FOR_CHORD(double, A_O, A_U, A_B);
+COMBO_FOR_CHORD(S_double, A_O, A_U, A_B, AT1);
+COMBO_FOR_CHORD(master, A_M, A_S, A_T);
+COMBO_FOR_CHORD(S_master, A_M, A_S, A_T, AT1);
+COMBO_FOR_CHORD(post, A_P, A_O, A_S, A_T);
+COMBO_FOR_CHORD(S_post, A_P, A_O, A_S, A_T, AT1);
+COMBO_FOR_CHORD(chord, A_C, A_H, A_D);
+COMBO_FOR_CHORD(S_chord, A_C, A_H, A_D, AT1);
 COMBO_FOR_CHORD(fat, A_F, A_A, A_T);
 COMBO_FOR_CHORD(S_fat, A_F, A_A, A_T, AT1);
 COMBO_FOR_CHORD(bar, A_B, A_A, A_R);
 COMBO_FOR_CHORD(S_bar, A_B, A_A, A_R, AT1);
+COMBO_FOR_CHORD(enemy, A_E, A_N, A_Y);
+COMBO_FOR_CHORD(S_enemy, A_E, A_N, A_Y, AT1);
+COMBO_FOR_CHORD(support, A_S, A_U, A_P);
+COMBO_FOR_CHORD(S_support, A_S, A_U, A_P, AT1);
+COMBO_FOR_CHORD(range, A_R, A_A, A_N, A_G);
+COMBO_FOR_CHORD(S_range, A_R, A_A, A_N, A_G, AT1);
 COMBO_FOR_CHORD(log, A_L, A_O, A_G);
 COMBO_FOR_CHORD(S_log, A_L, A_O, A_G, AT1);
 COMBO_FOR_CHORD(hey, A_H, A_E, A_Y);
 COMBO_FOR_CHORD(S_hey, A_H, A_E, A_Y, AT1);
-COMBO_FOR_CHORD(return, A_R, A_E, A_T);
-COMBO_FOR_CHORD(S_return, A_R, A_E, A_T, AT1);
+COMBO_FOR_CHORD(yep, A_Y, A_E, A_P);
+COMBO_FOR_CHORD(S_yep, A_Y, A_E, A_P, AT1);
 COMBO_FOR_CHORD(probabl, A_P, A_B, A_L, A_Y);
 COMBO_FOR_CHORD(S_probabl, A_P, A_B, A_L, A_Y, AT1);
 COMBO_FOR_CHORD(thanks, A_T, A_N, A_S);
@@ -1801,16 +2085,24 @@ COMBO_FOR_CHORD(S_thanks, A_T, A_N, A_S, AT1);
 COMBO_FOR_CHORD(i_ve, A_I, A_V, A_E);
 COMBO_FOR_CHORD(per, A_P, A_E, A_R);
 COMBO_FOR_CHORD(S_per, A_P, A_E, A_R, AT1);
-COMBO_FOR_CHORD(null, A_N, A_U, A_L);
-COMBO_FOR_CHORD(S_null, A_N, A_U, A_L, AT1);
-COMBO_FOR_CHORD(nil, A_N, A_I, A_L);
-COMBO_FOR_CHORD(S_nil, A_N, A_I, A_L, AT1);
-COMBO_FOR_CHORD(array, A_A, A_R, A_Y);
-COMBO_FOR_CHORD(S_array, A_A, A_R, A_Y, AT1);
-COMBO_FOR_CHORD(sort, A_S, A_R, A_T);
-COMBO_FOR_CHORD(S_sort, A_S, A_R, A_T, AT1);
-COMBO_FOR_CHORD(schema, A_C, A_E, A_A);
-COMBO_FOR_CHORD(S_schema, A_C, A_E, A_A, AT1);
+COMBO_FOR_CHORD(acknowl, A_A, A_C, A_K);
+COMBO_FOR_CHORD(S_acknowl, A_A, A_C, A_K, AT1);
+COMBO_FOR_CHORD(attack, A_A, A_K, AT0);
+COMBO_FOR_CHORD(S_attack, A_A, A_K, AT0, AT1);
+COMBO_FOR_CHORD(defend, A_E, A_F, A_N);
+COMBO_FOR_CHORD(S_defend, A_E, A_F, A_N, AT1);
+COMBO_FOR_CHORD(expansi, A_E, A_P, A_O);
+COMBO_FOR_CHORD(S_expansi, A_E, A_P, A_O, AT1);
+COMBO_FOR_CHORD(fuck, A_F, A_U, A_C);
+COMBO_FOR_CHORD(S_fuck, A_F, A_U, A_C, AT1);
+COMBO_FOR_CHORD(hell, A_H, A_E, A_L, AT0);
+COMBO_FOR_CHORD(S_hell, A_H, A_E, A_L, AT0, AT1);
+COMBO_FOR_CHORD(heck, A_H, A_E, A_K);
+COMBO_FOR_CHORD(S_heck, A_H, A_E, A_K, AT1);
+COMBO_FOR_CHORD(shit, A_S, A_H, A_I, A_T);
+COMBO_FOR_CHORD(S_shit, A_S, A_H, A_I, A_T, AT1);
+COMBO_FOR_CHORD(persona, A_P, A_S, A_O, A_N);
+COMBO_FOR_CHORD(S_persona, A_P, A_S, A_O, A_N, AT1);
 COMBO_FOR_CHORD(in_the, A_I, A_N, A_T, A_E);
 COMBO_FOR_CHORD(S_in_the, A_I, A_N, A_T, A_E, AT1);
 COMBO_FOR_CHORD(of_the, A_O, A_T, A_E, AT0);
@@ -1835,21 +2127,91 @@ COMBO_FOR_CHORD(in_a, A_I, A_N, A_A, AT0);
 COMBO_FOR_CHORD(S_in_a, A_I, A_N, A_A, AT0, AT1);
 COMBO_FOR_CHORD(of_cour, A_O, A_F, A_C);
 COMBO_FOR_CHORD(S_of_cour, A_O, A_F, A_C, AT1);
-COMBO_FOR_CHORD(the_qui, A_B, A_Q, A_X, A_q);
-COMBO_FOR_CHORD(S_the_qui, A_B, A_Q, A_X, A_q, AT1);
-COMBO_FOR_CHORD(elberet, A_E, A_L, A_B, A_H);
-COMBO_FOR_CHORD(https_, A_H, A_T, A_P);
-COMBO_FOR_CHORD(select_, A_S, A_T, A_F, A_R);
-COMBO_FOR_CHORD(S_select_, A_S, A_T, A_F, A_R, AT1);
-COMBO_FOR_CHORD(pokemon, A_P, A_O, A_M, A_N);
-COMBO_FOR_CHORD(S_pokemon, A_P, A_O, A_M, A_N, AT1);
+COMBO_FOR_CHORD(admin, A_D, A_M, A_N);
+COMBO_FOR_CHORD(S_admin, A_D, A_M, A_N, AT1);
+COMBO_FOR_CHORD(array, A_A, A_R, A_Y);
+COMBO_FOR_CHORD(S_array, A_A, A_R, A_Y, AT1);
+COMBO_FOR_CHORD(async, A_S, A_Y, A_N);
+COMBO_FOR_CHORD(S_async, A_S, A_Y, A_N, AT1);
+COMBO_FOR_CHORD(await, A_A, A_I, A_T, AT0);
+COMBO_FOR_CHORD(S_await, A_A, A_I, A_T, AT0, AT1);
+COMBO_FOR_CHORD(define, A_D, A_F, A_N);
+COMBO_FOR_CHORD(S_define, A_D, A_F, A_N, AT1);
+COMBO_FOR_CHORD(div, A_D, A_I, A_V);
+COMBO_FOR_CHORD(S_div, A_D, A_I, A_V, AT1);
+COMBO_FOR_CHORD(environ, A_E, A_V, A_T);
+COMBO_FOR_CHORD(S_environ, A_E, A_V, A_T, AT1);
+COMBO_FOR_CHORD(git, A_G, A_I, A_T);
+COMBO_FOR_CHORD(S_git, A_G, A_I, A_T, AT1);
 COMBO_FOR_CHORD(graphql, A_G, A_A, A_H, A_L);
 COMBO_FOR_CHORD(S_graphql, A_G, A_A, A_H, A_L, AT1);
+COMBO_FOR_CHORD(https_, A_H, A_T, A_P);
+COMBO_FOR_CHORD(immutab, A_I, A_M, A_B, A_L);
+COMBO_FOR_CHORD(S_immutab, A_I, A_M, A_B, A_L, AT1);
+COMBO_FOR_CHORD(impleme, A_I, A_M, A_P);
+COMBO_FOR_CHORD(S_impleme, A_I, A_M, A_P, AT1);
+COMBO_FOR_CHORD(import, A_I, A_M, A_R);
+COMBO_FOR_CHORD(S_import, A_I, A_M, A_R, AT1);
+COMBO_FOR_CHORD(infra, A_N, A_F, A_R);
+COMBO_FOR_CHORD(S_infra, A_N, A_F, A_R, AT1);
+COMBO_FOR_CHORD(insert, A_I, A_N, A_S);
+COMBO_FOR_CHORD(S_insert, A_I, A_N, A_S, AT1);
+COMBO_FOR_CHORD(int, A_I, A_N, A_T, AT0);
+COMBO_FOR_CHORD(S_int, A_I, A_N, A_T, AT0, AT1);
+COMBO_FOR_CHORD(interfa, A_I, A_C, A_F);
+COMBO_FOR_CHORD(S_interfa, A_I, A_C, A_F, AT1);
+COMBO_FOR_CHORD(json, A_J, A_S, A_N);
+COMBO_FOR_CHORD(S_json, A_J, A_S, A_N, AT1);
 COMBO_FOR_CHORD(kuberne, A_K, A_E, A_N, A_S);
 COMBO_FOR_CHORD(S_kuberne, A_K, A_E, A_N, A_S, AT1);
+COMBO_FOR_CHORD(library, A_L, A_I, A_B);
+COMBO_FOR_CHORD(S_library, A_L, A_I, A_B, AT1);
+COMBO_FOR_CHORD(module, A_M, A_O, A_D);
+COMBO_FOR_CHORD(S_module, A_M, A_O, A_D, AT1);
+COMBO_FOR_CHORD(nil, A_N, A_I, A_L);
+COMBO_FOR_CHORD(S_nil, A_N, A_I, A_L, AT1);
+COMBO_FOR_CHORD(null, A_N, A_U, A_L);
+COMBO_FOR_CHORD(S_null, A_N, A_U, A_L, AT1);
+COMBO_FOR_CHORD(project, A_O, A_J, A_E);
+COMBO_FOR_CHORD(S_project, A_O, A_J, A_E, AT1);
+COMBO_FOR_CHORD(pub, A_P, A_U, A_B);
+COMBO_FOR_CHORD(S_pub, A_P, A_U, A_B, AT1);
+COMBO_FOR_CHORD(regex, A_R, A_G, A_X);
+COMBO_FOR_CHORD(S_regex, A_R, A_G, A_X, AT1);
+COMBO_FOR_CHORD(return, A_R, A_E, A_T);
+COMBO_FOR_CHORD(S_return, A_R, A_E, A_T, AT1);
+COMBO_FOR_CHORD(schema, A_C, A_E, A_A);
+COMBO_FOR_CHORD(S_schema, A_C, A_E, A_A, AT1);
+COMBO_FOR_CHORD(select_, A_S, A_T, A_F, A_R);
+COMBO_FOR_CHORD(S_select_, A_S, A_T, A_F, A_R, AT1);
+COMBO_FOR_CHORD(server, A_S, A_R, A_V);
+COMBO_FOR_CHORD(S_server, A_S, A_R, A_V, AT1);
+COMBO_FOR_CHORD(service, A_S, A_V, A_I);
+COMBO_FOR_CHORD(S_service, A_S, A_V, A_I, AT1);
+COMBO_FOR_CHORD(sort, A_S, A_R, A_T);
+COMBO_FOR_CHORD(S_sort, A_S, A_R, A_T, AT1);
+COMBO_FOR_CHORD(sudo, A_O, A_U, A_E, A_I);
+COMBO_FOR_CHORD(S_sudo, A_O, A_U, A_E, A_I, AT1);
+COMBO_FOR_CHORD(tempora, A_T, A_E, A_M, A_P);
+COMBO_FOR_CHORD(S_tempora, A_T, A_E, A_M, A_P, AT1);
+COMBO_FOR_CHORD(trait, A_T, A_R, A_A, A_I);
+COMBO_FOR_CHORD(S_trait, A_T, A_R, A_A, A_I, AT1);
+COMBO_FOR_CHORD(queue, A_Q, A_U, A_E);
+COMBO_FOR_CHORD(S_queue, A_Q, A_U, A_E, AT1);
+COMBO_FOR_CHORD(quote, A_Q, A_U, A_O);
+COMBO_FOR_CHORD(S_quote, A_Q, A_U, A_O, AT1);
+COMBO_FOR_CHORD(undefin, A_U, A_N, A_F);
+COMBO_FOR_CHORD(S_undefin, A_U, A_N, A_F, AT1);
 COMBO_FOR_CHORD(_up_, A_C, A_O, A_D, A_E);
 COMBO_FOR_CHORD(_typesc, A_T, A_S, A_O, A_E);
 COMBO_FOR_CHORD(_go_up_, A_G, A_L, A_O, A_E);
+COMBO_FOR_CHORD(the_qui, A_B, A_Q, A_X, A_q);
+COMBO_FOR_CHORD(S_the_qui, A_B, A_Q, A_X, A_q, AT1);
+COMBO_FOR_CHORD(elberet, A_E, A_L, A_B, A_H);
+COMBO_FOR_CHORD(pokemon, A_P, A_O, A_M, A_N);
+COMBO_FOR_CHORD(S_pokemon, A_P, A_O, A_M, A_N, AT1);
+COMBO_FOR_CHORD(final_f, A_F, A_I, A_N, AT0);
+COMBO_FOR_CHORD(S_final_f, A_F, A_I, A_N, AT0, AT1);
 
 #define CHORD_COMBOS \
   CHORD_COMBO(delete_), \
@@ -1881,6 +2243,9 @@ COMBO_FOR_CHORD(_go_up_, A_G, A_L, A_O, A_E);
   CHORD_COMBO(_n_t), \
   CHORD_COMBO(_ve), \
   CHORD_COMBO(_re), \
+  CHORD_COMBO(_s), \
+  CHORD_COMBO(_d), \
+  CHORD_COMBO(_ll), \
   CHORD_COMBO(the), \
   CHORD_COMBO(S_the), \
   CHORD_COMBO(be), \
@@ -2297,6 +2662,8 @@ COMBO_FOR_CHORD(_go_up_, A_G, A_L, A_O, A_E);
   CHORD_COMBO(S_him), \
   CHORD_COMBO(your), \
   CHORD_COMBO(S_your), \
+  CHORD_COMBO(them), \
+  CHORD_COMBO(S_them), \
   CHORD_COMBO(its), \
   CHORD_COMBO(S_its), \
   CHORD_COMBO(two), \
@@ -2319,12 +2686,16 @@ COMBO_FOR_CHORD(_go_up_, A_G, A_L, A_O, A_E);
   CHORD_COMBO(S_said), \
   CHORD_COMBO(has), \
   CHORD_COMBO(S_has), \
+  CHORD_COMBO(did), \
+  CHORD_COMBO(S_did), \
   CHORD_COMBO(sound), \
   CHORD_COMBO(S_sound), \
   CHORD_COMBO(water), \
   CHORD_COMBO(S_water), \
   CHORD_COMBO(side), \
   CHORD_COMBO(S_side), \
+  CHORD_COMBO(been), \
+  CHORD_COMBO(S_been), \
   CHORD_COMBO(made), \
   CHORD_COMBO(S_made), \
   CHORD_COMBO(live), \
@@ -2349,14 +2720,20 @@ COMBO_FOR_CHORD(_go_up_, A_G, A_L, A_O, A_E);
   CHORD_COMBO(S_boy), \
   CHORD_COMBO(does), \
   CHORD_COMBO(S_does), \
+  CHORD_COMBO(three), \
+  CHORD_COMBO(S_three), \
   CHORD_COMBO(air), \
   CHORD_COMBO(S_air), \
   CHORD_COMBO(put), \
   CHORD_COMBO(S_put), \
+  CHORD_COMBO(read), \
+  CHORD_COMBO(S_read), \
   CHORD_COMBO(port), \
   CHORD_COMBO(S_port), \
   CHORD_COMBO(spell), \
   CHORD_COMBO(S_spell), \
+  CHORD_COMBO(add), \
+  CHORD_COMBO(S_add), \
   CHORD_COMBO(land), \
   CHORD_COMBO(S_land), \
   CHORD_COMBO(big), \
@@ -2381,6 +2758,8 @@ COMBO_FOR_CHORD(_go_up_, A_G, A_L, A_O, A_E);
   CHORD_COMBO(S_animal), \
   CHORD_COMBO(mother), \
   CHORD_COMBO(S_mother), \
+  CHORD_COMBO(near), \
+  CHORD_COMBO(S_near), \
   CHORD_COMBO(build), \
   CHORD_COMBO(S_build), \
   CHORD_COMBO(self), \
@@ -2413,14 +2792,20 @@ COMBO_FOR_CHORD(_go_up_, A_G, A_L, A_O, A_E);
   CHORD_COMBO(S_sun), \
   CHORD_COMBO(four), \
   CHORD_COMBO(S_four), \
+  CHORD_COMBO(let), \
+  CHORD_COMBO(S_let), \
   CHORD_COMBO(thought), \
   CHORD_COMBO(S_thought), \
   CHORD_COMBO(city), \
   CHORD_COMBO(S_city), \
+  CHORD_COMBO(tree), \
+  CHORD_COMBO(S_tree), \
   CHORD_COMBO(cross), \
   CHORD_COMBO(S_cross), \
   CHORD_COMBO(hard), \
   CHORD_COMBO(S_hard), \
+  CHORD_COMBO(start), \
+  CHORD_COMBO(S_start), \
   CHORD_COMBO(far), \
   CHORD_COMBO(S_far), \
   CHORD_COMBO(sea), \
@@ -2597,12 +2982,20 @@ COMBO_FOR_CHORD(_go_up_, A_G, A_L, A_O, A_E);
   CHORD_COMBO(S_hundred), \
   CHORD_COMBO(five), \
   CHORD_COMBO(S_five), \
+  CHORD_COMBO(remembe), \
+  CHORD_COMBO(S_remembe), \
   CHORD_COMBO(six), \
   CHORD_COMBO(S_six), \
   CHORD_COMBO(war), \
   CHORD_COMBO(S_war), \
   CHORD_COMBO(lay), \
   CHORD_COMBO(S_lay), \
+  CHORD_COMBO(pattern), \
+  CHORD_COMBO(S_pattern), \
+  CHORD_COMBO(center), \
+  CHORD_COMBO(S_center), \
+  CHORD_COMBO(love), \
+  CHORD_COMBO(S_love), \
   CHORD_COMBO(map), \
   CHORD_COMBO(S_map), \
   CHORD_COMBO(fly), \
@@ -2611,16 +3004,26 @@ COMBO_FOR_CHORD(_go_up_, A_G, A_L, A_O, A_E);
   CHORD_COMBO(S_fall), \
   CHORD_COMBO(cry), \
   CHORD_COMBO(S_cry), \
+  CHORD_COMBO(machine), \
+  CHORD_COMBO(S_machine), \
   CHORD_COMBO(box), \
   CHORD_COMBO(S_box), \
   CHORD_COMBO(noun), \
   CHORD_COMBO(S_noun), \
+  CHORD_COMBO(field), \
+  CHORD_COMBO(S_field), \
   CHORD_COMBO(week), \
   CHORD_COMBO(S_week), \
+  CHORD_COMBO(final), \
+  CHORD_COMBO(S_final), \
   CHORD_COMBO(oh), \
   CHORD_COMBO(S_oh), \
   CHORD_COMBO(free), \
   CHORD_COMBO(S_free), \
+  CHORD_COMBO(object), \
+  CHORD_COMBO(S_object), \
+  CHORD_COMBO(test), \
+  CHORD_COMBO(S_test), \
   CHORD_COMBO(dry), \
   CHORD_COMBO(S_dry), \
   CHORD_COMBO(ago), \
@@ -2641,6 +3044,10 @@ COMBO_FOR_CHORD(_go_up_, A_G, A_L, A_O, A_E);
   CHORD_COMBO(S_ice), \
   CHORD_COMBO(matter), \
   CHORD_COMBO(S_matter), \
+  CHORD_COMBO(count), \
+  CHORD_COMBO(S_count), \
+  CHORD_COMBO(length), \
+  CHORD_COMBO(S_length), \
   CHORD_COMBO(art), \
   CHORD_COMBO(S_art), \
   CHORD_COMBO(cell), \
@@ -2649,6 +3056,8 @@ COMBO_FOR_CHORD(_go_up_, A_G, A_L, A_O, A_E);
   CHORD_COMBO(S_summer), \
   CHORD_COMBO(leg), \
   CHORD_COMBO(S_leg), \
+  CHORD_COMBO(catch), \
+  CHORD_COMBO(S_catch), \
   CHORD_COMBO(joy), \
   CHORD_COMBO(S_joy), \
   CHORD_COMBO(job), \
@@ -2661,62 +3070,118 @@ COMBO_FOR_CHORD(_go_up_, A_G, A_L, A_O, A_E);
   CHORD_COMBO(S_cook), \
   CHORD_COMBO(hill), \
   CHORD_COMBO(S_hill), \
+  CHORD_COMBO(type), \
+  CHORD_COMBO(S_type), \
   CHORD_COMBO(law), \
   CHORD_COMBO(S_law), \
+  CHORD_COMBO(bit), \
+  CHORD_COMBO(S_bit), \
+  CHORD_COMBO(copy), \
+  CHORD_COMBO(S_copy), \
   CHORD_COMBO(lie), \
   CHORD_COMBO(S_lie), \
+  CHORD_COMBO(else), \
+  CHORD_COMBO(S_else), \
+  CHORD_COMBO(case), \
+  CHORD_COMBO(S_case), \
   CHORD_COMBO(son), \
   CHORD_COMBO(S_son), \
+  CHORD_COMBO(method), \
+  CHORD_COMBO(S_method), \
   CHORD_COMBO(pay), \
   CHORD_COMBO(S_pay), \
   CHORD_COMBO(age), \
   CHORD_COMBO(S_age), \
   CHORD_COMBO(cool), \
   CHORD_COMBO(S_cool), \
+  CHORD_COMBO(design), \
+  CHORD_COMBO(S_design), \
   CHORD_COMBO(lot), \
   CHORD_COMBO(S_lot), \
   CHORD_COMBO(key), \
   CHORD_COMBO(S_key), \
+  CHORD_COMBO(office), \
+  CHORD_COMBO(S_office), \
   CHORD_COMBO(row), \
   CHORD_COMBO(S_row), \
   CHORD_COMBO(die), \
   CHORD_COMBO(S_die), \
+  CHORD_COMBO(break), \
+  CHORD_COMBO(S_break), \
   CHORD_COMBO(oil), \
   CHORD_COMBO(S_oil), \
+  CHORD_COMBO(team), \
+  CHORD_COMBO(S_team), \
   CHORD_COMBO(fit), \
   CHORD_COMBO(S_fit), \
+  CHORD_COMBO(charact), \
+  CHORD_COMBO(S_charact), \
+  CHORD_COMBO(element), \
+  CHORD_COMBO(S_element), \
   CHORD_COMBO(hit), \
   CHORD_COMBO(S_hit), \
+  CHORD_COMBO(string), \
+  CHORD_COMBO(S_string), \
   CHORD_COMBO(rub), \
   CHORD_COMBO(S_rub), \
   CHORD_COMBO(tie), \
   CHORD_COMBO(S_tie), \
+  CHORD_COMBO(search), \
+  CHORD_COMBO(S_search), \
   CHORD_COMBO(gun), \
   CHORD_COMBO(S_gun), \
+  CHORD_COMBO(print), \
+  CHORD_COMBO(S_print), \
+  CHORD_COMBO(continu), \
+  CHORD_COMBO(S_continu), \
   CHORD_COMBO(nine), \
   CHORD_COMBO(S_nine), \
+  CHORD_COMBO(throw), \
+  CHORD_COMBO(S_throw), \
+  CHORD_COMBO(select), \
+  CHORD_COMBO(S_select), \
   CHORD_COMBO(thank), \
   CHORD_COMBO(S_thank), \
+  CHORD_COMBO(branch), \
+  CHORD_COMBO(S_branch), \
+  CHORD_COMBO(match), \
+  CHORD_COMBO(S_match), \
   CHORD_COMBO(experie), \
   CHORD_COMBO(S_experie), \
   CHORD_COMBO(led), \
   CHORD_COMBO(S_led), \
   CHORD_COMBO(win), \
   CHORD_COMBO(S_win), \
+  CHORD_COMBO(conditi), \
+  CHORD_COMBO(S_conditi), \
   CHORD_COMBO(feed), \
   CHORD_COMBO(S_feed), \
   CHORD_COMBO(nor), \
   CHORD_COMBO(S_nor), \
+  CHORD_COMBO(double), \
+  CHORD_COMBO(S_double), \
+  CHORD_COMBO(master), \
+  CHORD_COMBO(S_master), \
+  CHORD_COMBO(post), \
+  CHORD_COMBO(S_post), \
+  CHORD_COMBO(chord), \
+  CHORD_COMBO(S_chord), \
   CHORD_COMBO(fat), \
   CHORD_COMBO(S_fat), \
   CHORD_COMBO(bar), \
   CHORD_COMBO(S_bar), \
+  CHORD_COMBO(enemy), \
+  CHORD_COMBO(S_enemy), \
+  CHORD_COMBO(support), \
+  CHORD_COMBO(S_support), \
+  CHORD_COMBO(range), \
+  CHORD_COMBO(S_range), \
   CHORD_COMBO(log), \
   CHORD_COMBO(S_log), \
   CHORD_COMBO(hey), \
   CHORD_COMBO(S_hey), \
-  CHORD_COMBO(return), \
-  CHORD_COMBO(S_return), \
+  CHORD_COMBO(yep), \
+  CHORD_COMBO(S_yep), \
   CHORD_COMBO(probabl), \
   CHORD_COMBO(S_probabl), \
   CHORD_COMBO(thanks), \
@@ -2724,16 +3189,24 @@ COMBO_FOR_CHORD(_go_up_, A_G, A_L, A_O, A_E);
   CHORD_COMBO(i_ve), \
   CHORD_COMBO(per), \
   CHORD_COMBO(S_per), \
-  CHORD_COMBO(null), \
-  CHORD_COMBO(S_null), \
-  CHORD_COMBO(nil), \
-  CHORD_COMBO(S_nil), \
-  CHORD_COMBO(array), \
-  CHORD_COMBO(S_array), \
-  CHORD_COMBO(sort), \
-  CHORD_COMBO(S_sort), \
-  CHORD_COMBO(schema), \
-  CHORD_COMBO(S_schema), \
+  CHORD_COMBO(acknowl), \
+  CHORD_COMBO(S_acknowl), \
+  CHORD_COMBO(attack), \
+  CHORD_COMBO(S_attack), \
+  CHORD_COMBO(defend), \
+  CHORD_COMBO(S_defend), \
+  CHORD_COMBO(expansi), \
+  CHORD_COMBO(S_expansi), \
+  CHORD_COMBO(fuck), \
+  CHORD_COMBO(S_fuck), \
+  CHORD_COMBO(hell), \
+  CHORD_COMBO(S_hell), \
+  CHORD_COMBO(heck), \
+  CHORD_COMBO(S_heck), \
+  CHORD_COMBO(shit), \
+  CHORD_COMBO(S_shit), \
+  CHORD_COMBO(persona), \
+  CHORD_COMBO(S_persona), \
   CHORD_COMBO(in_the), \
   CHORD_COMBO(S_in_the), \
   CHORD_COMBO(of_the), \
@@ -2758,21 +3231,91 @@ COMBO_FOR_CHORD(_go_up_, A_G, A_L, A_O, A_E);
   CHORD_COMBO(S_in_a), \
   CHORD_COMBO(of_cour), \
   CHORD_COMBO(S_of_cour), \
-  CHORD_COMBO(the_qui), \
-  CHORD_COMBO(S_the_qui), \
-  CHORD_COMBO(elberet), \
-  CHORD_COMBO(https_), \
-  CHORD_COMBO(select_), \
-  CHORD_COMBO(S_select_), \
-  CHORD_COMBO(pokemon), \
-  CHORD_COMBO(S_pokemon), \
+  CHORD_COMBO(admin), \
+  CHORD_COMBO(S_admin), \
+  CHORD_COMBO(array), \
+  CHORD_COMBO(S_array), \
+  CHORD_COMBO(async), \
+  CHORD_COMBO(S_async), \
+  CHORD_COMBO(await), \
+  CHORD_COMBO(S_await), \
+  CHORD_COMBO(define), \
+  CHORD_COMBO(S_define), \
+  CHORD_COMBO(div), \
+  CHORD_COMBO(S_div), \
+  CHORD_COMBO(environ), \
+  CHORD_COMBO(S_environ), \
+  CHORD_COMBO(git), \
+  CHORD_COMBO(S_git), \
   CHORD_COMBO(graphql), \
   CHORD_COMBO(S_graphql), \
+  CHORD_COMBO(https_), \
+  CHORD_COMBO(immutab), \
+  CHORD_COMBO(S_immutab), \
+  CHORD_COMBO(impleme), \
+  CHORD_COMBO(S_impleme), \
+  CHORD_COMBO(import), \
+  CHORD_COMBO(S_import), \
+  CHORD_COMBO(infra), \
+  CHORD_COMBO(S_infra), \
+  CHORD_COMBO(insert), \
+  CHORD_COMBO(S_insert), \
+  CHORD_COMBO(int), \
+  CHORD_COMBO(S_int), \
+  CHORD_COMBO(interfa), \
+  CHORD_COMBO(S_interfa), \
+  CHORD_COMBO(json), \
+  CHORD_COMBO(S_json), \
   CHORD_COMBO(kuberne), \
   CHORD_COMBO(S_kuberne), \
+  CHORD_COMBO(library), \
+  CHORD_COMBO(S_library), \
+  CHORD_COMBO(module), \
+  CHORD_COMBO(S_module), \
+  CHORD_COMBO(nil), \
+  CHORD_COMBO(S_nil), \
+  CHORD_COMBO(null), \
+  CHORD_COMBO(S_null), \
+  CHORD_COMBO(project), \
+  CHORD_COMBO(S_project), \
+  CHORD_COMBO(pub), \
+  CHORD_COMBO(S_pub), \
+  CHORD_COMBO(regex), \
+  CHORD_COMBO(S_regex), \
+  CHORD_COMBO(return), \
+  CHORD_COMBO(S_return), \
+  CHORD_COMBO(schema), \
+  CHORD_COMBO(S_schema), \
+  CHORD_COMBO(select_), \
+  CHORD_COMBO(S_select_), \
+  CHORD_COMBO(server), \
+  CHORD_COMBO(S_server), \
+  CHORD_COMBO(service), \
+  CHORD_COMBO(S_service), \
+  CHORD_COMBO(sort), \
+  CHORD_COMBO(S_sort), \
+  CHORD_COMBO(sudo), \
+  CHORD_COMBO(S_sudo), \
+  CHORD_COMBO(tempora), \
+  CHORD_COMBO(S_tempora), \
+  CHORD_COMBO(trait), \
+  CHORD_COMBO(S_trait), \
+  CHORD_COMBO(queue), \
+  CHORD_COMBO(S_queue), \
+  CHORD_COMBO(quote), \
+  CHORD_COMBO(S_quote), \
+  CHORD_COMBO(undefin), \
+  CHORD_COMBO(S_undefin), \
   CHORD_COMBO(_up_), \
   CHORD_COMBO(_typesc), \
   CHORD_COMBO(_go_up_), \
+  CHORD_COMBO(the_qui), \
+  CHORD_COMBO(S_the_qui), \
+  CHORD_COMBO(elberet), \
+  CHORD_COMBO(pokemon), \
+  CHORD_COMBO(S_pokemon), \
+  CHORD_COMBO(final_f), \
+  CHORD_COMBO(S_final_f), \
   PERSONAL_CHORD_COMBOS
 
 bool releasedWithinTapThreshold = true;
@@ -3132,6 +3675,18 @@ bool sentence_mode = false;
         last_chord_length = 2; \
         tap_code16(KC_BSPC); \
         SEND_STRING("'re"); \
+        break; \
+      case CHORD__s: \
+        last_chord_length = 2; \
+        SEND_STRING("'s"); \
+        break; \
+      case CHORD__d: \
+        last_chord_length = 2; \
+        SEND_STRING("'d"); \
+        break; \
+      case CHORD__ll: \
+        last_chord_length = 3; \
+        SEND_STRING("'ll"); \
         break; \
       case CHORD_the: \
       case CHORD_S_the: \
@@ -3969,6 +4524,10 @@ bool sentence_mode = false;
       case CHORD_S_your: \
         append = "your"; \
         break; \
+      case CHORD_them: \
+      case CHORD_S_them: \
+        append = "them"; \
+        break; \
       case CHORD_its: \
       case CHORD_S_its: \
         append = "its"; \
@@ -4013,6 +4572,10 @@ bool sentence_mode = false;
       case CHORD_S_has: \
         append = "has"; \
         break; \
+      case CHORD_did: \
+      case CHORD_S_did: \
+        append = "did"; \
+        break; \
       case CHORD_sound: \
       case CHORD_S_sound: \
         append = "sound"; \
@@ -4024,6 +4587,10 @@ bool sentence_mode = false;
       case CHORD_side: \
       case CHORD_S_side: \
         append = "side"; \
+        break; \
+      case CHORD_been: \
+      case CHORD_S_been: \
+        append = "been"; \
         break; \
       case CHORD_made: \
       case CHORD_S_made: \
@@ -4073,6 +4640,10 @@ bool sentence_mode = false;
       case CHORD_S_does: \
         append = "does"; \
         break; \
+      case CHORD_three: \
+      case CHORD_S_three: \
+        append = "three"; \
+        break; \
       case CHORD_air: \
       case CHORD_S_air: \
         append = "air"; \
@@ -4081,6 +4652,10 @@ bool sentence_mode = false;
       case CHORD_S_put: \
         append = "put"; \
         break; \
+      case CHORD_read: \
+      case CHORD_S_read: \
+        append = "read"; \
+        break; \
       case CHORD_port: \
       case CHORD_S_port: \
         append = "port"; \
@@ -4088,6 +4663,10 @@ bool sentence_mode = false;
       case CHORD_spell: \
       case CHORD_S_spell: \
         append = "spell"; \
+        break; \
+      case CHORD_add: \
+      case CHORD_S_add: \
+        append = "add"; \
         break; \
       case CHORD_land: \
       case CHORD_S_land: \
@@ -4136,6 +4715,10 @@ bool sentence_mode = false;
       case CHORD_mother: \
       case CHORD_S_mother: \
         append = "mother"; \
+        break; \
+      case CHORD_near: \
+      case CHORD_S_near: \
+        append = "near"; \
         break; \
       case CHORD_build: \
       case CHORD_S_build: \
@@ -4201,6 +4784,10 @@ bool sentence_mode = false;
       case CHORD_S_four: \
         append = "four"; \
         break; \
+      case CHORD_let: \
+      case CHORD_S_let: \
+        append = "let"; \
+        break; \
       case CHORD_thought: \
       case CHORD_S_thought: \
         append = "thought"; \
@@ -4209,6 +4796,10 @@ bool sentence_mode = false;
       case CHORD_S_city: \
         append = "city"; \
         break; \
+      case CHORD_tree: \
+      case CHORD_S_tree: \
+        append = "tree"; \
+        break; \
       case CHORD_cross: \
       case CHORD_S_cross: \
         append = "cross"; \
@@ -4216,6 +4807,10 @@ bool sentence_mode = false;
       case CHORD_hard: \
       case CHORD_S_hard: \
         append = "hard"; \
+        break; \
+      case CHORD_start: \
+      case CHORD_S_start: \
+        append = "start"; \
         break; \
       case CHORD_far: \
       case CHORD_S_far: \
@@ -4569,6 +5164,10 @@ bool sentence_mode = false;
       case CHORD_S_five: \
         append = "five"; \
         break; \
+      case CHORD_remembe: \
+      case CHORD_S_remembe: \
+        append = "remember"; \
+        break; \
       case CHORD_six: \
       case CHORD_S_six: \
         append = "six"; \
@@ -4580,6 +5179,18 @@ bool sentence_mode = false;
       case CHORD_lay: \
       case CHORD_S_lay: \
         append = "lay"; \
+        break; \
+      case CHORD_pattern: \
+      case CHORD_S_pattern: \
+        append = "pattern"; \
+        break; \
+      case CHORD_center: \
+      case CHORD_S_center: \
+        append = "center"; \
+        break; \
+      case CHORD_love: \
+      case CHORD_S_love: \
+        append = "love"; \
         break; \
       case CHORD_map: \
       case CHORD_S_map: \
@@ -4597,6 +5208,10 @@ bool sentence_mode = false;
       case CHORD_S_cry: \
         append = "cry"; \
         break; \
+      case CHORD_machine: \
+      case CHORD_S_machine: \
+        append = "machine"; \
+        break; \
       case CHORD_box: \
       case CHORD_S_box: \
         append = "box"; \
@@ -4605,9 +5220,17 @@ bool sentence_mode = false;
       case CHORD_S_noun: \
         append = "noun"; \
         break; \
+      case CHORD_field: \
+      case CHORD_S_field: \
+        append = "field"; \
+        break; \
       case CHORD_week: \
       case CHORD_S_week: \
         append = "week"; \
+        break; \
+      case CHORD_final: \
+      case CHORD_S_final: \
+        append = "final"; \
         break; \
       case CHORD_oh: \
       case CHORD_S_oh: \
@@ -4616,6 +5239,14 @@ bool sentence_mode = false;
       case CHORD_free: \
       case CHORD_S_free: \
         append = "free"; \
+        break; \
+      case CHORD_object: \
+      case CHORD_S_object: \
+        append = "object"; \
+        break; \
+      case CHORD_test: \
+      case CHORD_S_test: \
+        append = "test"; \
         break; \
       case CHORD_dry: \
       case CHORD_S_dry: \
@@ -4657,6 +5288,14 @@ bool sentence_mode = false;
       case CHORD_S_matter: \
         append = "matter"; \
         break; \
+      case CHORD_count: \
+      case CHORD_S_count: \
+        append = "count"; \
+        break; \
+      case CHORD_length: \
+      case CHORD_S_length: \
+        append = "length"; \
+        break; \
       case CHORD_art: \
       case CHORD_S_art: \
         append = "art"; \
@@ -4672,6 +5311,10 @@ bool sentence_mode = false;
       case CHORD_leg: \
       case CHORD_S_leg: \
         append = "leg"; \
+        break; \
+      case CHORD_catch: \
+      case CHORD_S_catch: \
+        append = "catch"; \
         break; \
       case CHORD_joy: \
       case CHORD_S_joy: \
@@ -4697,17 +5340,41 @@ bool sentence_mode = false;
       case CHORD_S_hill: \
         append = "hill"; \
         break; \
+      case CHORD_type: \
+      case CHORD_S_type: \
+        append = "type"; \
+        break; \
       case CHORD_law: \
       case CHORD_S_law: \
         append = "law"; \
+        break; \
+      case CHORD_bit: \
+      case CHORD_S_bit: \
+        append = "bit"; \
+        break; \
+      case CHORD_copy: \
+      case CHORD_S_copy: \
+        append = "copy"; \
         break; \
       case CHORD_lie: \
       case CHORD_S_lie: \
         append = "lie"; \
         break; \
+      case CHORD_else: \
+      case CHORD_S_else: \
+        append = "else"; \
+        break; \
+      case CHORD_case: \
+      case CHORD_S_case: \
+        append = "case"; \
+        break; \
       case CHORD_son: \
       case CHORD_S_son: \
         append = "son"; \
+        break; \
+      case CHORD_method: \
+      case CHORD_S_method: \
+        append = "method"; \
         break; \
       case CHORD_pay: \
       case CHORD_S_pay: \
@@ -4721,6 +5388,10 @@ bool sentence_mode = false;
       case CHORD_S_cool: \
         append = "cool"; \
         break; \
+      case CHORD_design: \
+      case CHORD_S_design: \
+        append = "design"; \
+        break; \
       case CHORD_lot: \
       case CHORD_S_lot: \
         append = "lot"; \
@@ -4728,6 +5399,10 @@ bool sentence_mode = false;
       case CHORD_key: \
       case CHORD_S_key: \
         append = "key"; \
+        break; \
+      case CHORD_office: \
+      case CHORD_S_office: \
+        append = "office"; \
         break; \
       case CHORD_row: \
       case CHORD_S_row: \
@@ -4737,17 +5412,37 @@ bool sentence_mode = false;
       case CHORD_S_die: \
         append = "die"; \
         break; \
+      case CHORD_break: \
+      case CHORD_S_break: \
+        append = "break"; \
+        break; \
       case CHORD_oil: \
       case CHORD_S_oil: \
         append = "oil"; \
+        break; \
+      case CHORD_team: \
+      case CHORD_S_team: \
+        append = "team"; \
         break; \
       case CHORD_fit: \
       case CHORD_S_fit: \
         append = "fit"; \
         break; \
+      case CHORD_charact: \
+      case CHORD_S_charact: \
+        append = "character"; \
+        break; \
+      case CHORD_element: \
+      case CHORD_S_element: \
+        append = "element"; \
+        break; \
       case CHORD_hit: \
       case CHORD_S_hit: \
         append = "hit"; \
+        break; \
+      case CHORD_string: \
+      case CHORD_S_string: \
+        append = "string"; \
         break; \
       case CHORD_rub: \
       case CHORD_S_rub: \
@@ -4757,17 +5452,45 @@ bool sentence_mode = false;
       case CHORD_S_tie: \
         append = "tie"; \
         break; \
+      case CHORD_search: \
+      case CHORD_S_search: \
+        append = "search"; \
+        break; \
       case CHORD_gun: \
       case CHORD_S_gun: \
         append = "gun"; \
+        break; \
+      case CHORD_print: \
+      case CHORD_S_print: \
+        append = "print"; \
+        break; \
+      case CHORD_continu: \
+      case CHORD_S_continu: \
+        append = "continue"; \
         break; \
       case CHORD_nine: \
       case CHORD_S_nine: \
         append = "nine"; \
         break; \
+      case CHORD_throw: \
+      case CHORD_S_throw: \
+        append = "throw"; \
+        break; \
+      case CHORD_select: \
+      case CHORD_S_select: \
+        append = "select"; \
+        break; \
       case CHORD_thank: \
       case CHORD_S_thank: \
         append = "thank"; \
+        break; \
+      case CHORD_branch: \
+      case CHORD_S_branch: \
+        append = "branch"; \
+        break; \
+      case CHORD_match: \
+      case CHORD_S_match: \
+        append = "match"; \
         break; \
       case CHORD_experie: \
       case CHORD_S_experie: \
@@ -4781,6 +5504,10 @@ bool sentence_mode = false;
       case CHORD_S_win: \
         append = "win"; \
         break; \
+      case CHORD_conditi: \
+      case CHORD_S_conditi: \
+        append = "condition"; \
+        break; \
       case CHORD_feed: \
       case CHORD_S_feed: \
         append = "feed"; \
@@ -4788,6 +5515,22 @@ bool sentence_mode = false;
       case CHORD_nor: \
       case CHORD_S_nor: \
         append = "nor"; \
+        break; \
+      case CHORD_double: \
+      case CHORD_S_double: \
+        append = "double"; \
+        break; \
+      case CHORD_master: \
+      case CHORD_S_master: \
+        append = "master"; \
+        break; \
+      case CHORD_post: \
+      case CHORD_S_post: \
+        append = "post"; \
+        break; \
+      case CHORD_chord: \
+      case CHORD_S_chord: \
+        append = "chord"; \
         break; \
       case CHORD_fat: \
       case CHORD_S_fat: \
@@ -4797,6 +5540,18 @@ bool sentence_mode = false;
       case CHORD_S_bar: \
         append = "bar"; \
         break; \
+      case CHORD_enemy: \
+      case CHORD_S_enemy: \
+        append = "enemy"; \
+        break; \
+      case CHORD_support: \
+      case CHORD_S_support: \
+        append = "support"; \
+        break; \
+      case CHORD_range: \
+      case CHORD_S_range: \
+        append = "range"; \
+        break; \
       case CHORD_log: \
       case CHORD_S_log: \
         append = "log"; \
@@ -4805,9 +5560,9 @@ bool sentence_mode = false;
       case CHORD_S_hey: \
         append = "hey"; \
         break; \
-      case CHORD_return: \
-      case CHORD_S_return: \
-        append = "return"; \
+      case CHORD_yep: \
+      case CHORD_S_yep: \
+        append = "yep"; \
         break; \
       case CHORD_probabl: \
       case CHORD_S_probabl: \
@@ -4825,25 +5580,41 @@ bool sentence_mode = false;
       case CHORD_S_per: \
         append = "per"; \
         break; \
-      case CHORD_null: \
-      case CHORD_S_null: \
-        append = "null"; \
+      case CHORD_acknowl: \
+      case CHORD_S_acknowl: \
+        append = "acknowledge"; \
         break; \
-      case CHORD_nil: \
-      case CHORD_S_nil: \
-        append = "nil"; \
+      case CHORD_attack: \
+      case CHORD_S_attack: \
+        append = "attack"; \
         break; \
-      case CHORD_array: \
-      case CHORD_S_array: \
-        append = "array"; \
+      case CHORD_defend: \
+      case CHORD_S_defend: \
+        append = "defend"; \
         break; \
-      case CHORD_sort: \
-      case CHORD_S_sort: \
-        append = "sort"; \
+      case CHORD_expansi: \
+      case CHORD_S_expansi: \
+        append = "expansion"; \
         break; \
-      case CHORD_schema: \
-      case CHORD_S_schema: \
-        append = "schema"; \
+      case CHORD_fuck: \
+      case CHORD_S_fuck: \
+        append = "fuck"; \
+        break; \
+      case CHORD_hell: \
+      case CHORD_S_hell: \
+        append = "hell"; \
+        break; \
+      case CHORD_heck: \
+      case CHORD_S_heck: \
+        append = "heck"; \
+        break; \
+      case CHORD_shit: \
+      case CHORD_S_shit: \
+        append = "shit"; \
+        break; \
+      case CHORD_persona: \
+      case CHORD_S_persona: \
+        append = "personal"; \
         break; \
       case CHORD_in_the: \
       case CHORD_S_in_the: \
@@ -4893,29 +5664,129 @@ bool sentence_mode = false;
       case CHORD_S_of_cour: \
         append = "of course"; \
         break; \
-      case CHORD_the_qui: \
-      case CHORD_S_the_qui: \
-        if (chord_shifted || combo_index == CHORD_S_the_qui) { \
-          space = false; \
-          last_chord_length = 44; \
-          SEND_STRING("The quick brown fox jumps over the lazy dog."); \
-        } else { \
-          space = false; \
-          last_chord_length = 43; \
-          SEND_STRING("the quick brown fox jumps over the lazy dog"); \
-        } \
+      case CHORD_admin: \
+      case CHORD_S_admin: \
+        append = "admin"; \
         break; \
-      case CHORD_elberet: \
-        last_chord_length = 8; \
-        sentence_mode = false; \
-        space = false; \
-        SEND_STRING("Elbereth"); \
+      case CHORD_array: \
+      case CHORD_S_array: \
+        append = "array"; \
+        break; \
+      case CHORD_async: \
+      case CHORD_S_async: \
+        append = "async"; \
+        break; \
+      case CHORD_await: \
+      case CHORD_S_await: \
+        append = "await"; \
+        break; \
+      case CHORD_define: \
+      case CHORD_S_define: \
+        append = "define"; \
+        break; \
+      case CHORD_div: \
+      case CHORD_S_div: \
+        append = "div"; \
+        break; \
+      case CHORD_environ: \
+      case CHORD_S_environ: \
+        append = "environment"; \
+        break; \
+      case CHORD_git: \
+      case CHORD_S_git: \
+        append = "git"; \
+        break; \
+      case CHORD_graphql: \
+      case CHORD_S_graphql: \
+        last_chord_length = 7; \
+        if (chord_shifted || combo_index == CHORD_S_graphql) { \
+          SEND_STRING("GraphQL"); \
+        } else { \
+          SEND_STRING("graphql"); \
+        } \
         break; \
       case CHORD_https_: \
         last_chord_length = 8; \
         sentence_mode = false; \
         space = false; \
         SEND_STRING("https://"); \
+        break; \
+      case CHORD_immutab: \
+      case CHORD_S_immutab: \
+        append = "immutable"; \
+        break; \
+      case CHORD_impleme: \
+      case CHORD_S_impleme: \
+        append = "implementation"; \
+        break; \
+      case CHORD_import: \
+      case CHORD_S_import: \
+        append = "import"; \
+        break; \
+      case CHORD_infra: \
+      case CHORD_S_infra: \
+        append = "infra"; \
+        break; \
+      case CHORD_insert: \
+      case CHORD_S_insert: \
+        append = "insert"; \
+        break; \
+      case CHORD_int: \
+      case CHORD_S_int: \
+        append = "int"; \
+        break; \
+      case CHORD_interfa: \
+      case CHORD_S_interfa: \
+        append = "interface"; \
+        break; \
+      case CHORD_json: \
+      case CHORD_S_json: \
+        last_chord_length = 4; \
+        if (chord_shifted || combo_index == CHORD_S_json) { \
+          SEND_STRING("JSON"); \
+        } else { \
+          SEND_STRING("json"); \
+        } \
+        break; \
+      case CHORD_kuberne: \
+      case CHORD_S_kuberne: \
+        append = "kubernetes"; \
+        break; \
+      case CHORD_library: \
+      case CHORD_S_library: \
+        append = "library"; \
+        break; \
+      case CHORD_module: \
+      case CHORD_S_module: \
+        append = "module"; \
+        break; \
+      case CHORD_nil: \
+      case CHORD_S_nil: \
+        append = "nil"; \
+        break; \
+      case CHORD_null: \
+      case CHORD_S_null: \
+        append = "null"; \
+        break; \
+      case CHORD_project: \
+      case CHORD_S_project: \
+        append = "project"; \
+        break; \
+      case CHORD_pub: \
+      case CHORD_S_pub: \
+        append = "pub"; \
+        break; \
+      case CHORD_regex: \
+      case CHORD_S_regex: \
+        append = "regex"; \
+        break; \
+      case CHORD_return: \
+      case CHORD_S_return: \
+        append = "return"; \
+        break; \
+      case CHORD_schema: \
+      case CHORD_S_schema: \
+        append = "schema"; \
         break; \
       case CHORD_select_: \
       case CHORD_S_select_: \
@@ -4927,27 +5798,41 @@ bool sentence_mode = false;
           SEND_STRING("select * from"); \
         } \
         break; \
-      case CHORD_pokemon: \
-      case CHORD_S_pokemon: \
-        last_chord_length = 7; \
-        if (chord_shifted || combo_index == CHORD_S_pokemon) { \
-          send_unicode_string("Pokémon"); \
-        } else { \
-          SEND_STRING("pokemon"); \
-        } \
+      case CHORD_server: \
+      case CHORD_S_server: \
+        append = "server"; \
         break; \
-      case CHORD_graphql: \
-      case CHORD_S_graphql: \
-        last_chord_length = 7; \
-        if (chord_shifted || combo_index == CHORD_S_graphql) { \
-          SEND_STRING("GraphQL"); \
-        } else { \
-          SEND_STRING("graphql"); \
-        } \
+      case CHORD_service: \
+      case CHORD_S_service: \
+        append = "service"; \
         break; \
-      case CHORD_kuberne: \
-      case CHORD_S_kuberne: \
-        append = "kubernetes"; \
+      case CHORD_sort: \
+      case CHORD_S_sort: \
+        append = "sort"; \
+        break; \
+      case CHORD_sudo: \
+      case CHORD_S_sudo: \
+        append = "sudo"; \
+        break; \
+      case CHORD_tempora: \
+      case CHORD_S_tempora: \
+        append = "temporary"; \
+        break; \
+      case CHORD_trait: \
+      case CHORD_S_trait: \
+        append = "trait"; \
+        break; \
+      case CHORD_queue: \
+      case CHORD_S_queue: \
+        append = "queue"; \
+        break; \
+      case CHORD_quote: \
+      case CHORD_S_quote: \
+        append = "quote"; \
+        break; \
+      case CHORD_undefin: \
+      case CHORD_S_undefin: \
+        append = "undefined"; \
         break; \
       case CHORD__up_: \
         last_chord_length = 8; \
@@ -4966,6 +5851,42 @@ bool sentence_mode = false;
         space = false; \
         SEND_STRING("```go\n\n```"); \
         tap_code16(KC_UP); \
+        break; \
+      case CHORD_the_qui: \
+      case CHORD_S_the_qui: \
+        if (chord_shifted || combo_index == CHORD_S_the_qui) { \
+          space = false; \
+          last_chord_length = 44; \
+          SEND_STRING("The quick brown fox jumps over the lazy dog."); \
+        } else { \
+          space = false; \
+          last_chord_length = 43; \
+          SEND_STRING("the quick brown fox jumps over the lazy dog"); \
+        } \
+        break; \
+      case CHORD_elberet: \
+        last_chord_length = 8; \
+        sentence_mode = false; \
+        space = false; \
+        SEND_STRING("Elbereth"); \
+        break; \
+      case CHORD_pokemon: \
+      case CHORD_S_pokemon: \
+        last_chord_length = 7; \
+        if (chord_shifted || combo_index == CHORD_S_pokemon) { \
+          send_unicode_string("Pokémon"); \
+        } else { \
+          SEND_STRING("pokemon"); \
+        } \
+        break; \
+      case CHORD_final_f: \
+      case CHORD_S_final_f: \
+        last_chord_length = 13; \
+        if (chord_shifted || combo_index == CHORD_S_final_f) { \
+          SEND_STRING("Final Fantasy"); \
+        } else { \
+          SEND_STRING("final fantasy"); \
+        } \
         break; \
       case CHORD_delete_: \
       case CHORD_left_cl: \
@@ -5013,15 +5934,15 @@ bool sentence_mode = false;
     uint8_t backspaces = 0; \
     char *append = NULL; \
     bool append_ing = false; \
+    bool append_ies = false; \
     bool append_ed = false; \
     bool append_st = false; \
     bool append_er = false; \
     bool append_es = false; \
     bool append_s = false; \
-    bool append_e = false; \
     bool append_d = false; \
+    bool append_e = false; \
     bool append_y = false; \
-    bool append_r = false; \
     bool space = true; \
    \
     uint8_t mods = get_mods(); \
@@ -5267,8 +6188,12 @@ bool sentence_mode = false;
       case CHORD_S_cause: \
       case CHORD_boy: \
       case CHORD_S_boy: \
+      case CHORD_three: \
+      case CHORD_S_three: \
       case CHORD_air: \
       case CHORD_S_air: \
+      case CHORD_read: \
+      case CHORD_S_read: \
       case CHORD_port: \
       case CHORD_S_port: \
       case CHORD_spell: \
@@ -5303,6 +6228,8 @@ bool sentence_mode = false;
       case CHORD_S_four: \
       case CHORD_thought: \
       case CHORD_S_thought: \
+      case CHORD_tree: \
+      case CHORD_S_tree: \
       case CHORD_sea: \
       case CHORD_S_sea: \
       case CHORD_night: \
@@ -5381,14 +6308,24 @@ bool sentence_mode = false;
       case CHORD_S_five: \
       case CHORD_war: \
       case CHORD_S_war: \
+      case CHORD_pattern: \
+      case CHORD_S_pattern: \
+      case CHORD_center: \
+      case CHORD_S_center: \
       case CHORD_map: \
       case CHORD_S_map: \
       case CHORD_fall: \
       case CHORD_S_fall: \
+      case CHORD_machine: \
+      case CHORD_S_machine: \
       case CHORD_noun: \
       case CHORD_S_noun: \
+      case CHORD_field: \
+      case CHORD_S_field: \
       case CHORD_week: \
       case CHORD_S_week: \
+      case CHORD_final: \
+      case CHORD_S_final: \
       case CHORD_hot: \
       case CHORD_S_hot: \
       case CHORD_ball: \
@@ -5399,6 +6336,10 @@ bool sentence_mode = false;
       case CHORD_S_ice: \
       case CHORD_matter: \
       case CHORD_S_matter: \
+      case CHORD_count: \
+      case CHORD_S_count: \
+      case CHORD_length: \
+      case CHORD_S_length: \
       case CHORD_art: \
       case CHORD_S_art: \
       case CHORD_cell: \
@@ -5419,52 +6360,104 @@ bool sentence_mode = false;
       case CHORD_S_hill: \
       case CHORD_law: \
       case CHORD_S_law: \
+      case CHORD_bit: \
+      case CHORD_S_bit: \
       case CHORD_lie: \
       case CHORD_S_lie: \
+      case CHORD_case: \
+      case CHORD_S_case: \
       case CHORD_son: \
       case CHORD_S_son: \
+      case CHORD_method: \
+      case CHORD_S_method: \
       case CHORD_age: \
       case CHORD_S_age: \
       case CHORD_lot: \
       case CHORD_S_lot: \
       case CHORD_key: \
       case CHORD_S_key: \
+      case CHORD_office: \
+      case CHORD_S_office: \
       case CHORD_row: \
       case CHORD_S_row: \
       case CHORD_die: \
       case CHORD_S_die: \
+      case CHORD_break: \
+      case CHORD_S_break: \
       case CHORD_oil: \
       case CHORD_S_oil: \
+      case CHORD_team: \
+      case CHORD_S_team: \
       case CHORD_fit: \
       case CHORD_S_fit: \
+      case CHORD_charact: \
+      case CHORD_S_charact: \
+      case CHORD_element: \
+      case CHORD_S_element: \
       case CHORD_hit: \
       case CHORD_S_hit: \
+      case CHORD_string: \
+      case CHORD_S_string: \
       case CHORD_rub: \
       case CHORD_S_rub: \
       case CHORD_tie: \
       case CHORD_S_tie: \
       case CHORD_gun: \
       case CHORD_S_gun: \
+      case CHORD_print: \
+      case CHORD_S_print: \
       case CHORD_nine: \
       case CHORD_S_nine: \
+      case CHORD_throw: \
+      case CHORD_S_throw: \
       case CHORD_experie: \
       case CHORD_S_experie: \
       case CHORD_win: \
       case CHORD_S_win: \
+      case CHORD_conditi: \
+      case CHORD_S_conditi: \
       case CHORD_feed: \
       case CHORD_S_feed: \
+      case CHORD_double: \
+      case CHORD_S_double: \
+      case CHORD_master: \
+      case CHORD_S_master: \
+      case CHORD_post: \
+      case CHORD_S_post: \
+      case CHORD_chord: \
+      case CHORD_S_chord: \
       case CHORD_fat: \
       case CHORD_S_fat: \
       case CHORD_bar: \
       case CHORD_S_bar: \
+      case CHORD_support: \
+      case CHORD_S_support: \
+      case CHORD_range: \
+      case CHORD_S_range: \
       case CHORD_log: \
       case CHORD_S_log: \
-      case CHORD_null: \
-      case CHORD_S_null: \
-      case CHORD_nil: \
-      case CHORD_S_nil: \
       case CHORD_array: \
       case CHORD_S_array: \
+      case CHORD_environ: \
+      case CHORD_S_environ: \
+      case CHORD_impleme: \
+      case CHORD_S_impleme: \
+      case CHORD_import: \
+      case CHORD_S_import: \
+      case CHORD_interfa: \
+      case CHORD_S_interfa: \
+      case CHORD_module: \
+      case CHORD_S_module: \
+      case CHORD_nil: \
+      case CHORD_S_nil: \
+      case CHORD_null: \
+      case CHORD_S_null: \
+      case CHORD_server: \
+      case CHORD_S_server: \
+      case CHORD_service: \
+      case CHORD_S_service: \
+      case CHORD_trait: \
+      case CHORD_S_trait: \
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
@@ -5570,7 +6563,7 @@ bool sentence_mode = false;
           case 0: \
             backspaces = 3; \
             append_d = true; \
-            append = "e"; \
+            append_e = true; \
           break; \
           case 1: \
             backspaces = 3; \
@@ -5705,6 +6698,8 @@ bool sentence_mode = false;
       case CHORD_S_low: \
       case CHORD_kind: \
       case CHORD_S_kind: \
+      case CHORD_near: \
+      case CHORD_S_near: \
       case CHORD_hard: \
       case CHORD_S_hard: \
       case CHORD_plain: \
@@ -5995,8 +6990,7 @@ bool sentence_mode = false;
           break; \
           case 1: \
             backspaces = 6; \
-            append_r = true; \
-            append = "son"; \
+            append = "rson"; \
           break; \
           case 2: \
             backspaces = 5; \
@@ -6084,7 +7078,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append_r = true; \
+            append = "r"; \
           break; \
           case 1: \
             backspaces = 2; \
@@ -6199,8 +7193,7 @@ bool sentence_mode = false;
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
-            append_r = true; \
-            append = "en"; \
+            append = "ren"; \
           break; \
           case 1: \
             backspaces = 4; \
@@ -6217,8 +7210,7 @@ bool sentence_mode = false;
           break; \
           case 1: \
             next_chord_cycle = 0; \
-            append_r = true; \
-            append = "son"; \
+            append = "rson"; \
           break; \
         } \
         break; \
@@ -6573,10 +7565,16 @@ bool sentence_mode = false;
       case CHORD_S_family: \
       case CHORD_fly: \
       case CHORD_S_fly: \
+      case CHORD_copy: \
+      case CHORD_S_copy: \
+      case CHORD_enemy: \
+      case CHORD_S_enemy: \
+      case CHORD_library: \
+      case CHORD_S_library: \
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 2; \
-            append = "ies"; \
+            append_ies = true; \
           break; \
           case 1: \
             backspaces = 4; \
@@ -6601,6 +7599,10 @@ bool sentence_mode = false;
       case CHORD_S_six: \
       case CHORD_box: \
       case CHORD_S_box: \
+      case CHORD_catch: \
+      case CHORD_S_catch: \
+      case CHORD_branch: \
+      case CHORD_S_branch: \
         switch(last_chord_cycle) { \
           case 0: \
             backspaces = 1; \
@@ -6638,8 +7640,7 @@ bool sentence_mode = false;
           case 1: \
             backspaces = 1; \
             next_chord_cycle = 0; \
-            append_r = true; \
-            append = "en"; \
+            append = "ren"; \
           break; \
         } \
         break; \
@@ -6653,7 +7654,8 @@ bool sentence_mode = false;
           case 1: \
             backspaces = 2; \
             append_d = true; \
-            append = "er"; \
+            append_e = true; \
+            append = "r"; \
           break; \
           case 2: \
             backspaces = 2; \
@@ -6663,6 +7665,94 @@ bool sentence_mode = false;
             backspaces = 5; \
             next_chord_cycle = 0; \
           break; \
+        } \
+        break; \
+      case CHORD_object: \
+      case CHORD_S_object: \
+        if (chord_shifted || last_chord == CHORD_S_object) { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 1; \
+              append_s = true; \
+            break; \
+            case 1: \
+              backspaces = 2; \
+              append_ed = true; \
+            break; \
+            case 2: \
+              backspaces = 9; \
+              append = "Will object"; \
+            break; \
+            case 3: \
+              backspaces = 12; \
+              next_chord_cycle = 0; \
+              append = "Object"; \
+            break; \
+          } \
+        } else { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 1; \
+              append_s = true; \
+            break; \
+            case 1: \
+              backspaces = 2; \
+              append_ed = true; \
+            break; \
+            case 2: \
+              backspaces = 9; \
+              append = "will object"; \
+            break; \
+            case 3: \
+              backspaces = 12; \
+              next_chord_cycle = 0; \
+              append = "object"; \
+            break; \
+          } \
+        } \
+        break; \
+      case CHORD_test: \
+      case CHORD_S_test: \
+        if (chord_shifted || last_chord == CHORD_S_test) { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 1; \
+              append_s = true; \
+            break; \
+            case 1: \
+              backspaces = 2; \
+              append_ed = true; \
+            break; \
+            case 2: \
+              backspaces = 7; \
+              append = "Will test"; \
+            break; \
+            case 3: \
+              backspaces = 10; \
+              next_chord_cycle = 0; \
+              append = "Test"; \
+            break; \
+          } \
+        } else { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 1; \
+              append_s = true; \
+            break; \
+            case 1: \
+              backspaces = 2; \
+              append_ed = true; \
+            break; \
+            case 2: \
+              backspaces = 7; \
+              append = "will test"; \
+            break; \
+            case 3: \
+              backspaces = 10; \
+              next_chord_cycle = 0; \
+              append = "test"; \
+            break; \
+          } \
         } \
         break; \
       case CHORD_gas: \
@@ -6677,6 +7767,668 @@ bool sentence_mode = false;
           case 1: \
             backspaces = 4; \
             next_chord_cycle = 0; \
+          break; \
+        } \
+        break; \
+      case CHORD_type: \
+      case CHORD_S_type: \
+        if (chord_shifted || last_chord == CHORD_S_type) { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 1; \
+              append_s = true; \
+            break; \
+            case 1: \
+              backspaces = 2; \
+              append_d = true; \
+            break; \
+            case 2: \
+              backspaces = 6; \
+              append = "Will type"; \
+            break; \
+            case 3: \
+              backspaces = 10; \
+              next_chord_cycle = 0; \
+              append = "Type"; \
+            break; \
+          } \
+        } else { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 1; \
+              append_s = true; \
+            break; \
+            case 1: \
+              backspaces = 2; \
+              append_d = true; \
+            break; \
+            case 2: \
+              backspaces = 6; \
+              append = "will type"; \
+            break; \
+            case 3: \
+              backspaces = 10; \
+              next_chord_cycle = 0; \
+              append = "type"; \
+            break; \
+          } \
+        } \
+        break; \
+      case CHORD_design: \
+      case CHORD_S_design: \
+        if (chord_shifted || last_chord == CHORD_S_design) { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 1; \
+              append_s = true; \
+            break; \
+            case 1: \
+              backspaces = 2; \
+              append_ed = true; \
+            break; \
+            case 2: \
+              backspaces = 9; \
+              append = "Will design"; \
+            break; \
+            case 3: \
+              backspaces = 12; \
+              next_chord_cycle = 0; \
+              append = "Design"; \
+            break; \
+          } \
+        } else { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 1; \
+              append_s = true; \
+            break; \
+            case 1: \
+              backspaces = 2; \
+              append_ed = true; \
+            break; \
+            case 2: \
+              backspaces = 9; \
+              append = "will design"; \
+            break; \
+            case 3: \
+              backspaces = 12; \
+              next_chord_cycle = 0; \
+              append_d = true; \
+              append_e = true; \
+              append = "sign"; \
+            break; \
+          } \
+        } \
+        break; \
+      case CHORD_search: \
+      case CHORD_S_search: \
+        if (chord_shifted || last_chord == CHORD_S_search) { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 1; \
+              append_es = true; \
+            break; \
+            case 1: \
+              backspaces = 2; \
+              append_d = true; \
+            break; \
+            case 2: \
+              backspaces = 9; \
+              append = "Will search"; \
+            break; \
+            case 3: \
+              backspaces = 12; \
+              next_chord_cycle = 0; \
+              append = "Search"; \
+            break; \
+          } \
+        } else { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 1; \
+              append_es = true; \
+            break; \
+            case 1: \
+              backspaces = 2; \
+              append_d = true; \
+            break; \
+            case 2: \
+              backspaces = 9; \
+              append = "will search"; \
+            break; \
+            case 3: \
+              backspaces = 12; \
+              next_chord_cycle = 0; \
+              append_s = true; \
+              append_e = true; \
+              append = "arch"; \
+            break; \
+          } \
+        } \
+        break; \
+      case CHORD_continu: \
+      case CHORD_S_continu: \
+        if (chord_shifted || last_chord == CHORD_S_continu) { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 1; \
+              append_s = true; \
+            break; \
+            case 1: \
+              backspaces = 2; \
+              append_d = true; \
+            break; \
+            case 2: \
+              backspaces = 10; \
+              append = "Will continue"; \
+            break; \
+            case 3: \
+              backspaces = 14; \
+              next_chord_cycle = 0; \
+              append = "Continue"; \
+            break; \
+          } \
+        } else { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 1; \
+              append_s = true; \
+            break; \
+            case 1: \
+              backspaces = 2; \
+              append_d = true; \
+            break; \
+            case 2: \
+              backspaces = 10; \
+              append = "will continue"; \
+            break; \
+            case 3: \
+              backspaces = 14; \
+              next_chord_cycle = 0; \
+              append = "continue"; \
+            break; \
+          } \
+        } \
+        break; \
+      case CHORD_select: \
+      case CHORD_S_select: \
+        if (chord_shifted || last_chord == CHORD_S_select) { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 1; \
+              append_s = true; \
+            break; \
+            case 1: \
+              backspaces = 2; \
+              append_ed = true; \
+            break; \
+            case 2: \
+              backspaces = 9; \
+              append = "Will select"; \
+            break; \
+            case 3: \
+              backspaces = 12; \
+              next_chord_cycle = 0; \
+              append = "Select"; \
+            break; \
+          } \
+        } else { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 1; \
+              append_s = true; \
+            break; \
+            case 1: \
+              backspaces = 2; \
+              append_ed = true; \
+            break; \
+            case 2: \
+              backspaces = 9; \
+              append = "will select"; \
+            break; \
+            case 3: \
+              backspaces = 12; \
+              next_chord_cycle = 0; \
+              append_s = true; \
+              append_e = true; \
+              append = "lect"; \
+            break; \
+          } \
+        } \
+        break; \
+      case CHORD_match: \
+      case CHORD_S_match: \
+        if (chord_shifted || last_chord == CHORD_S_match) { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 1; \
+              append_es = true; \
+            break; \
+            case 1: \
+              backspaces = 2; \
+              append_d = true; \
+            break; \
+            case 2: \
+              backspaces = 8; \
+              append = "Will match"; \
+            break; \
+            case 3: \
+              backspaces = 11; \
+              next_chord_cycle = 0; \
+              append = "Match"; \
+            break; \
+          } \
+        } else { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 1; \
+              append_es = true; \
+            break; \
+            case 1: \
+              backspaces = 2; \
+              append_d = true; \
+            break; \
+            case 2: \
+              backspaces = 8; \
+              append = "will match"; \
+            break; \
+            case 3: \
+              backspaces = 11; \
+              next_chord_cycle = 0; \
+              append = "match"; \
+            break; \
+          } \
+        } \
+        break; \
+      case CHORD_thanks: \
+      case CHORD_S_thanks: \
+        if (chord_shifted || last_chord == CHORD_S_thanks) { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 2; \
+              append = " you"; \
+            break; \
+            case 1: \
+              backspaces = 5; \
+              append_s = true; \
+              append = " very much!"; \
+            break; \
+            case 2: \
+              backspaces = 11; \
+              next_chord_cycle = 0; \
+            break; \
+          } \
+        } else { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 2; \
+              append = " you"; \
+            break; \
+            case 1: \
+              backspaces = 10; \
+              append = "Thanks very much!"; \
+            break; \
+            case 2: \
+              backspaces = 18; \
+              next_chord_cycle = 0; \
+              append = "thanks"; \
+            break; \
+          } \
+        } \
+        break; \
+      case CHORD_fuck: \
+      case CHORD_S_fuck: \
+        if (chord_shifted || last_chord == CHORD_S_fuck) { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 5; \
+              append = "What the fuck"; \
+            break; \
+            case 1: \
+              backspaces = 14; \
+              next_chord_cycle = 0; \
+              append = "Fuck"; \
+            break; \
+          } \
+        } else { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 5; \
+              append = "what the fuck"; \
+            break; \
+            case 1: \
+              backspaces = 14; \
+              next_chord_cycle = 0; \
+              append = "fuck"; \
+            break; \
+          } \
+        } \
+        break; \
+      case CHORD_hell: \
+      case CHORD_S_hell: \
+        if (chord_shifted || last_chord == CHORD_S_hell) { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 5; \
+              append = "What the hell"; \
+            break; \
+            case 1: \
+              backspaces = 14; \
+              next_chord_cycle = 0; \
+              append = "Hell"; \
+            break; \
+          } \
+        } else { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 5; \
+              append = "what the hell"; \
+            break; \
+            case 1: \
+              backspaces = 14; \
+              next_chord_cycle = 0; \
+              append = "hell"; \
+            break; \
+          } \
+        } \
+        break; \
+      case CHORD_heck: \
+      case CHORD_S_heck: \
+        if (chord_shifted || last_chord == CHORD_S_heck) { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 5; \
+              append = "What the heck"; \
+            break; \
+            case 1: \
+              backspaces = 14; \
+              next_chord_cycle = 0; \
+              append = "Heck"; \
+            break; \
+          } \
+        } else { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 5; \
+              append = "what the heck"; \
+            break; \
+            case 1: \
+              backspaces = 14; \
+              next_chord_cycle = 0; \
+              append = "heck"; \
+            break; \
+          } \
+        } \
+        break; \
+      case CHORD_shit: \
+      case CHORD_S_shit: \
+        if (chord_shifted || last_chord == CHORD_S_shit) { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 5; \
+              append = "What the shit"; \
+            break; \
+            case 1: \
+              backspaces = 14; \
+              next_chord_cycle = 0; \
+              append = "Shit"; \
+            break; \
+          } \
+        } else { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 5; \
+              append = "what the shit"; \
+            break; \
+            case 1: \
+              backspaces = 14; \
+              next_chord_cycle = 0; \
+              append_s = true; \
+              append = "hit"; \
+            break; \
+          } \
+        } \
+        break; \
+      case CHORD_persona: \
+      case CHORD_S_persona: \
+        switch(last_chord_cycle) { \
+          case 0: \
+            backspaces = 1; \
+            append = "ly"; \
+          break; \
+          case 1: \
+            backspaces = 3; \
+            next_chord_cycle = 0; \
+          break; \
+        } \
+        break; \
+      case CHORD_admin: \
+      case CHORD_S_admin: \
+        switch(last_chord_cycle) { \
+          case 0: \
+            backspaces = 1; \
+            append_s = true; \
+          break; \
+          case 1: \
+            backspaces = 2; \
+            append = "istrator"; \
+          break; \
+          case 2: \
+            backspaces = 1; \
+            append_s = true; \
+          break; \
+          case 3: \
+            backspaces = 10; \
+            next_chord_cycle = 0; \
+          break; \
+        } \
+        break; \
+      case CHORD_define: \
+      case CHORD_S_define: \
+        if (chord_shifted || last_chord == CHORD_S_define) { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 1; \
+              append_d = true; \
+            break; \
+            case 1: \
+              backspaces = 8; \
+              append = "Will define"; \
+            break; \
+            case 2: \
+              backspaces = 12; \
+              next_chord_cycle = 0; \
+              append = "Define"; \
+            break; \
+          } \
+        } else { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 1; \
+              append_d = true; \
+            break; \
+            case 1: \
+              backspaces = 8; \
+              append = "will define"; \
+            break; \
+            case 2: \
+              backspaces = 12; \
+              next_chord_cycle = 0; \
+              append_d = true; \
+              append_e = true; \
+              append = "fine"; \
+            break; \
+          } \
+        } \
+        break; \
+      case CHORD_git: \
+      case CHORD_S_git: \
+        switch(last_chord_cycle) { \
+          case 0: \
+            backspaces = 1; \
+            append = "hub"; \
+          break; \
+          case 1: \
+            backspaces = 4; \
+            next_chord_cycle = 0; \
+          break; \
+        } \
+        break; \
+      case CHORD_https_: \
+        space = false; \
+        switch(last_chord_cycle) { \
+          case 0: \
+            backspaces = 4; \
+            append = "://"; \
+          break; \
+          case 1: \
+            backspaces = 3; \
+            next_chord_cycle = 0; \
+            append_s = true; \
+            append = "://"; \
+          break; \
+        } \
+        break; \
+      case CHORD_infra: \
+      case CHORD_S_infra: \
+        switch(last_chord_cycle) { \
+          case 0: \
+            backspaces = 1; \
+            append_st = true; \
+            append = "ructure"; \
+          break; \
+          case 1: \
+            backspaces = 10; \
+            next_chord_cycle = 0; \
+          break; \
+        } \
+        break; \
+      case CHORD_insert: \
+      case CHORD_S_insert: \
+        if (chord_shifted || last_chord == CHORD_S_insert) { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 1; \
+              append_s = true; \
+            break; \
+            case 1: \
+              backspaces = 2; \
+              append_ed = true; \
+            break; \
+            case 2: \
+              backspaces = 9; \
+              append = "Will insert"; \
+            break; \
+            case 3: \
+              backspaces = 12; \
+              next_chord_cycle = 0; \
+              append = "Insert"; \
+            break; \
+          } \
+        } else { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 1; \
+              append_s = true; \
+            break; \
+            case 1: \
+              backspaces = 2; \
+              append_ed = true; \
+            break; \
+            case 2: \
+              backspaces = 9; \
+              append = "will insert"; \
+            break; \
+            case 3: \
+              backspaces = 12; \
+              next_chord_cycle = 0; \
+              append = "insert"; \
+            break; \
+          } \
+        } \
+        break; \
+      case CHORD_int: \
+      case CHORD_S_int: \
+        switch(last_chord_cycle) { \
+          case 0: \
+            backspaces = 1; \
+            append_e = true; \
+            append = "ger"; \
+          break; \
+          case 1: \
+            backspaces = 1; \
+            append_s = true; \
+          break; \
+          case 2: \
+            backspaces = 6; \
+            next_chord_cycle = 0; \
+          break; \
+        } \
+        break; \
+      case CHORD_project: \
+      case CHORD_S_project: \
+        if (chord_shifted || last_chord == CHORD_S_project) { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 1; \
+              append_s = true; \
+            break; \
+            case 1: \
+              backspaces = 2; \
+              append_ed = true; \
+            break; \
+            case 2: \
+              backspaces = 10; \
+              append = "Will project"; \
+            break; \
+            case 3: \
+              backspaces = 13; \
+              next_chord_cycle = 0; \
+              append = "Project"; \
+            break; \
+          } \
+        } else { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 1; \
+              append_s = true; \
+            break; \
+            case 1: \
+              backspaces = 2; \
+              append_ed = true; \
+            break; \
+            case 2: \
+              backspaces = 10; \
+              append = "will project"; \
+            break; \
+            case 3: \
+              backspaces = 13; \
+              next_chord_cycle = 0; \
+              append = "project"; \
+            break; \
+          } \
+        } \
+        break; \
+      case CHORD_regex: \
+      case CHORD_S_regex: \
+        switch(last_chord_cycle) { \
+          case 0: \
+            backspaces = 1; \
+            append_es = true; \
+          break; \
+          case 1: \
+            backspaces = 5; \
+            append = "ular expression"; \
+          break; \
+          case 2: \
+            backspaces = 1; \
+            append_s = true; \
+          break; \
+          case 3: \
+            backspaces = 17; \
+            next_chord_cycle = 0; \
+            append_e = true; \
+            append = "x"; \
           break; \
         } \
         break; \
@@ -6719,46 +8471,26 @@ bool sentence_mode = false;
             case 3: \
               backspaces = 12; \
               next_chord_cycle = 0; \
-              append_r = true; \
-              append = "eturn"; \
+              append = "return"; \
             break; \
           } \
         } \
         break; \
-      case CHORD_thanks: \
-      case CHORD_S_thanks: \
-        if (chord_shifted || last_chord == CHORD_S_thanks) { \
-          switch(last_chord_cycle) { \
-            case 0: \
-              backspaces = 2; \
-              append = " you"; \
-            break; \
-            case 1: \
-              backspaces = 5; \
-              append_s = true; \
-              append = " very much!"; \
-            break; \
-            case 2: \
-              backspaces = 11; \
-              next_chord_cycle = 0; \
-            break; \
-          } \
-        } else { \
-          switch(last_chord_cycle) { \
-            case 0: \
-              backspaces = 2; \
-              append = " you"; \
-            break; \
-            case 1: \
-              backspaces = 10; \
-              append = "Thanks very much!"; \
-            break; \
-            case 2: \
-              backspaces = 18; \
-              next_chord_cycle = 0; \
-              append = "thanks"; \
-            break; \
-          } \
+      case CHORD_schema: \
+      case CHORD_S_schema: \
+        switch(last_chord_cycle) { \
+          case 0: \
+            backspaces = 1; \
+            append_s = true; \
+          break; \
+          case 1: \
+            backspaces = 2; \
+            append = "ta"; \
+          break; \
+          case 2: \
+            backspaces = 3; \
+            next_chord_cycle = 0; \
+          break; \
         } \
         break; \
       case CHORD_sort: \
@@ -6806,36 +8538,92 @@ bool sentence_mode = false;
           } \
         } \
         break; \
-      case CHORD_schema: \
-      case CHORD_S_schema: \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 1; \
-            append_s = true; \
-          break; \
-          case 1: \
-            backspaces = 2; \
-            append = "ta"; \
-          break; \
-          case 2: \
-            backspaces = 3; \
-            next_chord_cycle = 0; \
-          break; \
+      case CHORD_queue: \
+      case CHORD_S_queue: \
+        if (chord_shifted || last_chord == CHORD_S_queue) { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 1; \
+              append_s = true; \
+            break; \
+            case 1: \
+              backspaces = 2; \
+              append_d = true; \
+            break; \
+            case 2: \
+              backspaces = 7; \
+              append = "Will queue"; \
+            break; \
+            case 3: \
+              backspaces = 11; \
+              next_chord_cycle = 0; \
+              append = "Queue"; \
+            break; \
+          } \
+        } else { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 1; \
+              append_s = true; \
+            break; \
+            case 1: \
+              backspaces = 2; \
+              append_d = true; \
+            break; \
+            case 2: \
+              backspaces = 7; \
+              append = "will queue"; \
+            break; \
+            case 3: \
+              backspaces = 11; \
+              next_chord_cycle = 0; \
+              append = "queue"; \
+            break; \
+          } \
         } \
         break; \
-      case CHORD_https_: \
-        space = false; \
-        switch(last_chord_cycle) { \
-          case 0: \
-            backspaces = 4; \
-            append = "://"; \
-          break; \
-          case 1: \
-            backspaces = 3; \
-            next_chord_cycle = 0; \
-            append_s = true; \
-            append = "://"; \
-          break; \
+      case CHORD_quote: \
+      case CHORD_S_quote: \
+        if (chord_shifted || last_chord == CHORD_S_quote) { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 1; \
+              append_s = true; \
+            break; \
+            case 1: \
+              backspaces = 2; \
+              append_d = true; \
+            break; \
+            case 2: \
+              backspaces = 7; \
+              append = "Will quote"; \
+            break; \
+            case 3: \
+              backspaces = 11; \
+              next_chord_cycle = 0; \
+              append = "Quote"; \
+            break; \
+          } \
+        } else { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 1; \
+              append_s = true; \
+            break; \
+            case 1: \
+              backspaces = 2; \
+              append_d = true; \
+            break; \
+            case 2: \
+              backspaces = 7; \
+              append = "will quote"; \
+            break; \
+            case 3: \
+              backspaces = 11; \
+              next_chord_cycle = 0; \
+              append = "quote"; \
+            break; \
+          } \
         } \
         break; \
       PERSONAL_DUP_CASES \
@@ -6851,6 +8639,11 @@ bool sentence_mode = false;
    \
     if (append_ing) { \
       SEND_STRING("ing"); \
+      last_chord_length += 3; \
+    } \
+   \
+    if (append_ies) { \
+      SEND_STRING("ies"); \
       last_chord_length += 3; \
     } \
    \
@@ -6879,23 +8672,18 @@ bool sentence_mode = false;
       last_chord_length += 1; \
     } \
    \
-    if (append_e) { \
-      SEND_STRING("e"); \
-      last_chord_length += 1; \
-    } \
-   \
     if (append_d) { \
       SEND_STRING("d"); \
       last_chord_length += 1; \
     } \
    \
-    if (append_y) { \
-      SEND_STRING("y"); \
+    if (append_e) { \
+      SEND_STRING("e"); \
       last_chord_length += 1; \
     } \
    \
-    if (append_r) { \
-      SEND_STRING("r"); \
+    if (append_y) { \
+      SEND_STRING("y"); \
       last_chord_length += 1; \
     } \
    \

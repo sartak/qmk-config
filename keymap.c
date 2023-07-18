@@ -5,6 +5,7 @@ enum custom_keycodes {
   KC_DUP_FORCE,
   KC_VIRT_SERIAL,
   KC_CHORD_MODE,
+  KC_SHOW_SETTINGS,
 };
 
 #define TH(key) LT(0, key)
@@ -149,7 +150,7 @@ enum custom_keycodes {
 #define F_E KC_NO
 #define F_I KC_NO
 #define F_A KC_NO
-#define F_Q KC_NO
+#define F_Q KC_SHOW_SETTINGS
 #define F_J KC_NO
 #define F_V KC_VIRT_SERIAL
 #define F_D KC_DUP_FORCE
@@ -582,6 +583,55 @@ bool process_setting_keys(uint16_t keycode, keyrecord_t *record) {
 #ifdef VIRT_SIDECHANNEL
       emit_virt_setting_enum(VIRT_SETTING_CHORD_MODE, SETTING_CHORD_MODE);
 #endif
+      return false;
+
+    case KC_SHOW_SETTINGS:
+      SEND_MESSAGE("[");
+
+      switch (SETTING_DUP_FORCE) {
+        case DUP_FORCE_OFF:
+          SEND_MESSAGE("d-");
+          break;
+        case DUP_FORCE_ON:
+          SEND_MESSAGE("D+");
+          break;
+        case _DUP_FORCE_LENGTH:
+          __builtin_unreachable();
+      }
+
+      SEND_MESSAGE(",");
+
+      switch (SETTING_VIRT_SERIAL) {
+        case VIRT_SERIAL_ENABLED:
+          SEND_MESSAGE("v+");
+          break;
+        case VIRT_SERIAL_DISABLED:
+          SEND_MESSAGE("V-");
+          break;
+        case _VIRT_SERUAL_LENGTH:
+          __builtin_unreachable();
+      }
+
+      SEND_MESSAGE(",");
+
+      switch (SETTING_CHORD_MODE) {
+        case CHORD_MODE_NORMAL:
+          SEND_MESSAGE("c");
+          break;
+        case CHORD_MODE_CORRECTIVE:
+          SEND_MESSAGE("CC");
+          break;
+        case CHORD_MODE_EXCLUSIVE:
+          SEND_MESSAGE("CX");
+          break;
+        case CHORD_MODE_OFF:
+          SEND_MESSAGE("C0");
+          break;
+        case _CHORD_MODE_LENGTH:
+          __builtin_unreachable();
+      }
+
+      SEND_MESSAGE("]");
       return false;
   }
 

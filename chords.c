@@ -316,8 +316,10 @@
   CHORD_city, \
   CHORD_tree, \
   CHORD_cross, \
+  CHORD_farm, \
   CHORD_hard, \
   CHORD_start, \
+  CHORD_story, \
   CHORD_far, \
   CHORD_sea, \
   CHORD_draw, \
@@ -333,6 +335,7 @@
   CHORD_got, \
   CHORD_walk, \
   CHORD_example, \
+  CHORD_paper, \
   CHORD_always, \
   CHORD_music, \
   CHORD_mark, \
@@ -345,6 +348,7 @@
   CHORD_feet, \
   CHORD_care, \
   CHORD_second, \
+  CHORD_book, \
   CHORD_carry, \
   CHORD_science, \
   CHORD_eat, \
@@ -370,10 +374,12 @@
   CHORD_young, \
   CHORD_ready, \
   CHORD_above, \
+  CHORD_ever, \
   CHORD_red, \
   CHORD_list, \
   CHORD_though, \
   CHORD_bird, \
+  CHORD_soon, \
   CHORD_body, \
   CHORD_family, \
   CHORD_direct, \
@@ -394,12 +400,15 @@
   CHORD_rock, \
   CHORD_fire, \
   CHORD_south, \
+  CHORD_piece, \
   CHORD_told, \
   CHORD_knew, \
   CHORD_pass, \
   CHORD_top, \
   CHORD_whole, \
+  CHORD_king, \
   CHORD_space, \
+  CHORD_heard, \
   CHORD_best, \
   CHORD_hour, \
   CHORD_better, \
@@ -407,6 +416,8 @@
   CHORD_hundred, \
   CHORD_five, \
   CHORD_remembe, \
+  CHORD_fast, \
+  CHORD_listen, \
   CHORD_six, \
   CHORD_war, \
   CHORD_lay, \
@@ -414,6 +425,7 @@
   CHORD_center, \
   CHORD_love, \
   CHORD_map, \
+  CHORD_power, \
   CHORD_fly, \
   CHORD_fall, \
   CHORD_cry, \
@@ -421,9 +433,11 @@
   CHORD_box, \
   CHORD_noun, \
   CHORD_field, \
+  CHORD_contain, \
   CHORD_week, \
   CHORD_final, \
   CHORD_oh, \
+  CHORD_quick, \
   CHORD_free, \
   CHORD_object, \
   CHORD_test, \
@@ -519,6 +533,8 @@
   CHORD_heck, \
   CHORD_shit, \
   CHORD_persona, \
+  CHORD_i_m, \
+  CHORD_i_ll, \
   CHORD_in_the, \
   CHORD_of_the, \
   CHORD_to_be, \
@@ -546,6 +562,7 @@
   CHORD_import, \
   CHORD_infra, \
   CHORD_insert, \
+  CHORD_insert_, \
   CHORD_int, \
   CHORD_interfa, \
   CHORD_json, \
@@ -854,8 +871,10 @@
   CHORD_S_city, \
   CHORD_S_tree, \
   CHORD_S_cross, \
+  CHORD_S_farm, \
   CHORD_S_hard, \
   CHORD_S_start, \
+  CHORD_S_story, \
   CHORD_S_far, \
   CHORD_S_sea, \
   CHORD_S_draw, \
@@ -871,6 +890,7 @@
   CHORD_S_got, \
   CHORD_S_walk, \
   CHORD_S_example, \
+  CHORD_S_paper, \
   CHORD_S_always, \
   CHORD_S_music, \
   CHORD_S_mark, \
@@ -883,6 +903,7 @@
   CHORD_S_feet, \
   CHORD_S_care, \
   CHORD_S_second, \
+  CHORD_S_book, \
   CHORD_S_carry, \
   CHORD_S_science, \
   CHORD_S_eat, \
@@ -908,10 +929,12 @@
   CHORD_S_young, \
   CHORD_S_ready, \
   CHORD_S_above, \
+  CHORD_S_ever, \
   CHORD_S_red, \
   CHORD_S_list, \
   CHORD_S_though, \
   CHORD_S_bird, \
+  CHORD_S_soon, \
   CHORD_S_body, \
   CHORD_S_family, \
   CHORD_S_direct, \
@@ -932,12 +955,15 @@
   CHORD_S_rock, \
   CHORD_S_fire, \
   CHORD_S_south, \
+  CHORD_S_piece, \
   CHORD_S_told, \
   CHORD_S_knew, \
   CHORD_S_pass, \
   CHORD_S_top, \
   CHORD_S_whole, \
+  CHORD_S_king, \
   CHORD_S_space, \
+  CHORD_S_heard, \
   CHORD_S_best, \
   CHORD_S_hour, \
   CHORD_S_better, \
@@ -945,6 +971,8 @@
   CHORD_S_hundred, \
   CHORD_S_five, \
   CHORD_S_remembe, \
+  CHORD_S_fast, \
+  CHORD_S_listen, \
   CHORD_S_six, \
   CHORD_S_war, \
   CHORD_S_lay, \
@@ -952,6 +980,7 @@
   CHORD_S_center, \
   CHORD_S_love, \
   CHORD_S_map, \
+  CHORD_S_power, \
   CHORD_S_fly, \
   CHORD_S_fall, \
   CHORD_S_cry, \
@@ -959,9 +988,11 @@
   CHORD_S_box, \
   CHORD_S_noun, \
   CHORD_S_field, \
+  CHORD_S_contain, \
   CHORD_S_week, \
   CHORD_S_final, \
   CHORD_S_oh, \
+  CHORD_S_quick, \
   CHORD_S_free, \
   CHORD_S_object, \
   CHORD_S_test, \
@@ -1082,6 +1113,7 @@
   CHORD_S_import, \
   CHORD_S_infra, \
   CHORD_S_insert, \
+  CHORD_S_insert_, \
   CHORD_S_int, \
   CHORD_S_interfa, \
   CHORD_S_json, \
@@ -1698,10 +1730,14 @@ COMBO_FOR_CHORD(tree, A_T, A_R, AT0);
 COMBO_FOR_CHORD(S_tree, A_T, A_R, AT0, AT1);
 COMBO_FOR_CHORD(cross, A_C, A_R, A_S);
 COMBO_FOR_CHORD(S_cross, A_C, A_R, A_S, AT1);
+COMBO_FOR_CHORD(farm, A_R, A_M, AT0);
+COMBO_FOR_CHORD(S_farm, A_R, A_M, AT0, AT1);
 COMBO_FOR_CHORD(hard, A_H, A_R, A_D);
 COMBO_FOR_CHORD(S_hard, A_H, A_R, A_D, AT1);
 COMBO_FOR_CHORD(start, A_S, A_R, AT0);
 COMBO_FOR_CHORD(S_start, A_S, A_R, AT0, AT1);
+COMBO_FOR_CHORD(story, A_O, A_Y, AT0);
+COMBO_FOR_CHORD(S_story, A_O, A_Y, AT0, AT1);
 COMBO_FOR_CHORD(far, A_F, A_A, A_R);
 COMBO_FOR_CHORD(S_far, A_F, A_A, A_R, AT1);
 COMBO_FOR_CHORD(sea, A_S, A_E, A_A);
@@ -1732,6 +1768,8 @@ COMBO_FOR_CHORD(walk, A_W, A_A, AT0);
 COMBO_FOR_CHORD(S_walk, A_W, A_A, AT0, AT1);
 COMBO_FOR_CHORD(example, A_M, A_P, A_L);
 COMBO_FOR_CHORD(S_example, A_M, A_P, A_L, AT1);
+COMBO_FOR_CHORD(paper, A_P, A_A, AT0);
+COMBO_FOR_CHORD(S_paper, A_P, A_A, AT0, AT1);
 COMBO_FOR_CHORD(always, A_L, A_W, A_Y);
 COMBO_FOR_CHORD(S_always, A_L, A_W, A_Y, AT1);
 COMBO_FOR_CHORD(music, A_M, A_S, A_C);
@@ -1756,6 +1794,8 @@ COMBO_FOR_CHORD(care, A_C, A_R, A_E);
 COMBO_FOR_CHORD(S_care, A_C, A_R, A_E, AT1);
 COMBO_FOR_CHORD(second, A_S, A_E, A_C);
 COMBO_FOR_CHORD(S_second, A_S, A_E, A_C, AT1);
+COMBO_FOR_CHORD(book, A_B, A_O, AT0);
+COMBO_FOR_CHORD(S_book, A_B, A_O, AT0, AT1);
 COMBO_FOR_CHORD(carry, A_C, A_A, A_Y);
 COMBO_FOR_CHORD(S_carry, A_C, A_A, A_Y, AT1);
 COMBO_FOR_CHORD(science, A_S, A_C, A_I);
@@ -1806,6 +1846,8 @@ COMBO_FOR_CHORD(ready, A_E, A_D, A_Y);
 COMBO_FOR_CHORD(S_ready, A_E, A_D, A_Y, AT1);
 COMBO_FOR_CHORD(above, A_A, A_B, A_V);
 COMBO_FOR_CHORD(S_above, A_A, A_B, A_V, AT1);
+COMBO_FOR_CHORD(ever, A_E, A_V, AT0);
+COMBO_FOR_CHORD(S_ever, A_E, A_V, AT0, AT1);
 COMBO_FOR_CHORD(red, A_R, A_E, A_D);
 COMBO_FOR_CHORD(S_red, A_R, A_E, A_D, AT1);
 COMBO_FOR_CHORD(list, A_L, A_I, A_S);
@@ -1814,6 +1856,8 @@ COMBO_FOR_CHORD(though, A_H, A_U, A_G);
 COMBO_FOR_CHORD(S_though, A_H, A_U, A_G, AT1);
 COMBO_FOR_CHORD(bird, A_B, A_I, A_R);
 COMBO_FOR_CHORD(S_bird, A_B, A_I, A_R, AT1);
+COMBO_FOR_CHORD(soon, A_S, A_N, AT0);
+COMBO_FOR_CHORD(S_soon, A_S, A_N, AT0, AT1);
 COMBO_FOR_CHORD(body, A_O, A_D, A_Y);
 COMBO_FOR_CHORD(S_body, A_O, A_D, A_Y, AT1);
 COMBO_FOR_CHORD(family, A_F, A_A, A_Y);
@@ -1854,6 +1898,8 @@ COMBO_FOR_CHORD(fire, A_F, A_I, A_R);
 COMBO_FOR_CHORD(S_fire, A_F, A_I, A_R, AT1);
 COMBO_FOR_CHORD(south, A_S, A_U, A_H);
 COMBO_FOR_CHORD(S_south, A_S, A_U, A_H, AT1);
+COMBO_FOR_CHORD(piece, A_P, A_I, A_E);
+COMBO_FOR_CHORD(S_piece, A_P, A_I, A_E, AT1);
 COMBO_FOR_CHORD(told, A_T, A_L, A_D);
 COMBO_FOR_CHORD(S_told, A_T, A_L, A_D, AT1);
 COMBO_FOR_CHORD(knew, A_K, A_N, A_E);
@@ -1864,8 +1910,12 @@ COMBO_FOR_CHORD(top, A_T, A_O, A_P);
 COMBO_FOR_CHORD(S_top, A_T, A_O, A_P, AT1);
 COMBO_FOR_CHORD(whole, A_W, A_H, A_L);
 COMBO_FOR_CHORD(S_whole, A_W, A_H, A_L, AT1);
+COMBO_FOR_CHORD(king, A_K, A_I, A_N);
+COMBO_FOR_CHORD(S_king, A_K, A_I, A_N, AT1);
 COMBO_FOR_CHORD(space, A_S, A_P, A_C);
 COMBO_FOR_CHORD(S_space, A_S, A_P, A_C, AT1);
+COMBO_FOR_CHORD(heard, A_E, A_D, AT0);
+COMBO_FOR_CHORD(S_heard, A_E, A_D, AT0, AT1);
 COMBO_FOR_CHORD(best, A_B, A_E, A_S);
 COMBO_FOR_CHORD(S_best, A_B, A_E, A_S, AT1);
 COMBO_FOR_CHORD(hour, A_H, A_U, A_R);
@@ -1880,6 +1930,10 @@ COMBO_FOR_CHORD(five, A_F, A_I, A_V);
 COMBO_FOR_CHORD(S_five, A_F, A_I, A_V, AT1);
 COMBO_FOR_CHORD(remembe, A_R, A_E, A_M);
 COMBO_FOR_CHORD(S_remembe, A_R, A_E, A_M, AT1);
+COMBO_FOR_CHORD(fast, A_F, A_S, A_T);
+COMBO_FOR_CHORD(S_fast, A_F, A_S, A_T, AT1);
+COMBO_FOR_CHORD(listen, A_L, A_S, A_N);
+COMBO_FOR_CHORD(S_listen, A_L, A_S, A_N, AT1);
 COMBO_FOR_CHORD(six, A_S, A_I, A_X);
 COMBO_FOR_CHORD(S_six, A_S, A_I, A_X, AT1);
 COMBO_FOR_CHORD(war, A_W, A_A, A_R);
@@ -1894,6 +1948,8 @@ COMBO_FOR_CHORD(love, A_O, A_V, A_E);
 COMBO_FOR_CHORD(S_love, A_O, A_V, A_E, AT1);
 COMBO_FOR_CHORD(map, A_M, A_A, A_P);
 COMBO_FOR_CHORD(S_map, A_M, A_A, A_P, AT1);
+COMBO_FOR_CHORD(power, A_O, A_W, A_E);
+COMBO_FOR_CHORD(S_power, A_O, A_W, A_E, AT1);
 COMBO_FOR_CHORD(fly, A_F, A_L, A_Y);
 COMBO_FOR_CHORD(S_fly, A_F, A_L, A_Y, AT1);
 COMBO_FOR_CHORD(fall, A_F, A_A, A_L);
@@ -1908,12 +1964,16 @@ COMBO_FOR_CHORD(noun, A_N, A_O, A_U);
 COMBO_FOR_CHORD(S_noun, A_N, A_O, A_U, AT1);
 COMBO_FOR_CHORD(field, A_F, A_I, A_D);
 COMBO_FOR_CHORD(S_field, A_F, A_I, A_D, AT1);
+COMBO_FOR_CHORD(contain, A_C, A_T, AT0);
+COMBO_FOR_CHORD(S_contain, A_C, A_T, AT0, AT1);
 COMBO_FOR_CHORD(week, A_W, A_E, A_K);
 COMBO_FOR_CHORD(S_week, A_W, A_E, A_K, AT1);
 COMBO_FOR_CHORD(final, A_F, A_I, A_N);
 COMBO_FOR_CHORD(S_final, A_F, A_I, A_N, AT1);
 COMBO_FOR_CHORD(oh, A_O, A_H, AT0);
 COMBO_FOR_CHORD(S_oh, A_O, A_H, AT0, AT1);
+COMBO_FOR_CHORD(quick, A_Q, A_I, A_C);
+COMBO_FOR_CHORD(S_quick, A_Q, A_I, A_C, AT1);
 COMBO_FOR_CHORD(free, A_F, A_R, A_E);
 COMBO_FOR_CHORD(S_free, A_F, A_R, A_E, AT1);
 COMBO_FOR_CHORD(object, A_O, A_B, A_E);
@@ -2103,6 +2163,8 @@ COMBO_FOR_CHORD(shit, A_S, A_H, A_I, A_T);
 COMBO_FOR_CHORD(S_shit, A_S, A_H, A_I, A_T, AT1);
 COMBO_FOR_CHORD(persona, A_P, A_S, A_O, A_N);
 COMBO_FOR_CHORD(S_persona, A_P, A_S, A_O, A_N, AT1);
+COMBO_FOR_CHORD(i_m, A_I, A_M, AT0);
+COMBO_FOR_CHORD(i_ll, A_I, A_L, AT0);
 COMBO_FOR_CHORD(in_the, A_I, A_N, A_T, A_E);
 COMBO_FOR_CHORD(S_in_the, A_I, A_N, A_T, A_E, AT1);
 COMBO_FOR_CHORD(of_the, A_O, A_T, A_E, AT0);
@@ -2156,6 +2218,8 @@ COMBO_FOR_CHORD(infra, A_N, A_F, A_R);
 COMBO_FOR_CHORD(S_infra, A_N, A_F, A_R, AT1);
 COMBO_FOR_CHORD(insert, A_I, A_N, A_S);
 COMBO_FOR_CHORD(S_insert, A_I, A_N, A_S, AT1);
+COMBO_FOR_CHORD(insert_, A_I, A_N, A_S, AT0);
+COMBO_FOR_CHORD(S_insert_, A_I, A_N, A_S, AT0, AT1);
 COMBO_FOR_CHORD(int, A_I, A_N, A_T, AT0);
 COMBO_FOR_CHORD(S_int, A_I, A_N, A_T, AT0, AT1);
 COMBO_FOR_CHORD(interfa, A_I, A_C, A_F);
@@ -2802,10 +2866,14 @@ COMBO_FOR_CHORD(S_final_f, A_F, A_I, A_N, AT0, AT1);
   CHORD_COMBO(S_tree), \
   CHORD_COMBO(cross), \
   CHORD_COMBO(S_cross), \
+  CHORD_COMBO(farm), \
+  CHORD_COMBO(S_farm), \
   CHORD_COMBO(hard), \
   CHORD_COMBO(S_hard), \
   CHORD_COMBO(start), \
   CHORD_COMBO(S_start), \
+  CHORD_COMBO(story), \
+  CHORD_COMBO(S_story), \
   CHORD_COMBO(far), \
   CHORD_COMBO(S_far), \
   CHORD_COMBO(sea), \
@@ -2836,6 +2904,8 @@ COMBO_FOR_CHORD(S_final_f, A_F, A_I, A_N, AT0, AT1);
   CHORD_COMBO(S_walk), \
   CHORD_COMBO(example), \
   CHORD_COMBO(S_example), \
+  CHORD_COMBO(paper), \
+  CHORD_COMBO(S_paper), \
   CHORD_COMBO(always), \
   CHORD_COMBO(S_always), \
   CHORD_COMBO(music), \
@@ -2860,6 +2930,8 @@ COMBO_FOR_CHORD(S_final_f, A_F, A_I, A_N, AT0, AT1);
   CHORD_COMBO(S_care), \
   CHORD_COMBO(second), \
   CHORD_COMBO(S_second), \
+  CHORD_COMBO(book), \
+  CHORD_COMBO(S_book), \
   CHORD_COMBO(carry), \
   CHORD_COMBO(S_carry), \
   CHORD_COMBO(science), \
@@ -2910,6 +2982,8 @@ COMBO_FOR_CHORD(S_final_f, A_F, A_I, A_N, AT0, AT1);
   CHORD_COMBO(S_ready), \
   CHORD_COMBO(above), \
   CHORD_COMBO(S_above), \
+  CHORD_COMBO(ever), \
+  CHORD_COMBO(S_ever), \
   CHORD_COMBO(red), \
   CHORD_COMBO(S_red), \
   CHORD_COMBO(list), \
@@ -2918,6 +2992,8 @@ COMBO_FOR_CHORD(S_final_f, A_F, A_I, A_N, AT0, AT1);
   CHORD_COMBO(S_though), \
   CHORD_COMBO(bird), \
   CHORD_COMBO(S_bird), \
+  CHORD_COMBO(soon), \
+  CHORD_COMBO(S_soon), \
   CHORD_COMBO(body), \
   CHORD_COMBO(S_body), \
   CHORD_COMBO(family), \
@@ -2958,6 +3034,8 @@ COMBO_FOR_CHORD(S_final_f, A_F, A_I, A_N, AT0, AT1);
   CHORD_COMBO(S_fire), \
   CHORD_COMBO(south), \
   CHORD_COMBO(S_south), \
+  CHORD_COMBO(piece), \
+  CHORD_COMBO(S_piece), \
   CHORD_COMBO(told), \
   CHORD_COMBO(S_told), \
   CHORD_COMBO(knew), \
@@ -2968,8 +3046,12 @@ COMBO_FOR_CHORD(S_final_f, A_F, A_I, A_N, AT0, AT1);
   CHORD_COMBO(S_top), \
   CHORD_COMBO(whole), \
   CHORD_COMBO(S_whole), \
+  CHORD_COMBO(king), \
+  CHORD_COMBO(S_king), \
   CHORD_COMBO(space), \
   CHORD_COMBO(S_space), \
+  CHORD_COMBO(heard), \
+  CHORD_COMBO(S_heard), \
   CHORD_COMBO(best), \
   CHORD_COMBO(S_best), \
   CHORD_COMBO(hour), \
@@ -2984,6 +3066,10 @@ COMBO_FOR_CHORD(S_final_f, A_F, A_I, A_N, AT0, AT1);
   CHORD_COMBO(S_five), \
   CHORD_COMBO(remembe), \
   CHORD_COMBO(S_remembe), \
+  CHORD_COMBO(fast), \
+  CHORD_COMBO(S_fast), \
+  CHORD_COMBO(listen), \
+  CHORD_COMBO(S_listen), \
   CHORD_COMBO(six), \
   CHORD_COMBO(S_six), \
   CHORD_COMBO(war), \
@@ -2998,6 +3084,8 @@ COMBO_FOR_CHORD(S_final_f, A_F, A_I, A_N, AT0, AT1);
   CHORD_COMBO(S_love), \
   CHORD_COMBO(map), \
   CHORD_COMBO(S_map), \
+  CHORD_COMBO(power), \
+  CHORD_COMBO(S_power), \
   CHORD_COMBO(fly), \
   CHORD_COMBO(S_fly), \
   CHORD_COMBO(fall), \
@@ -3012,12 +3100,16 @@ COMBO_FOR_CHORD(S_final_f, A_F, A_I, A_N, AT0, AT1);
   CHORD_COMBO(S_noun), \
   CHORD_COMBO(field), \
   CHORD_COMBO(S_field), \
+  CHORD_COMBO(contain), \
+  CHORD_COMBO(S_contain), \
   CHORD_COMBO(week), \
   CHORD_COMBO(S_week), \
   CHORD_COMBO(final), \
   CHORD_COMBO(S_final), \
   CHORD_COMBO(oh), \
   CHORD_COMBO(S_oh), \
+  CHORD_COMBO(quick), \
+  CHORD_COMBO(S_quick), \
   CHORD_COMBO(free), \
   CHORD_COMBO(S_free), \
   CHORD_COMBO(object), \
@@ -3207,6 +3299,8 @@ COMBO_FOR_CHORD(S_final_f, A_F, A_I, A_N, AT0, AT1);
   CHORD_COMBO(S_shit), \
   CHORD_COMBO(persona), \
   CHORD_COMBO(S_persona), \
+  CHORD_COMBO(i_m), \
+  CHORD_COMBO(i_ll), \
   CHORD_COMBO(in_the), \
   CHORD_COMBO(S_in_the), \
   CHORD_COMBO(of_the), \
@@ -3260,6 +3354,8 @@ COMBO_FOR_CHORD(S_final_f, A_F, A_I, A_N, AT0, AT1);
   CHORD_COMBO(S_infra), \
   CHORD_COMBO(insert), \
   CHORD_COMBO(S_insert), \
+  CHORD_COMBO(insert_), \
+  CHORD_COMBO(S_insert_), \
   CHORD_COMBO(int), \
   CHORD_COMBO(S_int), \
   CHORD_COMBO(interfa), \
@@ -4804,6 +4900,10 @@ bool sentence_mode = false;
       case CHORD_S_cross: \
         append = "cross"; \
         break; \
+      case CHORD_farm: \
+      case CHORD_S_farm: \
+        append = "farm"; \
+        break; \
       case CHORD_hard: \
       case CHORD_S_hard: \
         append = "hard"; \
@@ -4811,6 +4911,10 @@ bool sentence_mode = false;
       case CHORD_start: \
       case CHORD_S_start: \
         append = "start"; \
+        break; \
+      case CHORD_story: \
+      case CHORD_S_story: \
+        append = "story"; \
         break; \
       case CHORD_far: \
       case CHORD_S_far: \
@@ -4872,6 +4976,10 @@ bool sentence_mode = false;
       case CHORD_S_example: \
         append = "example"; \
         break; \
+      case CHORD_paper: \
+      case CHORD_S_paper: \
+        append = "paper"; \
+        break; \
       case CHORD_always: \
       case CHORD_S_always: \
         append = "always"; \
@@ -4919,6 +5027,10 @@ bool sentence_mode = false;
       case CHORD_second: \
       case CHORD_S_second: \
         append = "second"; \
+        break; \
+      case CHORD_book: \
+      case CHORD_S_book: \
+        append = "book"; \
         break; \
       case CHORD_carry: \
       case CHORD_S_carry: \
@@ -5020,6 +5132,10 @@ bool sentence_mode = false;
       case CHORD_S_above: \
         append = "above"; \
         break; \
+      case CHORD_ever: \
+      case CHORD_S_ever: \
+        append = "ever"; \
+        break; \
       case CHORD_red: \
       case CHORD_S_red: \
         append = "red"; \
@@ -5035,6 +5151,10 @@ bool sentence_mode = false;
       case CHORD_bird: \
       case CHORD_S_bird: \
         append = "bird"; \
+        break; \
+      case CHORD_soon: \
+      case CHORD_S_soon: \
+        append = "soon"; \
         break; \
       case CHORD_body: \
       case CHORD_S_body: \
@@ -5116,6 +5236,10 @@ bool sentence_mode = false;
       case CHORD_S_south: \
         append = "south"; \
         break; \
+      case CHORD_piece: \
+      case CHORD_S_piece: \
+        append = "piece"; \
+        break; \
       case CHORD_told: \
       case CHORD_S_told: \
         append = "told"; \
@@ -5136,9 +5260,17 @@ bool sentence_mode = false;
       case CHORD_S_whole: \
         append = "whole"; \
         break; \
+      case CHORD_king: \
+      case CHORD_S_king: \
+        append = "king"; \
+        break; \
       case CHORD_space: \
       case CHORD_S_space: \
         append = "space"; \
+        break; \
+      case CHORD_heard: \
+      case CHORD_S_heard: \
+        append = "heard"; \
         break; \
       case CHORD_best: \
       case CHORD_S_best: \
@@ -5168,6 +5300,14 @@ bool sentence_mode = false;
       case CHORD_S_remembe: \
         append = "remember"; \
         break; \
+      case CHORD_fast: \
+      case CHORD_S_fast: \
+        append = "fast"; \
+        break; \
+      case CHORD_listen: \
+      case CHORD_S_listen: \
+        append = "listen"; \
+        break; \
       case CHORD_six: \
       case CHORD_S_six: \
         append = "six"; \
@@ -5195,6 +5335,10 @@ bool sentence_mode = false;
       case CHORD_map: \
       case CHORD_S_map: \
         append = "map"; \
+        break; \
+      case CHORD_power: \
+      case CHORD_S_power: \
+        append = "power"; \
         break; \
       case CHORD_fly: \
       case CHORD_S_fly: \
@@ -5224,6 +5368,10 @@ bool sentence_mode = false;
       case CHORD_S_field: \
         append = "field"; \
         break; \
+      case CHORD_contain: \
+      case CHORD_S_contain: \
+        append = "contain"; \
+        break; \
       case CHORD_week: \
       case CHORD_S_week: \
         append = "week"; \
@@ -5235,6 +5383,10 @@ bool sentence_mode = false;
       case CHORD_oh: \
       case CHORD_S_oh: \
         append = "oh"; \
+        break; \
+      case CHORD_quick: \
+      case CHORD_S_quick: \
+        append = "quick"; \
         break; \
       case CHORD_free: \
       case CHORD_S_free: \
@@ -5616,6 +5768,14 @@ bool sentence_mode = false;
       case CHORD_S_persona: \
         append = "personal"; \
         break; \
+      case CHORD_i_m: \
+        last_chord_length = 3; \
+        SEND_STRING("I'm"); \
+        break; \
+      case CHORD_i_ll: \
+        last_chord_length = 4; \
+        SEND_STRING("I'll"); \
+        break; \
       case CHORD_in_the: \
       case CHORD_S_in_the: \
         append = "in the"; \
@@ -5730,6 +5890,16 @@ bool sentence_mode = false;
       case CHORD_insert: \
       case CHORD_S_insert: \
         append = "insert"; \
+        break; \
+      case CHORD_insert_: \
+      case CHORD_S_insert_: \
+        last_chord_length = 11; \
+        sentence_mode = false; \
+        if (chord_shifted || combo_index == CHORD_S_insert_) { \
+          SEND_STRING("INSERT INTO"); \
+        } else { \
+          SEND_STRING("insert into"); \
+        } \
         break; \
       case CHORD_int: \
       case CHORD_S_int: \
@@ -6230,6 +6400,8 @@ bool sentence_mode = false;
       case CHORD_S_thought: \
       case CHORD_tree: \
       case CHORD_S_tree: \
+      case CHORD_farm: \
+      case CHORD_S_farm: \
       case CHORD_sea: \
       case CHORD_S_sea: \
       case CHORD_night: \
@@ -6238,6 +6410,8 @@ bool sentence_mode = false;
       case CHORD_S_walk: \
       case CHORD_example: \
       case CHORD_S_example: \
+      case CHORD_paper: \
+      case CHORD_S_paper: \
       case CHORD_mark: \
       case CHORD_S_mark: \
       case CHORD_letter: \
@@ -6250,6 +6424,8 @@ bool sentence_mode = false;
       case CHORD_S_car: \
       case CHORD_second: \
       case CHORD_S_second: \
+      case CHORD_book: \
+      case CHORD_S_book: \
       case CHORD_science: \
       case CHORD_S_science: \
       case CHORD_friend: \
@@ -6296,8 +6472,12 @@ bool sentence_mode = false;
       case CHORD_S_rock: \
       case CHORD_fire: \
       case CHORD_S_fire: \
+      case CHORD_piece: \
+      case CHORD_S_piece: \
       case CHORD_top: \
       case CHORD_S_top: \
+      case CHORD_king: \
+      case CHORD_S_king: \
       case CHORD_space: \
       case CHORD_S_space: \
       case CHORD_hour: \
@@ -6314,6 +6494,8 @@ bool sentence_mode = false;
       case CHORD_S_center: \
       case CHORD_map: \
       case CHORD_S_map: \
+      case CHORD_power: \
+      case CHORD_S_power: \
       case CHORD_fall: \
       case CHORD_S_fall: \
       case CHORD_machine: \
@@ -6322,6 +6504,8 @@ bool sentence_mode = false;
       case CHORD_S_noun: \
       case CHORD_field: \
       case CHORD_S_field: \
+      case CHORD_contain: \
+      case CHORD_S_contain: \
       case CHORD_week: \
       case CHORD_S_week: \
       case CHORD_final: \
@@ -6706,8 +6890,14 @@ bool sentence_mode = false;
       case CHORD_S_plain: \
       case CHORD_young: \
       case CHORD_S_young: \
+      case CHORD_soon: \
+      case CHORD_S_soon: \
       case CHORD_short: \
       case CHORD_S_short: \
+      case CHORD_fast: \
+      case CHORD_S_fast: \
+      case CHORD_quick: \
+      case CHORD_S_quick: \
       case CHORD_dry: \
       case CHORD_S_dry: \
       case CHORD_cool: \
@@ -7559,6 +7749,8 @@ bool sentence_mode = false;
       case CHORD_S_study: \
       case CHORD_city: \
       case CHORD_S_city: \
+      case CHORD_story: \
+      case CHORD_S_story: \
       case CHORD_body: \
       case CHORD_S_body: \
       case CHORD_family: \
@@ -7665,6 +7857,42 @@ bool sentence_mode = false;
             backspaces = 5; \
             next_chord_cycle = 0; \
           break; \
+        } \
+        break; \
+      case CHORD_listen: \
+      case CHORD_S_listen: \
+        if (chord_shifted || last_chord == CHORD_S_listen) { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 1; \
+              append_ed = true; \
+            break; \
+            case 1: \
+              backspaces = 9; \
+              append = "Will listen"; \
+            break; \
+            case 2: \
+              backspaces = 12; \
+              next_chord_cycle = 0; \
+              append = "Listen"; \
+            break; \
+          } \
+        } else { \
+          switch(last_chord_cycle) { \
+            case 0: \
+              backspaces = 1; \
+              append_ed = true; \
+            break; \
+            case 1: \
+              backspaces = 9; \
+              append = "will listen"; \
+            break; \
+            case 2: \
+              backspaces = 12; \
+              next_chord_cycle = 0; \
+              append = "listen"; \
+            break; \
+          } \
         } \
         break; \
       case CHORD_object: \

@@ -362,6 +362,9 @@ char* correct_chord(char* buffer) {
         case 'f':
           if (strcmp(buffer+2, /*if*/" ") == 0) return "i+f+Dup";
           break;
+        case 'm':
+          if (strcmp(buffer+2, /*im*/"plementation ") == 0) return "i+m+p";
+          break;
         case 'n':
           switch (buffer[2]) {
             case ' ':
@@ -822,6 +825,9 @@ char* correct_chord(char* buffer) {
               break;
             case 'd':
               if (strcmp(buffer+3, /*sud*/"o ") == 0) return "o+u+e+i";
+              break;
+            case 'm':
+              if (strcmp(buffer+3, /*sum*/"mer ") == 0) return "s+m+r";
               break;
           }
           break;

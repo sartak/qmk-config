@@ -47,6 +47,9 @@ char* correct_chord(char* buffer) {
             case 'd':
               if (strcmp(buffer+3, /*and*/" ") == 0) return "a+n+d";
               break;
+            case 'o':
+              if (strcmp(buffer+3, /*ano*/"ther ") == 0) return "a+h+r";
+              break;
             case 'y':
               if (strcmp(buffer+3, /*any*/" ") == 0) return "a+n+y";
               break;
@@ -64,6 +67,9 @@ char* correct_chord(char* buffer) {
               if (strcmp(buffer+3, /*ask*/" ") == 0) return "a+s+k";
               break;
           }
+          break;
+        case 't':
+          if (strcmp(buffer+2, /*at*/" ") == 0) return "a+t+Dup";
           break;
       }
       break;
@@ -140,7 +146,14 @@ char* correct_chord(char* buffer) {
               if (strcmp(buffer+3, /*com*/"e ") == 0) return "c+o+m";
               break;
             case 'n':
-              if (strcmp(buffer+3, /*con*/"tinue ") == 0) return "c+n+t";
+              switch (buffer[3]) {
+                case 's':
+                  if (strcmp(buffer+4, /*cons*/"ider ") == 0) return "c+n+d";
+                  break;
+                case 't':
+                  if (strcmp(buffer+4, /*cont*/"inue ") == 0) return "c+n+t";
+                  break;
+              }
               break;
             case 'u':
               switch (buffer[3]) {
@@ -237,7 +250,14 @@ char* correct_chord(char* buffer) {
           }
           break;
         case 'e':
-          if (strcmp(buffer+2, /*fe*/"el ") == 0) return "f+e+l";
+          switch (buffer[2]) {
+            case 'e':
+              if (strcmp(buffer+3, /*fee*/"l ") == 0) return "f+e+l";
+              break;
+            case 'w':
+              if (strcmp(buffer+3, /*few*/" ") == 0) return "f+e+w";
+              break;
+          }
           break;
         case 'i':
           switch (buffer[2]) {
@@ -345,6 +365,9 @@ char* correct_chord(char* buffer) {
             case 'a':
               if (strcmp(buffer+3, /*hea*/"d ") == 0) return "h+e+d";
               break;
+            case 'l':
+              if (strcmp(buffer+3, /*hel*/"p ") == 0) return "h+l+p";
+              break;
             case 'r':
               if (strcmp(buffer+3, /*her*/"e ") == 0) return "h+r+Dup";
               break;
@@ -398,7 +421,8 @@ char* correct_chord(char* buffer) {
               if (strcmp(buffer+3, /*inf*/"ra ") == 0) return "n+f+r";
               break;
             case 't':
-              if (buffer[3] == 'e') {
+              switch (buffer[3]) {
+                case 'e':
                   if (buffer[4] == 'r') {
                       switch (buffer[5]) {
                         case 'e':
@@ -409,6 +433,10 @@ char* correct_chord(char* buffer) {
                           break;
                       }
                   }
+                  break;
+                case 'o':
+                  if (strcmp(buffer+4, /*into*/" ") == 0) return "i+u+Dup";
+                  break;
               }
               break;
           }
@@ -581,6 +609,9 @@ char* correct_chord(char* buffer) {
             case 't':
               if (strcmp(buffer+3, /*not*/" ") == 0) return "n+o+t";
               break;
+            case 'w':
+              if (strcmp(buffer+3, /*now*/" ") == 0) return "n+o+w";
+              break;
           }
           break;
         case 'u':
@@ -686,6 +717,9 @@ char* correct_chord(char* buffer) {
                   break;
                 case 'n':
                   if (strcmp(buffer+4, /*plan*/" ") == 0) return "p+l+n";
+                  break;
+                case 'y':
+                  if (strcmp(buffer+4, /*play*/" ") == 0) return "p+l+y";
                   break;
               }
           }
@@ -998,7 +1032,14 @@ char* correct_chord(char* buffer) {
           }
           break;
         case 'e':
-          if (strcmp(buffer+2, /*we*/" ") == 0) return "w+e+Dup";
+          switch (buffer[2]) {
+            case ' ':
+              if (buffer[3] == 0) /*we */ return "w+e+Dup";
+              break;
+            case 'l':
+              if (strcmp(buffer+3, /*wel*/"l ") == 0) return "w+e+l";
+              break;
+          }
           break;
         case 'h':
           switch (buffer[2]) {
@@ -1006,7 +1047,14 @@ char* correct_chord(char* buffer) {
               if (strcmp(buffer+3, /*wha*/"t ") == 0) return "Dup+h+a";
               break;
             case 'e':
-              if (strcmp(buffer+3, /*whe*/"re ") == 0) return "Dup+e+r";
+              switch (buffer[3]) {
+                case 'n':
+                  if (strcmp(buffer+4, /*when*/" ") == 0) return "w+h+e";
+                  break;
+                case 'r':
+                  if (strcmp(buffer+4, /*wher*/"e ") == 0) return "Dup+e+r";
+                  break;
+              }
               break;
             case 'i':
               switch (buffer[3]) {

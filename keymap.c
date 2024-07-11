@@ -186,7 +186,7 @@ typedef enum {
   CHORD_MODE_OFF,
   _CHORD_MODE_LENGTH,
 } setting_chord_mode;
-setting_chord_mode SETTING_CHORD_MODE = 0;
+setting_chord_mode SETTING_CHORD_MODE = CHORD_MODE_CORRECTIVE;
 
 #include "chords.c"
 #include "corrections.c"

@@ -586,6 +586,7 @@
   CHORD_queue, \
   CHORD_quote, \
   CHORD_undefin, \
+  CHORD_var, \
   CHORD__up_, \
   CHORD__typesc, \
   CHORD__go_up_, \
@@ -1137,6 +1138,7 @@
   CHORD_S_queue, \
   CHORD_S_quote, \
   CHORD_S_undefin, \
+  CHORD_S_var, \
   CHORD_S_the_qui, \
   CHORD_S_pokemon, \
   CHORD_S_final_f, \
@@ -2266,6 +2268,8 @@ COMBO_FOR_CHORD(quote, A_Q, A_U, A_O);
 COMBO_FOR_CHORD(S_quote, A_Q, A_U, A_O, AT1);
 COMBO_FOR_CHORD(undefin, A_U, A_N, A_F);
 COMBO_FOR_CHORD(S_undefin, A_U, A_N, A_F, AT1);
+COMBO_FOR_CHORD(var, A_V, A_A, A_R);
+COMBO_FOR_CHORD(S_var, A_V, A_A, A_R, AT1);
 COMBO_FOR_CHORD(_up_, A_C, A_O, A_D, A_E);
 COMBO_FOR_CHORD(_typesc, A_T, A_S, A_O, A_E);
 COMBO_FOR_CHORD(_go_up_, A_G, A_L, A_O, A_E);
@@ -3402,6 +3406,8 @@ COMBO_FOR_CHORD(S_final_f, A_F, A_I, A_N, AT0, AT1);
   CHORD_COMBO(S_quote), \
   CHORD_COMBO(undefin), \
   CHORD_COMBO(S_undefin), \
+  CHORD_COMBO(var), \
+  CHORD_COMBO(S_var), \
   CHORD_COMBO(_up_), \
   CHORD_COMBO(_typesc), \
   CHORD_COMBO(_go_up_), \
@@ -6003,6 +6009,10 @@ bool sentence_mode = false;
       case CHORD_undefin: \
       case CHORD_S_undefin: \
         append = "undefined"; \
+        break; \
+      case CHORD_var: \
+      case CHORD_S_var: \
+        append = "var"; \
         break; \
       case CHORD__up_: \
         last_chord_length = 8; \
@@ -8852,6 +8862,23 @@ bool sentence_mode = false;
               append = "quote"; \
             break; \
           } \
+        } \
+        break; \
+      case CHORD_var: \
+      case CHORD_S_var: \
+        switch(last_chord_cycle) { \
+          case 0: \
+            backspaces = 1; \
+            append = "iable"; \
+          break; \
+          case 1: \
+            backspaces = 1; \
+            append_s = true; \
+          break; \
+          case 2: \
+            backspaces = 7; \
+            next_chord_cycle = 0; \
+          break; \
         } \
         break; \
       PERSONAL_DUP_CASES \

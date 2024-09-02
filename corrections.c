@@ -1017,7 +1017,14 @@ char* correct_chord(char* buffer) {
       }
       break;
     case 'v':
-      if (strcmp(buffer+1, /*v*/"ery ") == 0) return "v+e+r";
+      switch (buffer[1]) {
+        case 'a':
+          if (strcmp(buffer+2, /*va*/"r ") == 0) return "v+a+r";
+          break;
+        case 'e':
+          if (strcmp(buffer+2, /*ve*/"ry ") == 0) return "v+e+r";
+          break;
+      }
       break;
     case 'w':
       switch (buffer[1]) {
